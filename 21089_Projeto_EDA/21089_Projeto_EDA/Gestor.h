@@ -6,6 +6,12 @@
 #include <string.h>
 
 
+enum Estado {
+    ATIVO,
+    CANCELADO,
+    COMPLETADO
+};
+
 
 typedef struct {
 
@@ -14,38 +20,47 @@ typedef struct {
     char Morada[50];
     char NIF[9];
     float Saldo;
+    struct Historico* Historico;
+
     struct Clientes* next;
 
 } Clientes;
 
 
 typedef struct {
-    
+
+    int Id;
+    int Custo;
+    enum Estado EstadoDoAluguer;
+    struct Clientes* Cliente;
+    struct MeiosDeMobilidade* MeioUsado;
+
+    struct Historico* next;
+
+} Historico;
+
+
+typedef struct {
     int Id;
     char Tipo[50];
     int CargaBateria;
     int Custo;
     float localizacao;
-    struct Clientes* ClienteAUsar;
+    struct Historico* Historico;
 
     struct MeiosDeMobilidade* next;
-
 
 } MeiosDeMobilidade;
 
 
 
 typedef struct {
-    
     int Id;
     char Utilizador[50];
-
     struct MeiosDeMobilidade* Meios;
-    struct Clientes* Cliente;
+    struct Clientes* Clientes;
 
     struct Gestor* next;
-
-
 } Gestor;
 
 
@@ -54,12 +69,23 @@ Clientes* InsereClienteNoFim(Clientes* Header, Clientes* NovoCliente);
 bool ExisteCliente(Clientes* Header, int IdCliente);
 void MostrarListaClientes(Clientes* Header);
 void MostraCliente(Clientes* Cliente);
+Clientes* RemoverCliente(Clientes* Header, int Id);
 
 
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao, Clientes* ClienteAUsar);
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao);
 MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* Header, MeiosDeMobilidade* NovoMeiosDeMobilidade);
 bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* Header, int IdMeiosDeMobilidade);
 void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* Header);
 void MostraMeiosDeMobilidade(MeiosDeMobilidade* MeiosDeMobilidade);
+MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id);
+
+
+
+Gestor* CriarNovoGestor(int Id, char Utilizador[50], MeiosDeMobilidade* MeiosDeMobilidadeExistentes, Clientes* ClienteExistentes);
+Gestor* InsereGestorNoFim(Gestor* Header, Gestor* NovoGestor);
+bool ExisteGestor(Gestor* Header, int IdGestor);
+void MostrarListaGestor(Gestor* Header);
+void MostraGestor(Gestor* Gestor);
+Gestor* RemoverGestor(Gestor* Header, int Id);
 
 

@@ -12,13 +12,19 @@
 Clientes* CriarClientes(int Id, char Nome[50], char Morada[50], char NIF[9], float Saldo) {
 
 	Clientes* NovoCliente = (Clientes*)malloc(sizeof(Clientes));
-	if (NovoCliente == NULL) return NULL;	//pode não haver memória!!!
+	if (NovoCliente == NULL) return NULL;
 	
 	NovoCliente->Id = Id;
 	strcpy(NovoCliente->Nome, Nome);
 	strcpy(NovoCliente->Morada, Morada);
 	strcpy(NovoCliente->NIF, NIF);
 	NovoCliente->Saldo = Saldo;
+
+	Historico* Hist = NULL;
+
+	NovoCliente->Historico = Hist;
+
+
 	NovoCliente->next = NULL;
 
 	return NovoCliente;
@@ -59,16 +65,14 @@ bool ExisteCliente(Clientes* Header, int IdCliente) {
 
 void MostrarListaClientes(Clientes* Header) {
 	Clientes* Aux = Header;
-	while (Aux) {		//mesmo que while (aux!=NULL)
+	while (Aux) {		
 		MostraCliente(Aux);
 		Aux = Aux->next;
 	}
 }
 
 
-/**
-*	@brief Mostra dados de um nodo
-*/
+
 void MostraCliente(Clientes* Cliente) {
 	if (Cliente != NULL)
 	{
@@ -81,6 +85,31 @@ void MostraCliente(Clientes* Cliente) {
 	}
 }
 
+Clientes* RemoverCliente(Clientes* Header, int Id) {
+	if (Header == NULL) return NULL;			//Lista vazia
+	if (!ExisteCliente(Header, Id)) return Header;	//se não existe
+
+	if (Header->Id == Id) {		//remove no inicio da lista
+		Clientes* Aux = Header;
+		Header = Header->next;
+		free(Aux);
+	}
+	else
+	{
+		Clientes* Aux = Header;
+		Clientes* AuxAnt = Aux;
+		while (Aux && Aux->Id != Id) {	//procura para revover
+			AuxAnt = Aux;
+			Aux = Aux->next;
+		}
+		if (Aux != NULL) {					//se encontrou, remove
+			AuxAnt->next = Aux->next;
+			free(Aux);
+		}
+	}
+	return Header;
+}
+
 
 
 
@@ -88,7 +117,7 @@ void MostraCliente(Clientes* Cliente) {
 // ---------------------------
 
 
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao , Clientes* ClienteAUsar) {
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao) {
 
 
 	MeiosDeMobilidade* NovoMeiosDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
@@ -100,7 +129,9 @@ MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateri
 	NovoMeiosDeMobilidade->Custo = Custo;
 	NovoMeiosDeMobilidade->localizacao = localizacao;
 
-	NovoMeiosDeMobilidade->ClienteAUsar = ClienteAUsar;
+	Historico* Hist = NULL;
+
+	NovoMeiosDeMobilidade->Historico = Hist;
 
 	NovoMeiosDeMobilidade->next = NULL;
 
@@ -158,18 +189,126 @@ void MostraMeiosDeMobilidade(MeiosDeMobilidade* MeiosDeMobilidade) {
 		printf("Custo: %d\n", MeiosDeMobilidade->Custo);
 		printf("Localizacao: %f\n", MeiosDeMobilidade->localizacao);
 
-		Clientes* c = MeiosDeMobilidade->ClienteAUsar;
-
-		if (c != NULL)
-		{
-			printf("\Cliente a usar: %s\n", c->Nome);
-
-		}
-		else
-		{
-			printf("\Cliente a usar: Ninguem");
-		}
 
 		printf("\n-------------\n");
 	}
+}
+
+MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id) {
+	if (Header == NULL) return NULL;			//Lista vazia
+	if (!ExisteMeiosDeMobilidade(Header, Id)) return Header;	//se não existe
+
+	if (Header->Id == Id) {		//remove no inicio da lista
+		MeiosDeMobilidade* Aux = Header;
+		Header = Header->next;
+		free(Aux);
+	}
+	else
+	{
+		MeiosDeMobilidade* Aux = Header;
+		MeiosDeMobilidade* AuxAnt = Aux;
+		while (Aux && Aux->Id != Id) {	//procura para revover
+			AuxAnt = Aux;
+			Aux = Aux->next;
+		}
+		if (Aux != NULL) {					//se encontrou, remove
+			AuxAnt->next = Aux->next;
+			free(Aux);
+		}
+	}
+	return Header;
+}
+
+
+// ----------------------------------------
+
+
+Gestor* CriarNovoGestor(int Id, char Utilizador[50], MeiosDeMobilidade* MeiosDeMobilidadeExistentes, Clientes* ClienteExistentes) {
+
+	Gestor* NovoGestor = (Gestor*)malloc(sizeof(Gestor));
+	if (NovoGestor == NULL) return NULL;
+
+	NovoGestor->Id = Id;
+	strcpy(NovoGestor->Utilizador, Utilizador);
+	NovoGestor->Meios = MeiosDeMobilidadeExistentes;
+	NovoGestor->Clientes = ClienteExistentes;
+
+	NovoGestor->next = NULL;
+
+	return NovoGestor;
+}
+
+Gestor* InsereGestorNoFim(Gestor* Header, Gestor* NovoGestor) {
+	//Verificar se o novo jogo já existe!!!
+	if (ExisteCliente(Header, NovoGestor->Id)) return Header;	//se existir não insere!
+
+	if (Header == NULL) {		//lista vazia
+		Header = NovoGestor;
+	}
+	else
+	{
+		//Posicionar-se no fim da lista
+		Gestor* Aux = Header;
+		while (Aux->next != NULL) {
+			Aux = Aux->next;
+		}
+		//insere no fim da lista
+		Aux->next = NovoGestor;
+	}
+	return Header;
+}
+
+
+bool ExisteGestor(Gestor* Header, int IdGestor) {
+	if (Header == NULL) return false;
+	Gestor* Aux = Header;
+	while (Aux != NULL) {
+		if (Aux->Id == IdGestor)
+			return true;
+		Aux = Aux->next;
+	}
+	return false;
+}
+
+
+void MostrarListaGestor(Gestor* Header) {
+	Gestor* Aux = Header;
+	while (Aux) {		
+		MostraGestor(Aux);
+		Aux = Aux->next;
+	}
+}
+
+void MostraGestor(Gestor* Gestor) {
+	if (Gestor != NULL)
+	{
+		printf("\Gestor:\nMeio De Mobilidade ID: %d\n", Gestor->Id);
+		printf("Utilizador: %s\n", Gestor->Utilizador);
+		printf("\n-------------\n");
+	}
+}
+
+Gestor* RemoverGestor(Gestor* Header, int Id) {
+	if (Header == NULL) return NULL;			//Lista vazia
+	if (!ExisteGestor(Header, Id)) return Header;	//se não existe
+
+	if (Header->Id == Id) {		//remove no inicio da lista
+		Gestor* Aux = Header;
+		Header = Header->next;
+		free(Aux);
+	}
+	else
+	{
+		Gestor* Aux = Header;
+		Gestor* AuxAnt = Aux;
+		while (Aux && Aux->Id != Id) {	//procura para revover
+			AuxAnt = Aux;
+			Aux = Aux->next;
+		}
+		if (Aux != NULL) {					//se encontrou, remove
+			AuxAnt->next = Aux->next;
+			free(Aux);
+		}
+	}
+	return Header;
 }

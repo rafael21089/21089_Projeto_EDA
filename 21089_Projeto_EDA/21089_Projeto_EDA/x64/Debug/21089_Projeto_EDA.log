@@ -1,0 +1,14 @@
+﻿  Gestor.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(39,19): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(42,26): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(54,18): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(64,18): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(103,52): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(123,19): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(126,36): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(138,18): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(148,18): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(165,11): warning C4129: 'C': unrecognized character escape sequence
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(170,11): warning C4129: 'C': unrecognized character escape sequence
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(161,1): warning C4133: 'initializing': incompatible types - from 'Clientes *' to 'Clientes *'
+  21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

@@ -27,10 +27,21 @@ int main() {
 	HeadListaMeios = InsereMeiosDeMobilidadeNoFim(HeadListaMeios, M2);
 
 	RemoverCliente(HeadListaClientes,2);
-	RemoverMeiosDeMobilidade(HeadListaMeios, 2);
+	//RemoverMeiosDeMobilidade(HeadListaMeios, 2);
+
+
+	AlteraCliente(&HeadListaClientes,1,"Javier");
+	AlteraMeiosDeMobilidade(&HeadListaMeios,1,"Carro");
+
 
 	Gestor* G1 = CriarNovoGestor(1,"Jeronimo", HeadListaMeios, HeadListaClientes);
 	HeadListaGestor = InsereGestorNoFim(HeadListaGestor, G1);
+
+
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1,1);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1,2);
+
+	AlteraGestor(&HeadListaGestor, 1, "Carla");
 
 	//RemoverGestor(HeadListaGestor, 1);
 

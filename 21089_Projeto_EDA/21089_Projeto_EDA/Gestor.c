@@ -111,6 +111,100 @@ Clientes* RemoverCliente(Clientes* Header, int Id) {
 }
 
 
+Clientes* ProcuraClientes(Clientes* Header, int Id) {
+	if (Header == NULL) return NULL;		//lista vazia
+	else
+	{
+		Clientes* Aux = Header;
+		while (Aux != NULL) {
+			if (Aux->Id == Id) {
+				return (Aux);		//encontrei
+			}
+			Aux = Aux->next;
+		}
+		return NULL;
+	}
+}
+
+void AlteraCliente(Clientes** Header, int Id, char* Nome) {
+	if (*Header != NULL) {
+		Clientes* Aux = ProcuraClientes(*Header, Id);
+		if (Aux != NULL)		//se encontrou o jogo
+		{
+			strcpy(Aux->Nome, Nome);
+		}
+	}
+}
+
+
+void RegistoAluguer(Clientes** HeaderCliente, MeiosDeMobilidade** HeaderMeios , int IdCliente , int IdMeios , int IdRegisto) {
+
+	Historico* Aluguer = (Historico*)malloc(sizeof(Historico));
+
+	Clientes* Cliente = ProcuraClientes(*HeaderCliente, IdCliente);
+	MeiosDeMobilidade* Meio = ProcuraMeiosDeMobilidade(*HeaderMeios, IdMeios);
+
+
+	Aluguer->Id = IdRegisto;
+	Aluguer->EstadoDoAluguer = ATIVO;
+	Aluguer->Custo = Meio->Custo;
+	Aluguer->Cliente = Cliente;
+	Aluguer->MeioUsado = Meio;
+	Aluguer->next = NULL;
+
+	//Adicionar no Historico de o Cliente
+
+
+	if (Cliente->Historico == NULL) {		//lista vazia
+		Cliente->Historico = Aluguer;
+	}
+	else {
+
+		// Verificar se o Aluguer já está na lista
+
+		Historico* Aux = Cliente->Historico;
+		while (Aux != NULL) {
+			if (Aux == Aluguer) {
+				return;
+			}
+			Aux = Aux->next;
+		}
+
+
+		//Posicionar-se no fim da lista
+		Aux = Cliente->Historico;
+		while (Aux->next != NULL) {
+			Aux = Aux->next;
+		}
+		//insere no fim da lista
+
+		Aux->next = Aluguer;
+	}
+
+	if (Meio->Historico == NULL) {		//lista vazia
+		Meio->Historico = Aluguer;
+	}
+	else {
+		// Verificar se o Aluguer já está na lista
+		Historico* Aux = Meio->Historico;
+		while (Aux != NULL) {
+			if (Aux == Aluguer) {
+				return;
+			}
+			Aux = Aux->next;
+		}
+
+		// Posicionar-se no fim da lista
+		Aux = Meio->Historico;
+		while (Aux->next != NULL) {
+			Aux = Aux->next;
+		}
+
+		Aux->next = Aluguer;
+	}
+
+
+}
 
 
 
@@ -220,6 +314,32 @@ MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id) {
 }
 
 
+MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id) {
+	if (Header == NULL) return NULL;		//lista vazia
+	else
+	{
+		MeiosDeMobilidade* Aux = Header;
+		while (Aux != NULL) {
+			if (Aux->Id == Id) {
+				return (Aux);		//encontrei
+			}
+			Aux = Aux->next;
+		}
+		return NULL;
+	}
+}
+
+void AlteraMeiosDeMobilidade(MeiosDeMobilidade** Header, int Id, char* Tipo) {
+	if (*Header != NULL) {
+		MeiosDeMobilidade* Aux = ProcuraMeiosDeMobilidade(*Header, Id);
+		if (Aux != NULL)		//se encontrou o jogo
+		{
+			strcpy(Aux->Tipo, Tipo);
+		}
+	}
+}
+
+
 // ----------------------------------------
 
 
@@ -311,4 +431,29 @@ Gestor* RemoverGestor(Gestor* Header, int Id) {
 		}
 	}
 	return Header;
+}
+
+Gestor* ProcuraGestor(Gestor* Header, int Id) {
+	if (Header == NULL) return NULL;		//lista vazia
+	else
+	{
+		Gestor* Aux = Header;
+		while (Aux != NULL) {
+			if (Aux->Id == Id) {
+				return (Aux);		//encontrei
+			}
+			Aux = Aux->next;
+		}
+		return NULL;
+	}
+}
+
+void AlteraGestor(Gestor** Header, int Id, char* Utilizador) {
+	if (*Header != NULL) {
+		Gestor* Aux = ProcuraGestor(*Header, Id);
+		if (Aux != NULL)		//se encontrou o jogo
+		{
+			strcpy(Aux->Utilizador, Utilizador);
+		}
+	}
 }

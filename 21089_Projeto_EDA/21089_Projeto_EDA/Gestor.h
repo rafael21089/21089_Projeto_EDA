@@ -70,6 +70,8 @@ bool ExisteCliente(Clientes* Header, int IdCliente);
 void MostrarListaClientes(Clientes* Header);
 void MostraCliente(Clientes* Cliente);
 Clientes* RemoverCliente(Clientes* Header, int Id);
+Clientes* ProcuraClientes(Clientes* Header, int Id);
+void AlteraCliente(Clientes** Header, int Id, char* Nome);
 
 
 MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao);
@@ -78,6 +80,8 @@ bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* Header, int IdMeiosDeMobilidade)
 void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* Header);
 void MostraMeiosDeMobilidade(MeiosDeMobilidade* MeiosDeMobilidade);
 MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id);
+MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id);
+void AlteraMeiosDeMobilidade(MeiosDeMobilidade** Header, int Id, char* Tipo);
 
 
 
@@ -87,5 +91,10 @@ bool ExisteGestor(Gestor* Header, int IdGestor);
 void MostrarListaGestor(Gestor* Header);
 void MostraGestor(Gestor* Gestor);
 Gestor* RemoverGestor(Gestor* Header, int Id);
+Gestor* ProcuraGestor(Gestor* Header, int Id);
+void AlteraGestor(Gestor** Header, int Id, char* Utilizador);
+
+
+void RegistoAluguer(Clientes** HeaderCliente, MeiosDeMobilidade** HeaderMeios, int IdCliente, int IdMeios, int IdRegisto);
 
 

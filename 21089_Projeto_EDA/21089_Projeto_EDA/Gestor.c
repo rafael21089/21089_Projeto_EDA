@@ -137,73 +137,93 @@ void AlteraCliente(Clientes** Header, int Id, char* Nome) {
 }
 
 
-void RegistoAluguer(Clientes** HeaderCliente, MeiosDeMobilidade** HeaderMeios , int IdCliente , int IdMeios , int IdRegisto) {
+void RegistoAluguer(Clientes** HeaderCliente, MeiosDeMobilidade** HeaderMeios , int IdCliente , int IdMeios) {
 
-	Historico* Aluguer = (Historico*)malloc(sizeof(Historico));
 
 	Clientes* Cliente = ProcuraClientes(*HeaderCliente, IdCliente);
 	MeiosDeMobilidade* Meio = ProcuraMeiosDeMobilidade(*HeaderMeios, IdMeios);
 
+	Historico* Historicos = (Historico*)malloc(sizeof(Historico));
+	Historico* HistoricosMeios = (Historico*)malloc(sizeof(Historico));
 
-	Aluguer->Id = IdRegisto;
-	Aluguer->EstadoDoAluguer = ATIVO;
-	Aluguer->Custo = Meio->Custo;
-	Aluguer->Cliente = Cliente;
-	Aluguer->MeioUsado = Meio;
-	Aluguer->next = NULL;
+	int IdClienteRegisto = 0;
+	int IdMeioRegisto = 0;
 
-	//Adicionar no Historico de o Cliente
-
-
-	if (Cliente->Historico == NULL) {		//lista vazia
-		Cliente->Historico = Aluguer;
+	if (Cliente->Historico != NULL)
+	{
+		IdClienteRegisto = CountHistorico(Cliente->Historico);
 	}
-	else {
+	
 
-		// Verificar se o Aluguer já está na lista
+	if (Meio->Historico != NULL)
+	{
+		IdMeioRegisto = CountHistorico(Meio->Historico);
 
-		Historico* Aux = Cliente->Historico;
-		while (Aux != NULL) {
-			if (Aux == Aluguer) {
-				return;
-			}
-			Aux = Aux->next;
-		}
-
-
-		//Posicionar-se no fim da lista
-		Aux = Cliente->Historico;
-		while (Aux->next != NULL) {
-			Aux = Aux->next;
-		}
-		//insere no fim da lista
-
-		Aux->next = Aluguer;
 	}
+	
 
-	if (Meio->Historico == NULL) {		//lista vazia
-		Meio->Historico = Aluguer;
-	}
-	else {
-		// Verificar se o Aluguer já está na lista
-		Historico* Aux = Meio->Historico;
-		while (Aux != NULL) {
-			if (Aux == Aluguer) {
-				return;
-			}
-			Aux = Aux->next;
-		}
+	Historicos->Id = IdClienteRegisto;
+	Historicos->EstadoDoAluguer = ATIVO;
+	Historicos->Custo = Meio->Custo;
+	Historicos->Cliente = Cliente;
+	Historicos->MeioUsado = Meio;
+	Historicos->next = NULL;
 
-		// Posicionar-se no fim da lista
-		Aux = Meio->Historico;
-		while (Aux->next != NULL) {
-			Aux = Aux->next;
-		}
+	HistoricosMeios->Id = IdMeioRegisto;
+	HistoricosMeios->EstadoDoAluguer = ATIVO;
+	HistoricosMeios->Custo = Meio->Custo;
+	HistoricosMeios->Cliente = Cliente;
+	HistoricosMeios->MeioUsado = Meio;
+	HistoricosMeios->next = NULL;
 
-		Aux->next = Aluguer;
+	insertHistoricoCliente(Cliente,Historicos);
+	insertHistoricoMeio(Meio, HistoricosMeios);
+
+}
+
+int CountClientes(Clientes* Head) {
+	int Count = 0;
+	Clientes* Current = Head;
+
+	while (Current != NULL) {
+		Count++;
+		Current = Current->next;
 	}
 
+	return Count;
+}
 
+int CountHistorico(Historico* Head) {
+	int Count = 0;
+	Historico* Current = Head;
+
+	while (Current != NULL) {
+		Count++;
+		Current = Current->next;
+	}
+
+	return Count;
+}
+
+void insertHistoricoCliente(Clientes* Cliente, Historico* Historico) {
+	Historico->next = Cliente->Historico;
+	Cliente->Historico = Historico;
+}
+void insertHistoricoMeio(MeiosDeMobilidade* Meio, Historico* Historico) {
+	Historico->next = Meio->Historico;
+	Meio->Historico = Historico;
+}
+
+int CountMeios(struct MeiosDeMobilidade* head) {
+	int count = 0;
+	MeiosDeMobilidade* current = head;
+
+	while (current != NULL) {
+		count++;
+		current = current->next;
+	}
+
+	return count;
 }
 
 

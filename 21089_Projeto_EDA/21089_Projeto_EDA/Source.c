@@ -9,8 +9,6 @@
 int main() {
 
 
-	
-
 	Clientes* C1 = CriarClientes(1,"Manuel","Rua X", "123456789",3);
 	Clientes* C2 = CriarClientes(2,"Manuela","Rua X", "123456789",3);
 
@@ -26,7 +24,7 @@ int main() {
 	HeadListaMeios = InsereMeiosDeMobilidadeNoFim(HeadListaMeios, M1);
 	HeadListaMeios = InsereMeiosDeMobilidadeNoFim(HeadListaMeios, M2);
 
-	RemoverCliente(HeadListaClientes,2);
+	//RemoverCliente(HeadListaClientes,2);
 	//RemoverMeiosDeMobilidade(HeadListaMeios, 2);
 
 
@@ -38,8 +36,14 @@ int main() {
 	HeadListaGestor = InsereGestorNoFim(HeadListaGestor, G1);
 
 
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1,1);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1,2);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,2);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 1);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 1);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 2);
+	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 1);
 
 	AlteraGestor(&HeadListaGestor, 1, "Carla");
 

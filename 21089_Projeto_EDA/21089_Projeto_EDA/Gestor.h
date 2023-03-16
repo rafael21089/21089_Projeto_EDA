@@ -72,7 +72,8 @@ void MostraCliente(Clientes* Cliente);
 Clientes* RemoverCliente(Clientes* Header, int Id);
 Clientes* ProcuraClientes(Clientes* Header, int Id);
 void AlteraCliente(Clientes** Header, int Id, char* Nome);
-
+int CountClientes(Clientes* head);
+void insertHistoricoCliente(Clientes* cliente, Historico* historico);
 
 MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao);
 MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* Header, MeiosDeMobilidade* NovoMeiosDeMobilidade);
@@ -82,7 +83,8 @@ void MostraMeiosDeMobilidade(MeiosDeMobilidade* MeiosDeMobilidade);
 MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id);
 MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id);
 void AlteraMeiosDeMobilidade(MeiosDeMobilidade** Header, int Id, char* Tipo);
-
+int CountMeios(struct MeiosDeMobilidade* head);
+void insertHistoricoMeio(MeiosDeMobilidade* Meio, Historico* Historico);
 
 
 Gestor* CriarNovoGestor(int Id, char Utilizador[50], MeiosDeMobilidade* MeiosDeMobilidadeExistentes, Clientes* ClienteExistentes);
@@ -95,6 +97,8 @@ Gestor* ProcuraGestor(Gestor* Header, int Id);
 void AlteraGestor(Gestor** Header, int Id, char* Utilizador);
 
 
-void RegistoAluguer(Clientes** HeaderCliente, MeiosDeMobilidade** HeaderMeios, int IdCliente, int IdMeios, int IdRegisto);
+void RegistoAluguer(Clientes** HeaderCliente, MeiosDeMobilidade** HeaderMeios, int IdCliente, int IdMeios);
+
+int CountHistorico(Historico* head);
 
 

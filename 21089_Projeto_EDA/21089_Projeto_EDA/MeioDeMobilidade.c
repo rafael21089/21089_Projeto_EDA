@@ -9,130 +9,130 @@
 
 
 
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao) {
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char tipo[50], int cargaBateria, int custo, float localizacao) {
 
 
-	MeiosDeMobilidade* NovoMeiosDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
-	if (NovoMeiosDeMobilidade == NULL) return NULL;	//pode não haver memória!!!
+	MeiosDeMobilidade* novoMeiosDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
+	if (novoMeiosDeMobilidade == NULL) return NULL;	//pode não haver memória!!!
 
-	NovoMeiosDeMobilidade->Id = Id;
-	strcpy(NovoMeiosDeMobilidade->Tipo, Tipo);
-	NovoMeiosDeMobilidade->CargaBateria = CargaBateria;
-	NovoMeiosDeMobilidade->Custo = Custo;
-	NovoMeiosDeMobilidade->localizacao = localizacao;
+	novoMeiosDeMobilidade->id = id;
+	strcpy(novoMeiosDeMobilidade->tipo, tipo);
+	novoMeiosDeMobilidade->cargaBateria = cargaBateria;
+	novoMeiosDeMobilidade->custo = custo;
+	novoMeiosDeMobilidade->localizacao = localizacao;
 
-	Historico* Hist = NULL;
+	Atividade* ativ = NULL;
 
-	NovoMeiosDeMobilidade->Historico = Hist;
+	novoMeiosDeMobilidade->atividade = ativ;
 
-	NovoMeiosDeMobilidade->next = NULL;
+	novoMeiosDeMobilidade->next = NULL;
 
-	return NovoMeiosDeMobilidade;
+	return novoMeiosDeMobilidade;
 }
 
 
-MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* Header, MeiosDeMobilidade* NovoMeiosDeMobilidade) {
+MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* header, MeiosDeMobilidade* novoMeiosDeMobilidade) {
 	//Verificar se o novo jogo já existe!!!
-	if (ExisteMeiosDeMobilidade(Header, NovoMeiosDeMobilidade->Id)) return Header;	//se existir não insere!
+	if (ExisteMeiosDeMobilidade(header, novoMeiosDeMobilidade->id)) return header;	//se existir não insere!
 
-	if (Header == NULL) {		//lista vazia
-		Header = NovoMeiosDeMobilidade;
+	if (header == NULL) {		//lista vazia
+		header = novoMeiosDeMobilidade;
 	}
 	else
 	{
 		//Posicionar-se no fim da lista
-		MeiosDeMobilidade* Aux = Header;
-		while (Aux->next != NULL) {
-			Aux = Aux->next;
+		MeiosDeMobilidade* aux = header;
+		while (aux->next != NULL) {
+			aux = aux->next;
 		}
 		//insere no fim da lista
-		Aux->next = NovoMeiosDeMobilidade;
+		aux->next = novoMeiosDeMobilidade;
 	}
-	return Header;
+	return header;
 }
 
 
-bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* Header, int IdMeiosDeMobilidade) {
-	if (Header == NULL) return false;
-	MeiosDeMobilidade* Aux = Header;
-	while (Aux != NULL) {
-		if (Aux->Id == IdMeiosDeMobilidade)
+bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* header, int idMeiosDeMobilidade) {
+	if (header == NULL) return false;
+	MeiosDeMobilidade* aux = header;
+	while (aux != NULL) {
+		if (aux->id == idMeiosDeMobilidade)
 			return true;
-		Aux = Aux->next;
+		aux = aux->next;
 	}
 	return false;
 }
 
 
-void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* Header) {
-	MeiosDeMobilidade* Aux = Header;
-	while (Aux) {		//mesmo que while (aux!=NULL)
-		MostraMeiosDeMobilidade(Aux);
-		Aux = Aux->next;
+void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* header) {
+	MeiosDeMobilidade* aux = header;
+	while (aux) {		//mesmo que while (aux!=NULL)
+		MostraMeiosDeMobilidade(aux);
+		aux = aux->next;
 	}
 }
 
-void MostraMeiosDeMobilidade(MeiosDeMobilidade* MeiosDeMobilidade) {
-	if (MeiosDeMobilidade != NULL)
+void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
+	if (meiosDeMobilidade != NULL)
 	{
-		printf("\nMeio De Mobilidade Dados:\nMeio De Mobilidade ID: %d\n", MeiosDeMobilidade->Id);
-		printf("Tipo: %s\n", MeiosDeMobilidade->Tipo);
-		printf("Carga: %d\n", MeiosDeMobilidade->CargaBateria);
-		printf("Custo: %d\n", MeiosDeMobilidade->Custo);
-		printf("Localizacao: %f\n", MeiosDeMobilidade->localizacao);
+		printf("\nMeio De Mobilidade Dados:\nMeio De Mobilidade ID: %d\n", meiosDeMobilidade->id);
+		printf("Tipo: %s\n", meiosDeMobilidade->tipo);
+		printf("Carga: %d\n", meiosDeMobilidade->cargaBateria);
+		printf("Custo: %d\n", meiosDeMobilidade->custo);
+		printf("Localizacao: %f\n", meiosDeMobilidade->localizacao);
 
 
 		printf("\n-------------\n");
 	}
 }
 
-MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id) {
-	if (Header == NULL) return NULL;			//Lista vazia
-	if (!ExisteMeiosDeMobilidade(Header, Id)) return Header;	//se não existe
+MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* header, int id) {
+	if (header == NULL) return NULL;			//Lista vazia
+	if (!ExisteMeiosDeMobilidade(header, id)) return header;	//se não existe
 
-	if (Header->Id == Id) {		//remove no inicio da lista
-		MeiosDeMobilidade* Aux = Header;
-		Header = Header->next;
-		free(Aux);
+	if (header->id == id) {		//remove no inicio da lista
+		MeiosDeMobilidade* aux = header;
+		header = header->next;
+		free(aux);
 	}
 	else
 	{
-		MeiosDeMobilidade* Aux = Header;
-		MeiosDeMobilidade* AuxAnt = Aux;
-		while (Aux && Aux->Id != Id) {	//procura para revover
-			AuxAnt = Aux;
-			Aux = Aux->next;
+		MeiosDeMobilidade* aux = header;
+		MeiosDeMobilidade* auxAnt = aux;
+		while (aux && aux->id != id) {	//procura para revover
+			auxAnt = aux;
+			aux = aux->next;
 		}
-		if (Aux != NULL) {					//se encontrou, remove
-			AuxAnt->next = Aux->next;
-			free(Aux);
+		if (aux != NULL) {					//se encontrou, remove
+			auxAnt->next = aux->next;
+			free(aux);
 		}
 	}
-	return Header;
+	return header;
 }
 
 
-MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id) {
-	if (Header == NULL) return NULL;		//lista vazia
+MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* header, int id) {
+	if (header == NULL) return NULL;		//lista vazia
 	else
 	{
-		MeiosDeMobilidade* Aux = Header;
-		while (Aux != NULL) {
-			if (Aux->Id == Id) {
-				return (Aux);		//encontrei
+		MeiosDeMobilidade* aux = header;
+		while (aux != NULL) {
+			if (aux->id == id) {
+				return (aux);		//encontrei
 			}
-			Aux = Aux->next;
+			aux = aux->next;
 		}
 		return NULL;
 	}
 }
 
-void AlteraMeiosDeMobilidade(MeiosDeMobilidade** Header, int Id, char* Tipo) {
-	if (*Header != NULL) {
-		MeiosDeMobilidade* Aux = ProcuraMeiosDeMobilidade(*Header, Id);
-		if (Aux != NULL)		//se encontrou o jogo
+void AlteraMeiosDeMobilidade(MeiosDeMobilidade** header, int id, char* tipo) {
+	if (*header != NULL) {
+		MeiosDeMobilidade* aux = ProcuraMeiosDeMobilidade(*header, id);
+		if (aux != NULL)		//se encontrou o jogo
 		{
-			strcpy(Aux->Tipo, Tipo);
+			strcpy(aux->tipo, tipo);
 		}
 	}
 }

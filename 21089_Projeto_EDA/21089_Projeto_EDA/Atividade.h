@@ -16,20 +16,20 @@ enum Estado {
 
 typedef struct {
 
-    int Id;
-    int Custo;
-    enum Estado EstadoDoAluguer;
-    struct Clientes* Cliente;
-    struct MeiosDeMobilidade* MeioUsado;
+    int id;
+    int custo;
+    enum Estado estadoDoAluguer;
+    struct Clientes* cliente;
+    struct MeiosDeMobilidade* meioUsado;
 
-    struct Historico* next;
+    struct Atividade* next;
 
-} Historico;
+} Atividade;
 
 
-int CountHistorico(Historico* head);
-void insertHistoricoCliente(struct Clientes* cliente, Historico* historico);
-void insertHistoricoMeio(struct MeiosDeMobilidade* Meio, Historico* Historico);
+int CountHistorico(Atividade* head);
+void insertHistoricoCliente(struct Clientes* cliente, Atividade* atividade);
+void insertHistoricoMeio(struct MeiosDeMobilidade* meio, Atividade* atividade);
 
 
 

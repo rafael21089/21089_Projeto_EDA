@@ -12,28 +12,28 @@
 
 typedef struct {
 
-    int Id;
-    char Nome[50];
-    char Morada[50];
-    char NIF[9];
-    float Saldo;
-    struct Historico* Historico;
+    int id;
+    char nome[50];
+    char morada[50];
+    char nif[9];
+    float saldo;
+    struct Atividade* atividade;
 
     struct Clientes* next;
 
 } Clientes;
 
 
-Clientes* CriarClientes(int Id, char Nome[50], char Morada[50], char NIF[9], float Saldo);
-Clientes* InsereClienteNoFim(Clientes* Header, Clientes* NovoCliente);
-bool ExisteCliente(Clientes* Header, int IdCliente);
-void MostrarListaClientes(Clientes* Header);
-void MostraCliente(Clientes* Cliente);
-Clientes* RemoverCliente(Clientes* Header, int Id);
-Clientes* ProcuraClientes(Clientes* Header, int Id);
-void AlteraCliente(Clientes** Header, int Id, char* Nome);
+Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo);
+Clientes* InsereClienteNoFim(Clientes* header, Clientes* novoCliente);
+bool ExisteCliente(Clientes* header, int idCliente);
+void MostrarListaClientes(Clientes* header);
+void MostraCliente(Clientes* cliente);
+Clientes* RemoverCliente(Clientes* header, int id);
+Clientes* ProcuraClientes(Clientes* header, int id);
+void AlteraCliente(Clientes** header, int id, char* nome);
 int CountClientes(Clientes* head);
 
-void RegistoAluguer(Clientes** HeaderCliente, struct MeiosDeMobilidade** HeaderMeios, int IdCliente, int IdMeios);
+void RegistoAluguer(Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, int idCliente, int idMeios);
 
 

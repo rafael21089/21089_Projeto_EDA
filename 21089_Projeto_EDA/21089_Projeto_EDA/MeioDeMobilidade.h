@@ -9,25 +9,25 @@
 #include "Cliente.h"
 
 typedef struct {
-    int Id;
-    char Tipo[50];
-    int CargaBateria;
-    int Custo;
+    int id;
+    char tipo[50];
+    int cargaBateria;
+    int custo;
     float localizacao;
-    struct Historico* Historico;
+    struct Atividade* atividade;
 
     struct MeiosDeMobilidade* next;
 
 } MeiosDeMobilidade;
 
 
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int Id, char Tipo[50], int CargaBateria, int Custo, float localizacao);
-MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* Header, MeiosDeMobilidade* NovoMeiosDeMobilidade);
-bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* Header, int IdMeiosDeMobilidade);
-void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* Header);
-void MostraMeiosDeMobilidade(MeiosDeMobilidade* MeiosDeMobilidade);
-MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id);
-MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* Header, int Id);
-void AlteraMeiosDeMobilidade(MeiosDeMobilidade** Header, int Id, char* Tipo);
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char tipo[50], int cargaBateria, int custo, float localizacao);
+MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* header, MeiosDeMobilidade* novoMeiosDeMobilidade);
+bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* header, int idMeiosDeMobilidade);
+void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* header);
+void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade);
+MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* header, int id);
+MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* header, int id);
+void AlteraMeiosDeMobilidade(MeiosDeMobilidade** header, int id, char* tipo);
 int CountMeios(struct MeiosDeMobilidade* head);
 

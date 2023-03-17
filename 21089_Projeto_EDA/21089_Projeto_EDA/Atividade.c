@@ -7,24 +7,24 @@
 
 #include "Atividade.h"
 
-int CountHistorico(Historico* Head) {
-	int Count = 0;
-	Historico* Current = Head;
+int CountHistorico(Atividade* Head) {
+	int count = 0;
+	Atividade* current = Head;
 
-	while (Current != NULL) {
-		Count++;
-		Current = Current->next;
+	while (current != NULL) {
+		count++;
+		current = current->next;
 	}
 
-	return Count;
+	return count;
 }
 
-void insertHistoricoCliente(Clientes* Cliente, Historico* Historico) {
-	Historico->next = Cliente->Historico;
-	Cliente->Historico = Historico;
+void insertHistoricoCliente(Clientes* cliente, Atividade* atividade) {
+	atividade->next = cliente->atividade;
+	cliente->atividade = atividade;
 }
 
-void insertHistoricoMeio(MeiosDeMobilidade* Meio, Historico* Historico) {
-	Historico->next = Meio->Historico;
-	Meio->Historico = Historico;
+void insertHistoricoMeio(MeiosDeMobilidade* meio, Atividade* atividade) {
+	atividade->next = meio->atividade;
+	meio->atividade = atividade;
 }

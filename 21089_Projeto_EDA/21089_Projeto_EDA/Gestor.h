@@ -18,14 +18,14 @@ typedef struct {
 } Gestor;
 
 
-Gestor* CriarNovoGestor(int Id, char Utilizador[50], struct MeiosDeMobilidade* MeiosDeMobilidadeExistentes, struct Clientes* ClienteExistentes);
-Gestor* InsereGestorNoFim(Gestor* Header, Gestor* NovoGestor);
-bool ExisteGestor(Gestor* Header, int IdGestor);
-void MostrarListaGestor(Gestor* Header);
-void MostraGestor(Gestor* Gestor);
-Gestor* RemoverGestor(Gestor* Header, int Id);
-Gestor* ProcuraGestor(Gestor* Header, int Id);
-void AlteraGestor(Gestor** Header, int Id, char* Utilizador);
+Gestor* CriarNovoGestor(int id, char utilizador[50], struct MeiosDeMobilidade* meiosDeMobilidadeExistentes, struct Clientes* clienteExistentes);
+Gestor* InsereGestorNoFim(Gestor* header, Gestor* novoGestor);
+bool ExisteGestor(Gestor* header, int idGestor);
+void MostrarListaGestor(Gestor* header);
+void MostraGestor(Gestor* gestor);
+Gestor* RemoverGestor(Gestor* header, int id);
+Gestor* ProcuraGestor(Gestor* header, int id);
+void AlteraGestor(Gestor** header, int id, char* utilizador);
 
 
 

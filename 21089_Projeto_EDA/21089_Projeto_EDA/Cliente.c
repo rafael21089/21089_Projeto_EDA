@@ -8,188 +8,194 @@
 #include "Cliente.h"
 
 
-Clientes* CriarClientes(int Id, char Nome[50], char Morada[50], char NIF[9], float Saldo) {
+Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo) {
 
-	Clientes* NovoCliente = (Clientes*)malloc(sizeof(Clientes));
-	if (NovoCliente == NULL) return NULL;
+	Clientes* novoCliente = (Clientes*)malloc(sizeof(Clientes));
+	if (novoCliente == NULL) return NULL;
 
-	NovoCliente->Id = Id;
-	strcpy(NovoCliente->Nome, Nome);
-	strcpy(NovoCliente->Morada, Morada);
-	strcpy(NovoCliente->NIF, NIF);
-	NovoCliente->Saldo = Saldo;
+	novoCliente->id = id;
+	strcpy(novoCliente->nome, nome);
+	strcpy(novoCliente->morada, morada);
+	strcpy(novoCliente->nif, nif);
+	novoCliente->saldo = saldo;
 
-	Historico* Hist = NULL;
+	Atividade* ativ = NULL;
 
-	NovoCliente->Historico = Hist;
+	novoCliente->atividade = ativ;
 
 
-	NovoCliente->next = NULL;
+	novoCliente->next = NULL;
 
-	return NovoCliente;
+	return novoCliente;
 }
 
-Clientes* InsereClienteNoFim(Clientes* Header, Clientes* NovoCliente) {
+Clientes* InsereClienteNoFim(Clientes* header, Clientes* novoCliente) {
 	//Verificar se o novo jogo já existe!!!
-	if (ExisteCliente(Header, NovoCliente->Id)) return Header;	//se existir não insere!
+	if (ExisteCliente(header, novoCliente->id)) return header;	//se existir não insere!
 
-	if (Header == NULL) {		//lista vazia
-		Header = NovoCliente;
+	if (header == NULL) {		//lista vazia
+		header = novoCliente;
 	}
 	else
 	{
 		//Posicionar-se no fim da lista
-		Clientes* Aux = Header;
-		while (Aux->next != NULL) {
-			Aux = Aux->next;
+		Clientes* aux = header;
+		while (aux->next != NULL) {
+			aux = aux->next;
 		}
 		//insere no fim da lista
-		Aux->next = NovoCliente;
+		aux->next = novoCliente;
 	}
-	return Header;
+	return header;
 }
 
 
-bool ExisteCliente(Clientes* Header, int IdCliente) {
-	if (Header == NULL) return false;
-	Clientes* Aux = Header;
-	while (Aux != NULL) {
-		if (Aux->Id == IdCliente)
+bool ExisteCliente(Clientes* header, int idCliente) {
+	if (header == NULL) return false;
+	Clientes* aux = header;
+	while (aux != NULL) {
+		if (aux->id == idCliente)
 			return true;
-		Aux = Aux->next;
+		aux = aux->next;
 	}
 	return false;
 }
 
 
-void MostrarListaClientes(Clientes* Header) {
-	Clientes* Aux = Header;
-	while (Aux) {
-		MostraCliente(Aux);
-		Aux = Aux->next;
+void MostrarListaClientes(Clientes* header) {
+	Clientes* aux = header;
+	while (aux) {
+		MostraCliente(aux);
+		aux = aux->next;
 	}
 }
 
 
 
-void MostraCliente(Clientes* Cliente) {
-	if (Cliente != NULL)
+void MostraCliente(Clientes* cliente) {
+	if (cliente != NULL)
 	{
-		printf("\nCliente Dados:\nCliente ID: %d\n", Cliente->Id);
-		printf("Nome: %s\n", Cliente->Nome);
-		printf("Morada: %s\n", Cliente->Morada);
-		printf("NIF: %s\n", Cliente->NIF);
-		printf("\nSaldo: %f\n", Cliente->Saldo);
+		printf("\nCliente Dados:\nCliente ID: %d\n", cliente->id);
+		printf("Nome: %s\n", cliente->nome);
+		printf("Morada: %s\n", cliente->morada);
+		printf("NIF: %s\n", cliente->nif);
+		printf("\nSaldo: %f\n", cliente->saldo);
 		printf("\n-------------\n");
 	}
 }
 
-Clientes* RemoverCliente(Clientes* Header, int Id) {
-	if (Header == NULL) return NULL;			//Lista vazia
-	if (!ExisteCliente(Header, Id)) return Header;	//se não existe
+Clientes* RemoverCliente(Clientes* header, int id) {
+	if (header == NULL) return NULL;			//Lista vazia
+	if (!ExisteCliente(header, id)) return header;	//se não existe
 
-	if (Header->Id == Id) {		//remove no inicio da lista
-		Clientes* Aux = Header;
-		Header = Header->next;
-		free(Aux);
+	if (header->id == id) {		//remove no inicio da lista
+		Clientes* aux = header;
+		header = header->next;
+		free(aux);
 	}
 	else
 	{
-		Clientes* Aux = Header;
-		Clientes* AuxAnt = Aux;
-		while (Aux && Aux->Id != Id) {	//procura para revover
-			AuxAnt = Aux;
-			Aux = Aux->next;
+		Clientes* aux = header;
+		Clientes* auxAnt = aux;
+		while (aux && aux->id != id) {	//procura para revover
+			auxAnt = aux;
+			aux = aux->next;
 		}
-		if (Aux != NULL) {					//se encontrou, remove
-			AuxAnt->next = Aux->next;
-			free(Aux);
+		if (aux != NULL) {					//se encontrou, remove
+			auxAnt->next = aux->next;
+			free(aux);
 		}
 	}
-	return Header;
+	return header;
 }
 
 
-Clientes* ProcuraClientes(Clientes* Header, int Id) {
-	if (Header == NULL) return NULL;		//lista vazia
+Clientes* ProcuraClientes(Clientes* header, int id) {
+	if (header == NULL) return NULL;		//lista vazia
 	else
 	{
-		Clientes* Aux = Header;
-		while (Aux != NULL) {
-			if (Aux->Id == Id) {
-				return (Aux);		//encontrei
+		Clientes* aux = header;
+		while (aux != NULL) {
+			if (aux->id == id) {
+				return (aux);		//encontrei
 			}
-			Aux = Aux->next;
+			aux = aux->next;
 		}
 		return NULL;
 	}
 }
 
-void AlteraCliente(Clientes** Header, int Id, char* Nome) {
-	if (*Header != NULL) {
-		Clientes* Aux = ProcuraClientes(*Header, Id);
-		if (Aux != NULL)		//se encontrou o jogo
+void AlteraCliente(Clientes** header, int id, char* nome) {
+	if (*header != NULL) {
+		Clientes* aux = ProcuraClientes(*header, id);
+		if (aux != NULL)		//se encontrou o jogo
 		{
-			strcpy(Aux->Nome, Nome);
+			strcpy(aux->nome, nome);
 		}
 	}
 }
 
 
-void RegistoAluguer(Clientes** HeaderCliente, MeiosDeMobilidade** HeaderMeios, int IdCliente, int IdMeios) {
+void RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios, int idCliente, int idMeios) {
 
 
-	Clientes* Cliente = ProcuraClientes(*HeaderCliente, IdCliente);
-	MeiosDeMobilidade* Meio = ProcuraMeiosDeMobilidade(*HeaderMeios, IdMeios);
+	Clientes* cliente = ProcuraClientes(*headerCliente, idCliente);
+	MeiosDeMobilidade* meio = ProcuraMeiosDeMobilidade(*headerMeios, idMeios);
 
-	Historico* Historicos = (Historico*)malloc(sizeof(Historico));
-	Historico* HistoricosMeios = (Historico*)malloc(sizeof(Historico));
-
-	int IdClienteRegisto = 0;
-	int IdMeioRegisto = 0;
-
-	if (Cliente->Historico != NULL)
+	if (cliente->saldo >= meio->custo)
 	{
-		IdClienteRegisto = CountHistorico(Cliente->Historico);
+		cliente->saldo = cliente->saldo - meio->custo;
+
+		Atividade* atividades = (Atividade*)malloc(sizeof(Atividade));
+		Atividade* atividadesMeios = (Atividade*)malloc(sizeof(Atividade));
+
+		int idClienteRegisto = 0;
+		int idMeioRegisto = 0;
+
+		if (cliente->atividade != NULL)
+		{
+			idClienteRegisto = CountHistorico(cliente->atividade);
+		}
+
+
+		if (meio->atividade != NULL)
+		{
+			idMeioRegisto = CountHistorico(meio->atividade);
+
+		}
+
+
+		atividades->id = idClienteRegisto;
+		atividades->estadoDoAluguer = ATIVO;
+		atividades->custo = meio->custo;
+		atividades->cliente = cliente;
+		atividades->meioUsado = meio;
+		atividades->next = NULL;
+
+		atividadesMeios->id = idMeioRegisto;
+		atividadesMeios->estadoDoAluguer = ATIVO;
+		atividadesMeios->custo = meio->custo;
+		atividadesMeios->cliente = cliente;
+		atividadesMeios->meioUsado = meio;
+		atividadesMeios->next = NULL;
+
+		insertHistoricoCliente(cliente, atividades);
+		insertHistoricoMeio(meio, atividadesMeios);
 	}
-
-
-	if (Meio->Historico != NULL)
-	{
-		IdMeioRegisto = CountHistorico(Meio->Historico);
-
-	}
-
-
-	Historicos->Id = IdClienteRegisto;
-	Historicos->EstadoDoAluguer = ATIVO;
-	Historicos->Custo = Meio->Custo;
-	Historicos->Cliente = Cliente;
-	Historicos->MeioUsado = Meio;
-	Historicos->next = NULL;
-
-	HistoricosMeios->Id = IdMeioRegisto;
-	HistoricosMeios->EstadoDoAluguer = ATIVO;
-	HistoricosMeios->Custo = Meio->Custo;
-	HistoricosMeios->Cliente = Cliente;
-	HistoricosMeios->MeioUsado = Meio;
-	HistoricosMeios->next = NULL;
-
-	insertHistoricoCliente(Cliente, Historicos);
-	insertHistoricoMeio(Meio, HistoricosMeios);
+	
 
 }
 
-int CountClientes(Clientes* Head) {
-	int Count = 0;
-	Clientes* Current = Head;
+int CountClientes(Clientes* head) {
+	int count = 0;
+	Clientes* current = head;
 
-	while (Current != NULL) {
-		Count++;
-		Current = Current->next;
+	while (current != NULL) {
+		count++;
+		current = current->next;
 	}
 
-	return Count;
+	return count;
 }
 
 

@@ -35,6 +35,8 @@ void AlteraCliente(Clientes** header, int id, char* nome);
 int CountClientes(Clientes* head);
 
 Clientes* LerEArmazenarCliente(char* filename, Clientes* header);
+bool GravarClientesBinario(char* nomeFicheiro, Clientes* header);
+Clientes* LerClientesBinario(char* nomeFicheiro);
 
 void RegistoAluguer(Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, int idCliente, int idMeios);
 

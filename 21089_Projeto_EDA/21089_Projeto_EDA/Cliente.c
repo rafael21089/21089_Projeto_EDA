@@ -250,4 +250,38 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
 }
 
 
+bool GravarClientesBinario(char* nomeFicheiro, Clientes* header) {
+	FILE* fp;
+
+	if (header == NULL) return false;
+	if ((fp = fopen(nomeFicheiro, "wb")) == NULL) return false;
+
+	// Grava n registos no ficheiro
+	Clientes* aux = header;
+	while (aux) {
+		// Escrever no ficheiro os dados do registo de memória
+		fwrite(aux, sizeof(Clientes), 1, fp);
+		aux = aux->next;
+	}
+	fclose(fp);
+	return true;
+}
+
+
+Clientes* LerClientesBinario(char* nomeFicheiro) {
+	FILE* fp;
+	Clientes* header = NULL;
+	Clientes* auxAnt;
+
+	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+
+	// Ler n registos do ficheiro
+	while ((auxAnt = (Clientes*)malloc(sizeof(Clientes))) && fread(auxAnt, sizeof(Clientes), 1, fp)) {
+		Clientes* aux = CriarClientes(auxAnt->id, auxAnt->nome, auxAnt->morada, auxAnt->nif, auxAnt->saldo);
+		header = InsereClienteNoFim(header, aux);
+	}
+	fclose(fp);
+	return header;
+}
+
 

@@ -23,7 +23,9 @@ int main() {
 	Gestor* HeadListaGestor = NULL;		//inicio da lista
 
 
-	HeadListaClientes = LerEArmazenarCliente("ClientesInserir.txt", HeadListaClientes);
+	HeadListaClientes = LerClientesBinario("ClientesSave.bin");
+	//HeadListaClientes = LerEArmazenarCliente("ClientesInserir.txt", HeadListaClientes);
+	GravarClientesBinario("ClientesSave.bin", HeadListaClientes);
 
 
 	HeadListaClientes = InsereClienteNoFim(HeadListaClientes, C1);

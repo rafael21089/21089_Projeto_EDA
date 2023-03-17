@@ -22,6 +22,10 @@ int main() {
 	MeiosDeMobilidade* HeadListaMeios = NULL;		//inicio da lista
 	Gestor* HeadListaGestor = NULL;		//inicio da lista
 
+
+	HeadListaClientes = LerEArmazenarCliente("ClientesInserir.txt", HeadListaClientes);
+
+
 	HeadListaClientes = InsereClienteNoFim(HeadListaClientes, C1);
 	HeadListaClientes = InsereClienteNoFim(HeadListaClientes, C2);
 	HeadListaMeios = InsereMeiosDeMobilidadeNoFim(HeadListaMeios, M1);
@@ -41,12 +45,6 @@ int main() {
 
 	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1);
 	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,2);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 1);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 1);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 2);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios, 2, 1);
 
 	AlteraGestor(&HeadListaGestor, 1, "Carla");
 

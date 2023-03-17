@@ -1,63 +1,6 @@
-﻿  Atividade.c
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Atividade.c(16,26): warning C4133: '=': incompatible types - from 'Historico *' to 'Historico *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Atividade.c(22,39): warning C4028: formal parameter 1 different from declaration
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Atividade.c(24,32): warning C4133: '=': incompatible types - from 'Historico *' to 'Historico *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Atividade.c(27,45): warning C4028: formal parameter 1 different from declaration
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Atividade.c(29,29): warning C4133: '=': incompatible types - from 'Historico *' to 'Historico *'
-  Cliente.c
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(24,31): warning C4133: '=': incompatible types - from 'Historico *' to 'Historico *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(44,19): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(47,26): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(59,18): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(69,18): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(93,24): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(102,19): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(122,19): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(139,67): warning C4028: formal parameter 2 different from declaration
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(153,55): warning C4133: 'function': incompatible types - from 'Historico *' to 'Historico *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(159,49): warning C4133: 'function': incompatible types - from 'Historico *' to 'Historico *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(167,31): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(168,30): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(174,36): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(175,35): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(178,32): warning C4133: 'function': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(179,26): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(189,26): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-  Gestor.c
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(14,73): warning C4028: formal parameter 3 different from declaration
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(14,112): warning C4028: formal parameter 4 different from declaration
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(21,49): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(22,42): warning C4133: '=': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(31,26): warning C4133: 'function': incompatible types - from 'Gestor *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(41,19): warning C4133: '=': incompatible types - from 'Gestor *' to 'Gestor *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(44,25): warning C4133: '=': incompatible types - from 'Gestor *' to 'Gestor *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(56,18): warning C4133: '=': incompatible types - from 'Gestor *' to 'Gestor *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(66,18): warning C4133: '=': incompatible types - from 'Gestor *' to 'Gestor *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(73,10): warning C4129: 'G': unrecognized character escape sequence
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(85,24): warning C4133: '=': incompatible types - from 'Gestor *' to 'Gestor *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(94,19): warning C4133: '=': incompatible types - from 'Gestor *' to 'Gestor *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(113,19): warning C4133: '=': incompatible types - from 'Gestor *' to 'Gestor *'
-  MeioDeMobilidade.c
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(26,41): warning C4133: '=': incompatible types - from 'Historico *' to 'Historico *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(46,19): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(49,36): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(61,18): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(71,18): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(95,24): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(104,19): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(124,19): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(147,26): warning C4133: '=': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(143,1): warning C4133: 'initializing': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-  Source.c
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(38,59): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(38,78): warning C4133: 'function': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(42,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(43,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(44,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(45,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(46,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(47,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(48,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(49,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-  Generating Code...
-  21089_Projeto_EDA.vcxproj -> C:\Users\rafaf\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe
+﻿  Source.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(42,59): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(42,78): warning C4133: 'function': incompatible types - from 'Clientes *' to 'Clientes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(46,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(47,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
+  21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

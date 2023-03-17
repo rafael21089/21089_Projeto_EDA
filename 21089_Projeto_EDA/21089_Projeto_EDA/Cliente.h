@@ -34,6 +34,8 @@ Clientes* ProcuraClientes(Clientes* header, int id);
 void AlteraCliente(Clientes** header, int id, char* nome);
 int CountClientes(Clientes* head);
 
+Clientes* LerEArmazenarCliente(char* filename, Clientes* header);
+
 void RegistoAluguer(Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, int idCliente, int idMeios);
 
 

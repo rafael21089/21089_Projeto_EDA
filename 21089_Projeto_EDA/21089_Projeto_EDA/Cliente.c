@@ -199,4 +199,55 @@ int CountClientes(Clientes* head) {
 }
 
 
+Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
+
+	FILE* fp;
+	char line[1024];
+	char* token;
+
+	fp = fopen(filename, "r");
+
+	if (fp == NULL) {
+		printf("File %s does not exist, creating empty file...\n", filename);
+		fp = fopen(filename, "w");
+		fclose(fp);
+		return;
+	}
+
+	while (fgets(line, 1024, fp)) {
+		// remove trailing newline character
+		line[strcspn(line, "\n")] = '\0';
+
+
+		Clientes* novoCliente = (Clientes*)malloc(sizeof(Clientes));
+
+		// parse line into variables separated by semicolons
+		token = strtok(line, ";");
+		novoCliente->id = atoi(token); // convert string to integer
+		token = strtok(NULL, ";");
+		strcpy(novoCliente->nome, token);
+		token = strtok(NULL, ";");
+		strcpy(novoCliente->morada, token);
+		token = strtok(NULL, ";");
+		strcpy(novoCliente->nif, token);
+		token = strtok(NULL, ";");
+		novoCliente->saldo = atoi(token);
+
+		Atividade* ativ = NULL;
+
+		novoCliente->atividade = ativ;
+		novoCliente->next = NULL;
+
+
+		header = InsereClienteNoFim(header,novoCliente);
+
+		// print stored variables for testing
+	}
+
+	return header;
+
+	fclose(fp);
+}
+
+
 

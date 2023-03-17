@@ -21,10 +21,28 @@
     <ClCompile Include="Gestor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cliente.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeioDeMobilidade.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Atividade.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gestor.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cliente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MeioDeMobilidade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Atividade.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

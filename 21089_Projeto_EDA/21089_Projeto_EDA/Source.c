@@ -3,7 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+
 #include "Gestor.h"
+#include "Cliente.h"
+#include "MeioDeMobilidade.h"
 
 
 int main() {

@@ -11,7 +11,7 @@
 // ----------------------------------------
 
 
-Gestor* CriarNovoGestor(int id, char utilizador[50], MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , AluguerListaTotal* aluguerTotal) {
+Gestor* CriarNovoGestor(int id, char utilizador[50], MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , Atividade* aluguerTotal) {
 
 	Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
 	if (novoGestor == NULL) return NULL;
@@ -73,6 +73,7 @@ void MostraGestor(Gestor* gestor) {
 	{
 		printf("\Gestor:\nMeio De Mobilidade ID: %d\n", gestor->id);
 		printf("Utilizador: %s\n", gestor->utilizador);
+		printf("Distrito: %s\n", gestor->distrito);
 		printf("\n-------------\n");
 	}
 }
@@ -156,13 +157,16 @@ Gestor* LerEArmazenarGestor(char* filename, Gestor* header) {
 		novoGestor->id = atoi(token); // convert string to integer
 		token = strtok(NULL, ";");
 		strcpy(novoGestor->utilizador, token);
-
+		token = strtok(NULL, ";");
+		strcpy(novoGestor->distrito, token);
 
 		Clientes* cliente = NULL;
 		MeiosDeMobilidade* meios = NULL;
+		Atividade* todosAlugueres = NULL;
 
 		novoGestor->clientes = cliente;
 		novoGestor->meios = meios;
+		novoGestor->todosAlugueres = todosAlugueres;
 
 		novoGestor->next = NULL;
 

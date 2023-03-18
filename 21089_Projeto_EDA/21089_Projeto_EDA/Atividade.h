@@ -9,17 +9,13 @@
 #include "MeioDeMobilidade.h"
 #include "Gestor.h"
 
-enum Estado {
-    ATIVO,
-    CANCELADO,
-    COMPLETADO
-};
+
 
 typedef struct {
 
     int id;
-    int custo;
-    enum Estado estadoDoAluguer;
+    float custo;
+    char estadoDoAluguer[10];
     int clienteId;
     int meioUsadoId;
 
@@ -28,28 +24,36 @@ typedef struct {
 } Atividade;
 
 
-typedef struct {
+//typedef struct {
+//
+//    int id;
+//    float custoDoAluguer;
+//    int aluguerClienteRegistoId;
+//    int aluguerMeioRegistoId;
+//    struct AluguerListaTotal* next;
+//
+//} AluguerListaTotal;
 
-    int id;
-    struct Atividade* aluguerClienteRegisto;
-    struct Atividade* aluguerMeioRegisto;
-    struct AluguerListaTotal* next;
-
-} AluguerListaTotal;
 
 
-
-AluguerListaTotal* CriarAluguerListaTotal(int id, Atividade* aluguerClienteRegisto, Atividade* aluguerMeioRegisto);
-AluguerListaTotal* InsereAluguerListaTotalNoFim(AluguerListaTotal* header, AluguerListaTotal* novoAluguerListaTotal);
-bool ExisteAluguerListaTotal(AluguerListaTotal* header, int idAluguerListaTotal);
-int CountAluguerListaTotal(AluguerListaTotal* head);
+Atividade* CriarAluguerListaTotal(int id, float custo, char* estadoDoAluguer, int clienteId, int meioUsadoId);
+Atividade* InsereAluguerListaTotalNoFim(Atividade* header, Atividade* novoAluguerListaTotal);
+bool ExisteAluguerListaTotal(Atividade* header, int idAluguerListaTotal);
+int CountAluguerListaTotal(Atividade* head);
 
 
 int CountHistorico(Atividade* head);
 void insertHistoricoCliente(struct Clientes* cliente, Atividade* atividade);
 void insertHistoricoMeio(struct MeiosDeMobilidade* meio, Atividade* atividade);
 
-void insertAlugerTotalGestor(struct Gestor* gestor, AluguerListaTotal* aluguerTotal);
+void insertAlugerTotalGestor(struct Gestor* gestor, Atividade* aluguerTotal);
+
+
+Atividade* LerEArmazenarAluguerListaTotal(char* filename, Atividade* header);
+bool GravarAluguerListaTotalBinario(char* nomeFicheiro, Atividade* header);
+Atividade* LerAluguerListaTotalBinario(char* nomeFicheiro);
+
+void DistribuirAlugueresHistorico(Atividade* header, struct MeiosDeMobilidade* headerMeios, struct Clientes* headerClientes);
 
 
 

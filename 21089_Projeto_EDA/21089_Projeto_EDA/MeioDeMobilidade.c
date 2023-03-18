@@ -78,8 +78,8 @@ void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
 		printf("\nMeio De Mobilidade Dados:\nMeio De Mobilidade ID: %d\n", meiosDeMobilidade->id);
 		printf("Tipo: %s\n", meiosDeMobilidade->tipo);
 		printf("Carga: %d\n", meiosDeMobilidade->cargaBateria);
-		printf("Custo: %d\n", meiosDeMobilidade->custo);
-		printf("Localizacao: %f\n", meiosDeMobilidade->localizacao);
+		printf("Custo: %f\n", meiosDeMobilidade->custo);
+		printf("Localizacao: %s\n", meiosDeMobilidade->localizacao);
 
 
 		printf("\n-------------\n");
@@ -234,3 +234,86 @@ MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro) {
 	fclose(fp);
 	return header;
 }
+
+
+int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
+
+	int contador = 0;
+	MeiosDeMobilidade* aux = header;
+
+	// Count the number of nodes in the list
+	while (aux != NULL) {
+		contador++;
+		aux = aux->next;
+	}
+
+	// Create an array of pointers to the nodes in the list using dynamic memory allocation
+	MeiosDeMobilidade** nodeArray = (MeiosDeMobilidade**)malloc(sizeof(MeiosDeMobilidade*) * contador);
+	if (nodeArray == NULL) {
+		printf("Error: Failed to allocate memory for node array\n");
+		return;
+	}
+
+	// Initialize the array with NULL values
+	for (int i = 0; i < contador; i++) {
+		nodeArray[i] = NULL;
+	}
+
+	// Populate the array with pointers to the nodes in the list
+	aux = header;
+	for (int i = 0; i < contador; i++) {
+		nodeArray[i] = aux;
+		aux = aux->next;
+	}
+
+	// Sort the array based on the cargaBateria field of each node
+	for (int i = 0; i < contador - 1; i++) {
+		for (int j = 0; j < contador - i - 1; j++) {
+			if (nodeArray[j]->cargaBateria > nodeArray[j + 1]->cargaBateria) {
+				MeiosDeMobilidade* temp = nodeArray[j];
+				nodeArray[j] = nodeArray[j + 1];
+				nodeArray[j + 1] = temp;
+			}
+		}
+	}
+
+	// Traverse the array in reverse order, printing the nodes in the desired order
+	for (int i = contador - 1; i >= 0; i--) {
+		printf("id: %d, tipo: %s, cargaBateria: %d, custo: %.2f, localizacao: %s\n",
+			nodeArray[i]->id, nodeArray[i]->tipo, nodeArray[i]->cargaBateria,
+			nodeArray[i]->custo, nodeArray[i]->localizacao);
+	}
+
+	// Free the dynamically allocated memory for the array
+	free(nodeArray);
+
+	return 0;
+
+}
+
+
+int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
+
+	MeiosDeMobilidade* aux = header;
+
+
+	while (aux != NULL)
+	{
+
+		if (strcmp(aux->localizacao, geoCodigo) == 0)
+		{
+			printf("id: %d, tipo: %s, cargaBateria: %d, custo: %.2f, localizacao: %s\n",
+				aux->id, aux->tipo, aux->cargaBateria,
+				aux->custo, aux->localizacao);
+		}
+
+		aux = aux->next;
+
+	}
+
+	
+
+	return 0;
+
+}
+

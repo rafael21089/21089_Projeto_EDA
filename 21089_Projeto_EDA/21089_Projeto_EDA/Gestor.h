@@ -15,13 +15,13 @@ typedef struct Gestor{
     char distrito[50];
     struct MeiosDeMobilidade* meios;
     struct Clientes* clientes;
-    struct AluguerListaTotal* todosAlugueres;
+    struct Atividade* todosAlugueres;
 
     struct Gestor* next;
 } Gestor;
 
 
-Gestor* CriarNovoGestor(int id, char utilizador[50], struct MeiosDeMobilidade* meiosDeMobilidadeExistentes, struct Clientes* clienteExistentes, struct AluguerListaTotal* aluguerTotal);
+Gestor* CriarNovoGestor(int id, char utilizador[50], struct MeiosDeMobilidade* meiosDeMobilidadeExistentes, struct Clientes* clienteExistentes, struct Atividade* aluguerTotal);
 Gestor* InsereGestorNoFim(Gestor* header, Gestor* novoGestor);
 bool ExisteGestor(Gestor* header, int idGestor);
 void MostrarListaGestor(Gestor* header);

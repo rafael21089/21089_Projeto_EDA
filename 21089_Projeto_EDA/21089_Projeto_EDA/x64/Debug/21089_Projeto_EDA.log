@@ -1,6 +1,6 @@
 ﻿  Source.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(58,75): warning C4133: 'function': incompatible types - from 'AluguerListaTotal **' to 'AluguerListaTotal **'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(59,76): warning C4133: 'function': incompatible types - from 'AluguerListaTotal **' to 'AluguerListaTotal **'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(60,76): warning C4133: 'function': incompatible types - from 'AluguerListaTotal **' to 'AluguerListaTotal **'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(62,102): warning C4133: 'function': incompatible types - from 'AluguerListaTotal *' to 'AluguerListaTotal *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(63,75): warning C4133: 'function': incompatible types - from 'Atividade **' to 'Atividade **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(64,76): warning C4133: 'function': incompatible types - from 'Atividade **' to 'Atividade **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(65,76): warning C4133: 'function': incompatible types - from 'Atividade **' to 'Atividade **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(67,102): warning C4133: 'function': incompatible types - from 'Atividade *' to 'Atividade *'
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

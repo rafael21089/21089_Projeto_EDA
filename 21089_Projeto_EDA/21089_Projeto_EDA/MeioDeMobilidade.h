@@ -36,4 +36,7 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 bool GravarMeiosDeMobilidadeBinario(char* nomeFicheiro, MeiosDeMobilidade* header);
 MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro);
 
+int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header);
+int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header, char* geoCodigo);
+
 

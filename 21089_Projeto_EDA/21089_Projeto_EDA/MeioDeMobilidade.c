@@ -373,6 +373,8 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 
 	system("cls");
 
+	printf("\n\n\n ----------- Listagem ----------\n");
+
 	// Conta o numbero de nodes
 	while (aux != NULL) {
 		contador++;
@@ -438,6 +440,7 @@ int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
 
 	system("cls");
 
+	printf("\n\n\n ----------- Listagem ----------\n");
 
 	while (aux != NULL)
 	{

@@ -139,23 +139,18 @@ int main() {
 			break;
 
 		case 11:
-			printf("\n\n\n ----------- Listagem ----------\n");
 			ListarMeioAutonomiaDecrescente(headListaMeios);
 			break;
 		case 12:
-			printf("\n\n\n ----------- Listagem ----------\n");
 			ListarGeocodigoPorEscreverMeiosDeMobilidade(headListaMeios);
 			break;
 		case 13:
-			printf("\n\n\n ----------- Listagem ----------\n");
 			AluguerClientePorEscrever(headListaAluguerTotal);
 			break;
 		case 14:
-			printf("\n\n\n ----------- Listagem ----------\n");
 			AluguerMeiosPorEscrever(headListaAluguerTotal);
 			break;
 		case 15:
-			printf("\n\n\n ----------- Listagem ----------\n");
 			ListarTodosAlugueres(headListaAluguerTotal);
 			break;
 		case 16:

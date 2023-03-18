@@ -311,39 +311,60 @@ Aluguer* LerAluguerListaTotalBinario(char* nomeFicheiro) {
 void DistribuirAlugueresHistorico(Aluguer* header, MeiosDeMobilidade* headerMeios, Clientes* headerClientes) {
 
 	Aluguer* auxAluguer = header;
+	Clientes* auxClientes = headerClientes;
+	MeiosDeMobilidade* auxMeio = headerMeios;
 
-	while (auxAluguer != NULL) {
+	while (auxClientes != NULL)
+	{
+		Aluguer* auxClienteAluguerOriginal = (Aluguer*)malloc(sizeof(Aluguer));
 
-		Clientes* auxClientes = headerClientes;
-		MeiosDeMobilidade* auxMeio = headerMeios;
-
-		while (auxClientes != NULL)
+		while (auxAluguer != NULL)
 		{
-			if (auxClientes->id == auxAluguer->clienteId) //Se tiver Id do cliente adiciona
+			if (auxClientes->id == auxAluguer->clienteId)
 			{
-				auxClientes->aluguer = auxAluguer;
 
-				auxClientes->id = CountClientes(headerClientes);
-			}
+				auxClienteAluguerOriginal->id = auxAluguer->id;
+				auxClienteAluguerOriginal->custo = auxAluguer->custo;
+				strcpy(auxClienteAluguerOriginal->estadoDoAluguer, auxAluguer->estadoDoAluguer);
+				auxClienteAluguerOriginal->clienteId = auxAluguer->clienteId;
+				auxClienteAluguerOriginal->meioUsadoId = auxAluguer->meioUsadoId;
+				auxClienteAluguerOriginal->next = NULL;
 
-			auxClientes = auxClientes->next;
-		}
+				auxClientes->aluguer = auxClienteAluguerOriginal;
 
-
-		while (auxMeio != NULL)
-		{
-			if (auxMeio->id == auxAluguer->meioUsadoId)//Se tiver Id do Meio adiciona
-			{
-				auxMeio->aluguer = auxAluguer;
-				auxMeio->id = CountMeios(headerMeios);
 
 			}
+			auxAluguer = auxAluguer->next;
 
-			auxMeio = auxMeio->next;
 		}
 
+		auxClientes = auxClientes->next;
+		auxAluguer = header; 
+	}
 
-		auxAluguer = auxAluguer->next;
+	auxAluguer = header;
+
+	while (auxMeio != NULL)
+	{
+		Aluguer* auxMeioAluguer = (Aluguer*)malloc(sizeof(Aluguer));
+
+		while (auxAluguer != NULL)
+		{
+			if (auxMeio->id == auxAluguer->meioUsadoId)
+			{
+				auxMeioAluguer->id = auxAluguer->id;
+				auxMeioAluguer->custo = auxAluguer->custo;
+				strcpy(auxMeioAluguer->estadoDoAluguer, auxAluguer->estadoDoAluguer);
+				auxMeioAluguer->clienteId = auxAluguer->clienteId;
+				auxMeioAluguer->meioUsadoId = auxAluguer->meioUsadoId;
+				auxMeioAluguer->next = NULL;;
+
+				auxMeio->aluguer = auxMeioAluguer;
+			}
+			auxAluguer = auxAluguer->next;
+		}
+		auxMeio = auxMeio->next;
+		auxAluguer = header;  
 	}
 
 
@@ -364,6 +385,8 @@ int ListarClienteAlugueresById(Aluguer* header, int idCliente) {
 	Aluguer* aux = header;
 
 	system("cls");
+
+	printf("\n\n\n ----------- Listagem ----------\n");
 
 	while (aux != NULL)
 	{
@@ -413,6 +436,9 @@ int ListarMeiosAlugueresById(Aluguer* header, int idMeios) {
 
 	system("cls");
 
+	printf("\n\n\n ----------- Listagem ----------\n");
+
+
 	while (aux != NULL)
 	{
 		if (aux->meioUsadoId == idMeios)
@@ -461,6 +487,7 @@ int ListarTodosAlugueres(Aluguer* header) {
 
 	system("cls");
 
+	printf("\n\n\n ----------- Listagem ----------\n");
 
 	Aluguer* aux = header;
 

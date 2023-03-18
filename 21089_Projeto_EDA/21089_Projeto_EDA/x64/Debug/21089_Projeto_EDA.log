@@ -1,23 +1,7 @@
 ﻿  Aluguer.c
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(217,3): warning C4033: 'LerEArmazenarAluguerListaTotal' must return a value
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(231,45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Cliente.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(224,3): warning C4033: 'LerEArmazenarCliente' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(244,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(346,7): warning C4101: 'nome': unreferenced local variable
-  Gestor.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(179,3): warning C4033: 'LerEArmazenarGestor' must return a value
-  MeioDeMobilidade.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(272,3): warning C4033: 'LerEArmazenarMeiosDeMobilidade' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(290,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(386,3): warning C4033: 'ListarMeioAutonomiaDecrescente' must return a value
   Source.c
   Generating Code...
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(306): warning C4715: 'LerEArmazenarMeiosDeMobilidade': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(423): warning C4715: 'ListarMeioAutonomiaDecrescente': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(216): warning C4715: 'LerEArmazenarGestor': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(260): warning C4715: 'LerEArmazenarCliente': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(197): warning C4715: 'RegistoAluguer': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(370): warning C4716: 'RegistoPorEscrever': must return a value
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(247): warning C4715: 'LerEArmazenarAluguerListaTotal': not all control paths return a value
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

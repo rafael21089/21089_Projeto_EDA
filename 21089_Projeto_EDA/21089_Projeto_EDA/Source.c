@@ -1,5 +1,15 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+
+/**
+*  @file Source.c
+ * @author Rafael Silva
+ * @email a21089@alunos.ipca.pt
+ * @date 2023
+ * @brief Main da Aplicacao
+ *
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>

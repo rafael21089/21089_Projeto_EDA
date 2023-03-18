@@ -1,5 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+
+/**
+*  @file MeioDeMobilidade.c
+ * @author Rafael Silva
+ * @email a21089@alunos.ipca.pt
+ * @date 2023
+ *
+ * @brief Funcoes para MeioDeMobilidade
+
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,12 +20,24 @@
 #include "MeioDeMobilidade.h"
 
 
-
+/**
+*	@brief Cria MeioDeMobilidade.
+*
+*
+*	@param [in] id					id do MeioDeMobilidade
+*	@param [in] tipo				tipo do MeioDeMobilidade
+*	@param [in] cargaBateria		carga da Bateria Do MeioDeMobilidade
+*	@param [in] custo				custo Do MeioDeMobilidade
+*	@param [in] localizacao			localizacao Do MeioDeMobilidade
+* 
+*	@return novo MeioDeMobilidade
+*
+*/
 MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, char* localizacao) {
 
 
 	MeiosDeMobilidade* novoMeiosDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
-	if (novoMeiosDeMobilidade == NULL) return NULL;	//pode não haver memória!!!
+	if (novoMeiosDeMobilidade == NULL) return NULL;	//se não haver memória
 
 	novoMeiosDeMobilidade->id = id;
 	strcpy(novoMeiosDeMobilidade->tipo, tipo);
@@ -23,35 +47,53 @@ MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, 
 
 	Aluguer* ativ = NULL;
 
-	novoMeiosDeMobilidade->atividade = ativ;
+	novoMeiosDeMobilidade->aluguer = ativ;
 
 	novoMeiosDeMobilidade->next = NULL;
 
 	return novoMeiosDeMobilidade;
 }
 
-
+/**
+*	@brief Insere MeiosDeMobilidade na lista de MeiosDeMobilidade.
+*
+*
+*	@param [in] header								header da lista de MeiosDeMobilidade
+*	@param [in] novoMeiosDeMobilidade				novo MeiosDeMobilidade
+*
+*	@return header da lista de MeiosDeMobilidade;
+* 
+*
+*/
 MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* header, MeiosDeMobilidade* novoMeiosDeMobilidade) {
-	//Verificar se o novo jogo já existe!!!
-	if (ExisteMeiosDeMobilidade(header, novoMeiosDeMobilidade->id)) return header;	//se existir não insere!
+	//Verificar se o novo Meio já existe
+	if (ExisteMeiosDeMobilidade(header, novoMeiosDeMobilidade->id)) return header;	//se existir não insere
 
-	if (header == NULL) {		//lista vazia
+	if (header == NULL) {		//se for vazia
 		header = novoMeiosDeMobilidade;
 	}
 	else
 	{
-		//Posicionar-se no fim da lista
 		MeiosDeMobilidade* aux = header;
 		while (aux->next != NULL) {
 			aux = aux->next;
 		}
-		//insere no fim da lista
-		aux->next = novoMeiosDeMobilidade;
+		
+		aux->next = novoMeiosDeMobilidade; //insere no fim da lista
 	}
 	return header;
 }
 
-
+/**
+*	@brief Ver se MeiosDeMobilidade existe.
+*
+*
+*	@param [in] header								header da lista de MeiosDeMobilidade
+*	@param [in] idMeiosDeMobilidade					id do MeiosDeMobilidade da lista total
+*
+*	@return True/False;
+*
+*/
 bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* header, int idMeiosDeMobilidade) {
 	if (header == NULL) return false;
 	MeiosDeMobilidade* aux = header;
@@ -64,14 +106,28 @@ bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* header, int idMeiosDeMobilidade)
 }
 
 
+/**
+*	@brief Mostra os Meios De Mobilidade que Existem.
+*
+*
+*	@param [in] header								header da lista de MeiosDeMobilidade
+*
+*/
 void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* header) {
 	MeiosDeMobilidade* aux = header;
-	while (aux) {		//mesmo que while (aux!=NULL)
+	while (aux) {		
 		MostraMeiosDeMobilidade(aux);
 		aux = aux->next;
 	}
 }
 
+/**
+*	@brief Mostra os Meios De Mobilidade que Existem , e escreve.
+*
+*
+*	@param [in] meiosDeMobilidade					header da lista de MeiosDeMobilidade
+*
+*/
 void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
 	if (meiosDeMobilidade != NULL)
 	{
@@ -187,7 +243,7 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 
 		Aluguer* ativ = NULL;
 
-		novoMeioDeMobilidade->atividade = ativ;
+		novoMeioDeMobilidade->aluguer = ativ;
 		novoMeioDeMobilidade->next = NULL;
 
 

@@ -157,13 +157,13 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 
 		if (cliente->atividade != NULL)
 		{
-			idClienteRegisto = CountHistorico(cliente->atividade);
+			idClienteRegisto = CountAlugueres(cliente->atividade);
 		}
 
 
-		if (meio->atividade != NULL)
+		if (meio->aluguer != NULL)
 		{
-			idMeioRegisto = CountHistorico(meio->atividade);
+			idMeioRegisto = CountAlugueres(meio->aluguer);
 
 		}
 
@@ -182,8 +182,8 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 		atividadesMeios->meioUsadoId = meio->id;
 		atividadesMeios->next = NULL;
 
-		insertHistoricoCliente(cliente, atividades);
-		insertHistoricoMeio(meio, atividadesMeios);
+		InsertAlugueresCliente(cliente, atividades);
+		InsertAlugueresMeio(meio, atividadesMeios);
 
 
 		int idAluguerListaTotal = CountAluguerListaTotal(*headerAluguerTotal);

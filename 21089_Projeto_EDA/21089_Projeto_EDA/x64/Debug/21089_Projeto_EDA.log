@@ -1,1 +1,25 @@
-﻿  21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe
+﻿  Aluguer.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(217,3): warning C4033: 'LerEArmazenarAluguerListaTotal' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(231,45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Cliente.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(224,3): warning C4033: 'LerEArmazenarCliente' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(244,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(346,7): warning C4101: 'nome': unreferenced local variable
+  Gestor.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(146,3): warning C4033: 'LerEArmazenarGestor' must return a value
+  MeioDeMobilidade.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(200,3): warning C4033: 'LerEArmazenarMeiosDeMobilidade' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(218,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(290,3): warning C4033: 'ListarMeioAutonomiaDecrescente' must return a value
+  Source.c
+  Generating Code...
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(236): warning C4715: 'LerEArmazenarMeiosDeMobilidade': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(328): warning C4715: 'ListarMeioAutonomiaDecrescente': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(183): warning C4715: 'LerEArmazenarGestor': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(260): warning C4715: 'LerEArmazenarCliente': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(197): warning C4715: 'RegistoAluguer': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(370): warning C4716: 'RegistoPorEscrever': must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(247): warning C4715: 'LerEArmazenarAluguerListaTotal': not all control paths return a value
+  LINK : the 32-bit linker (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x64\link.exe) failed to do memory mapped file I/O on `x64\Debug\MeioDeMobilidade.obj' and is going to restart linking with a 64-bit linker for better throughput
+  LINK : restarting link with 64-bit linker `C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX64\x64\link.exe'
+  21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

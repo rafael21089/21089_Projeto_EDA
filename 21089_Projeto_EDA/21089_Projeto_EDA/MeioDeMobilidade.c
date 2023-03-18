@@ -75,7 +75,7 @@ void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* header) {
 void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
 	if (meiosDeMobilidade != NULL)
 	{
-		printf("\nMeio De Mobilidade Dados:\nMeio De Mobilidade ID: %d\n", meiosDeMobilidade->id);
+		printf("\nMeio De Mobilidade ID: %d\n", meiosDeMobilidade->id);
 		printf("Tipo: %s\n", meiosDeMobilidade->tipo);
 		printf("Carga: %d\n", meiosDeMobilidade->cargaBateria);
 		printf("Custo: %f\n", meiosDeMobilidade->custo);
@@ -312,6 +312,78 @@ int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
 	}
 
 	
+
+	return 0;
+
+}
+
+
+
+MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
+
+
+	int id;
+	char tipo[50];
+	int cargaBateria;
+	float custo;
+	char localizacao[50];
+
+	printf("\n\nDigite o id do meio de mobilidade: ");
+	scanf("%d", &id);
+	printf("\nDigite o tipo: ");
+	scanf("%s", &tipo);
+	printf("\nDigite a carga de bateria: ");
+	scanf("%d", &cargaBateria);
+	printf("\nDigite o custo: ");
+	scanf("%f", &custo);
+	printf("\nDigite a sua localizacao: ");
+	scanf("%s", &localizacao);
+
+	MeiosDeMobilidade* meioNovo = CriarMeiosDeMobilidade(id, tipo, cargaBateria, custo, localizacao);
+
+	return meioNovo;
+
+}
+
+int AlterarPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
+
+
+	int id;
+	char tipo[50];
+
+	printf("\n\nDigite o id do meio de mobilidade: ");
+	scanf("%d", &id);
+	printf("\nDigite o tipo: ");
+	scanf("%s", &tipo);
+
+	AlteraMeiosDeMobilidade(&headMeios, id, tipo);
+
+	return 0;
+
+}
+
+int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
+
+	int id;
+
+	printf("\n\nDigite o id do meio de mobilidade que quer eliminar: ");
+	scanf("%d", &id);
+
+	RemoverMeiosDeMobilidade(headMeios, id);
+
+	return 0;
+
+}
+
+
+int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
+
+	char localizacao[50];
+
+	printf("\n\nDigite a localizacao para encontrar os meios disponiveis: ");
+	scanf("%s", &localizacao);
+
+	ListarMeioPorGeoCodigo(headMeios, localizacao);
 
 	return 0;
 

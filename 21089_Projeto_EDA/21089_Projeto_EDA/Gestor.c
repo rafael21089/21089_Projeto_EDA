@@ -11,13 +11,14 @@
 // ----------------------------------------
 
 
-Gestor* CriarNovoGestor(int id, char utilizador[50], MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , Atividade* aluguerTotal) {
+Gestor* CriarNovoGestor(int id, char* utilizador, char* distrito, MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , Atividade* aluguerTotal) {
 
 	Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
 	if (novoGestor == NULL) return NULL;
 
 	novoGestor->id = id;
 	strcpy(novoGestor->utilizador, utilizador);
+	strcpy(novoGestor->distrito, distrito);
 	novoGestor->meios = meiosDeMobilidadeExistentes;
 	novoGestor->clientes = clienteExistentes;
 	novoGestor->todosAlugueres = aluguerTotal;
@@ -71,7 +72,7 @@ void MostrarListaGestor(Gestor* header) {
 void MostraGestor(Gestor* gestor) {
 	if (gestor != NULL)
 	{
-		printf("\Gestor:\nMeio De Mobilidade ID: %d\n", gestor->id);
+		printf("\nGestor ID: %d\n", gestor->id);
 		printf("Utilizador: %s\n", gestor->utilizador);
 		printf("Distrito: %s\n", gestor->distrito);
 		printf("\n-------------\n");
@@ -209,11 +210,83 @@ Gestor* LerGestorBinario(char* nomeFicheiro) {
 
 	// Ler n registos do ficheiro
 	while ((auxAnt = (Gestor*)malloc(sizeof(Gestor))) && fread(auxAnt, sizeof(Gestor), 1, fp)) {
-		Gestor* aux = CriarNovoGestor(auxAnt->id, auxAnt->utilizador , NULL , NULL , NULL);
+		Gestor* aux = CriarNovoGestor(auxAnt->id, auxAnt->utilizador, auxAnt->distrito, NULL , NULL , NULL);
 		header = InsereGestorNoFim(header, aux);
 	}
 	fclose(fp);
 	return header;
+}
+
+
+int GravarMeiosEClientesNosGestores(Gestor* gestor , Atividade* alugueresTotal , Clientes* clientesHeader , MeiosDeMobilidade* meiosHeader) {
+
+
+	Gestor* aux = gestor;
+
+	while (aux != NULL)
+	{
+		aux->clientes = clientesHeader;
+		aux->meios = meiosHeader;
+		aux->todosAlugueres = alugueresTotal;
+		aux = aux->next;
+	}
+
+
+
+	return 0;
+}
+
+
+
+Gestor* InserirPorEscreverGestor() {
+
+
+	int id; 
+	char utilizador[50]; 
+	char distrito[50];
+
+	printf("\n\nDigite o id do Gestor: ");
+	scanf("%d", &id);
+	printf("\nDigite o nome do utilizador: ");
+	scanf("%s", &utilizador);
+	printf("\nDigite o distrito: ");
+	scanf("%s", &distrito);
+
+
+	Gestor* gestorNovo = CriarNovoGestor(id, utilizador, distrito, NULL, NULL, NULL);
+
+	return gestorNovo;
+
+}
+
+int AlterarPorEscreverGestor(Gestor* headGestor) {
+
+
+	int id;
+	char utilizador[50];
+
+	printf("\n\nDigite o id do Gestor: ");
+	scanf("%d", &id);
+	printf("\nDigite o novo nome de utilizador: ");
+	scanf("%s", &utilizador);
+
+	AlteraGestor(&headGestor, id, utilizador);
+
+	return 0;
+
+}
+
+int RemoverPorEscreverGestor(Gestor* headGestor) {
+
+	int id;
+
+	printf("\n\nDigite o id do Gestor que quer eliminar: ");
+	scanf("%d", &id);
+
+	RemoverGestor(headGestor, id);
+
+	return 0;
+
 }
 
 

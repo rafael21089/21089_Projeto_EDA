@@ -40,3 +40,10 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header);
 int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header, char* geoCodigo);
 
 
+MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade();
+int AlterarPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
+int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
+
+int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
+
+

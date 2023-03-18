@@ -38,6 +38,12 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header);
 bool GravarClientesBinario(char* nomeFicheiro, Clientes* header);
 Clientes* LerClientesBinario(char* nomeFicheiro);
 
-void RegistoAluguer(struct Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, struct Atividade** headerAluguerTotal, int idCliente, int idMeios);
+int RegistoAluguer(struct Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, struct Atividade** headerAluguerTotal, int idCliente, int idMeios);
+
+Clientes* InserirPorEscreverCliente();
+int AlterarPorEscreverCliente(Clientes* headClientes);
+int RemoverPorEscreverCliente(Clientes* headClientes);
+
+int RegistoPorEscrever(Clientes* headClientes, struct Atividade* headAluguer, struct MeiosDeMobilidade* headMeio);
 
 

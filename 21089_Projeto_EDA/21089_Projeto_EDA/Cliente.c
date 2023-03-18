@@ -75,7 +75,7 @@ void MostrarListaClientes(Clientes* header) {
 void MostraCliente(Clientes* cliente) {
 	if (cliente != NULL)
 	{
-		printf("\nCliente Dados:\nCliente ID: %d\n", cliente->id);
+		printf("\nCliente ID: %d\n", cliente->id);
 		printf("Nome: %s\n", cliente->nome);
 		printf("Morada: %s\n", cliente->morada);
 		printf("NIF: %s\n", cliente->nif);
@@ -136,11 +136,14 @@ void AlteraCliente(Clientes** header, int id, char* nome) {
 }
 
 
-void RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , Atividade** headerAluguerTotal, int idCliente, int idMeios) {
+int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , Atividade** headerAluguerTotal, int idCliente, int idMeios) {
 
 
 	Clientes* cliente = ProcuraClientes(*headerCliente, idCliente);
 	MeiosDeMobilidade* meio = ProcuraMeiosDeMobilidade(*headerMeios, idMeios);
+
+	if (cliente == NULL) return 0;
+	if (meio == NULL) return 0;
 
 	if (cliente->saldo >= meio->custo)
 	{
@@ -185,7 +188,7 @@ void RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , 
 
 		int idAluguerListaTotal = CountAluguerListaTotal(*headerAluguerTotal);
 
-		Atividade* aluguerNovo = CriarAluguerListaTotal(idAluguerListaTotal, atividades->custo , atividades->estadoDoAluguer , atividades->id , atividadesMeios->id);
+		Atividade* aluguerNovo = CriarAluguerListaTotal(idAluguerListaTotal+1, atividades->custo , atividades->estadoDoAluguer , cliente->id , meio->id);
 		*headerAluguerTotal = InsereAluguerListaTotalNoFim(*headerAluguerTotal, aluguerNovo);
 
 	}
@@ -292,3 +295,76 @@ Clientes* LerClientesBinario(char* nomeFicheiro) {
 }
 
 
+
+Clientes* InserirPorEscreverCliente() {
+
+
+	int id;
+	char nome[50];
+	char morada[50]; 
+	char nif[9];
+	float saldo;
+
+	printf("\n\nDigite o id do cliente: ");
+	scanf("%d", &id);
+	printf("\nDigite o nome do cliente: ");
+	scanf("%s", &nome);
+	printf("\nDigite a morada do cliente: ");
+	scanf("%s", &morada);
+	printf("\nDigite o nif do cliente: ");
+	scanf("%s", &nif);
+	printf("\nDigite o saldo do cliente: ");
+	scanf("%f", &saldo);
+
+	Clientes* clienteNovo = CriarClientes(id,nome,morada,nif,saldo);
+
+	return clienteNovo;
+
+}
+
+int AlterarPorEscreverCliente(Clientes* headClientes) {
+
+
+	int id;
+	char nome[50];
+
+	printf("\n\nDigite o id do cliente que quer alterar: ");
+	scanf("%d", &id);
+	printf("\nDigite o novo nome do cliente: ");
+	scanf("%s", &nome);
+
+	AlteraCliente(&headClientes, id, nome);
+
+	return 0;
+
+}
+
+int RemoverPorEscreverCliente(Clientes* headClientes) {
+
+
+	int id;
+	char nome[50];
+
+	printf("\n\nDigite o id do cliente que quer eliminar: ");
+	scanf("%d", &id);
+
+	RemoverCliente(headClientes, id);
+
+	return 0;
+
+}
+
+
+int RegistoPorEscrever(Clientes* headClientes , Atividade* headAluguer , MeiosDeMobilidade* headMeio ) {
+
+	int idCliente;
+	int idMeio;
+
+	printf("\n\nDigite o id do cliente que quer registar um aluguer: ");
+	scanf("%d", &idCliente);
+	printf("\nDigite o id do meio de mobilidade : ");
+	scanf("%d", &idMeio);
+
+	RegistoAluguer(&headClientes, &headMeio, &headAluguer, idCliente, idMeio);
+
+}

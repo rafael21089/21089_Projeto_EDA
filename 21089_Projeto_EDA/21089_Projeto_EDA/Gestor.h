@@ -21,7 +21,7 @@ typedef struct Gestor{
 } Gestor;
 
 
-Gestor* CriarNovoGestor(int id, char utilizador[50], struct MeiosDeMobilidade* meiosDeMobilidadeExistentes, struct Clientes* clienteExistentes, struct Atividade* aluguerTotal);
+Gestor* CriarNovoGestor(int id, char* utilizador, char* distrito, struct MeiosDeMobilidade* meiosDeMobilidadeExistentes, struct Clientes* clienteExistentes, struct Atividade* aluguerTotal);
 Gestor* InsereGestorNoFim(Gestor* header, Gestor* novoGestor);
 bool ExisteGestor(Gestor* header, int idGestor);
 void MostrarListaGestor(Gestor* header);
@@ -34,6 +34,12 @@ void AlteraGestor(Gestor** header, int id, char* utilizador);
 Gestor* LerEArmazenarGestor(char* filename, Gestor* header);
 bool GravarGestorBinario(char* nomeFicheiro, Gestor* header);
 Gestor* LerGestorBinario(char* nomeFicheiro);
+
+int GravarMeiosEClientesNosGestores(Gestor* gestor, struct Atividade* alugueresTotal, struct Clientes* clientesHeader, struct MeiosDeMobilidade* meiosHeader);
+
+Gestor* InserirPorEscreverGestor();
+int AlterarPorEscreverGestor(Gestor* headGestor);
+int RemoverPorEscreverGestor(Gestor* headGestor);
 
 
 

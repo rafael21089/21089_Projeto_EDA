@@ -11,7 +11,7 @@
 // ----------------------------------------
 
 
-Gestor* CriarNovoGestor(int id, char utilizador[50], MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes) {
+Gestor* CriarNovoGestor(int id, char utilizador[50], MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , AluguerListaTotal* aluguerTotal) {
 
 	Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
 	if (novoGestor == NULL) return NULL;
@@ -20,6 +20,7 @@ Gestor* CriarNovoGestor(int id, char utilizador[50], MeiosDeMobilidade* meiosDeM
 	strcpy(novoGestor->utilizador, utilizador);
 	novoGestor->meios = meiosDeMobilidadeExistentes;
 	novoGestor->clientes = clienteExistentes;
+	novoGestor->todosAlugueres = aluguerTotal;
 
 	novoGestor->next = NULL;
 
@@ -204,9 +205,11 @@ Gestor* LerGestorBinario(char* nomeFicheiro) {
 
 	// Ler n registos do ficheiro
 	while ((auxAnt = (Gestor*)malloc(sizeof(Gestor))) && fread(auxAnt, sizeof(Gestor), 1, fp)) {
-		Gestor* aux = CriarNovoGestor(auxAnt->id, auxAnt->utilizador , NULL , NULL);
+		Gestor* aux = CriarNovoGestor(auxAnt->id, auxAnt->utilizador , NULL , NULL , NULL);
 		header = InsereGestorNoFim(header, aux);
 	}
 	fclose(fp);
 	return header;
 }
+
+

@@ -8,7 +8,7 @@
 #include "Atividade.h"
 #include "Cliente.h"
 
-typedef struct {
+typedef struct MeiosDeMobilidade{
     int id;
     char tipo[50];
     int cargaBateria;
@@ -35,4 +35,5 @@ int CountMeios(struct MeiosDeMobilidade* head);
 MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilidade* header);
 bool GravarMeiosDeMobilidadeBinario(char* nomeFicheiro, MeiosDeMobilidade* header);
 MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro);
+
 

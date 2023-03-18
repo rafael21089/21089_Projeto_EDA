@@ -10,7 +10,7 @@
 #include "Atividade.h"
 #include "MeioDeMobilidade.h"
 
-typedef struct {
+typedef struct Clientes{
 
     int id;
     char nome[50];
@@ -38,6 +38,6 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header);
 bool GravarClientesBinario(char* nomeFicheiro, Clientes* header);
 Clientes* LerClientesBinario(char* nomeFicheiro);
 
-void RegistoAluguer(Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, int idCliente, int idMeios);
+void RegistoAluguer(struct Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, struct AluguerListaTotal** headerAluguerTotal, int idCliente, int idMeios);
 
 

@@ -7,63 +7,68 @@
 #include "Gestor.h"
 #include "Cliente.h"
 #include "MeioDeMobilidade.h"
+#include "Atividade.h"
 
 
 int main() {
 
 
-	Clientes* C1 = CriarClientes(1,"Manuel","Rua X", "123456789",3);
-	Clientes* C2 = CriarClientes(2,"Manuela","Rua X", "123456789",3);
+	Clientes* c1 = CriarClientes(1,"Manuel","Rua X", "123456789",300);
+	Clientes* c2 = CriarClientes(2,"Manuela","Rua X", "123456789",300);
 
-	MeiosDeMobilidade* M1 = CriarMeiosDeMobilidade(1,"Bicicleta",67,20,"BRAGA");
-	MeiosDeMobilidade* M2 = CriarMeiosDeMobilidade(2,"Bicicleta",44,20,"BARCELOS");
+	MeiosDeMobilidade* m1 = CriarMeiosDeMobilidade(1,"Bicicleta",67,20,"BRAGA");
+	MeiosDeMobilidade* m2 = CriarMeiosDeMobilidade(2,"Bicicleta",44,20,"BARCELOS");
  
-	Clientes* HeadListaClientes = NULL;		//inicio da lista
-	MeiosDeMobilidade* HeadListaMeios = NULL;		//inicio da lista
-	Gestor* HeadListaGestor = NULL;		//inicio da lista
+	Clientes* headListaClientes = NULL;		//inicio da lista
+	MeiosDeMobilidade* headListaMeios = NULL;		//inicio da lista
+	Gestor* headListaGestor = NULL;		//inicio da lista
+	AluguerListaTotal* headListaAluguerTotal = NULL;		//inicio da lista
 
 
-	//HeadListaClientes = LerClientesBinario("ClientesSave.bin");
-	//HeadListaClientes = LerEArmazenarCliente("ClientesInserir.txt", HeadListaClientes);
-	//GravarClientesBinario("ClientesSave.bin", HeadListaClientes);
+	//headListaClientes = LerClientesBinario("ClientesSave.bin");
+	//headListaClientes = LerEArmazenarCliente("ClientesInserir.txt", HeadListaClientes);
+	//GravarClientesBinario("ClientesSave.bin", headListaClientes);
 
 
-	//HeadListaGestor = LerGestorBinario("GestorSave.bin");
-	//HeadListaGestor = LerEArmazenarGestor("GestorInserir.txt" , HeadListaGestor);
-	//GravarGestorBinario("GestorSave.bin", HeadListaGestor);
+	//headListaGestor = LerGestorBinario("GestorSave.bin");
+	//headListaGestor = LerEArmazenarGestor("GestorInserir.txt" , headListaGestor);
+	//GravarGestorBinario("GestorSave.bin", headListaGestor);
 
-	//HeadListaMeios = LerMeiosDeMobilidadeBinario("MeiosSave.bin");
-	//HeadListaMeios = LerEArmazenarMeiosDeMobilidade("MeiosInserir.txt" , HeadListaMeios);
-	//GravarMeiosDeMobilidadeBinario("MeiosSave.bin", HeadListaMeios);
-
-
-	HeadListaClientes = InsereClienteNoFim(HeadListaClientes, C1);
-	HeadListaClientes = InsereClienteNoFim(HeadListaClientes, C2);
-	HeadListaMeios = InsereMeiosDeMobilidadeNoFim(HeadListaMeios, M1);
-	HeadListaMeios = InsereMeiosDeMobilidadeNoFim(HeadListaMeios, M2);
-
-	//RemoverCliente(HeadListaClientes,2);
-	//RemoverMeiosDeMobilidade(HeadListaMeios, 2);
+	//headListaMeios = LerMeiosDeMobilidadeBinario("MeiosSave.bin");
+	//headListaMeios = LerEArmazenarMeiosDeMobilidade("MeiosInserir.txt" , headListaMeios);
+	//GravarMeiosDeMobilidadeBinario("MeiosSave.bin", headListaMeios);
 
 
-	AlteraCliente(&HeadListaClientes,1,"Javier");
-	AlteraMeiosDeMobilidade(&HeadListaMeios,1,"Carro");
+	headListaClientes = InsereClienteNoFim(headListaClientes, c1);
+	headListaClientes = InsereClienteNoFim(headListaClientes, c2);
+	headListaMeios = InsereMeiosDeMobilidadeNoFim(headListaMeios, m1);
+	headListaMeios = InsereMeiosDeMobilidadeNoFim(headListaMeios, m2);
+
+	//RemoverCliente(headListaClientes,2);
+	//RemoverMeiosDeMobilidade(headListaMeios, 2);
 
 
-	Gestor* G1 = CriarNovoGestor(1,"Jeronimo", HeadListaMeios, HeadListaClientes);
-	HeadListaGestor = InsereGestorNoFim(HeadListaGestor, G1);
+	AlteraCliente(&headListaClientes,1,"Javier");
+	AlteraMeiosDeMobilidade(&headListaMeios,1,"Carro");
 
 
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,1);
-	RegistoAluguer(&HeadListaClientes, &HeadListaMeios,1,2);
+	
 
-	AlteraGestor(&HeadListaGestor, 1, "Carla");
 
-	//RemoverGestor(HeadListaGestor, 1);
+	RegistoAluguer(&headListaClientes, &headListaMeios,&headListaAluguerTotal,1,1);
+	RegistoAluguer(&headListaClientes, &headListaMeios, &headListaAluguerTotal, 1,1);
+	RegistoAluguer(&headListaClientes, &headListaMeios, &headListaAluguerTotal, 1,2);
 
-	MostrarListaMeiosDeMobilidade(HeadListaMeios);
-	MostrarListaClientes(HeadListaClientes);
-	MostrarListaGestor(HeadListaGestor);
+	Gestor* G1 = CriarNovoGestor(1, "Jeronimo", headListaMeios, headListaClientes, headListaAluguerTotal);
+	headListaGestor = InsereGestorNoFim(headListaGestor, G1);
+
+	AlteraGestor(&headListaGestor, 1, "Carla");
+
+	//RemoverGestor(headListaGestor, 1);
+
+	MostrarListaMeiosDeMobilidade(headListaMeios);
+	MostrarListaClientes(headListaClientes);
+	MostrarListaGestor(headListaGestor);
 
 
 

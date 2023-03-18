@@ -136,7 +136,7 @@ void AlteraCliente(Clientes** header, int id, char* nome) {
 }
 
 
-void RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios, int idCliente, int idMeios) {
+void RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , AluguerListaTotal** headerAluguerTotal, int idCliente, int idMeios) {
 
 
 	Clientes* cliente = ProcuraClientes(*headerCliente, idCliente);
@@ -168,19 +168,26 @@ void RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios, i
 		atividades->id = idClienteRegisto;
 		atividades->estadoDoAluguer = ATIVO;
 		atividades->custo = meio->custo;
-		atividades->cliente = cliente;
-		atividades->meioUsado = meio;
+		atividades->clienteId = cliente->id;
+		atividades->meioUsadoId = meio->id;
 		atividades->next = NULL;
 
 		atividadesMeios->id = idMeioRegisto;
 		atividadesMeios->estadoDoAluguer = ATIVO;
 		atividadesMeios->custo = meio->custo;
-		atividadesMeios->cliente = cliente;
-		atividadesMeios->meioUsado = meio;
+		atividadesMeios->clienteId = cliente->id;
+		atividadesMeios->meioUsadoId = meio->id;
 		atividadesMeios->next = NULL;
 
 		insertHistoricoCliente(cliente, atividades);
 		insertHistoricoMeio(meio, atividadesMeios);
+
+
+		int idAluguerListaTotal = CountAluguerListaTotal(*headerAluguerTotal);
+
+		AluguerListaTotal* aluguerNovo = CriarAluguerListaTotal(idAluguerListaTotal, atividades , atividadesMeios);
+		*headerAluguerTotal = InsereAluguerListaTotalNoFim(*headerAluguerTotal, aluguerNovo);
+
 	}
 	
 

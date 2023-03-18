@@ -5,20 +5,23 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "Atividade.h"
 #include "Cliente.h"
 #include "MeioDeMobilidade.h"
 
-typedef struct {
+typedef struct Gestor{
     int id;
     char utilizador[50];
+    char distrito[50];
     struct MeiosDeMobilidade* meios;
     struct Clientes* clientes;
+    struct AluguerListaTotal* todosAlugueres;
 
     struct Gestor* next;
 } Gestor;
 
 
-Gestor* CriarNovoGestor(int id, char utilizador[50], struct MeiosDeMobilidade* meiosDeMobilidadeExistentes, struct Clientes* clienteExistentes);
+Gestor* CriarNovoGestor(int id, char utilizador[50], struct MeiosDeMobilidade* meiosDeMobilidadeExistentes, struct Clientes* clienteExistentes, struct AluguerListaTotal* aluguerTotal);
 Gestor* InsereGestorNoFim(Gestor* header, Gestor* novoGestor);
 bool ExisteGestor(Gestor* header, int idGestor);
 void MostrarListaGestor(Gestor* header);

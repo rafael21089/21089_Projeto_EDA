@@ -7,7 +7,7 @@
 #include <string.h>
 
 
-#include "Atividade.h"
+#include "Aluguer.h"
 #include "MeioDeMobilidade.h"
 
 typedef struct Clientes{
@@ -17,7 +17,7 @@ typedef struct Clientes{
     char morada[50];
     char nif[9];
     float saldo;
-    struct Atividade* atividade;
+    struct Aluguer* atividade;
 
     struct Clientes* next;
 
@@ -38,12 +38,12 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header);
 bool GravarClientesBinario(char* nomeFicheiro, Clientes* header);
 Clientes* LerClientesBinario(char* nomeFicheiro);
 
-int RegistoAluguer(struct Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, struct Atividade** headerAluguerTotal, int idCliente, int idMeios);
+int RegistoAluguer(struct Clientes** headerCliente, struct MeiosDeMobilidade** headerMeios, struct Aluguer** headerAluguerTotal, int idCliente, int idMeios);
 
 Clientes* InserirPorEscreverCliente();
 int AlterarPorEscreverCliente(Clientes* headClientes);
 int RemoverPorEscreverCliente(Clientes* headClientes);
 
-int RegistoPorEscrever(Clientes* headClientes, struct Atividade* headAluguer, struct MeiosDeMobilidade* headMeio);
+int RegistoPorEscrever(Clientes* headClientes, struct Aluguer* headAluguer, struct MeiosDeMobilidade* headMeio);
 
 

@@ -5,11 +5,11 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "Atividade.h"
+#include "Aluguer.h"
 
-int CountHistorico(Atividade* Head) {
+int CountHistorico(Aluguer* Head) {
 	int count = 0;
-	Atividade* current = Head;
+	Aluguer* current = Head;
 
 	while (current != NULL) {
 		count++;
@@ -19,26 +19,26 @@ int CountHistorico(Atividade* Head) {
 	return count;
 }
 
-void insertHistoricoCliente(Clientes* cliente, Atividade* atividade) {
+void insertHistoricoCliente(Clientes* cliente, Aluguer* atividade) {
 	atividade->next = cliente->atividade;
 	cliente->atividade = atividade;
 }
 
-void insertHistoricoMeio(MeiosDeMobilidade* meio, Atividade* atividade) {
+void insertHistoricoMeio(MeiosDeMobilidade* meio, Aluguer* atividade) {
 	atividade->next = meio->atividade;
 	meio->atividade = atividade;
 }
 
-void insertAlugerTotalGestor(Gestor* gestor, Atividade* aluguerTotal) {
+void insertAlugerTotalGestor(Gestor* gestor, Aluguer* aluguerTotal) {
 	aluguerTotal->next = gestor->todosAlugueres;
 	gestor->todosAlugueres = aluguerTotal;
 }
 
 
 
-Atividade* CriarAluguerListaTotal(int id, float custo , char* estadoDoAluguer , int clienteId , int meioUsadoId) {
+Aluguer* CriarAluguerListaTotal(int id, float custo, char* estadoDoAluguer, int clienteId, int meioUsadoId) {
 
-	Atividade* novoAluguerListaTotal = (Atividade*)malloc(sizeof(Atividade));
+	Aluguer* novoAluguerListaTotal = (Aluguer*)malloc(sizeof(Aluguer));
 	if (novoAluguerListaTotal == NULL) return NULL;
 
 	novoAluguerListaTotal->id = id;
@@ -55,7 +55,7 @@ Atividade* CriarAluguerListaTotal(int id, float custo , char* estadoDoAluguer , 
 
 
 
-Atividade* InsereAluguerListaTotalNoFim(Atividade* header, Atividade* novoAluguerListaTotal) {
+Aluguer* InsereAluguerListaTotalNoFim(Aluguer* header, Aluguer* novoAluguerListaTotal) {
 	//Verificar se o novo jogo já existe!!!
 	if (ExisteAluguerListaTotal(header, novoAluguerListaTotal->id)) return header;	//se existir não insere!
 
@@ -65,7 +65,7 @@ Atividade* InsereAluguerListaTotalNoFim(Atividade* header, Atividade* novoAlugue
 	else
 	{
 		//Posicionar-se no fim da lista
-		Atividade* aux = header;
+		Aluguer* aux = header;
 		while (aux->next != NULL) {
 			aux = aux->next;
 		}
@@ -76,9 +76,9 @@ Atividade* InsereAluguerListaTotalNoFim(Atividade* header, Atividade* novoAlugue
 }
 
 
-bool ExisteAluguerListaTotal(Atividade* header, int idAluguerListaTotal) {
+bool ExisteAluguerListaTotal(Aluguer* header, int idAluguerListaTotal) {
 	if (header == NULL) return false;
-	Atividade* aux = header;
+	Aluguer* aux = header;
 	while (aux != NULL) {
 		if (aux->id == idAluguerListaTotal)
 			return true;
@@ -88,9 +88,9 @@ bool ExisteAluguerListaTotal(Atividade* header, int idAluguerListaTotal) {
 }
 
 
-int CountAluguerListaTotal(Atividade* head) {
+int CountAluguerListaTotal(Aluguer* head) {
 	int count = 0;
-	Atividade* current = head;
+	Aluguer* current = head;
 
 	while (current != NULL) {
 		count++;
@@ -102,7 +102,7 @@ int CountAluguerListaTotal(Atividade* head) {
 
 
 
-Atividade* LerEArmazenarAluguerListaTotal(char* filename, Atividade* header) {
+Aluguer* LerEArmazenarAluguerListaTotal(char* filename, Aluguer* header) {
 
 	FILE* fp;
 	char line[1024];
@@ -122,7 +122,7 @@ Atividade* LerEArmazenarAluguerListaTotal(char* filename, Atividade* header) {
 		line[strcspn(line, "\n")] = '\0';
 
 
-		Atividade* novoAluguerListaTotal = (Atividade*)malloc(sizeof(Atividade));
+		Aluguer* novoAluguerListaTotal = (Aluguer*)malloc(sizeof(Aluguer));
 
 		// parse line into variables separated by semicolons
 		token = strtok(line, ";");
@@ -149,17 +149,17 @@ Atividade* LerEArmazenarAluguerListaTotal(char* filename, Atividade* header) {
 }
 
 
-bool GravarAluguerListaTotalBinario(char* nomeFicheiro, Atividade* header) {
+bool GravarAluguerListaTotalBinario(char* nomeFicheiro, Aluguer* header) {
 	FILE* fp;
 
 	if (header == NULL) return false;
 	if ((fp = fopen(nomeFicheiro, "wb")) == NULL) return false;
 
 	// Grava n registos no ficheiro
-	Atividade* aux = header;
+	Aluguer* aux = header;
 	while (aux) {
 		// Escrever no ficheiro os dados do registo de memória
-		fwrite(aux, sizeof(Atividade), 1, fp);
+		fwrite(aux, sizeof(Aluguer), 1, fp);
 		aux = aux->next;
 	}
 	fclose(fp);
@@ -167,25 +167,25 @@ bool GravarAluguerListaTotalBinario(char* nomeFicheiro, Atividade* header) {
 }
 
 
-Atividade* LerAluguerListaTotalBinario(char* nomeFicheiro) {
+Aluguer* LerAluguerListaTotalBinario(char* nomeFicheiro) {
 	FILE* fp;
-	Atividade* header = NULL;
-	Atividade* auxAnt;
+	Aluguer* header = NULL;
+	Aluguer* auxAnt;
 
 	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
 
 	// Ler n registos do ficheiro
-	while ((auxAnt = (Atividade*)malloc(sizeof(Atividade))) && fread(auxAnt, sizeof(Atividade), 1, fp)) {
-		Atividade* aux = CriarAluguerListaTotal(auxAnt->id, auxAnt->custo, auxAnt->estadoDoAluguer , auxAnt->clienteId , auxAnt->meioUsadoId);
+	while ((auxAnt = (Aluguer*)malloc(sizeof(Aluguer))) && fread(auxAnt, sizeof(Aluguer), 1, fp)) {
+		Aluguer* aux = CriarAluguerListaTotal(auxAnt->id, auxAnt->custo, auxAnt->estadoDoAluguer, auxAnt->clienteId, auxAnt->meioUsadoId);
 		header = InsereAluguerListaTotalNoFim(header, aux);
 	}
 	fclose(fp);
 	return header;
 }
 
-void DistribuirAlugueresHistorico(Atividade* header , MeiosDeMobilidade* headerMeios , Clientes* headerClientes) {
+void DistribuirAlugueresHistorico(Aluguer* header, MeiosDeMobilidade* headerMeios, Clientes* headerClientes) {
 
-	Atividade* auxAluguer = header;
+	Aluguer* auxAluguer = header;
 
 	while (auxAluguer != NULL) {
 
@@ -226,9 +226,9 @@ void DistribuirAlugueresHistorico(Atividade* header , MeiosDeMobilidade* headerM
 
 
 
-int ListarClienteAlugueresById(Atividade* header , int idCliente) {
+int ListarClienteAlugueresById(Aluguer* header, int idCliente) {
 
-	Atividade* aux = header;
+	Aluguer* aux = header;
 
 	system("cls");
 
@@ -236,7 +236,7 @@ int ListarClienteAlugueresById(Atividade* header , int idCliente) {
 	{
 		if (aux->clienteId == idCliente)
 		{
-			printf(" ID Aluguer: %d , Custo: %f, Estado: %s , Cliente Id: %d, Meio Usado Id: %d \n", aux->id , aux->custo , aux->estadoDoAluguer , aux->clienteId , aux->meioUsadoId);
+			printf(" ID Aluguer: %d , Custo: %f, Estado: %s , Cliente Id: %d, Meio Usado Id: %d \n", aux->id, aux->custo, aux->estadoDoAluguer, aux->clienteId, aux->meioUsadoId);
 		}
 
 		aux = aux->next;
@@ -245,7 +245,7 @@ int ListarClienteAlugueresById(Atividade* header , int idCliente) {
 	return 0;
 }
 
-int AluguerClientePorEscrever(Atividade* headAluguer) {
+int AluguerClientePorEscrever(Aluguer* headAluguer) {
 
 	int idCliente;
 
@@ -253,16 +253,16 @@ int AluguerClientePorEscrever(Atividade* headAluguer) {
 	scanf("%d", &idCliente);
 
 
-	ListarClienteAlugueresById(headAluguer,idCliente);
+	ListarClienteAlugueresById(headAluguer, idCliente);
 
 	return 0;
 
 }
 
 
-int ListarMeiosAlugueresById(Atividade* header, int idMeios) {
+int ListarMeiosAlugueresById(Aluguer* header, int idMeios) {
 
-	Atividade* aux = header;
+	Aluguer* aux = header;
 
 	system("cls");
 
@@ -279,7 +279,7 @@ int ListarMeiosAlugueresById(Atividade* header, int idMeios) {
 	return 0;
 }
 
-int AluguerMeiosPorEscrever(Atividade* headAluguer) {
+int AluguerMeiosPorEscrever(Aluguer* headAluguer) {
 
 	int idMeios;
 
@@ -295,17 +295,17 @@ int AluguerMeiosPorEscrever(Atividade* headAluguer) {
 }
 
 
-int ListarTodosAlugueres(Atividade* header) {
+int ListarTodosAlugueres(Aluguer* header) {
 
 	system("cls");
 
 
-	Atividade* aux = header;
+	Aluguer* aux = header;
 
 	while (aux != NULL)
 	{
-		
-	     printf(" ID Aluguer: %d , Custo: %f, Estado: %s , Cliente Id: %d, Meio Usado Id: %d \n", aux->id, aux->custo, aux->estadoDoAluguer, aux->clienteId, aux->meioUsadoId);
+
+		printf(" ID Aluguer: %d , Custo: %f, Estado: %s , Cliente Id: %d, Meio Usado Id: %d \n", aux->id, aux->custo, aux->estadoDoAluguer, aux->clienteId, aux->meioUsadoId);
 
 		aux = aux->next;
 	}

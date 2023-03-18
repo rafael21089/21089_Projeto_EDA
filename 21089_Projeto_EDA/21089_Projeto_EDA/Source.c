@@ -7,7 +7,7 @@
 #include "Gestor.h"
 #include "Cliente.h"
 #include "MeioDeMobilidade.h"
-#include "Atividade.h"
+#include "Aluguer.h"
 
 
 int main() {
@@ -16,7 +16,7 @@ int main() {
 	Clientes* headListaClientes = NULL;				//Inicio da lista Clientes
 	MeiosDeMobilidade* headListaMeios = NULL;		//Inicio da lista MeiosDeMobilidade
 	Gestor* headListaGestor = NULL;					//Inicio da lista Gestor
-	Atividade* headListaAluguerTotal = NULL;		//Inicio da lista
+	Aluguer* headListaAluguerTotal = NULL;		//Inicio da lista
 
 
 	// Armazenamento de listas , se tiver vazia vai ao ficheiro de texto para inserir valores.
@@ -43,7 +43,7 @@ int main() {
 		GravarMeiosDeMobilidadeBinario("MeiosSave.bin", headListaMeios);
 	}
 
-	DistribuirAlugueresHistorico(headListaAluguerTotal, headListaMeios, headListaClientes);
+	DistribuirAlugueresHistorico(headListaAluguerTotal, headListaMeios, headListaClientes);  // Distribui os alugueres passados (historico de alugueres) nas listas respectivas
 
 
 	headListaGestor = LerGestorBinario("GestorSave.bin");
@@ -56,12 +56,12 @@ int main() {
 	GravarMeiosEClientesNosGestores(headListaGestor , headListaAluguerTotal,  headListaClientes , headListaMeios);  //Grava as listas Clientes e Meios em todos os gestores
 
 
-	// ---------
+	//---------
 
 
 	int escolha;
 
-	// ---------  Menu --------------
+	//----------  Menu --------------
 
 	do {
 
@@ -86,8 +86,8 @@ int main() {
 		printf("\n10. Registar Aluguer\n");
 		printf("11. Listar por autonomia meios de mobilidade \n");
 		printf("12. Listar meios de mobilidade existentes com geocodigo\n");
-		printf("13. Listar Alugueres de Cliente: \n");
-		printf("14. Listar Alugueres de Meios: \n");
+		printf("13. Listar Alugueres de Cliente por Id: \n");
+		printf("14. Listar Alugueres de Meios por Id: \n");
 		printf("15. Listar todos Alugueres: \n");
 
 		printf("16. Sair\n");

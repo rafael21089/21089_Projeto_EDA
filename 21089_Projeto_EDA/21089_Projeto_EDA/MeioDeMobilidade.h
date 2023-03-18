@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-#include "Atividade.h"
+#include "Aluguer.h"
 #include "Cliente.h"
 
 typedef struct MeiosDeMobilidade{
@@ -14,7 +14,7 @@ typedef struct MeiosDeMobilidade{
     int cargaBateria;
     float custo;
     char localizacao[50];
-    struct Atividade* atividade;
+    struct Aluguer* atividade;
 
     struct MeiosDeMobilidade* next;
 

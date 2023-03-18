@@ -11,7 +11,7 @@
 // ----------------------------------------
 
 
-Gestor* CriarNovoGestor(int id, char* utilizador, char* distrito, MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , Atividade* aluguerTotal) {
+Gestor* CriarNovoGestor(int id, char* utilizador, char* distrito, MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , Aluguer* aluguerTotal) {
 
 	Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
 	if (novoGestor == NULL) return NULL;
@@ -163,7 +163,7 @@ Gestor* LerEArmazenarGestor(char* filename, Gestor* header) {
 
 		Clientes* cliente = NULL;
 		MeiosDeMobilidade* meios = NULL;
-		Atividade* todosAlugueres = NULL;
+		Aluguer* todosAlugueres = NULL;
 
 		novoGestor->clientes = cliente;
 		novoGestor->meios = meios;
@@ -218,7 +218,7 @@ Gestor* LerGestorBinario(char* nomeFicheiro) {
 }
 
 
-int GravarMeiosEClientesNosGestores(Gestor* gestor , Atividade* alugueresTotal , Clientes* clientesHeader , MeiosDeMobilidade* meiosHeader) {
+int GravarMeiosEClientesNosGestores(Gestor* gestor , Aluguer* alugueresTotal , Clientes* clientesHeader , MeiosDeMobilidade* meiosHeader) {
 
 
 	Gestor* aux = gestor;

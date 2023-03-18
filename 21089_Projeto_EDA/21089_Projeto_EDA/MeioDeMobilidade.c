@@ -21,7 +21,7 @@ MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, 
 	novoMeiosDeMobilidade->custo = custo;
 	strcpy(novoMeiosDeMobilidade->localizacao, localizacao);
 
-	Atividade* ativ = NULL;
+	Aluguer* ativ = NULL;
 
 	novoMeiosDeMobilidade->atividade = ativ;
 
@@ -185,7 +185,7 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 		token = strtok(NULL, ";");
 		strcpy(novoMeioDeMobilidade->localizacao, token);
 
-		Atividade* ativ = NULL;
+		Aluguer* ativ = NULL;
 
 		novoMeioDeMobilidade->atividade = ativ;
 		novoMeioDeMobilidade->next = NULL;

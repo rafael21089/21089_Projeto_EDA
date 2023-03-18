@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "Cliente.h"
+#include "Aluguer.h"
 
 
 Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo) {
@@ -19,7 +19,7 @@ Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], flo
 	strcpy(novoCliente->nif, nif);
 	novoCliente->saldo = saldo;
 
-	Atividade* ativ = NULL;
+	Aluguer* ativ = NULL;
 
 	novoCliente->atividade = ativ;
 
@@ -136,7 +136,7 @@ void AlteraCliente(Clientes** header, int id, char* nome) {
 }
 
 
-int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , Atividade** headerAluguerTotal, int idCliente, int idMeios) {
+int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , Aluguer** headerAluguerTotal, int idCliente, int idMeios) {
 
 
 	Clientes* cliente = ProcuraClientes(*headerCliente, idCliente);
@@ -149,8 +149,8 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 	{
 		cliente->saldo = cliente->saldo - meio->custo;
 
-		Atividade* atividades = (Atividade*)malloc(sizeof(Atividade));
-		Atividade* atividadesMeios = (Atividade*)malloc(sizeof(Atividade));
+		Aluguer* atividades = (Aluguer*)malloc(sizeof(Aluguer));
+		Aluguer* atividadesMeios = (Aluguer*)malloc(sizeof(Aluguer));
 
 		int idClienteRegisto = 0;
 		int idMeioRegisto = 0;
@@ -188,7 +188,7 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 
 		int idAluguerListaTotal = CountAluguerListaTotal(*headerAluguerTotal);
 
-		Atividade* aluguerNovo = CriarAluguerListaTotal(idAluguerListaTotal+1, atividades->custo , atividades->estadoDoAluguer , cliente->id , meio->id);
+		Aluguer* aluguerNovo = CriarAluguerListaTotal(idAluguerListaTotal+1, atividades->custo , atividades->estadoDoAluguer , cliente->id , meio->id);
 		*headerAluguerTotal = InsereAluguerListaTotalNoFim(*headerAluguerTotal, aluguerNovo);
 
 	}
@@ -243,7 +243,7 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
 		token = strtok(NULL, ";");
 		novoCliente->saldo = atoi(token);
 
-		Atividade* ativ = NULL;
+		Aluguer* ativ = NULL;
 
 		novoCliente->atividade = ativ;
 		novoCliente->next = NULL;
@@ -355,7 +355,7 @@ int RemoverPorEscreverCliente(Clientes* headClientes) {
 }
 
 
-int RegistoPorEscrever(Clientes* headClientes , Atividade* headAluguer , MeiosDeMobilidade* headMeio ) {
+int RegistoPorEscrever(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMobilidade* headMeio ) {
 
 	int idCliente;
 	int idMeio;

@@ -1,0 +1,408 @@
+.TH "MeioDeMobilidade.c" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MeioDeMobilidade.c \- Funcoes para MeioDeMobilidade\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include 'MeioDeMobilidade\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRT_SECURE_NO_WARNINGS\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMeiosDeMobilidade\fP * \fBCriarMeiosDeMobilidade\fP (int id, char *tipo, int cargaBateria, float custo, char *localizacao)"
+.br
+.RI "Cria MeioDeMobilidade\&. "
+.ti -1c
+.RI "\fBMeiosDeMobilidade\fP * \fBInsereMeiosDeMobilidadeNoFim\fP (\fBMeiosDeMobilidade\fP *header, \fBMeiosDeMobilidade\fP *novoMeiosDeMobilidade)"
+.br
+.RI "Insere \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "bool \fBExisteMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *header, int idMeiosDeMobilidade)"
+.br
+.RI "Ver se \fBMeiosDeMobilidade\fP existe\&. "
+.ti -1c
+.RI "void \fBMostrarListaMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *header)"
+.br
+.RI "Lista os Meios De Mobilidade que Existem\&. "
+.ti -1c
+.RI "void \fBMostraMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *meiosDeMobilidade)"
+.br
+.RI "Lista os Meios De Mobilidade que Existem , e escreve\&. "
+.ti -1c
+.RI "\fBMeiosDeMobilidade\fP * \fBRemoverMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *header, int id)"
+.br
+.RI "Remove \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "\fBMeiosDeMobilidade\fP * \fBProcuraMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *header, int id)"
+.br
+.RI "Procura \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "void \fBAlteraMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP **header, int id, char *tipo)"
+.br
+.RI "Altera \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "int \fBCountMeios\fP (\fBMeiosDeMobilidade\fP *head)"
+.br
+.RI "Conta \fBMeiosDeMobilidade\fP da lista total\&. "
+.ti -1c
+.RI "\fBMeiosDeMobilidade\fP * \fBLerEArmazenarMeiosDeMobilidade\fP (char *filename, \fBMeiosDeMobilidade\fP *header)"
+.br
+.RI "Le e Armazena \fBMeiosDeMobilidade\fP por txt file\&. "
+.ti -1c
+.RI "bool \fBGravarMeiosDeMobilidadeBinario\fP (char *nomeFicheiro, \fBMeiosDeMobilidade\fP *header)"
+.br
+.RI "Grava \fBMeiosDeMobilidade\fP no bin file\&. "
+.ti -1c
+.RI "\fBMeiosDeMobilidade\fP * \fBLerMeiosDeMobilidadeBinario\fP (char *nomeFicheiro)"
+.br
+.RI "Le e Armazena \fBMeiosDeMobilidade\fP por um bin file\&. "
+.ti -1c
+.RI "int \fBListarMeioAutonomiaDecrescente\fP (\fBMeiosDeMobilidade\fP *header)"
+.br
+.RI "Listar \fBMeiosDeMobilidade\fP por Autonomia de forma decrescente\&. "
+.ti -1c
+.RI "int \fBListarMeioPorGeoCodigo\fP (\fBMeiosDeMobilidade\fP *header, char *geoCodigo)"
+.br
+.RI "Listar \fBMeiosDeMobilidade\fP por geo Codigo\&. "
+.ti -1c
+.RI "\fBMeiosDeMobilidade\fP * \fBInserirPorEscreverMeiosDeMobilidade\fP ()"
+.br
+.RI "Insere \fBMeiosDeMobilidade\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBAlterarPorEscreverMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *headMeios)"
+.br
+.RI "Altera \fBMeiosDeMobilidade\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBRemoverPorEscreverMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *headMeios)"
+.br
+.RI "Remove \fBMeiosDeMobilidade\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBListarGeocodigoPorEscreverMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *headMeios)"
+.br
+.RI "Lista geocodigo \fBMeiosDeMobilidade\fP mas na consola\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Funcoes para MeioDeMobilidade\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Rafael Silva @email a21089@alunos.ipca.pt 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023 
+.RE
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRT_SECURE_NO_WARNINGS"
+
+.SH "Function Documentation"
+.PP 
+.SS "void AlteraMeiosDeMobilidade (\fBMeiosDeMobilidade\fP ** header, int id, char * tipo)"
+
+.PP
+Altera \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id \fBMeiosDeMobilidade\fP 
+.br
+\fItipo\fP tipo \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+
+.SS "int AlterarPorEscreverMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * headMeios)"
+
+.PP
+Altera \fBMeiosDeMobilidade\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int CountMeios (\fBMeiosDeMobilidade\fP * head)"
+
+.PP
+Conta \fBMeiosDeMobilidade\fP da lista total\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Quantos Alugueres Tem; 
+.RE
+.PP
+
+.SS "\fBMeiosDeMobilidade\fP * CriarMeiosDeMobilidade (int id, char * tipo, int cargaBateria, float custo, char * localizacao)"
+
+.PP
+Cria MeioDeMobilidade\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP id do MeioDeMobilidade 
+.br
+\fItipo\fP tipo do MeioDeMobilidade 
+.br
+\fIcargaBateria\fP carga da Bateria Do MeioDeMobilidade 
+.br
+\fIcusto\fP custo Do MeioDeMobilidade 
+.br
+\fIlocalizacao\fP localizacao Do MeioDeMobilidade
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+novo MeioDeMobilidade 
+.RE
+.PP
+
+.SS "bool ExisteMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * header, int idMeiosDeMobilidade)"
+
+.PP
+Ver se \fBMeiosDeMobilidade\fP existe\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIidMeiosDeMobilidade\fP id do \fBMeiosDeMobilidade\fP da lista total
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool GravarMeiosDeMobilidadeBinario (char * nomeFicheiro, \fBMeiosDeMobilidade\fP * header)"
+
+.PP
+Grava \fBMeiosDeMobilidade\fP no bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP Path do bin file 
+.br
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "\fBMeiosDeMobilidade\fP * InsereMeiosDeMobilidadeNoFim (\fBMeiosDeMobilidade\fP * header, \fBMeiosDeMobilidade\fP * novoMeiosDeMobilidade)"
+
+.PP
+Insere \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fInovoMeiosDeMobilidade\fP novo \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
+.RE
+.PP
+
+.SS "\fBMeiosDeMobilidade\fP * InserirPorEscreverMeiosDeMobilidade ()"
+
+.PP
+Insere \fBMeiosDeMobilidade\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
+.RE
+.PP
+
+.SS "\fBMeiosDeMobilidade\fP * LerEArmazenarMeiosDeMobilidade (char * filename, \fBMeiosDeMobilidade\fP * header)"
+
+.PP
+Le e Armazena \fBMeiosDeMobilidade\fP por txt file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfilename\fP Path do Txt file 
+.br
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
+.RE
+.PP
+
+.SS "\fBMeiosDeMobilidade\fP * LerMeiosDeMobilidadeBinario (char * nomeFicheiro)"
+
+.PP
+Le e Armazena \fBMeiosDeMobilidade\fP por um bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
+.RE
+.PP
+
+.SS "int ListarGeocodigoPorEscreverMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * headMeios)"
+
+.PP
+Lista geocodigo \fBMeiosDeMobilidade\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int ListarMeioAutonomiaDecrescente (\fBMeiosDeMobilidade\fP * header)"
+
+.PP
+Listar \fBMeiosDeMobilidade\fP por Autonomia de forma decrescente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int ListarMeioPorGeoCodigo (\fBMeiosDeMobilidade\fP * header, char * geoCodigo)"
+
+.PP
+Listar \fBMeiosDeMobilidade\fP por geo Codigo\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIgeoCodigo\fP geoCodigo
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
+.RE
+.PP
+
+.SS "void MostraMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * meiosDeMobilidade)"
+
+.PP
+Lista os Meios De Mobilidade que Existem , e escreve\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImeiosDeMobilidade\fP header da lista de \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+
+.SS "void MostrarListaMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * header)"
+
+.PP
+Lista os Meios De Mobilidade que Existem\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+
+.SS "\fBMeiosDeMobilidade\fP * ProcuraMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * header, int id)"
+
+.PP
+Procura \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
+.RE
+.PP
+
+.SS "\fBMeiosDeMobilidade\fP * RemoverMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * header, int id)"
+
+.PP
+Remove \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
+.RE
+.PP
+
+.SS "int RemoverPorEscreverMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * headMeios)"
+
+.PP
+Remove \fBMeiosDeMobilidade\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

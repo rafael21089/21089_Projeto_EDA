@@ -1,0 +1,371 @@
+\hypertarget{_gestor_8h}{}\doxysection{Gestor.\+h File Reference}
+\label{_gestor_8h}\index{Gestor.h@{Gestor.h}}
+
+
+Definicao da struct \mbox{\hyperlink{struct_gestor}{Gestor}} onde ira guardar o registo de Gestores e as suas respectivas funcoes.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Aluguer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Cliente.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Meio\+De\+Mobilidade.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_gestor}{Gestor}}
+\begin{DoxyCompactList}\small\item\em Estrutura para armazenar \mbox{\hyperlink{struct_gestor}{Gestor}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_gestor}{Gestor}} \mbox{\hyperlink{_gestor_8h_a3d4ae7dc89d61369ca0a8f1d147607c4}{Gestor}}
+\begin{DoxyCompactList}\small\item\em Estrutura para armazenar \mbox{\hyperlink{struct_gestor}{Gestor}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ \mbox{\hyperlink{_gestor_8h_aacbdc2c579f52e28253a68b0fda91d40}{Criar\+Novo\+Gestor}} (int id, char $\ast$utilizador, char $\ast$distrito, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$meios\+De\+Mobilidade\+Existentes, struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente\+Existentes, struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$aluguer\+Total)
+\begin{DoxyCompactList}\small\item\em Cria \mbox{\hyperlink{struct_gestor}{Gestor}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ \mbox{\hyperlink{_gestor_8h_a6f2e5b56ffa8fa862248f1f8b897d8d1}{Insere\+Gestor\+No\+Fim}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$header, \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$novo\+Gestor)
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de \mbox{\hyperlink{struct_gestor}{Gestor}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_gestor_8h_a7d2685654f9bb33b783867864bfc316d}{Existe\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$header, int id\+Gestor)
+\begin{DoxyCompactList}\small\item\em Ver se \mbox{\hyperlink{struct_gestor}{Gestor}} existe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_gestor_8h_a06d5d1a9dfc2a49cb2ebf0737b6880c9}{Mostrar\+Lista\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Lista os Gestores que Existem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_gestor_8h_a2234ee4700d9e4e07f6b80bfd4c71bf3}{Mostra\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$gestor)
+\begin{DoxyCompactList}\small\item\em Lista os Gestores que Existem , e escreve. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ \mbox{\hyperlink{_gestor_8h_af0d0e543c5fcb680db8479a51502977e}{Remover\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de Gestores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ \mbox{\hyperlink{_gestor_8h_a0e243ae5e66f3ad51d7aef2a1e1cf8d0}{Procura\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Procura \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de Gestores. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_gestor_8h_a7fbdf99e5ccedffd9d95838a28aaed17}{Altera\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$$\ast$header, int id, char $\ast$utilizador)
+\begin{DoxyCompactList}\small\item\em Altera \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de Gestores. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ \mbox{\hyperlink{_gestor_8h_ac187edb9cdb6c3996b0a9a508fa2945e}{Ler\+EArmazenar\+Gestor}} (char $\ast$filename, \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_gestor}{Gestor}} por txt file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_gestor_8h_acdde02251745c3ecb345fa1386e86940}{Gravar\+Gestor\+Binario}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Grava \mbox{\hyperlink{struct_gestor}{Gestor}} no bin file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ \mbox{\hyperlink{_gestor_8h_aac9ab14724475643840100ba92d19e97}{Ler\+Gestor\+Binario}} (char $\ast$nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_gestor}{Gestor}} por um bin file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_gestor_8h_a82ddbbeedb2012369a60154fd48df3ec}{Gravar\+Meios\+EClientes\+Nos\+Gestores}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$gestor, struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$alugueres\+Total, struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$clientes\+Header, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$meios\+Header)
+\begin{DoxyCompactList}\small\item\em Grava Meios de Mobilidade e \mbox{\hyperlink{struct_clientes}{Clientes}} nos Gestores todos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ \mbox{\hyperlink{_gestor_8h_a2328ed02be4bbae6a3502ee66081b01e}{Inserir\+Por\+Escrever\+Gestor}} ()
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_gestor}{Gestor}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_gestor_8h_a024a7c83b12202fe2106fc44ab97fd72}{Alterar\+Por\+Escrever\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$head\+Gestor)
+\begin{DoxyCompactList}\small\item\em Altera \mbox{\hyperlink{struct_gestor}{Gestor}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_gestor_8h_a7d4b7cb5a7e4956cd3eff700c7e71f2a}{Remover\+Por\+Escrever\+Gestor}} (\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$head\+Gestor)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{struct_gestor}{Gestor}} mas na consola. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definicao da struct \mbox{\hyperlink{struct_gestor}{Gestor}} onde ira guardar o registo de Gestores e as suas respectivas funcoes. 
+
+\begin{DoxyAuthor}{Author}
+Rafael Silva @email \href{mailto:a21089@alunos.ipca.pt}{\texttt{ a21089@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_gestor_8h_a3d4ae7dc89d61369ca0a8f1d147607c4}\label{_gestor_8h_a3d4ae7dc89d61369ca0a8f1d147607c4}} 
+\index{Gestor.h@{Gestor.h}!Gestor@{Gestor}}
+\index{Gestor@{Gestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{Gestor}{Gestor}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_gestor}{Gestor}} \mbox{\hyperlink{struct_gestor}{Gestor}}}
+
+
+
+Estrutura para armazenar \mbox{\hyperlink{struct_gestor}{Gestor}}. 
+
+Um \mbox{\hyperlink{struct_gestor}{Gestor}} contém um id (@id), utilizador (@utilizador), distrito (@distrito) ,meios de mobilidade (@meios) , clientes (@clientes) e todos os Alugueres (@todos\+Alugueres). Contém apontador para próximo \mbox{\hyperlink{struct_gestor}{Gestor}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_gestor_8h_a7fbdf99e5ccedffd9d95838a28aaed17}\label{_gestor_8h_a7fbdf99e5ccedffd9d95838a28aaed17}} 
+\index{Gestor.h@{Gestor.h}!AlteraGestor@{AlteraGestor}}
+\index{AlteraGestor@{AlteraGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{AlteraGestor()}{AlteraGestor()}}
+{\footnotesize\ttfamily void Altera\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$$\ast$}]{header,  }\item[{int}]{id,  }\item[{char $\ast$}]{utilizador }\end{DoxyParamCaption})}
+
+
+
+Altera \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de Gestores. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em utilizador} & utilizador \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_gestor_8h_a024a7c83b12202fe2106fc44ab97fd72}\label{_gestor_8h_a024a7c83b12202fe2106fc44ab97fd72}} 
+\index{Gestor.h@{Gestor.h}!AlterarPorEscreverGestor@{AlterarPorEscreverGestor}}
+\index{AlterarPorEscreverGestor@{AlterarPorEscreverGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{AlterarPorEscreverGestor()}{AlterarPorEscreverGestor()}}
+{\footnotesize\ttfamily int Alterar\+Por\+Escrever\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{head\+Gestor }\end{DoxyParamCaption})}
+
+
+
+Altera \mbox{\hyperlink{struct_gestor}{Gestor}} mas na consola. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Gestor} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_aacbdc2c579f52e28253a68b0fda91d40}\label{_gestor_8h_aacbdc2c579f52e28253a68b0fda91d40}} 
+\index{Gestor.h@{Gestor.h}!CriarNovoGestor@{CriarNovoGestor}}
+\index{CriarNovoGestor@{CriarNovoGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{CriarNovoGestor()}{CriarNovoGestor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ Criar\+Novo\+Gestor (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{char $\ast$}]{utilizador,  }\item[{char $\ast$}]{distrito,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{meios\+De\+Mobilidade\+Existentes,  }\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente\+Existentes,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{aluguer\+Total }\end{DoxyParamCaption})}
+
+
+
+Cria \mbox{\hyperlink{struct_gestor}{Gestor}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & id do \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em utilizador} & utilizador do \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em distrito} & distrito Do \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em meios\+De\+Mobilidade\+Existentes} & Meio\+De\+Mobilidade para \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em cliente\+Existentes} & \mbox{\hyperlink{struct_clientes}{Clientes}} para \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em aluguer\+Total} & \mbox{\hyperlink{struct_aluguer}{Aluguer}} total para \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo \mbox{\hyperlink{struct_gestor}{Gestor}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_a7d2685654f9bb33b783867864bfc316d}\label{_gestor_8h_a7d2685654f9bb33b783867864bfc316d}} 
+\index{Gestor.h@{Gestor.h}!ExisteGestor@{ExisteGestor}}
+\index{ExisteGestor@{ExisteGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{ExisteGestor()}{ExisteGestor()}}
+{\footnotesize\ttfamily bool Existe\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{header,  }\item[{int}]{id\+Gestor }\end{DoxyParamCaption})}
+
+
+
+Ver se \mbox{\hyperlink{struct_gestor}{Gestor}} existe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Gestor} & id do \mbox{\hyperlink{struct_gestor}{Gestor}} da lista total\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_acdde02251745c3ecb345fa1386e86940}\label{_gestor_8h_acdde02251745c3ecb345fa1386e86940}} 
+\index{Gestor.h@{Gestor.h}!GravarGestorBinario@{GravarGestorBinario}}
+\index{GravarGestorBinario@{GravarGestorBinario}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{GravarGestorBinario()}{GravarGestorBinario()}}
+{\footnotesize\ttfamily bool Gravar\+Gestor\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Grava \mbox{\hyperlink{struct_gestor}{Gestor}} no bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & Path do bin file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_a82ddbbeedb2012369a60154fd48df3ec}\label{_gestor_8h_a82ddbbeedb2012369a60154fd48df3ec}} 
+\index{Gestor.h@{Gestor.h}!GravarMeiosEClientesNosGestores@{GravarMeiosEClientesNosGestores}}
+\index{GravarMeiosEClientesNosGestores@{GravarMeiosEClientesNosGestores}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{GravarMeiosEClientesNosGestores()}{GravarMeiosEClientesNosGestores()}}
+{\footnotesize\ttfamily int Gravar\+Meios\+EClientes\+Nos\+Gestores (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{gestor,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{alugueres\+Total,  }\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{clientes\+Header,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{meios\+Header }\end{DoxyParamCaption})}
+
+
+
+Grava Meios de Mobilidade e \mbox{\hyperlink{struct_clientes}{Clientes}} nos Gestores todos. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em gestor} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em alugueres\+Total} & header da lista de \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em clientes\+Header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em meios\+Header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_a6f2e5b56ffa8fa862248f1f8b897d8d1}\label{_gestor_8h_a6f2e5b56ffa8fa862248f1f8b897d8d1}} 
+\index{Gestor.h@{Gestor.h}!InsereGestorNoFim@{InsereGestorNoFim}}
+\index{InsereGestorNoFim@{InsereGestorNoFim}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{InsereGestorNoFim()}{InsereGestorNoFim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ Insere\+Gestor\+No\+Fim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{header,  }\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{novo\+Gestor }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de \mbox{\hyperlink{struct_gestor}{Gestor}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em novo\+Gestor} & novo \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_a2328ed02be4bbae6a3502ee66081b01e}\label{_gestor_8h_a2328ed02be4bbae6a3502ee66081b01e}} 
+\index{Gestor.h@{Gestor.h}!InserirPorEscreverGestor@{InserirPorEscreverGestor}}
+\index{InserirPorEscreverGestor@{InserirPorEscreverGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{InserirPorEscreverGestor()}{InserirPorEscreverGestor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ Inserir\+Por\+Escrever\+Gestor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_gestor}{Gestor}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_ac187edb9cdb6c3996b0a9a508fa2945e}\label{_gestor_8h_ac187edb9cdb6c3996b0a9a508fa2945e}} 
+\index{Gestor.h@{Gestor.h}!LerEArmazenarGestor@{LerEArmazenarGestor}}
+\index{LerEArmazenarGestor@{LerEArmazenarGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{LerEArmazenarGestor()}{LerEArmazenarGestor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ Ler\+EArmazenar\+Gestor (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_gestor}{Gestor}} por txt file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filename} & Path do Txt file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_aac9ab14724475643840100ba92d19e97}\label{_gestor_8h_aac9ab14724475643840100ba92d19e97}} 
+\index{Gestor.h@{Gestor.h}!LerGestorBinario@{LerGestorBinario}}
+\index{LerGestorBinario@{LerGestorBinario}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{LerGestorBinario()}{LerGestorBinario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ Ler\+Gestor\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_gestor}{Gestor}} por um bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_a2234ee4700d9e4e07f6b80bfd4c71bf3}\label{_gestor_8h_a2234ee4700d9e4e07f6b80bfd4c71bf3}} 
+\index{Gestor.h@{Gestor.h}!MostraGestor@{MostraGestor}}
+\index{MostraGestor@{MostraGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{MostraGestor()}{MostraGestor()}}
+{\footnotesize\ttfamily void Mostra\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{gestor }\end{DoxyParamCaption})}
+
+
+
+Lista os Gestores que Existem , e escreve. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em gestor} & header da lista de Gestores \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_gestor_8h_a06d5d1a9dfc2a49cb2ebf0737b6880c9}\label{_gestor_8h_a06d5d1a9dfc2a49cb2ebf0737b6880c9}} 
+\index{Gestor.h@{Gestor.h}!MostrarListaGestor@{MostrarListaGestor}}
+\index{MostrarListaGestor@{MostrarListaGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{MostrarListaGestor()}{MostrarListaGestor()}}
+{\footnotesize\ttfamily void Mostrar\+Lista\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Lista os Gestores que Existem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_gestor_8h_a0e243ae5e66f3ad51d7aef2a1e1cf8d0}\label{_gestor_8h_a0e243ae5e66f3ad51d7aef2a1e1cf8d0}} 
+\index{Gestor.h@{Gestor.h}!ProcuraGestor@{ProcuraGestor}}
+\index{ProcuraGestor@{ProcuraGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{ProcuraGestor()}{ProcuraGestor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ Procura\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Procura \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de Gestores. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_af0d0e543c5fcb680db8479a51502977e}\label{_gestor_8h_af0d0e543c5fcb680db8479a51502977e}} 
+\index{Gestor.h@{Gestor.h}!RemoverGestor@{RemoverGestor}}
+\index{RemoverGestor@{RemoverGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{RemoverGestor()}{RemoverGestor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$ Remover\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{struct_gestor}{Gestor}} na lista de Gestores. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_gestor_8h_a7d4b7cb5a7e4956cd3eff700c7e71f2a}\label{_gestor_8h_a7d4b7cb5a7e4956cd3eff700c7e71f2a}} 
+\index{Gestor.h@{Gestor.h}!RemoverPorEscreverGestor@{RemoverPorEscreverGestor}}
+\index{RemoverPorEscreverGestor@{RemoverPorEscreverGestor}!Gestor.h@{Gestor.h}}
+\doxysubsubsection{\texorpdfstring{RemoverPorEscreverGestor()}{RemoverPorEscreverGestor()}}
+{\footnotesize\ttfamily int Remover\+Por\+Escrever\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{head\+Gestor }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{struct_gestor}{Gestor}} mas na consola. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Gestor} & header da lista de \mbox{\hyperlink{struct_gestor}{Gestor}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}

@@ -1,0 +1,389 @@
+\hypertarget{_cliente_8c}{}\doxysection{Cliente.\+c File Reference}
+\label{_cliente_8c}\index{Cliente.c@{Cliente.c}}
+
+
+Funcoes para \mbox{\hyperlink{struct_clientes}{Clientes}}.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Aluguer.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_cliente_8c_af08ec37a8c99d747fb60fa15bc28678b}{\+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNINGS}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{_cliente_8c_a3116b97016d33b487a8188517d0ebe15}{Criar\+Clientes}} (int id, char nome\mbox{[}50\mbox{]}, char morada\mbox{[}50\mbox{]}, char nif\mbox{[}9\mbox{]}, float saldo)
+\begin{DoxyCompactList}\small\item\em Cria Meio\+De\+Mobilidade. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{_cliente_8c_adab003d43eaf01cd19da2354ef7c184d}{Insere\+Cliente\+No\+Fim}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header, \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$novo\+Cliente)
+\begin{DoxyCompactList}\small\item\em Insere Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_cliente_8c_a5b1510d72a1708e2a2a97929eedc6b96}{Existe\+Cliente}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header, int id\+Cliente)
+\begin{DoxyCompactList}\small\item\em Ver se Cliente existe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_cliente_8c_ab69c5b6a62657eefc965de3b0925bd7d}{Mostrar\+Lista\+Clientes}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Lista os \mbox{\hyperlink{struct_clientes}{Clientes}} que Existem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_cliente_8c_a7d89fb3ece417391247b23ee492c006f}{Mostra\+Cliente}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente)
+\begin{DoxyCompactList}\small\item\em Lista os \mbox{\hyperlink{struct_clientes}{Clientes}} que Existem , e escreve. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{_cliente_8c_a83d2511d0a642efe2e00c566ff4bfb88}{Remover\+Cliente}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Remove Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{_cliente_8c_accdeb91c05866425b30c53e8c339927b}{Procura\+Clientes}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Procura Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_cliente_8c_ac88a1d64c94994aec09f458d5eb412c7}{Altera\+Cliente}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$$\ast$header, int id, char $\ast$nome)
+\begin{DoxyCompactList}\small\item\em Altera Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_cliente_8c_a8c3e4de65811bc87d57f1b48bf9cd67f}{Registo\+Aluguer}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$$\ast$header\+Cliente, \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$header\+Meios, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$$\ast$header\+Aluguer\+Total, int id\+Cliente, int id\+Meios)
+\begin{DoxyCompactList}\small\item\em Regista um \mbox{\hyperlink{struct_aluguer}{Aluguer}} de um Meio de Mobilidade pelo o Cliente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_cliente_8c_ad5a73913e046fa3a43eedfd9f595a08a}{Count\+Clientes}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Conta \mbox{\hyperlink{struct_clientes}{Clientes}} da lista total. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{_cliente_8c_a035761bf6ee64e84f737e0f2ba1db4cc}{Ler\+EArmazenar\+Cliente}} (char $\ast$filename, \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_clientes}{Clientes}} por txt file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_cliente_8c_aef19859d740cee6d2cec68f187c55fca}{Gravar\+Clientes\+Binario}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Grava \mbox{\hyperlink{struct_clientes}{Clientes}} no bin file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{_cliente_8c_a06601e111f3554919bec4eab1bc844cc}{Ler\+Clientes\+Binario}} (char $\ast$nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_clientes}{Clientes}} por um bin file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{_cliente_8c_a0201d3d9572211f08c42c880fe0408c7}{Inserir\+Por\+Escrever\+Cliente}} ()
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_clientes}{Clientes}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_cliente_8c_a1792acf5c4d9aa313f2d10bdc49dfa41}{Alterar\+Por\+Escrever\+Cliente}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$head\+Clientes)
+\begin{DoxyCompactList}\small\item\em Altera \mbox{\hyperlink{struct_clientes}{Clientes}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_cliente_8c_a40e950a56f4998295f564464fa712327}{Remover\+Por\+Escrever\+Cliente}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$head\+Clientes)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{struct_clientes}{Clientes}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_cliente_8c_a5978d39456ff63c7768aa1c956c71f24}{Registo\+Por\+Escrever}} (\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$head\+Clientes, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$head\+Aluguer, \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meio)
+\begin{DoxyCompactList}\small\item\em Registar \mbox{\hyperlink{struct_aluguer}{Aluguer}} na consola. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funcoes para \mbox{\hyperlink{struct_clientes}{Clientes}}. 
+
+\begin{DoxyAuthor}{Author}
+Rafael Silva @email \href{mailto:a21089@alunos.ipca.pt}{\texttt{ a21089@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_cliente_8c_af08ec37a8c99d747fb60fa15bc28678b}\label{_cliente_8c_af08ec37a8c99d747fb60fa15bc28678b}} 
+\index{Cliente.c@{Cliente.c}!\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}}
+\index{\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{\_CRT\_SECURE\_NO\_WARNINGS}{\_CRT\_SECURE\_NO\_WARNINGS}}
+{\footnotesize\ttfamily \#define \+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNINGS}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_cliente_8c_ac88a1d64c94994aec09f458d5eb412c7}\label{_cliente_8c_ac88a1d64c94994aec09f458d5eb412c7}} 
+\index{Cliente.c@{Cliente.c}!AlteraCliente@{AlteraCliente}}
+\index{AlteraCliente@{AlteraCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{AlteraCliente()}{AlteraCliente()}}
+{\footnotesize\ttfamily void Altera\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$$\ast$}]{header,  }\item[{int}]{id,  }\item[{char $\ast$}]{nome }\end{DoxyParamCaption})}
+
+
+
+Altera Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em nome} & nome Cliente \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_cliente_8c_a1792acf5c4d9aa313f2d10bdc49dfa41}\label{_cliente_8c_a1792acf5c4d9aa313f2d10bdc49dfa41}} 
+\index{Cliente.c@{Cliente.c}!AlterarPorEscreverCliente@{AlterarPorEscreverCliente}}
+\index{AlterarPorEscreverCliente@{AlterarPorEscreverCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{AlterarPorEscreverCliente()}{AlterarPorEscreverCliente()}}
+{\footnotesize\ttfamily int Alterar\+Por\+Escrever\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{head\+Clientes }\end{DoxyParamCaption})}
+
+
+
+Altera \mbox{\hyperlink{struct_clientes}{Clientes}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_ad5a73913e046fa3a43eedfd9f595a08a}\label{_cliente_8c_ad5a73913e046fa3a43eedfd9f595a08a}} 
+\index{Cliente.c@{Cliente.c}!CountClientes@{CountClientes}}
+\index{CountClientes@{CountClientes}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{CountClientes()}{CountClientes()}}
+{\footnotesize\ttfamily int Count\+Clientes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Conta \mbox{\hyperlink{struct_clientes}{Clientes}} da lista total. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quantos \mbox{\hyperlink{struct_clientes}{Clientes}} Tem; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a3116b97016d33b487a8188517d0ebe15}\label{_cliente_8c_a3116b97016d33b487a8188517d0ebe15}} 
+\index{Cliente.c@{Cliente.c}!CriarClientes@{CriarClientes}}
+\index{CriarClientes@{CriarClientes}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{CriarClientes()}{CriarClientes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ Criar\+Clientes (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{char}]{nome\mbox{[}50\mbox{]},  }\item[{char}]{morada\mbox{[}50\mbox{]},  }\item[{char}]{nif\mbox{[}9\mbox{]},  }\item[{float}]{saldo }\end{DoxyParamCaption})}
+
+
+
+Cria Meio\+De\+Mobilidade. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & id do Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em nome} & nome do Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em morada} & morada do Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em nif} & nif do Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em saldo} & saldo do Cliente\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo \mbox{\hyperlink{struct_clientes}{Clientes}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a5b1510d72a1708e2a2a97929eedc6b96}\label{_cliente_8c_a5b1510d72a1708e2a2a97929eedc6b96}} 
+\index{Cliente.c@{Cliente.c}!ExisteCliente@{ExisteCliente}}
+\index{ExisteCliente@{ExisteCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{ExisteCliente()}{ExisteCliente()}}
+{\footnotesize\ttfamily bool Existe\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header,  }\item[{int}]{id\+Cliente }\end{DoxyParamCaption})}
+
+
+
+Ver se Cliente existe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Cliente} & id do Cliente da lista total\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_aef19859d740cee6d2cec68f187c55fca}\label{_cliente_8c_aef19859d740cee6d2cec68f187c55fca}} 
+\index{Cliente.c@{Cliente.c}!GravarClientesBinario@{GravarClientesBinario}}
+\index{GravarClientesBinario@{GravarClientesBinario}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{GravarClientesBinario()}{GravarClientesBinario()}}
+{\footnotesize\ttfamily bool Gravar\+Clientes\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Grava \mbox{\hyperlink{struct_clientes}{Clientes}} no bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & Path do bin file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_adab003d43eaf01cd19da2354ef7c184d}\label{_cliente_8c_adab003d43eaf01cd19da2354ef7c184d}} 
+\index{Cliente.c@{Cliente.c}!InsereClienteNoFim@{InsereClienteNoFim}}
+\index{InsereClienteNoFim@{InsereClienteNoFim}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{InsereClienteNoFim()}{InsereClienteNoFim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ Insere\+Cliente\+No\+Fim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header,  }\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{novo\+Cliente }\end{DoxyParamCaption})}
+
+
+
+Insere Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em novo\+Cliente} & novo Cliente\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a0201d3d9572211f08c42c880fe0408c7}\label{_cliente_8c_a0201d3d9572211f08c42c880fe0408c7}} 
+\index{Cliente.c@{Cliente.c}!InserirPorEscreverCliente@{InserirPorEscreverCliente}}
+\index{InserirPorEscreverCliente@{InserirPorEscreverCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{InserirPorEscreverCliente()}{InserirPorEscreverCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ Inserir\+Por\+Escrever\+Cliente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_clientes}{Clientes}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a06601e111f3554919bec4eab1bc844cc}\label{_cliente_8c_a06601e111f3554919bec4eab1bc844cc}} 
+\index{Cliente.c@{Cliente.c}!LerClientesBinario@{LerClientesBinario}}
+\index{LerClientesBinario@{LerClientesBinario}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{LerClientesBinario()}{LerClientesBinario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ Ler\+Clientes\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_clientes}{Clientes}} por um bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a035761bf6ee64e84f737e0f2ba1db4cc}\label{_cliente_8c_a035761bf6ee64e84f737e0f2ba1db4cc}} 
+\index{Cliente.c@{Cliente.c}!LerEArmazenarCliente@{LerEArmazenarCliente}}
+\index{LerEArmazenarCliente@{LerEArmazenarCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{LerEArmazenarCliente()}{LerEArmazenarCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ Ler\+EArmazenar\+Cliente (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_clientes}{Clientes}} por txt file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filename} & Path do Txt file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a7d89fb3ece417391247b23ee492c006f}\label{_cliente_8c_a7d89fb3ece417391247b23ee492c006f}} 
+\index{Cliente.c@{Cliente.c}!MostraCliente@{MostraCliente}}
+\index{MostraCliente@{MostraCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{MostraCliente()}{MostraCliente()}}
+{\footnotesize\ttfamily void Mostra\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente }\end{DoxyParamCaption})}
+
+
+
+Lista os \mbox{\hyperlink{struct_clientes}{Clientes}} que Existem , e escreve. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cliente} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_cliente_8c_ab69c5b6a62657eefc965de3b0925bd7d}\label{_cliente_8c_ab69c5b6a62657eefc965de3b0925bd7d}} 
+\index{Cliente.c@{Cliente.c}!MostrarListaClientes@{MostrarListaClientes}}
+\index{MostrarListaClientes@{MostrarListaClientes}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{MostrarListaClientes()}{MostrarListaClientes()}}
+{\footnotesize\ttfamily void Mostrar\+Lista\+Clientes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Lista os \mbox{\hyperlink{struct_clientes}{Clientes}} que Existem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_cliente_8c_accdeb91c05866425b30c53e8c339927b}\label{_cliente_8c_accdeb91c05866425b30c53e8c339927b}} 
+\index{Cliente.c@{Cliente.c}!ProcuraClientes@{ProcuraClientes}}
+\index{ProcuraClientes@{ProcuraClientes}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{ProcuraClientes()}{ProcuraClientes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ Procura\+Clientes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Procura Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id Cliente\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a8c3e4de65811bc87d57f1b48bf9cd67f}\label{_cliente_8c_a8c3e4de65811bc87d57f1b48bf9cd67f}} 
+\index{Cliente.c@{Cliente.c}!RegistoAluguer@{RegistoAluguer}}
+\index{RegistoAluguer@{RegistoAluguer}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{RegistoAluguer()}{RegistoAluguer()}}
+{\footnotesize\ttfamily int Registo\+Aluguer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$$\ast$}]{header\+Cliente,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$}]{header\+Meios,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$$\ast$}]{header\+Aluguer\+Total,  }\item[{int}]{id\+Cliente,  }\item[{int}]{id\+Meios }\end{DoxyParamCaption})}
+
+
+
+Regista um \mbox{\hyperlink{struct_aluguer}{Aluguer}} de um Meio de Mobilidade pelo o Cliente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header\+Cliente} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Meios} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Aluguer\+Total} & header da lista de \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Cliente} & id Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Meios} & id Meio De Mobilidade \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_cliente_8c_a5978d39456ff63c7768aa1c956c71f24}\label{_cliente_8c_a5978d39456ff63c7768aa1c956c71f24}} 
+\index{Cliente.c@{Cliente.c}!RegistoPorEscrever@{RegistoPorEscrever}}
+\index{RegistoPorEscrever@{RegistoPorEscrever}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{RegistoPorEscrever()}{RegistoPorEscrever()}}
+{\footnotesize\ttfamily int Registo\+Por\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{head\+Clientes,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{head\+Aluguer,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meio }\end{DoxyParamCaption})}
+
+
+
+Registar \mbox{\hyperlink{struct_aluguer}{Aluguer}} na consola. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Clientes} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+Aluguer} & header da lista de \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+Meio} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_cliente_8c_a83d2511d0a642efe2e00c566ff4bfb88}\label{_cliente_8c_a83d2511d0a642efe2e00c566ff4bfb88}} 
+\index{Cliente.c@{Cliente.c}!RemoverCliente@{RemoverCliente}}
+\index{RemoverCliente@{RemoverCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{RemoverCliente()}{RemoverCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ Remover\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove Cliente na lista de \mbox{\hyperlink{struct_clientes}{Clientes}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id Cliente\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_cliente_8c_a40e950a56f4998295f564464fa712327}\label{_cliente_8c_a40e950a56f4998295f564464fa712327}} 
+\index{Cliente.c@{Cliente.c}!RemoverPorEscreverCliente@{RemoverPorEscreverCliente}}
+\index{RemoverPorEscreverCliente@{RemoverPorEscreverCliente}!Cliente.c@{Cliente.c}}
+\doxysubsubsection{\texorpdfstring{RemoverPorEscreverCliente()}{RemoverPorEscreverCliente()}}
+{\footnotesize\ttfamily int Remover\+Por\+Escrever\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{head\+Clientes }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{struct_clientes}{Clientes}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}

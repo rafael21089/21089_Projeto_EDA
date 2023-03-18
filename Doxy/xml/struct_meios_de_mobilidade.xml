@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_meios_de_mobilidade" kind="struct" language="C++" prot="public">
+    <compoundname>MeiosDeMobilidade</compoundname>
+    <includes refid="_meio_de_mobilidade_8h" local="no">MeioDeMobilidade.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MeiosDeMobilidade::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>MeiosDeMobilidade::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="31" column="9" bodyfile="MeioDeMobilidade.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char MeiosDeMobilidade::tipo[50]</definition>
+        <argsstring>[50]</argsstring>
+        <name>tipo</name>
+        <qualifiedname>MeiosDeMobilidade::tipo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="32" column="10" bodyfile="MeioDeMobilidade.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MeiosDeMobilidade::cargaBateria</definition>
+        <argsstring></argsstring>
+        <name>cargaBateria</name>
+        <qualifiedname>MeiosDeMobilidade::cargaBateria</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="33" column="9" bodyfile="MeioDeMobilidade.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float MeiosDeMobilidade::custo</definition>
+        <argsstring></argsstring>
+        <name>custo</name>
+        <qualifiedname>MeiosDeMobilidade::custo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="34" column="11" bodyfile="MeioDeMobilidade.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char MeiosDeMobilidade::localizacao[50]</definition>
+        <argsstring>[50]</argsstring>
+        <name>localizacao</name>
+        <qualifiedname>MeiosDeMobilidade::localizacao</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="35" column="10" bodyfile="MeioDeMobilidade.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+        <definition>struct Aluguer* MeiosDeMobilidade::aluguer</definition>
+        <argsstring></argsstring>
+        <name>aluguer</name>
+        <qualifiedname>MeiosDeMobilidade::aluguer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="36" column="19" bodyfile="MeioDeMobilidade.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+        <definition>struct MeiosDeMobilidade* MeiosDeMobilidade::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>MeiosDeMobilidade::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="38" column="29" bodyfile="MeioDeMobilidade.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura para armazenar Meios De Mobilidade. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um Meios De Mobilidade contém um id (@id), tipo (@tipo) ,carga da Bateria (@cargaBateria) , custo (@custo) e localizacao (@aluguer). Contém apontador para próximo <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Aluguer</label>
+        <link refid="struct_aluguer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MeiosDeMobilidade</label>
+        <link refid="struct_meios_de_mobilidade"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>aluguer</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="MeioDeMobilidade.h" line="30" column="1" bodyfile="MeioDeMobilidade.h" bodystart="30" bodyend="40"/>
+    <listofallmembers>
+      <member refid="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>aluguer</name></member>
+      <member refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>cargaBateria</name></member>
+      <member refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>custo</name></member>
+      <member refid="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>id</name></member>
+      <member refid="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>localizacao</name></member>
+      <member refid="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>next</name></member>
+      <member refid="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>tipo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

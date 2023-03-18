@@ -1,0 +1,65 @@
+\hypertarget{_cliente_8h_source}{}\doxysection{Cliente.\+h}
+\mbox{\hyperlink{_cliente_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_aluguer_8h}{Aluguer.h}}"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_meio_de_mobilidade_8h}{MeioDeMobilidade.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_clientes}{Clientes}}\{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_clientes_ae6387aa3fc43d1c94a1dc168b3fe31bc}{id}};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_clientes_ac8e67a1b7b832cc40b74b2ed3a7c57a7}{nome}}[50];}
+\DoxyCodeLine{34     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_clientes_a37c37fdb729d2e4bc0227c0c524ff3f6}{morada}}[50];}
+\DoxyCodeLine{35     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_clientes_a4b8e8df864ef8cd471049cea0087ecfd}{nif}}[9];}
+\DoxyCodeLine{36     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_clientes_aa5120d0d3469cb9a87487c23e55613a7}{saldo}};}
+\DoxyCodeLine{37     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{struct_clientes_ae3bac67f7cdbc22bb9cc7757964a2ec4}{aluguer}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{struct_clientes_a0107ed40b13a9b5463c0c1dff1af9c76}{next}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \} \mbox{\hyperlink{_cliente_8h_a3804dbf24f9b38637b81b5072252ed41}{Clientes}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{//Criar Clientes}}
+\DoxyCodeLine{44 \mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{_cliente_8h_a3116b97016d33b487a8188517d0ebe15}{CriarClientes}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_clientes_ac8e67a1b7b832cc40b74b2ed3a7c57a7}{nome}}[50], \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_clientes_a37c37fdb729d2e4bc0227c0c524ff3f6}{morada}}[50], \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_clientes_a4b8e8df864ef8cd471049cea0087ecfd}{nif}}[9], \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_clientes_aa5120d0d3469cb9a87487c23e55613a7}{saldo}});}
+\DoxyCodeLine{45 \textcolor{comment}{//Insere Cliente no Header de Clientes}}
+\DoxyCodeLine{46 \mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{_cliente_8h_adab003d43eaf01cd19da2354ef7c184d}{InsereClienteNoFim}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* header, \mbox{\hyperlink{struct_clientes}{Clientes}}* novoCliente);}
+\DoxyCodeLine{47 \textcolor{comment}{//Ver se Existe Cliente na lista por id}}
+\DoxyCodeLine{48 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_cliente_8h_a5b1510d72a1708e2a2a97929eedc6b96}{ExisteCliente}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* header, \textcolor{keywordtype}{int} idCliente);}
+\DoxyCodeLine{49 \textcolor{comment}{//Mostra Lista de Clientes}}
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{_cliente_8h_ab69c5b6a62657eefc965de3b0925bd7d}{MostrarListaClientes}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* header);}
+\DoxyCodeLine{51 \textcolor{keywordtype}{void} \mbox{\hyperlink{_cliente_8h_a7d89fb3ece417391247b23ee492c006f}{MostraCliente}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* cliente);}
+\DoxyCodeLine{52 \textcolor{comment}{//Remove Clientes}}
+\DoxyCodeLine{53 \mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{_cliente_8h_a83d2511d0a642efe2e00c566ff4bfb88}{RemoverCliente}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{54 \textcolor{comment}{//Procura Clientes}}
+\DoxyCodeLine{55 \mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{_cliente_8h_accdeb91c05866425b30c53e8c339927b}{ProcuraClientes}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{56 \textcolor{comment}{//Altera Clientes}}
+\DoxyCodeLine{57 \textcolor{keywordtype}{void} \mbox{\hyperlink{_cliente_8h_ac88a1d64c94994aec09f458d5eb412c7}{AlteraCliente}}(\mbox{\hyperlink{struct_clientes}{Clientes}}** header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_clientes_ac8e67a1b7b832cc40b74b2ed3a7c57a7}{nome}});}
+\DoxyCodeLine{58 \textcolor{comment}{//Conta Clientes no header Clientes}}
+\DoxyCodeLine{59 \textcolor{keywordtype}{int} \mbox{\hyperlink{_cliente_8h_ad5a73913e046fa3a43eedfd9f595a08a}{CountClientes}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* head);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{comment}{//Le e armazena txt file}}
+\DoxyCodeLine{62 \mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{_cliente_8h_a035761bf6ee64e84f737e0f2ba1db4cc}{LerEArmazenarCliente}}(\textcolor{keywordtype}{char}* filename, \mbox{\hyperlink{struct_clientes}{Clientes}}* header);}
+\DoxyCodeLine{63 \textcolor{comment}{//Grava Clientes no ficheiro binario}}
+\DoxyCodeLine{64 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_cliente_8h_aef19859d740cee6d2cec68f187c55fca}{GravarClientesBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_clientes}{Clientes}}* header);}
+\DoxyCodeLine{65 \textcolor{comment}{//Le e armazena bin file}}
+\DoxyCodeLine{66 \mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{_cliente_8h_a06601e111f3554919bec4eab1bc844cc}{LerClientesBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{comment}{//Regista um Aluguer de um Meio de Mobilidade pelo o cliente}}
+\DoxyCodeLine{69 \textcolor{keywordtype}{int} \mbox{\hyperlink{_cliente_8h_a71f194570327a777abd0c14fba1c8570}{RegistoAluguer}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}** headerCliente, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}** headerMeios, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_aluguer}{Aluguer}}** headerAluguerTotal, \textcolor{keywordtype}{int} idCliente, \textcolor{keywordtype}{int} idMeios);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{comment}{//Inserir,Remover , Alterar e Registo na consola}}
+\DoxyCodeLine{72 \mbox{\hyperlink{struct_clientes}{Clientes}}* \mbox{\hyperlink{_cliente_8h_a0201d3d9572211f08c42c880fe0408c7}{InserirPorEscreverCliente}}();}
+\DoxyCodeLine{73 \textcolor{keywordtype}{int} \mbox{\hyperlink{_cliente_8h_a1792acf5c4d9aa313f2d10bdc49dfa41}{AlterarPorEscreverCliente}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* headClientes);}
+\DoxyCodeLine{74 \textcolor{keywordtype}{int} \mbox{\hyperlink{_cliente_8h_a40e950a56f4998295f564464fa712327}{RemoverPorEscreverCliente}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* headClientes);}
+\DoxyCodeLine{75 \textcolor{keywordtype}{int} \mbox{\hyperlink{_cliente_8h_a38c33d4b4b0423a3d4ebbc77aa07e126}{RegistoPorEscrever}}(\mbox{\hyperlink{struct_clientes}{Clientes}}* headClientes, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_aluguer}{Aluguer}}* headAluguer, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeio);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 }
+
+\end{DoxyCode}

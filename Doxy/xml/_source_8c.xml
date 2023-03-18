@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_source_8c" kind="file" language="C++">
+    <compoundname>Source.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes refid="_gestor_8h" local="yes">Gestor.h</includes>
+    <includes refid="_cliente_8h" local="yes">Cliente.h</includes>
+    <includes refid="_meio_de_mobilidade_8h" local="yes">MeioDeMobilidade.h</includes>
+    <includes refid="_aluguer_8h" local="yes">Aluguer.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>Aluguer.h</label>
+        <link refid="_aluguer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Cliente.h</label>
+        <link refid="_cliente_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Gestor.h</label>
+        <link refid="_gestor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>MeioDeMobilidade.h</label>
+        <link refid="_meio_de_mobilidade_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Source.c</label>
+        <link refid="_source_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_source_8c_1af08ec37a8c99d747fb60fa15bc28678b" prot="public" static="no">
+        <name>_CRT_SECURE_NO_WARNINGS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Source.c" line="1" column="9" bodyfile="Source.c" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_source_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>()</argsstring>
+        <name>main</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Source.c" line="23" column="5" bodyfile="Source.c" bodystart="23" bodyend="184"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Main da Aplicacao. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Rafael Silva @email <ulink url="mailto:a21089@alunos.ipca.pt">a21089@alunos.ipca.pt</ulink> </para>
+</simplesect>
+<simplesect kind="date"><para>2023 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#define<sp/>_CRT_SECURE_NO_WARNINGS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_gestor_8h" kindref="compound">Gestor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_cliente_8h" kindref="compound">Cliente.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_meio_de_mobilidade_8h" kindref="compound">MeioDeMobilidade.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_aluguer_8h" kindref="compound">Aluguer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_source_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kindref="member">main</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>headListaClientes<sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Inicio<sp/>da<sp/>lista<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headListaMeios<sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Inicio<sp/>da<sp/>lista<sp/>MeiosDeMobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>headListaGestor<sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Inicio<sp/>da<sp/>lista<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>headListaAluguerTotal<sp/>=<sp/>NULL;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Inicio<sp/>da<sp/>lista</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Armazenamento<sp/>de<sp/>listas<sp/>,<sp/>se<sp/>tiver<sp/>vazia<sp/>vai<sp/>ao<sp/>ficheiro<sp/>de<sp/>texto<sp/>para<sp/>inserir<sp/>valores.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>headListaAluguerTotal<sp/>=<sp/><ref refid="_aluguer_8c_1a6a27589566a0afd82f0e6ddfd05a495b" kindref="member">LerAluguerListaTotalBinario</ref>(</highlight><highlight class="stringliteral">&quot;ListaAluguerTotalSave.bin&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(headListaAluguerTotal<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headListaAluguerTotal<sp/>=<sp/><ref refid="_aluguer_8c_1ac728a8d9e8ba13b616c338a648f89f7f" kindref="member">LerEArmazenarAluguerListaTotal</ref>(</highlight><highlight class="stringliteral">&quot;ListaAluguerTotalInserir.txt&quot;</highlight><highlight class="normal">,<sp/>headListaAluguerTotal);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_aluguer_8c_1a45631f6edff1cc2c0f3bf7a8c418ce9c" kindref="member">GravarAluguerListaTotalBinario</ref>(</highlight><highlight class="stringliteral">&quot;ListaAluguerTotalSave.bin&quot;</highlight><highlight class="normal">,<sp/>headListaAluguerTotal);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>headListaClientes<sp/>=<sp/><ref refid="_cliente_8c_1a06601e111f3554919bec4eab1bc844cc" kindref="member">LerClientesBinario</ref>(</highlight><highlight class="stringliteral">&quot;ClientesSave.bin&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(headListaClientes<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headListaClientes<sp/>=<sp/><ref refid="_cliente_8c_1a035761bf6ee64e84f737e0f2ba1db4cc" kindref="member">LerEArmazenarCliente</ref>(</highlight><highlight class="stringliteral">&quot;ClientesInserir.txt&quot;</highlight><highlight class="normal">,<sp/>headListaClientes);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cliente_8c_1aef19859d740cee6d2cec68f187c55fca" kindref="member">GravarClientesBinario</ref>(</highlight><highlight class="stringliteral">&quot;ClientesSave.bin&quot;</highlight><highlight class="normal">,<sp/>headListaClientes);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>headListaMeios<sp/>=<sp/><ref refid="_meio_de_mobilidade_8c_1a2a29797de1f13f3ed60a97f9a1972e3f" kindref="member">LerMeiosDeMobilidadeBinario</ref>(</highlight><highlight class="stringliteral">&quot;MeiosSave.bin&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(headListaMeios<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headListaMeios<sp/>=<sp/><ref refid="_meio_de_mobilidade_8c_1aec511efb01d6cdd3c1f0d93713bd701e" kindref="member">LerEArmazenarMeiosDeMobilidade</ref>(</highlight><highlight class="stringliteral">&quot;MeiosInserir.txt&quot;</highlight><highlight class="normal">,<sp/>headListaMeios);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_meio_de_mobilidade_8c_1a3f4e98a98059d05efb30e22c01d0e363" kindref="member">GravarMeiosDeMobilidadeBinario</ref>(</highlight><highlight class="stringliteral">&quot;MeiosSave.bin&quot;</highlight><highlight class="normal">,<sp/>headListaMeios);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_aluguer_8c_1a606044cd8e5c15c97ffde288e84ec751" kindref="member">DistribuirAlugueresHistorico</ref>(headListaAluguerTotal,<sp/>headListaMeios,<sp/>headListaClientes);<sp/><sp/></highlight><highlight class="comment">//<sp/>Distribui<sp/>os<sp/>alugueres<sp/>passados<sp/>(historico<sp/>de<sp/>alugueres)<sp/>nas<sp/>listas<sp/>respectivas</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>headListaGestor<sp/>=<sp/><ref refid="_gestor_8c_1aac9ab14724475643840100ba92d19e97" kindref="member">LerGestorBinario</ref>(</highlight><highlight class="stringliteral">&quot;GestorSave.bin&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(headListaGestor<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headListaGestor<sp/>=<sp/><ref refid="_gestor_8c_1ac187edb9cdb6c3996b0a9a508fa2945e" kindref="member">LerEArmazenarGestor</ref>(</highlight><highlight class="stringliteral">&quot;GestorInserir.txt&quot;</highlight><highlight class="normal">,<sp/>headListaGestor);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_gestor_8c_1acdde02251745c3ecb345fa1386e86940" kindref="member">GravarGestorBinario</ref>(</highlight><highlight class="stringliteral">&quot;GestorSave.bin&quot;</highlight><highlight class="normal">,<sp/>headListaGestor);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_gestor_8c_1ae643e5f230aba59f1b925bc4e20c2588" kindref="member">GravarMeiosEClientesNosGestores</ref>(headListaGestor<sp/>,<sp/>headListaAluguerTotal,<sp/><sp/>headListaClientes<sp/>,<sp/>headListaMeios);<sp/><sp/></highlight><highlight class="comment">//Grava<sp/>as<sp/>listas<sp/>Clientes<sp/>e<sp/>Meios<sp/>em<sp/>todos<sp/>os<sp/>gestores</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//---------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>escolha;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//----------<sp/><sp/>Menu<sp/>--------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\nMeio<sp/>De<sp/>Mobilidade<sp/>Dados:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_meio_de_mobilidade_8c_1a5895547a678f65123fd2ba5ba74b363d" kindref="member">MostrarListaMeiosDeMobilidade</ref>(headListaMeios);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\nClientes<sp/>Dados:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cliente_8c_1ab69c5b6a62657eefc965de3b0925bd7d" kindref="member">MostrarListaClientes</ref>(headListaClientes);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\nGestor<sp/>Dados:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_gestor_8c_1a06d5d1a9dfc2a49cb2ebf0737b6880c9" kindref="member">MostrarListaGestor</ref>(headListaGestor);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n-----------<sp/>Menu<sp/>-----------:\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;1.<sp/>Inserir<sp/>Cliente\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;2.<sp/>Alterar<sp/>Cliente\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;3.<sp/>Eliminar<sp/>Cliente\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;4.<sp/>Inserir<sp/>Meio\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;5.<sp/>Alterar<sp/>Meio\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;6.<sp/>Eliminar<sp/>Meio\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;7.<sp/>Inserir<sp/>Gestor\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;8.<sp/>Alterar<sp/>Gestor\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;9.<sp/>Eliminar<sp/>Gestor\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n10.<sp/>Registar<sp/>Aluguer\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;11.<sp/>Listar<sp/>por<sp/>autonomia<sp/>meios<sp/>de<sp/>mobilidade<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;12.<sp/>Listar<sp/>meios<sp/>de<sp/>mobilidade<sp/>existentes<sp/>com<sp/>geocodigo\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;13.<sp/>Listar<sp/>Alugueres<sp/>de<sp/>Cliente<sp/>por<sp/>Id:<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;14.<sp/>Listar<sp/>Alugueres<sp/>de<sp/>Meios<sp/>por<sp/>Id:<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;15.<sp/>Listar<sp/>todos<sp/>Alugueres:<sp/>\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;16.<sp/>Sair\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\nEscolha:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>scanf(</highlight><highlight class="stringliteral">&quot;%d&quot;</highlight><highlight class="normal">,<sp/>&amp;escolha);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(escolha)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>1:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headListaClientes<sp/>=<sp/><ref refid="_cliente_8c_1adab003d43eaf01cd19da2354ef7c184d" kindref="member">InsereClienteNoFim</ref>(headListaClientes,<sp/><ref refid="_cliente_8c_1a0201d3d9572211f08c42c880fe0408c7" kindref="member">InserirPorEscreverCliente</ref>());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>2:</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cliente_8c_1a1792acf5c4d9aa313f2d10bdc49dfa41" kindref="member">AlterarPorEscreverCliente</ref>(headListaClientes);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>3:</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cliente_8c_1a40e950a56f4998295f564464fa712327" kindref="member">RemoverPorEscreverCliente</ref>(headListaClientes);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>4:</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headListaMeios<sp/>=<sp/><ref refid="_meio_de_mobilidade_8c_1abf76c13c165ba6f4dd12278f351f6c4c" kindref="member">InsereMeiosDeMobilidadeNoFim</ref>(headListaMeios,<sp/><ref refid="_meio_de_mobilidade_8c_1aa9a10d8dc25db240e69162e6919c15cb" kindref="member">InserirPorEscreverMeiosDeMobilidade</ref>());</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>5:</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_meio_de_mobilidade_8c_1aa9d8675aa9e56968341533fa8eb95996" kindref="member">AlterarPorEscreverMeiosDeMobilidade</ref>(headListaMeios);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>6:</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_meio_de_mobilidade_8c_1ae5198c399a2e4d1f022c102debd0e5f7" kindref="member">RemoverPorEscreverMeiosDeMobilidade</ref>(headListaMeios);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>7:</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>headListaGestor<sp/>=<sp/><ref refid="_gestor_8c_1a6f2e5b56ffa8fa862248f1f8b897d8d1" kindref="member">InsereGestorNoFim</ref>(headListaGestor,<sp/><ref refid="_gestor_8c_1a2328ed02be4bbae6a3502ee66081b01e" kindref="member">InserirPorEscreverGestor</ref>());</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>8:</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_gestor_8c_1a024a7c83b12202fe2106fc44ab97fd72" kindref="member">AlterarPorEscreverGestor</ref>(headListaGestor);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>9:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_gestor_8c_1a7d4b7cb5a7e4956cd3eff700c7e71f2a" kindref="member">RemoverPorEscreverGestor</ref>(headListaGestor);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>10:</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cliente_8c_1a5978d39456ff63c7768aa1c956c71f24" kindref="member">RegistoPorEscrever</ref>(headListaClientes<sp/>,<sp/>headListaAluguerTotal<sp/>,<sp/>headListaMeios);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>11:</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n\n\n<sp/>-----------<sp/>Listagem<sp/>----------\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_meio_de_mobilidade_8c_1a352c826c410cb083ad3ec478a2db7862" kindref="member">ListarMeioAutonomiaDecrescente</ref>(headListaMeios);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>12:</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n\n\n<sp/>-----------<sp/>Listagem<sp/>----------\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_meio_de_mobilidade_8c_1a6d357c9fb9104618406f7132210d0336" kindref="member">ListarGeocodigoPorEscreverMeiosDeMobilidade</ref>(headListaMeios);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>13:</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n\n\n<sp/>-----------<sp/>Listagem<sp/>----------\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_aluguer_8c_1a47f7e32244a877e84ade5472bb0f56fe" kindref="member">AluguerClientePorEscrever</ref>(headListaAluguerTotal);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>14:</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n\n\n<sp/>-----------<sp/>Listagem<sp/>----------\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_aluguer_8c_1af479e88e55e7933452838d1c7fbd9fc0" kindref="member">AluguerMeiosPorEscrever</ref>(headListaAluguerTotal);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>15:</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;\n\n\n<sp/>-----------<sp/>Listagem<sp/>----------\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_aluguer_8c_1a054847a0089bac03968a797236844e5a" kindref="member">ListarTodosAlugueres</ref>(headListaAluguerTotal);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>16:</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;A<sp/>Sair\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Escolha<sp/>nao<sp/>disponivel<sp/>,<sp/>inserir<sp/>outra<sp/>vez.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_gestor_8c_1ae643e5f230aba59f1b925bc4e20c2588" kindref="member">GravarMeiosEClientesNosGestores</ref>(headListaGestor,<sp/>headListaAluguerTotal,<sp/>headListaClientes,<sp/>headListaMeios);</highlight><highlight class="comment">//Grava<sp/>as<sp/>listas<sp/>Clientes<sp/>e<sp/>Meios<sp/>em<sp/>todos<sp/>os<sp/>gestores</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Grava<sp/>nos<sp/>ficheiros<sp/>binarios<sp/>as<sp/>listas:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_cliente_8c_1aef19859d740cee6d2cec68f187c55fca" kindref="member">GravarClientesBinario</ref>(</highlight><highlight class="stringliteral">&quot;ClientesSave.bin&quot;</highlight><highlight class="normal">,<sp/>headListaClientes);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_meio_de_mobilidade_8c_1a3f4e98a98059d05efb30e22c01d0e363" kindref="member">GravarMeiosDeMobilidadeBinario</ref>(</highlight><highlight class="stringliteral">&quot;MeiosSave.bin&quot;</highlight><highlight class="normal">,<sp/>headListaMeios);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_gestor_8c_1acdde02251745c3ecb345fa1386e86940" kindref="member">GravarGestorBinario</ref>(</highlight><highlight class="stringliteral">&quot;GestorSave.bin&quot;</highlight><highlight class="normal">,<sp/>headListaGestor);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_aluguer_8c_1a45631f6edff1cc2c0f3bf7a8c418ce9c" kindref="member">GravarAluguerListaTotalBinario</ref>(</highlight><highlight class="stringliteral">&quot;ListaAluguerTotalSave.bin&quot;</highlight><highlight class="normal"><sp/>,<sp/>headListaAluguerTotal);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(escolha<sp/>!=<sp/>16);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Source.c"/>
+  </compounddef>
+</doxygen>

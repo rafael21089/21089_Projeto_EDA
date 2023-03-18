@@ -1,0 +1,409 @@
+\hypertarget{_meio_de_mobilidade_8h}{}\doxysection{Meio\+De\+Mobilidade.\+h File Reference}
+\label{_meio_de_mobilidade_8h}\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+
+
+Definicao da struct Meio\+De\+Mobilidade onde ira guardar o registo de meios e as suas respectivas funcoes.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Aluguer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Cliente.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}
+\begin{DoxyCompactList}\small\item\em Estrutura para armazenar Meios De Mobilidade. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \mbox{\hyperlink{_meio_de_mobilidade_8h_a86b2f68e756ccb72d84b972655976379}{Meios\+De\+Mobilidade}}
+\begin{DoxyCompactList}\small\item\em Estrutura para armazenar Meios De Mobilidade. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8h_a2053eb016b634c1241ba27fa54dd5b7b}{Criar\+Meios\+De\+Mobilidade}} (int id, char $\ast$tipo, int carga\+Bateria, float custo, char $\ast$localizacao)
+\begin{DoxyCompactList}\small\item\em Cria Meio\+De\+Mobilidade. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8h_abf76c13c165ba6f4dd12278f351f6c4c}{Insere\+Meios\+De\+Mobilidade\+No\+Fim}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$novo\+Meios\+De\+Mobilidade)
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_meio_de_mobilidade_8h_ac7f639655c2abae685b690ba6fe76720}{Existe\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, int id\+Meios\+De\+Mobilidade)
+\begin{DoxyCompactList}\small\item\em Ver se \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} existe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_meio_de_mobilidade_8h_a5895547a678f65123fd2ba5ba74b363d}{Mostrar\+Lista\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Lista os Meios De Mobilidade que Existem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_meio_de_mobilidade_8h_a3145ebd44cbe6a259aa52cc5aa9b68e8}{Mostra\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$meios\+De\+Mobilidade)
+\begin{DoxyCompactList}\small\item\em Lista os Meios De Mobilidade que Existem , e escreve. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8h_a2ac5e56c2f7c748210c39123bc89636f}{Remover\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8h_ac1f7417ee214f298ded2ac65cf79bcb0}{Procura\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Procura \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_meio_de_mobilidade_8h_ae1a7ed01c9801362233a7fc5cd8d73d2}{Altera\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$header, int id, char $\ast$tipo)
+\begin{DoxyCompactList}\small\item\em Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8h_ac6290e0f6a9e38ab349e91ea8e5397e8}{Count\+Meios}} (struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Conta \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} da lista total. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8h_aec511efb01d6cdd3c1f0d93713bd701e}{Ler\+EArmazenar\+Meios\+De\+Mobilidade}} (char $\ast$filename, \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por txt file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_meio_de_mobilidade_8h_a3f4e98a98059d05efb30e22c01d0e363}{Gravar\+Meios\+De\+Mobilidade\+Binario}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Grava \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} no bin file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8h_a2a29797de1f13f3ed60a97f9a1972e3f}{Ler\+Meios\+De\+Mobilidade\+Binario}} (char $\ast$nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por um bin file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8h_a352c826c410cb083ad3ec478a2db7862}{Listar\+Meio\+Autonomia\+Decrescente}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por Autonomia de forma decrescente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8h_ad0c010862a5de3a77255bf47ab7d87a4}{Listar\+Meio\+Por\+Geo\+Codigo}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, char $\ast$geo\+Codigo)
+\begin{DoxyCompactList}\small\item\em Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por geo Codigo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8h_aa9a10d8dc25db240e69162e6919c15cb}{Inserir\+Por\+Escrever\+Meios\+De\+Mobilidade}} ()
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8h_aa9d8675aa9e56968341533fa8eb95996}{Alterar\+Por\+Escrever\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
+\begin{DoxyCompactList}\small\item\em Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8h_ae5198c399a2e4d1f022c102debd0e5f7}{Remover\+Por\+Escrever\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8h_a6d357c9fb9104618406f7132210d0336}{Listar\+Geocodigo\+Por\+Escrever\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
+\begin{DoxyCompactList}\small\item\em Lista geocodigo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definicao da struct Meio\+De\+Mobilidade onde ira guardar o registo de meios e as suas respectivas funcoes. 
+
+\begin{DoxyAuthor}{Author}
+Rafael Silva @email \href{mailto:a21089@alunos.ipca.pt}{\texttt{ a21089@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a86b2f68e756ccb72d84b972655976379}\label{_meio_de_mobilidade_8h_a86b2f68e756ccb72d84b972655976379}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!MeiosDeMobilidade@{MeiosDeMobilidade}}
+\index{MeiosDeMobilidade@{MeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{MeiosDeMobilidade}{MeiosDeMobilidade}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}}
+
+
+
+Estrutura para armazenar Meios De Mobilidade. 
+
+Um Meios De Mobilidade contém um id (@id), tipo (@tipo) ,carga da Bateria (@carga\+Bateria) , custo (@custo) e localizacao (@aluguer). Contém apontador para próximo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_ae1a7ed01c9801362233a7fc5cd8d73d2}\label{_meio_de_mobilidade_8h_ae1a7ed01c9801362233a7fc5cd8d73d2}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!AlteraMeiosDeMobilidade@{AlteraMeiosDeMobilidade}}
+\index{AlteraMeiosDeMobilidade@{AlteraMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{AlteraMeiosDeMobilidade()}{AlteraMeiosDeMobilidade()}}
+{\footnotesize\ttfamily void Altera\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$}]{header,  }\item[{int}]{id,  }\item[{char $\ast$}]{tipo }\end{DoxyParamCaption})}
+
+
+
+Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em tipo} & tipo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_aa9d8675aa9e56968341533fa8eb95996}\label{_meio_de_mobilidade_8h_aa9d8675aa9e56968341533fa8eb95996}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!AlterarPorEscreverMeiosDeMobilidade@{AlterarPorEscreverMeiosDeMobilidade}}
+\index{AlterarPorEscreverMeiosDeMobilidade@{AlterarPorEscreverMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{AlterarPorEscreverMeiosDeMobilidade()}{AlterarPorEscreverMeiosDeMobilidade()}}
+{\footnotesize\ttfamily int Alterar\+Por\+Escrever\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios }\end{DoxyParamCaption})}
+
+
+
+Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_ac6290e0f6a9e38ab349e91ea8e5397e8}\label{_meio_de_mobilidade_8h_ac6290e0f6a9e38ab349e91ea8e5397e8}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!CountMeios@{CountMeios}}
+\index{CountMeios@{CountMeios}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{CountMeios()}{CountMeios()}}
+{\footnotesize\ttfamily int Count\+Meios (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Conta \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} da lista total. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quantos Alugueres Tem; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a2053eb016b634c1241ba27fa54dd5b7b}\label{_meio_de_mobilidade_8h_a2053eb016b634c1241ba27fa54dd5b7b}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!CriarMeiosDeMobilidade@{CriarMeiosDeMobilidade}}
+\index{CriarMeiosDeMobilidade@{CriarMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{CriarMeiosDeMobilidade()}{CriarMeiosDeMobilidade()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Criar\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{char $\ast$}]{tipo,  }\item[{int}]{carga\+Bateria,  }\item[{float}]{custo,  }\item[{char $\ast$}]{localizacao }\end{DoxyParamCaption})}
+
+
+
+Cria Meio\+De\+Mobilidade. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & id do Meio\+De\+Mobilidade \\
+\hline
+\mbox{\texttt{ in}}  & {\em tipo} & tipo do Meio\+De\+Mobilidade \\
+\hline
+\mbox{\texttt{ in}}  & {\em carga\+Bateria} & carga da Bateria Do Meio\+De\+Mobilidade \\
+\hline
+\mbox{\texttt{ in}}  & {\em custo} & custo Do Meio\+De\+Mobilidade \\
+\hline
+\mbox{\texttt{ in}}  & {\em localizacao} & localizacao Do Meio\+De\+Mobilidade\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo Meio\+De\+Mobilidade 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_ac7f639655c2abae685b690ba6fe76720}\label{_meio_de_mobilidade_8h_ac7f639655c2abae685b690ba6fe76720}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!ExisteMeiosDeMobilidade@{ExisteMeiosDeMobilidade}}
+\index{ExisteMeiosDeMobilidade@{ExisteMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{ExisteMeiosDeMobilidade()}{ExisteMeiosDeMobilidade()}}
+{\footnotesize\ttfamily bool Existe\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{int}]{id\+Meios\+De\+Mobilidade }\end{DoxyParamCaption})}
+
+
+
+Ver se \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} existe. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Meios\+De\+Mobilidade} & id do \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} da lista total\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a3f4e98a98059d05efb30e22c01d0e363}\label{_meio_de_mobilidade_8h_a3f4e98a98059d05efb30e22c01d0e363}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!GravarMeiosDeMobilidadeBinario@{GravarMeiosDeMobilidadeBinario}}
+\index{GravarMeiosDeMobilidadeBinario@{GravarMeiosDeMobilidadeBinario}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{GravarMeiosDeMobilidadeBinario()}{GravarMeiosDeMobilidadeBinario()}}
+{\footnotesize\ttfamily bool Gravar\+Meios\+De\+Mobilidade\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Grava \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} no bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & Path do bin file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_abf76c13c165ba6f4dd12278f351f6c4c}\label{_meio_de_mobilidade_8h_abf76c13c165ba6f4dd12278f351f6c4c}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!InsereMeiosDeMobilidadeNoFim@{InsereMeiosDeMobilidadeNoFim}}
+\index{InsereMeiosDeMobilidadeNoFim@{InsereMeiosDeMobilidadeNoFim}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{InsereMeiosDeMobilidadeNoFim()}{InsereMeiosDeMobilidadeNoFim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Insere\+Meios\+De\+Mobilidade\+No\+Fim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{novo\+Meios\+De\+Mobilidade }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em novo\+Meios\+De\+Mobilidade} & novo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_aa9a10d8dc25db240e69162e6919c15cb}\label{_meio_de_mobilidade_8h_aa9a10d8dc25db240e69162e6919c15cb}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!InserirPorEscreverMeiosDeMobilidade@{InserirPorEscreverMeiosDeMobilidade}}
+\index{InserirPorEscreverMeiosDeMobilidade@{InserirPorEscreverMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{InserirPorEscreverMeiosDeMobilidade()}{InserirPorEscreverMeiosDeMobilidade()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Inserir\+Por\+Escrever\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_aec511efb01d6cdd3c1f0d93713bd701e}\label{_meio_de_mobilidade_8h_aec511efb01d6cdd3c1f0d93713bd701e}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!LerEArmazenarMeiosDeMobilidade@{LerEArmazenarMeiosDeMobilidade}}
+\index{LerEArmazenarMeiosDeMobilidade@{LerEArmazenarMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{LerEArmazenarMeiosDeMobilidade()}{LerEArmazenarMeiosDeMobilidade()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Ler\+EArmazenar\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por txt file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filename} & Path do Txt file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a2a29797de1f13f3ed60a97f9a1972e3f}\label{_meio_de_mobilidade_8h_a2a29797de1f13f3ed60a97f9a1972e3f}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!LerMeiosDeMobilidadeBinario@{LerMeiosDeMobilidadeBinario}}
+\index{LerMeiosDeMobilidadeBinario@{LerMeiosDeMobilidadeBinario}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{LerMeiosDeMobilidadeBinario()}{LerMeiosDeMobilidadeBinario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Ler\+Meios\+De\+Mobilidade\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por um bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a6d357c9fb9104618406f7132210d0336}\label{_meio_de_mobilidade_8h_a6d357c9fb9104618406f7132210d0336}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!ListarGeocodigoPorEscreverMeiosDeMobilidade@{ListarGeocodigoPorEscreverMeiosDeMobilidade}}
+\index{ListarGeocodigoPorEscreverMeiosDeMobilidade@{ListarGeocodigoPorEscreverMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{ListarGeocodigoPorEscreverMeiosDeMobilidade()}{ListarGeocodigoPorEscreverMeiosDeMobilidade()}}
+{\footnotesize\ttfamily int Listar\+Geocodigo\+Por\+Escrever\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios }\end{DoxyParamCaption})}
+
+
+
+Lista geocodigo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a352c826c410cb083ad3ec478a2db7862}\label{_meio_de_mobilidade_8h_a352c826c410cb083ad3ec478a2db7862}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!ListarMeioAutonomiaDecrescente@{ListarMeioAutonomiaDecrescente}}
+\index{ListarMeioAutonomiaDecrescente@{ListarMeioAutonomiaDecrescente}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{ListarMeioAutonomiaDecrescente()}{ListarMeioAutonomiaDecrescente()}}
+{\footnotesize\ttfamily int Listar\+Meio\+Autonomia\+Decrescente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por Autonomia de forma decrescente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_ad0c010862a5de3a77255bf47ab7d87a4}\label{_meio_de_mobilidade_8h_ad0c010862a5de3a77255bf47ab7d87a4}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!ListarMeioPorGeoCodigo@{ListarMeioPorGeoCodigo}}
+\index{ListarMeioPorGeoCodigo@{ListarMeioPorGeoCodigo}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{ListarMeioPorGeoCodigo()}{ListarMeioPorGeoCodigo()}}
+{\footnotesize\ttfamily int Listar\+Meio\+Por\+Geo\+Codigo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{char $\ast$}]{geo\+Codigo }\end{DoxyParamCaption})}
+
+
+
+Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por geo Codigo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em geo\+Codigo} & geo\+Codigo\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a3145ebd44cbe6a259aa52cc5aa9b68e8}\label{_meio_de_mobilidade_8h_a3145ebd44cbe6a259aa52cc5aa9b68e8}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!MostraMeiosDeMobilidade@{MostraMeiosDeMobilidade}}
+\index{MostraMeiosDeMobilidade@{MostraMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{MostraMeiosDeMobilidade()}{MostraMeiosDeMobilidade()}}
+{\footnotesize\ttfamily void Mostra\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{meios\+De\+Mobilidade }\end{DoxyParamCaption})}
+
+
+
+Lista os Meios De Mobilidade que Existem , e escreve. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em meios\+De\+Mobilidade} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a5895547a678f65123fd2ba5ba74b363d}\label{_meio_de_mobilidade_8h_a5895547a678f65123fd2ba5ba74b363d}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!MostrarListaMeiosDeMobilidade@{MostrarListaMeiosDeMobilidade}}
+\index{MostrarListaMeiosDeMobilidade@{MostrarListaMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{MostrarListaMeiosDeMobilidade()}{MostrarListaMeiosDeMobilidade()}}
+{\footnotesize\ttfamily void Mostrar\+Lista\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Lista os Meios De Mobilidade que Existem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_ac1f7417ee214f298ded2ac65cf79bcb0}\label{_meio_de_mobilidade_8h_ac1f7417ee214f298ded2ac65cf79bcb0}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!ProcuraMeiosDeMobilidade@{ProcuraMeiosDeMobilidade}}
+\index{ProcuraMeiosDeMobilidade@{ProcuraMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{ProcuraMeiosDeMobilidade()}{ProcuraMeiosDeMobilidade()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Procura\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Procura \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_a2ac5e56c2f7c748210c39123bc89636f}\label{_meio_de_mobilidade_8h_a2ac5e56c2f7c748210c39123bc89636f}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!RemoverMeiosDeMobilidade@{RemoverMeiosDeMobilidade}}
+\index{RemoverMeiosDeMobilidade@{RemoverMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{RemoverMeiosDeMobilidade()}{RemoverMeiosDeMobilidade()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Remover\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8h_ae5198c399a2e4d1f022c102debd0e5f7}\label{_meio_de_mobilidade_8h_ae5198c399a2e4d1f022c102debd0e5f7}} 
+\index{MeioDeMobilidade.h@{MeioDeMobilidade.h}!RemoverPorEscreverMeiosDeMobilidade@{RemoverPorEscreverMeiosDeMobilidade}}
+\index{RemoverPorEscreverMeiosDeMobilidade@{RemoverPorEscreverMeiosDeMobilidade}!MeioDeMobilidade.h@{MeioDeMobilidade.h}}
+\doxysubsubsection{\texorpdfstring{RemoverPorEscreverMeiosDeMobilidade()}{RemoverPorEscreverMeiosDeMobilidade()}}
+{\footnotesize\ttfamily int Remover\+Por\+Escrever\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. 
+
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}

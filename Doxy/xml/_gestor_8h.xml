@@ -1,0 +1,873 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_gestor_8h" kind="file" language="C++">
+    <compoundname>Gestor.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="_aluguer_8h" local="yes">Aluguer.h</includes>
+    <includes refid="_cliente_8h" local="yes">Cliente.h</includes>
+    <includes refid="_meio_de_mobilidade_8h" local="yes">MeioDeMobilidade.h</includes>
+    <includedby refid="_aluguer_8h" local="yes">Aluguer.h</includedby>
+    <includedby refid="_gestor_8c" local="yes">Gestor.c</includedby>
+    <includedby refid="_source_8c" local="yes">Source.c</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>Aluguer.h</label>
+        <link refid="_aluguer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Cliente.h</label>
+        <link refid="_cliente_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Gestor.h</label>
+        <link refid="_gestor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>MeioDeMobilidade.h</label>
+        <link refid="_meio_de_mobilidade_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>Aluguer.c</label>
+        <link refid="_aluguer_8c"/>
+      </node>
+      <node id="2">
+        <label>Aluguer.h</label>
+        <link refid="_aluguer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Cliente.c</label>
+        <link refid="_cliente_8c"/>
+      </node>
+      <node id="5">
+        <label>Cliente.h</label>
+        <link refid="_cliente_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Gestor.c</label>
+        <link refid="_gestor_8c"/>
+      </node>
+      <node id="1">
+        <label>Gestor.h</label>
+        <link refid="_gestor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>MeioDeMobilidade.c</label>
+        <link refid="_meio_de_mobilidade_8c"/>
+      </node>
+      <node id="6">
+        <label>MeioDeMobilidade.h</label>
+        <link refid="_meio_de_mobilidade_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Source.c</label>
+        <link refid="_source_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_gestor" prot="public">Gestor</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_gestor_8h_1a3d4ae7dc89d61369ca0a8f1d147607c4" prot="public" static="no">
+        <type>struct <ref refid="struct_gestor" kindref="compound">Gestor</ref></type>
+        <definition>typedef struct Gestor Gestor</definition>
+        <argsstring></argsstring>
+        <name>Gestor</name>
+        <briefdescription>
+<para>Estrutura para armazenar <ref refid="struct_gestor" kindref="compound">Gestor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um <ref refid="struct_gestor" kindref="compound">Gestor</ref> contém um id (@id), utilizador (@utilizador), distrito (@distrito) ,meios de mobilidade (@meios) , clientes (@clientes) e todos os Alugueres (@todosAlugueres). Contém apontador para próximo <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="36" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_gestor_8h_1aacbdc2c579f52e28253a68b0fda91d40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>Gestor * CriarNovoGestor</definition>
+        <argsstring>(int id, char *utilizador, char *distrito, struct MeiosDeMobilidade *meiosDeMobilidadeExistentes, struct Clientes *clienteExistentes, struct Aluguer *aluguerTotal)</argsstring>
+        <name>CriarNovoGestor</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>utilizador</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>distrito</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>meiosDeMobilidadeExistentes</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>clienteExistentes</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>aluguerTotal</declname>
+        </param>
+        <briefdescription>
+<para>Cria <ref refid="struct_gestor" kindref="compound">Gestor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">utilizador</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>utilizador do <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">distrito</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>distrito Do <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meiosDeMobilidadeExistentes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MeioDeMobilidade para <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">clienteExistentes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="struct_clientes" kindref="compound">Clientes</ref> para <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">aluguerTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> total para <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novo <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="39" column="8" bodyfile="Gestor.c" bodystart="36" bodyend="51" declfile="Gestor.h" declline="39" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a6f2e5b56ffa8fa862248f1f8b897d8d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>Gestor * InsereGestorNoFim</definition>
+        <argsstring>(Gestor *header, Gestor *novoGestor)</argsstring>
+        <name>InsereGestorNoFim</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>novoGestor</declname>
+        </param>
+        <briefdescription>
+<para>Insere <ref refid="struct_gestor" kindref="compound">Gestor</ref> na lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">novoGestor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>novo <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="41" column="8" bodyfile="Gestor.c" bodystart="64" bodyend="82" declfile="Gestor.h" declline="41" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a7d2685654f9bb33b783867864bfc316d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ExisteGestor</definition>
+        <argsstring>(Gestor *header, int idGestor)</argsstring>
+        <name>ExisteGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idGestor</declname>
+        </param>
+        <briefdescription>
+<para>Ver se <ref refid="struct_gestor" kindref="compound">Gestor</ref> existe. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idGestor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do <ref refid="struct_gestor" kindref="compound">Gestor</ref> da lista total</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="43" column="6" bodyfile="Gestor.c" bodystart="94" bodyend="103" declfile="Gestor.h" declline="43" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a06d5d1a9dfc2a49cb2ebf0737b6880c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MostrarListaGestor</definition>
+        <argsstring>(Gestor *header)</argsstring>
+        <name>MostrarListaGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Lista os Gestores que Existem. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="45" column="6" bodyfile="Gestor.c" bodystart="112" bodyend="118" declfile="Gestor.h" declline="45" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a2234ee4700d9e4e07f6b80bfd4c71bf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MostraGestor</definition>
+        <argsstring>(Gestor *gestor)</argsstring>
+        <name>MostraGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>gestor</declname>
+        </param>
+        <briefdescription>
+<para>Lista os Gestores que Existem , e escreve. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">gestor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Gestores </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="46" column="6" bodyfile="Gestor.c" bodystart="127" bodyend="135" declfile="Gestor.h" declline="46" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1af0d0e543c5fcb680db8479a51502977e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>Gestor * RemoverGestor</definition>
+        <argsstring>(Gestor *header, int id)</argsstring>
+        <name>RemoverGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Remove <ref refid="struct_gestor" kindref="compound">Gestor</ref> na lista de Gestores. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="49" column="8" bodyfile="Gestor.c" bodystart="149" bodyend="172" declfile="Gestor.h" declline="49" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a0e243ae5e66f3ad51d7aef2a1e1cf8d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>Gestor * ProcuraGestor</definition>
+        <argsstring>(Gestor *header, int id)</argsstring>
+        <name>ProcuraGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Procura <ref refid="struct_gestor" kindref="compound">Gestor</ref> na lista de Gestores. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="51" column="8" bodyfile="Gestor.c" bodystart="185" bodyend="198" declfile="Gestor.h" declline="51" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a7fbdf99e5ccedffd9d95838a28aaed17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlteraGestor</definition>
+        <argsstring>(Gestor **header, int id, char *utilizador)</argsstring>
+        <name>AlteraGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> **</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>utilizador</declname>
+        </param>
+        <briefdescription>
+<para>Altera <ref refid="struct_gestor" kindref="compound">Gestor</ref> na lista de Gestores. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">utilizador</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>utilizador <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="53" column="6" bodyfile="Gestor.c" bodystart="210" bodyend="218" declfile="Gestor.h" declline="53" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1ac187edb9cdb6c3996b0a9a508fa2945e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>Gestor * LerEArmazenarGestor</definition>
+        <argsstring>(char *filename, Gestor *header)</argsstring>
+        <name>LerEArmazenarGestor</name>
+        <param>
+          <type>char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Le e Armazena <ref refid="struct_gestor" kindref="compound">Gestor</ref> por txt file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path do Txt file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="56" column="8" bodyfile="Gestor.c" bodystart="232" bodyend="280" declfile="Gestor.h" declline="56" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1acdde02251745c3ecb345fa1386e86940" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GravarGestorBinario</definition>
+        <argsstring>(char *nomeFicheiro, Gestor *header)</argsstring>
+        <name>GravarGestorBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Grava <ref refid="struct_gestor" kindref="compound">Gestor</ref> no bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path do bin file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="58" column="6" bodyfile="Gestor.c" bodystart="292" bodyend="307" declfile="Gestor.h" declline="58" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1aac9ab14724475643840100ba92d19e97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>Gestor * LerGestorBinario</definition>
+        <argsstring>(char *nomeFicheiro)</argsstring>
+        <name>LerGestorBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <briefdescription>
+<para>Le e Armazena <ref refid="struct_gestor" kindref="compound">Gestor</ref> por um bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="60" column="8" bodyfile="Gestor.c" bodystart="318" bodyend="332" declfile="Gestor.h" declline="60" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a82ddbbeedb2012369a60154fd48df3ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GravarMeiosEClientesNosGestores</definition>
+        <argsstring>(Gestor *gestor, struct Aluguer *alugueresTotal, struct Clientes *clientesHeader, struct MeiosDeMobilidade *meiosHeader)</argsstring>
+        <name>GravarMeiosEClientesNosGestores</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>gestor</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>alugueresTotal</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>clientesHeader</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>meiosHeader</declname>
+        </param>
+        <briefdescription>
+<para>Grava Meios de Mobilidade e <ref refid="struct_clientes" kindref="compound">Clientes</ref> nos Gestores todos. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">gestor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">alugueresTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">clientesHeader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meiosHeader</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="63" column="5" bodyfile="Gestor.c" bodystart="347" bodyend="363" declfile="Gestor.h" declline="63" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a2328ed02be4bbae6a3502ee66081b01e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>Gestor * InserirPorEscreverGestor</definition>
+        <argsstring>()</argsstring>
+        <name>InserirPorEscreverGestor</name>
+        <briefdescription>
+<para>Insere <ref refid="struct_gestor" kindref="compound">Gestor</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="66" column="8" bodyfile="Gestor.c" bodystart="372" bodyend="391" declfile="Gestor.h" declline="66" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a024a7c83b12202fe2106fc44ab97fd72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AlterarPorEscreverGestor</definition>
+        <argsstring>(Gestor *headGestor)</argsstring>
+        <name>AlterarPorEscreverGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>headGestor</declname>
+        </param>
+        <briefdescription>
+<para>Altera <ref refid="struct_gestor" kindref="compound">Gestor</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headGestor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="67" column="5" bodyfile="Gestor.c" bodystart="401" bodyend="416" declfile="Gestor.h" declline="67" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_gestor_8h_1a7d4b7cb5a7e4956cd3eff700c7e71f2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RemoverPorEscreverGestor</definition>
+        <argsstring>(Gestor *headGestor)</argsstring>
+        <name>RemoverPorEscreverGestor</name>
+        <param>
+          <type><ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>headGestor</declname>
+        </param>
+        <briefdescription>
+<para>Remove <ref refid="struct_gestor" kindref="compound">Gestor</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headGestor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_gestor" kindref="compound">Gestor</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="68" column="5" bodyfile="Gestor.c" bodystart="426" bodyend="437" declfile="Gestor.h" declline="68" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Definicao da struct <ref refid="struct_gestor" kindref="compound">Gestor</ref> onde ira guardar o registo de Gestores e as suas respectivas funcoes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Rafael Silva @email <ulink url="mailto:a21089@alunos.ipca.pt">a21089@alunos.ipca.pt</ulink> </para>
+</simplesect>
+<simplesect kind="date"><para>2023 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_aluguer_8h" kindref="compound">Aluguer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_cliente_8h" kindref="compound">Cliente.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_meio_de_mobilidade_8h" kindref="compound">MeioDeMobilidade.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="struct_gestor" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>{</highlight></codeline>
+<codeline lineno="28" refid="struct_gestor_1ac9e8085a200dae2e21b09bb6a04641b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_gestor_1ac9e8085a200dae2e21b09bb6a04641b0" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="29" refid="struct_gestor_1a302767a0825a0627d4c059d44c011c92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_gestor_1a302767a0825a0627d4c059d44c011c92" kindref="member">utilizador</ref>[50];</highlight></codeline>
+<codeline lineno="30" refid="struct_gestor_1a9c521b120a032091fda8a0842e851b7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_gestor_1a9c521b120a032091fda8a0842e851b7b" kindref="member">distrito</ref>[50];</highlight></codeline>
+<codeline lineno="31" refid="struct_gestor_1adb1977a48e74da3b51eaa5c737af166c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="struct_gestor_1adb1977a48e74da3b51eaa5c737af166c" kindref="member">meios</ref>;</highlight></codeline>
+<codeline lineno="32" refid="struct_gestor_1a08eb9249ef1968ca719f88cfe9417a29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="struct_gestor_1a08eb9249ef1968ca719f88cfe9417a29" kindref="member">clientes</ref>;</highlight></codeline>
+<codeline lineno="33" refid="struct_gestor_1a04e963971fa622091a6b1bd31afc0fc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="struct_gestor_1a04e963971fa622091a6b1bd31afc0fc9" kindref="member">todosAlugueres</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="struct_gestor_1a4a3488699ea7307650bd1968dd268fe6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="struct_gestor_1a4a3488699ea7307650bd1968dd268fe6" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="36" refid="_gestor_8h_1a3d4ae7dc89d61369ca0a8f1d147607c4" refkind="member"><highlight class="normal">}<sp/><ref refid="_gestor_8h_1a3d4ae7dc89d61369ca0a8f1d147607c4" kindref="member">Gestor</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//Criar<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="_gestor_8h_1aacbdc2c579f52e28253a68b0fda91d40" kindref="member">CriarNovoGestor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_gestor_1a302767a0825a0627d4c059d44c011c92" kindref="member">utilizador</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_gestor_1a9c521b120a032091fda8a0842e851b7b" kindref="member">distrito</ref>,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>meiosDeMobilidadeExistentes,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>clienteExistentes,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>aluguerTotal);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Gestor<sp/>no<sp/>Header<sp/>de<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="_gestor_8h_1a6f2e5b56ffa8fa862248f1f8b897d8d1" kindref="member">InsereGestorNoFim</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>header,<sp/><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>novoGestor);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>Existe<sp/>Gestor<sp/>na<sp/>lista<sp/>por<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1a7d2685654f9bb33b783867864bfc316d" kindref="member">ExisteGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idGestor);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//Mostra<sp/>Lista<sp/>de<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1a06d5d1a9dfc2a49cb2ebf0737b6880c9" kindref="member">MostrarListaGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1a2234ee4700d9e4e07f6b80bfd4c71bf3" kindref="member">MostraGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>gestor);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//Remove<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="_gestor_8h_1af0d0e543c5fcb680db8479a51502977e" kindref="member">RemoverGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//Procura<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="_gestor_8h_1a0e243ae5e66f3ad51d7aef2a1e1cf8d0" kindref="member">ProcuraGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1a7fbdf99e5ccedffd9d95838a28aaed17" kindref="member">AlteraGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>**<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_gestor_1a302767a0825a0627d4c059d44c011c92" kindref="member">utilizador</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>txt<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="_gestor_8h_1ac187edb9cdb6c3996b0a9a508fa2945e" kindref="member">LerEArmazenarGestor</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename,<sp/><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>Gestor<sp/>no<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1acdde02251745c3ecb345fa1386e86940" kindref="member">GravarGestorBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>bin<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="_gestor_8h_1aac9ab14724475643840100ba92d19e97" kindref="member">LerGestorBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>Meios<sp/>de<sp/>Mobilidade<sp/>e<sp/>Clientes<sp/>nos<sp/>Gestores<sp/>todos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1a82ddbbeedb2012369a60154fd48df3ec" kindref="member">GravarMeiosEClientesNosGestores</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>gestor,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>alugueresTotal,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>clientesHeader,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>meiosHeader);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//Inserir,Remover<sp/>e<sp/>Alterar<sp/>na<sp/>consola</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/><ref refid="_gestor_8h_1a2328ed02be4bbae6a3502ee66081b01e" kindref="member">InserirPorEscreverGestor</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1a024a7c83b12202fe2106fc44ab97fd72" kindref="member">AlterarPorEscreverGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>headGestor);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_gestor_8h_1a7d4b7cb5a7e4956cd3eff700c7e71f2a" kindref="member">RemoverPorEscreverGestor</ref>(<ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>headGestor);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Gestor.h"/>
+  </compounddef>
+</doxygen>

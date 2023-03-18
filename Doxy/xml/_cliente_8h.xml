@@ -1,0 +1,941 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_cliente_8h" kind="file" language="C++">
+    <compoundname>Cliente.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="_aluguer_8h" local="yes">Aluguer.h</includes>
+    <includes refid="_meio_de_mobilidade_8h" local="yes">MeioDeMobilidade.h</includes>
+    <includedby refid="_aluguer_8h" local="yes">Aluguer.h</includedby>
+    <includedby refid="_gestor_8h" local="yes">Gestor.h</includedby>
+    <includedby refid="_meio_de_mobilidade_8h" local="yes">MeioDeMobilidade.h</includedby>
+    <includedby refid="_source_8c" local="yes">Source.c</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>Aluguer.h</label>
+        <link refid="_aluguer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Cliente.h</label>
+        <link refid="_cliente_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Gestor.h</label>
+        <link refid="_gestor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>MeioDeMobilidade.h</label>
+        <link refid="_meio_de_mobilidade_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>Aluguer.c</label>
+        <link refid="_aluguer_8c"/>
+      </node>
+      <node id="2">
+        <label>Aluguer.h</label>
+        <link refid="_aluguer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Cliente.c</label>
+        <link refid="_cliente_8c"/>
+      </node>
+      <node id="1">
+        <label>Cliente.h</label>
+        <link refid="_cliente_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Gestor.c</label>
+        <link refid="_gestor_8c"/>
+      </node>
+      <node id="5">
+        <label>Gestor.h</label>
+        <link refid="_gestor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>MeioDeMobilidade.c</label>
+        <link refid="_meio_de_mobilidade_8c"/>
+      </node>
+      <node id="8">
+        <label>MeioDeMobilidade.h</label>
+        <link refid="_meio_de_mobilidade_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Source.c</label>
+        <link refid="_source_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_clientes" prot="public">Clientes</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_cliente_8h_1a3804dbf24f9b38637b81b5072252ed41" prot="public" static="no">
+        <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref></type>
+        <definition>typedef struct Clientes Clientes</definition>
+        <argsstring></argsstring>
+        <name>Clientes</name>
+        <briefdescription>
+<para>Estrutura para armazenar <ref refid="struct_clientes" kindref="compound">Clientes</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um Cliente contém um id (@id), nome (@nome), morada (@morada) ,nif (@nif) , saldo (@saldo) e alugueres (@atividade). Contém apontador para próximo <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="41" column="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_cliente_8h_1a3116b97016d33b487a8188517d0ebe15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>Clientes * CriarClientes</definition>
+        <argsstring>(int id, char nome[50], char morada[50], char nif[9], float saldo)</argsstring>
+        <name>CriarClientes</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>nome</declname>
+          <array>[50]</array>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>morada</declname>
+          <array>[50]</array>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>nif</declname>
+          <array>[9]</array>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>saldo</declname>
+        </param>
+        <briefdescription>
+<para>Cria MeioDeMobilidade. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nome</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome do Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">morada</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>morada do Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nif</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nif do Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">saldo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>saldo do Cliente</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novo <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="44" column="10" bodyfile="Cliente.c" bodystart="34" bodyend="53" declfile="Cliente.h" declline="44" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1adab003d43eaf01cd19da2354ef7c184d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>Clientes * InsereClienteNoFim</definition>
+        <argsstring>(Clientes *header, Clientes *novoCliente)</argsstring>
+        <name>InsereClienteNoFim</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>novoCliente</declname>
+        </param>
+        <briefdescription>
+<para>Insere Cliente na lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">novoCliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>novo Cliente</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="46" column="10" bodyfile="Cliente.c" bodystart="67" bodyend="85" declfile="Cliente.h" declline="46" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a5b1510d72a1708e2a2a97929eedc6b96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ExisteCliente</definition>
+        <argsstring>(Clientes *header, int idCliente)</argsstring>
+        <name>ExisteCliente</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idCliente</declname>
+        </param>
+        <briefdescription>
+<para>Ver se Cliente existe. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idCliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Cliente da lista total</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="48" column="6" bodyfile="Cliente.c" bodystart="97" bodyend="106" declfile="Cliente.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1ab69c5b6a62657eefc965de3b0925bd7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MostrarListaClientes</definition>
+        <argsstring>(Clientes *header)</argsstring>
+        <name>MostrarListaClientes</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Lista os <ref refid="struct_clientes" kindref="compound">Clientes</ref> que Existem. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="50" column="6" bodyfile="Cliente.c" bodystart="115" bodyend="121" declfile="Cliente.h" declline="50" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a7d89fb3ece417391247b23ee492c006f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MostraCliente</definition>
+        <argsstring>(Clientes *cliente)</argsstring>
+        <name>MostraCliente</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>cliente</declname>
+        </param>
+        <briefdescription>
+<para>Lista os <ref refid="struct_clientes" kindref="compound">Clientes</ref> que Existem , e escreve. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="51" column="6" bodyfile="Cliente.c" bodystart="131" bodyend="141" declfile="Cliente.h" declline="51" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a83d2511d0a642efe2e00c566ff4bfb88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>Clientes * RemoverCliente</definition>
+        <argsstring>(Clientes *header, int id)</argsstring>
+        <name>RemoverCliente</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Remove Cliente na lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Cliente</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="53" column="10" bodyfile="Cliente.c" bodystart="154" bodyend="177" declfile="Cliente.h" declline="53" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1accdeb91c05866425b30c53e8c339927b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>Clientes * ProcuraClientes</definition>
+        <argsstring>(Clientes *header, int id)</argsstring>
+        <name>ProcuraClientes</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Procura Cliente na lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Cliente</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="55" column="10" bodyfile="Cliente.c" bodystart="190" bodyend="203" declfile="Cliente.h" declline="55" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1ac88a1d64c94994aec09f458d5eb412c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlteraCliente</definition>
+        <argsstring>(Clientes **header, int id, char *nome)</argsstring>
+        <name>AlteraCliente</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> **</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>nome</declname>
+        </param>
+        <briefdescription>
+<para>Altera Cliente na lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nome</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome Cliente </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="57" column="6" bodyfile="Cliente.c" bodystart="216" bodyend="224" declfile="Cliente.h" declline="57" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1ad5a73913e046fa3a43eedfd9f595a08a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CountClientes</definition>
+        <argsstring>(Clientes *head)</argsstring>
+        <name>CountClientes</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>head</declname>
+        </param>
+        <briefdescription>
+<para>Conta <ref refid="struct_clientes" kindref="compound">Clientes</ref> da lista total. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Quantos <ref refid="struct_clientes" kindref="compound">Clientes</ref> Tem; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="59" column="5" bodyfile="Cliente.c" bodystart="308" bodyend="318" declfile="Cliente.h" declline="59" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a035761bf6ee64e84f737e0f2ba1db4cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>Clientes * LerEArmazenarCliente</definition>
+        <argsstring>(char *filename, Clientes *header)</argsstring>
+        <name>LerEArmazenarCliente</name>
+        <param>
+          <type>char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Le e Armazena <ref refid="struct_clientes" kindref="compound">Clientes</ref> por txt file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path do Txt file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="62" column="10" bodyfile="Cliente.c" bodystart="331" bodyend="378" declfile="Cliente.h" declline="62" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1aef19859d740cee6d2cec68f187c55fca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GravarClientesBinario</definition>
+        <argsstring>(char *nomeFicheiro, Clientes *header)</argsstring>
+        <name>GravarClientesBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Grava <ref refid="struct_clientes" kindref="compound">Clientes</ref> no bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path do bin file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="64" column="6" bodyfile="Cliente.c" bodystart="390" bodyend="405" declfile="Cliente.h" declline="64" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a06601e111f3554919bec4eab1bc844cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>Clientes * LerClientesBinario</definition>
+        <argsstring>(char *nomeFicheiro)</argsstring>
+        <name>LerClientesBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <briefdescription>
+<para>Le e Armazena <ref refid="struct_clientes" kindref="compound">Clientes</ref> por um bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="66" column="10" bodyfile="Cliente.c" bodystart="416" bodyend="430" declfile="Cliente.h" declline="66" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a71f194570327a777abd0c14fba1c8570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RegistoAluguer</definition>
+        <argsstring>(struct Clientes **headerCliente, struct MeiosDeMobilidade **headerMeios, struct Aluguer **headerAluguerTotal, int idCliente, int idMeios)</argsstring>
+        <name>RegistoAluguer</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> **</type>
+          <declname>headerCliente</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> **</type>
+          <declname>headerMeios</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> **</type>
+          <declname>headerAluguerTotal</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idCliente</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idMeios</declname>
+        </param>
+        <briefdescription>
+<para>Regista um <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> de um Meio de Mobilidade pelo o Cliente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headerCliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerMeios</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerAluguerTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idCliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idMeios</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Meio De Mobilidade </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="69" column="5" bodyfile="Cliente.c" bodystart="239" bodyend="297" declfile="Cliente.h" declline="69" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a0201d3d9572211f08c42c880fe0408c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>Clientes * InserirPorEscreverCliente</definition>
+        <argsstring>()</argsstring>
+        <name>InserirPorEscreverCliente</name>
+        <briefdescription>
+<para>Insere <ref refid="struct_clientes" kindref="compound">Clientes</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="72" column="10" bodyfile="Cliente.c" bodystart="439" bodyend="463" declfile="Cliente.h" declline="72" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a1792acf5c4d9aa313f2d10bdc49dfa41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AlterarPorEscreverCliente</definition>
+        <argsstring>(Clientes *headClientes)</argsstring>
+        <name>AlterarPorEscreverCliente</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>headClientes</declname>
+        </param>
+        <briefdescription>
+<para>Altera <ref refid="struct_clientes" kindref="compound">Clientes</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="73" column="5" bodyfile="Cliente.c" bodystart="471" bodyend="486" declfile="Cliente.h" declline="73" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a40e950a56f4998295f564464fa712327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RemoverPorEscreverCliente</definition>
+        <argsstring>(Clientes *headClientes)</argsstring>
+        <name>RemoverPorEscreverCliente</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>headClientes</declname>
+        </param>
+        <briefdescription>
+<para>Remove <ref refid="struct_clientes" kindref="compound">Clientes</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="74" column="5" bodyfile="Cliente.c" bodystart="494" bodyend="507" declfile="Cliente.h" declline="74" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_cliente_8h_1a38c33d4b4b0423a3d4ebbc77aa07e126" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RegistoPorEscrever</definition>
+        <argsstring>(Clientes *headClientes, struct Aluguer *headAluguer, struct MeiosDeMobilidade *headMeio)</argsstring>
+        <name>RegistoPorEscrever</name>
+        <param>
+          <type><ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>headClientes</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>headAluguer</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headMeio</declname>
+        </param>
+        <briefdescription>
+<para>Registar <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headClientes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headAluguer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headMeio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Cliente.h" line="75" column="5" bodyfile="Cliente.c" bodystart="519" bodyend="531" declfile="Cliente.h" declline="75" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Definicao da struct Cliente onde ira guardar o registo de <ref refid="struct_clientes" kindref="compound">Clientes</ref> e as suas respectivas funcoes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Rafael Silva @email <ulink url="mailto:a21089@alunos.ipca.pt">a21089@alunos.ipca.pt</ulink> </para>
+</simplesect>
+<simplesect kind="date"><para>2023 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_aluguer_8h" kindref="compound">Aluguer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_meio_de_mobilidade_8h" kindref="compound">MeioDeMobilidade.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="struct_clientes" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="struct_clientes_1ae6387aa3fc43d1c94a1dc168b3fe31bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1ae6387aa3fc43d1c94a1dc168b3fe31bc" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="33" refid="struct_clientes_1ac8e67a1b7b832cc40b74b2ed3a7c57a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1ac8e67a1b7b832cc40b74b2ed3a7c57a7" kindref="member">nome</ref>[50];</highlight></codeline>
+<codeline lineno="34" refid="struct_clientes_1a37c37fdb729d2e4bc0227c0c524ff3f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1a37c37fdb729d2e4bc0227c0c524ff3f6" kindref="member">morada</ref>[50];</highlight></codeline>
+<codeline lineno="35" refid="struct_clientes_1a4b8e8df864ef8cd471049cea0087ecfd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1a4b8e8df864ef8cd471049cea0087ecfd" kindref="member">nif</ref>[9];</highlight></codeline>
+<codeline lineno="36" refid="struct_clientes_1aa5120d0d3469cb9a87487c23e55613a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1aa5120d0d3469cb9a87487c23e55613a7" kindref="member">saldo</ref>;</highlight></codeline>
+<codeline lineno="37" refid="struct_clientes_1ae3bac67f7cdbc22bb9cc7757964a2ec4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="struct_clientes_1ae3bac67f7cdbc22bb9cc7757964a2ec4" kindref="member">aluguer</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="struct_clientes_1a0107ed40b13a9b5463c0c1dff1af9c76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="struct_clientes_1a0107ed40b13a9b5463c0c1dff1af9c76" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="_cliente_8h_1a3804dbf24f9b38637b81b5072252ed41" refkind="member"><highlight class="normal">}<sp/><ref refid="_cliente_8h_1a3804dbf24f9b38637b81b5072252ed41" kindref="member">Clientes</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//Criar<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="_cliente_8h_1a3116b97016d33b487a8188517d0ebe15" kindref="member">CriarClientes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1ac8e67a1b7b832cc40b74b2ed3a7c57a7" kindref="member">nome</ref>[50],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1a37c37fdb729d2e4bc0227c0c524ff3f6" kindref="member">morada</ref>[50],<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1a4b8e8df864ef8cd471049cea0087ecfd" kindref="member">nif</ref>[9],<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_clientes_1aa5120d0d3469cb9a87487c23e55613a7" kindref="member">saldo</ref>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Cliente<sp/>no<sp/>Header<sp/>de<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="_cliente_8h_1adab003d43eaf01cd19da2354ef7c184d" kindref="member">InsereClienteNoFim</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>header,<sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>novoCliente);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>Existe<sp/>Cliente<sp/>na<sp/>lista<sp/>por<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1a5b1510d72a1708e2a2a97929eedc6b96" kindref="member">ExisteCliente</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idCliente);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//Mostra<sp/>Lista<sp/>de<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1ab69c5b6a62657eefc965de3b0925bd7d" kindref="member">MostrarListaClientes</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1a7d89fb3ece417391247b23ee492c006f" kindref="member">MostraCliente</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>cliente);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//Remove<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="_cliente_8h_1a83d2511d0a642efe2e00c566ff4bfb88" kindref="member">RemoverCliente</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//Procura<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="_cliente_8h_1accdeb91c05866425b30c53e8c339927b" kindref="member">ProcuraClientes</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1ac88a1d64c94994aec09f458d5eb412c7" kindref="member">AlteraCliente</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>**<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_clientes_1ac8e67a1b7b832cc40b74b2ed3a7c57a7" kindref="member">nome</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//Conta<sp/>Clientes<sp/>no<sp/>header<sp/>Clientes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1ad5a73913e046fa3a43eedfd9f595a08a" kindref="member">CountClientes</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>head);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>txt<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="_cliente_8h_1a035761bf6ee64e84f737e0f2ba1db4cc" kindref="member">LerEArmazenarCliente</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename,<sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>Clientes<sp/>no<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1aef19859d740cee6d2cec68f187c55fca" kindref="member">GravarClientesBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>bin<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="_cliente_8h_1a06601e111f3554919bec4eab1bc844cc" kindref="member">LerClientesBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//Regista<sp/>um<sp/>Aluguer<sp/>de<sp/>um<sp/>Meio<sp/>de<sp/>Mobilidade<sp/>pelo<sp/>o<sp/>cliente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1a71f194570327a777abd0c14fba1c8570" kindref="member">RegistoAluguer</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>**<sp/>headerCliente,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>**<sp/>headerMeios,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>**<sp/>headerAluguerTotal,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idCliente,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idMeios);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//Inserir,Remover<sp/>,<sp/>Alterar<sp/>e<sp/>Registo<sp/>na<sp/>consola</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/><ref refid="_cliente_8h_1a0201d3d9572211f08c42c880fe0408c7" kindref="member">InserirPorEscreverCliente</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1a1792acf5c4d9aa313f2d10bdc49dfa41" kindref="member">AlterarPorEscreverCliente</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>headClientes);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1a40e950a56f4998295f564464fa712327" kindref="member">RemoverPorEscreverCliente</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>headClientes);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_cliente_8h_1a38c33d4b4b0423a3d4ebbc77aa07e126" kindref="member">RegistoPorEscrever</ref>(<ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>headClientes,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>headAluguer,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeio);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Cliente.h"/>
+  </compounddef>
+</doxygen>

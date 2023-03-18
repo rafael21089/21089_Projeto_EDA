@@ -1,0 +1,61 @@
+.TH "Gestor" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Gestor \- Estrutura para armazenar \fBGestor\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Gestor\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "char \fButilizador\fP [50]"
+.br
+.ti -1c
+.RI "char \fBdistrito\fP [50]"
+.br
+.ti -1c
+.RI "struct \fBMeiosDeMobilidade\fP * \fBmeios\fP"
+.br
+.ti -1c
+.RI "struct \fBClientes\fP * \fBclientes\fP"
+.br
+.ti -1c
+.RI "struct \fBAluguer\fP * \fBtodosAlugueres\fP"
+.br
+.ti -1c
+.RI "struct \fBGestor\fP * \fBnext\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Estrutura para armazenar \fBGestor\fP\&. 
+
+Um \fBGestor\fP contém um id (@id), utilizador (@utilizador), distrito (@distrito) ,meios de mobilidade (@meios) , clientes (@clientes) e todos os Alugueres (@todosAlugueres)\&. Contém apontador para próximo \fBGestor\fP 
+.SH "Member Data Documentation"
+.PP 
+.SS "struct \fBClientes\fP* Gestor::clientes"
+
+.SS "char Gestor::distrito[50]"
+
+.SS "int Gestor::id"
+
+.SS "struct \fBMeiosDeMobilidade\fP* Gestor::meios"
+
+.SS "struct \fBGestor\fP* Gestor::next"
+
+.SS "struct \fBAluguer\fP* Gestor::todosAlugueres"
+
+.SS "char Gestor::utilizador[50]"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

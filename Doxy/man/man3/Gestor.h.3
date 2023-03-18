@@ -1,0 +1,382 @@
+.TH "Gestor.h" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Gestor.h \- Definicao da struct \fBGestor\fP onde ira guardar o registo de Gestores e as suas respectivas funcoes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'Aluguer\&.h'\fP
+.br
+\fC#include 'Cliente\&.h'\fP
+.br
+\fC#include 'MeioDeMobilidade\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGestor\fP"
+.br
+.RI "Estrutura para armazenar \fBGestor\fP\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBGestor\fP \fBGestor\fP"
+.br
+.RI "Estrutura para armazenar \fBGestor\fP\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGestor\fP * \fBCriarNovoGestor\fP (int id, char *utilizador, char *distrito, struct \fBMeiosDeMobilidade\fP *meiosDeMobilidadeExistentes, struct \fBClientes\fP *clienteExistentes, struct \fBAluguer\fP *aluguerTotal)"
+.br
+.RI "Cria \fBGestor\fP\&. "
+.ti -1c
+.RI "\fBGestor\fP * \fBInsereGestorNoFim\fP (\fBGestor\fP *header, \fBGestor\fP *novoGestor)"
+.br
+.RI "Insere \fBGestor\fP na lista de \fBGestor\fP\&. "
+.ti -1c
+.RI "bool \fBExisteGestor\fP (\fBGestor\fP *header, int idGestor)"
+.br
+.RI "Ver se \fBGestor\fP existe\&. "
+.ti -1c
+.RI "void \fBMostrarListaGestor\fP (\fBGestor\fP *header)"
+.br
+.RI "Lista os Gestores que Existem\&. "
+.ti -1c
+.RI "void \fBMostraGestor\fP (\fBGestor\fP *gestor)"
+.br
+.RI "Lista os Gestores que Existem , e escreve\&. "
+.ti -1c
+.RI "\fBGestor\fP * \fBRemoverGestor\fP (\fBGestor\fP *header, int id)"
+.br
+.RI "Remove \fBGestor\fP na lista de Gestores\&. "
+.ti -1c
+.RI "\fBGestor\fP * \fBProcuraGestor\fP (\fBGestor\fP *header, int id)"
+.br
+.RI "Procura \fBGestor\fP na lista de Gestores\&. "
+.ti -1c
+.RI "void \fBAlteraGestor\fP (\fBGestor\fP **header, int id, char *utilizador)"
+.br
+.RI "Altera \fBGestor\fP na lista de Gestores\&. "
+.ti -1c
+.RI "\fBGestor\fP * \fBLerEArmazenarGestor\fP (char *filename, \fBGestor\fP *header)"
+.br
+.RI "Le e Armazena \fBGestor\fP por txt file\&. "
+.ti -1c
+.RI "bool \fBGravarGestorBinario\fP (char *nomeFicheiro, \fBGestor\fP *header)"
+.br
+.RI "Grava \fBGestor\fP no bin file\&. "
+.ti -1c
+.RI "\fBGestor\fP * \fBLerGestorBinario\fP (char *nomeFicheiro)"
+.br
+.RI "Le e Armazena \fBGestor\fP por um bin file\&. "
+.ti -1c
+.RI "int \fBGravarMeiosEClientesNosGestores\fP (\fBGestor\fP *gestor, struct \fBAluguer\fP *alugueresTotal, struct \fBClientes\fP *clientesHeader, struct \fBMeiosDeMobilidade\fP *meiosHeader)"
+.br
+.RI "Grava Meios de Mobilidade e \fBClientes\fP nos Gestores todos\&. "
+.ti -1c
+.RI "\fBGestor\fP * \fBInserirPorEscreverGestor\fP ()"
+.br
+.RI "Insere \fBGestor\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBAlterarPorEscreverGestor\fP (\fBGestor\fP *headGestor)"
+.br
+.RI "Altera \fBGestor\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBRemoverPorEscreverGestor\fP (\fBGestor\fP *headGestor)"
+.br
+.RI "Remove \fBGestor\fP mas na consola\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definicao da struct \fBGestor\fP onde ira guardar o registo de Gestores e as suas respectivas funcoes\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Rafael Silva @email a21089@alunos.ipca.pt 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023 
+.RE
+.PP
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBGestor\fP \fBGestor\fP"
+
+.PP
+Estrutura para armazenar \fBGestor\fP\&. Um \fBGestor\fP contém um id (@id), utilizador (@utilizador), distrito (@distrito) ,meios de mobilidade (@meios) , clientes (@clientes) e todos os Alugueres (@todosAlugueres)\&. Contém apontador para próximo \fBGestor\fP 
+.SH "Function Documentation"
+.PP 
+.SS "void AlteraGestor (\fBGestor\fP ** header, int id, char * utilizador)"
+
+.PP
+Altera \fBGestor\fP na lista de Gestores\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBGestor\fP 
+.br
+\fIid\fP id \fBGestor\fP 
+.br
+\fIutilizador\fP utilizador \fBGestor\fP 
+.RE
+.PP
+
+.SS "int AlterarPorEscreverGestor (\fBGestor\fP * headGestor)"
+
+.PP
+Altera \fBGestor\fP mas na consola\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadGestor\fP header da lista de \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "\fBGestor\fP * CriarNovoGestor (int id, char * utilizador, char * distrito, \fBMeiosDeMobilidade\fP * meiosDeMobilidadeExistentes, \fBClientes\fP * clienteExistentes, \fBAluguer\fP * aluguerTotal)"
+
+.PP
+Cria \fBGestor\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP id do \fBGestor\fP 
+.br
+\fIutilizador\fP utilizador do \fBGestor\fP 
+.br
+\fIdistrito\fP distrito Do \fBGestor\fP 
+.br
+\fImeiosDeMobilidadeExistentes\fP MeioDeMobilidade para \fBGestor\fP 
+.br
+\fIclienteExistentes\fP \fBClientes\fP para \fBGestor\fP 
+.br
+\fIaluguerTotal\fP \fBAluguer\fP total para \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+novo \fBGestor\fP 
+.RE
+.PP
+
+.SS "bool ExisteGestor (\fBGestor\fP * header, int idGestor)"
+
+.PP
+Ver se \fBGestor\fP existe\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBGestor\fP 
+.br
+\fIidGestor\fP id do \fBGestor\fP da lista total
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool GravarGestorBinario (char * nomeFicheiro, \fBGestor\fP * header)"
+
+.PP
+Grava \fBGestor\fP no bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP Path do bin file 
+.br
+\fIheader\fP header da lista de \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "int GravarMeiosEClientesNosGestores (\fBGestor\fP * gestor, \fBAluguer\fP * alugueresTotal, \fBClientes\fP * clientesHeader, \fBMeiosDeMobilidade\fP * meiosHeader)"
+
+.PP
+Grava Meios de Mobilidade e \fBClientes\fP nos Gestores todos\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgestor\fP header da lista de \fBGestor\fP 
+.br
+\fIalugueresTotal\fP header da lista de \fBAluguer\fP 
+.br
+\fIclientesHeader\fP header da lista de \fBClientes\fP 
+.br
+\fImeiosHeader\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "\fBGestor\fP * InsereGestorNoFim (\fBGestor\fP * header, \fBGestor\fP * novoGestor)"
+
+.PP
+Insere \fBGestor\fP na lista de \fBGestor\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBGestor\fP 
+.br
+\fInovoGestor\fP novo \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBGestor\fP; 
+.RE
+.PP
+
+.SS "\fBGestor\fP * InserirPorEscreverGestor ()"
+
+.PP
+Insere \fBGestor\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBGestor\fP; 
+.RE
+.PP
+
+.SS "\fBGestor\fP * LerEArmazenarGestor (char * filename, \fBGestor\fP * header)"
+
+.PP
+Le e Armazena \fBGestor\fP por txt file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfilename\fP Path do Txt file 
+.br
+\fIheader\fP header da lista de \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBGestor\fP; 
+.RE
+.PP
+
+.SS "\fBGestor\fP * LerGestorBinario (char * nomeFicheiro)"
+
+.PP
+Le e Armazena \fBGestor\fP por um bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP header da lista de \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBGestor\fP; 
+.RE
+.PP
+
+.SS "void MostraGestor (\fBGestor\fP * gestor)"
+
+.PP
+Lista os Gestores que Existem , e escreve\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgestor\fP header da lista de Gestores 
+.RE
+.PP
+
+.SS "void MostrarListaGestor (\fBGestor\fP * header)"
+
+.PP
+Lista os Gestores que Existem\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBGestor\fP 
+.RE
+.PP
+
+.SS "\fBGestor\fP * ProcuraGestor (\fBGestor\fP * header, int id)"
+
+.PP
+Procura \fBGestor\fP na lista de Gestores\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBGestor\fP 
+.br
+\fIid\fP id \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBGestor\fP; 
+.RE
+.PP
+
+.SS "\fBGestor\fP * RemoverGestor (\fBGestor\fP * header, int id)"
+
+.PP
+Remove \fBGestor\fP na lista de Gestores\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBGestor\fP 
+.br
+\fIid\fP id \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBGestor\fP; 
+.RE
+.PP
+
+.SS "int RemoverPorEscreverGestor (\fBGestor\fP * headGestor)"
+
+.PP
+Remove \fBGestor\fP mas na consola\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadGestor\fP header da lista de \fBGestor\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

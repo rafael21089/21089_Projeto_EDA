@@ -1,0 +1,396 @@
+\hypertarget{_aluguer_8h}{}\doxysection{Aluguer.\+h File Reference}
+\label{_aluguer_8h}\index{Aluguer.h@{Aluguer.h}}
+
+
+Definicao da struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} onde ira guardar o registo de alugueres e as suas respectivas funcoes.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Cliente.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Meio\+De\+Mobilidade.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Gestor.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_aluguer}{Aluguer}}
+\begin{DoxyCompactList}\small\item\em Estrutura para armazenar Alugueres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} \mbox{\hyperlink{_aluguer_8h_afb37cef674625047ed413fd6713ce3c6}{Aluguer}}
+\begin{DoxyCompactList}\small\item\em Estrutura para armazenar Alugueres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ \mbox{\hyperlink{_aluguer_8h_a364ea98f8caba1fe9c157d7b7756ded1}{Criar\+Aluguer\+Lista\+Total}} (int id, float custo, char $\ast$estado\+Do\+Aluguer, int cliente\+Id, int meio\+Usado\+Id)
+\begin{DoxyCompactList}\small\item\em Cria \mbox{\hyperlink{struct_aluguer}{Aluguer}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ \mbox{\hyperlink{_aluguer_8h_a01861332c1a55841ad38e02af819f1ce}{Insere\+Aluguer\+Lista\+Total\+No\+Fim}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$novo\+Aluguer\+Lista\+Total)
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} na lista de Alugueres. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_aluguer_8h_accbcb74653afbbceecf56e09ba489b47}{Existe\+Aluguer\+Lista\+Total}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header, int id\+Aluguer\+Lista\+Total)
+\begin{DoxyCompactList}\small\item\em Ve se existe \mbox{\hyperlink{struct_aluguer}{Aluguer}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_aluguer_8h_a4c2eff8a355cdb5f4fa88785d1cba4c2}{Count\+Aluguer\+Lista\+Total}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Conta \mbox{\hyperlink{struct_aluguer}{Aluguer}} da lista total. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_aluguer_8h_a95a6d5a6f110dbf0be765a47e7c3cdca}{Count\+Alugueres}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Conta quantos alugueres existem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_aluguer_8h_ac5007d23049c41d81984ff4f17589e9f}{Insert\+Alugueres\+Cliente}} (struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$atividade)
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} no Cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_aluguer_8h_a32f0143f1802413dd675a6a9ce7bbe4c}{Insert\+Alugueres\+Meio}} (struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$meio, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$atividade)
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} no \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_aluguer_8h_af72295eff5b8121178eb75b6ed7fb0f4}{Insert\+Aluger\+Total\+Gestor}} (struct \mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$gestor, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$aluguer\+Total)
+\begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} no \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ \mbox{\hyperlink{_aluguer_8h_ac728a8d9e8ba13b616c338a648f89f7f}{Ler\+EArmazenar\+Aluguer\+Lista\+Total}} (char $\ast$filename, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_aluguer}{Aluguer}} por txt file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_aluguer_8h_a45631f6edff1cc2c0f3bf7a8c418ce9c}{Gravar\+Aluguer\+Lista\+Total\+Binario}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Grava \mbox{\hyperlink{struct_aluguer}{Aluguer}} no bin file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ \mbox{\hyperlink{_aluguer_8h_a6a27589566a0afd82f0e6ddfd05a495b}{Ler\+Aluguer\+Lista\+Total\+Binario}} (char $\ast$nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_aluguer}{Aluguer}} por um bin file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_aluguer_8h_a22212ad9258404d36f31ec7793ef824b}{Distribuir\+Alugueres\+Historico}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header\+Meios, struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$header\+Clientes)
+\begin{DoxyCompactList}\small\item\em Distribui o Historico de Alugueres por cada Cliente e Meio expecifico. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_aluguer_8h_ac0d78a581e397a630d7d456874d411d9}{Listar\+Cliente\+Alugueres\+By\+Id}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header, int id\+Cliente)
+\begin{DoxyCompactList}\small\item\em Listar Alugueres por Cliente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_aluguer_8h_a47f7e32244a877e84ade5472bb0f56fe}{Aluguer\+Cliente\+Por\+Escrever}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$head\+Aluguer)
+\begin{DoxyCompactList}\small\item\em Funcao para insercao de valores para listagem por cliente id. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_aluguer_8h_ae08682546035b7defaf7cd5e5420f724}{Listar\+Meios\+Alugueres\+By\+Id}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header, int id\+Meios)
+\begin{DoxyCompactList}\small\item\em Listar Alugueres por Meio. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_aluguer_8h_af479e88e55e7933452838d1c7fbd9fc0}{Aluguer\+Meios\+Por\+Escrever}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$head\+Aluguer)
+\begin{DoxyCompactList}\small\item\em Funcao para insercao de valores para listagem por meio id. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_aluguer_8h_a054847a0089bac03968a797236844e5a}{Listar\+Todos\+Alugueres}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Lista todos os Alugueres Existentes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definicao da struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} onde ira guardar o registo de alugueres e as suas respectivas funcoes. 
+
+\begin{DoxyAuthor}{Author}
+Rafael Silva @email \href{mailto:a21089@alunos.ipca.pt}{\texttt{ a21089@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_aluguer_8h_afb37cef674625047ed413fd6713ce3c6}\label{_aluguer_8h_afb37cef674625047ed413fd6713ce3c6}} 
+\index{Aluguer.h@{Aluguer.h}!Aluguer@{Aluguer}}
+\index{Aluguer@{Aluguer}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{Aluguer}{Aluguer}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} \mbox{\hyperlink{struct_aluguer}{Aluguer}}}
+
+
+
+Estrutura para armazenar Alugueres. 
+
+Um \mbox{\hyperlink{struct_aluguer}{Aluguer}} contém um id (@id), custo (@custo) ,estado Do \mbox{\hyperlink{struct_aluguer}{Aluguer}} (@estado\+Do\+Aluguer) , id do Cliente que fez aluguer (@cliente\+Id) e id do Meio que fez aluguer (@meio\+Usado\+Id). Contém apontador para próximo \mbox{\hyperlink{struct_aluguer}{Aluguer}} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_aluguer_8h_a47f7e32244a877e84ade5472bb0f56fe}\label{_aluguer_8h_a47f7e32244a877e84ade5472bb0f56fe}} 
+\index{Aluguer.h@{Aluguer.h}!AluguerClientePorEscrever@{AluguerClientePorEscrever}}
+\index{AluguerClientePorEscrever@{AluguerClientePorEscrever}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{AluguerClientePorEscrever()}{AluguerClientePorEscrever()}}
+{\footnotesize\ttfamily int Aluguer\+Cliente\+Por\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{head\+Aluguer }\end{DoxyParamCaption})}
+
+
+
+Funcao para insercao de valores para listagem por cliente id. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_af479e88e55e7933452838d1c7fbd9fc0}\label{_aluguer_8h_af479e88e55e7933452838d1c7fbd9fc0}} 
+\index{Aluguer.h@{Aluguer.h}!AluguerMeiosPorEscrever@{AluguerMeiosPorEscrever}}
+\index{AluguerMeiosPorEscrever@{AluguerMeiosPorEscrever}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{AluguerMeiosPorEscrever()}{AluguerMeiosPorEscrever()}}
+{\footnotesize\ttfamily int Aluguer\+Meios\+Por\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{head\+Aluguer }\end{DoxyParamCaption})}
+
+
+
+Funcao para insercao de valores para listagem por meio id. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Aluguer} & header da lista de Alugueres \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_a95a6d5a6f110dbf0be765a47e7c3cdca}\label{_aluguer_8h_a95a6d5a6f110dbf0be765a47e7c3cdca}} 
+\index{Aluguer.h@{Aluguer.h}!CountAlugueres@{CountAlugueres}}
+\index{CountAlugueres@{CountAlugueres}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{CountAlugueres()}{CountAlugueres()}}
+{\footnotesize\ttfamily int Count\+Alugueres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Conta quantos alugueres existem. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head} & Head da lista \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quantos Alugueres Tem; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_a4c2eff8a355cdb5f4fa88785d1cba4c2}\label{_aluguer_8h_a4c2eff8a355cdb5f4fa88785d1cba4c2}} 
+\index{Aluguer.h@{Aluguer.h}!CountAluguerListaTotal@{CountAluguerListaTotal}}
+\index{CountAluguerListaTotal@{CountAluguerListaTotal}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{CountAluguerListaTotal()}{CountAluguerListaTotal()}}
+{\footnotesize\ttfamily int Count\+Aluguer\+Lista\+Total (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Conta \mbox{\hyperlink{struct_aluguer}{Aluguer}} da lista total. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Quantos Alugueres Tem; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_a364ea98f8caba1fe9c157d7b7756ded1}\label{_aluguer_8h_a364ea98f8caba1fe9c157d7b7756ded1}} 
+\index{Aluguer.h@{Aluguer.h}!CriarAluguerListaTotal@{CriarAluguerListaTotal}}
+\index{CriarAluguerListaTotal@{CriarAluguerListaTotal}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{CriarAluguerListaTotal()}{CriarAluguerListaTotal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ Criar\+Aluguer\+Lista\+Total (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{float}]{custo,  }\item[{char $\ast$}]{estado\+Do\+Aluguer,  }\item[{int}]{cliente\+Id,  }\item[{int}]{meio\+Usado\+Id }\end{DoxyParamCaption})}
+
+
+
+Cria \mbox{\hyperlink{struct_aluguer}{Aluguer}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & id do \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em custo} & custo do \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em estado\+Do\+Aluguer} & estado Do \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em cliente\+Id} & id Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em meio\+Usado\+Id} & id Meio\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo \mbox{\hyperlink{struct_aluguer}{Aluguer}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_a22212ad9258404d36f31ec7793ef824b}\label{_aluguer_8h_a22212ad9258404d36f31ec7793ef824b}} 
+\index{Aluguer.h@{Aluguer.h}!DistribuirAlugueresHistorico@{DistribuirAlugueresHistorico}}
+\index{DistribuirAlugueresHistorico@{DistribuirAlugueresHistorico}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{DistribuirAlugueresHistorico()}{DistribuirAlugueresHistorico()}}
+{\footnotesize\ttfamily void Distribuir\+Alugueres\+Historico (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header\+Meios,  }\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{header\+Clientes }\end{DoxyParamCaption})}
+
+
+
+Distribui o Historico de Alugueres por cada Cliente e Meio expecifico. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Meios} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Clientes} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_accbcb74653afbbceecf56e09ba489b47}\label{_aluguer_8h_accbcb74653afbbceecf56e09ba489b47}} 
+\index{Aluguer.h@{Aluguer.h}!ExisteAluguerListaTotal@{ExisteAluguerListaTotal}}
+\index{ExisteAluguerListaTotal@{ExisteAluguerListaTotal}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{ExisteAluguerListaTotal()}{ExisteAluguerListaTotal()}}
+{\footnotesize\ttfamily bool Existe\+Aluguer\+Lista\+Total (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header,  }\item[{int}]{id\+Aluguer\+Lista\+Total }\end{DoxyParamCaption})}
+
+
+
+Ve se existe \mbox{\hyperlink{struct_aluguer}{Aluguer}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Aluguer\+Lista\+Total} & id do \mbox{\hyperlink{struct_aluguer}{Aluguer}} da lista total\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_a45631f6edff1cc2c0f3bf7a8c418ce9c}\label{_aluguer_8h_a45631f6edff1cc2c0f3bf7a8c418ce9c}} 
+\index{Aluguer.h@{Aluguer.h}!GravarAluguerListaTotalBinario@{GravarAluguerListaTotalBinario}}
+\index{GravarAluguerListaTotalBinario@{GravarAluguerListaTotalBinario}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{GravarAluguerListaTotalBinario()}{GravarAluguerListaTotalBinario()}}
+{\footnotesize\ttfamily bool Gravar\+Aluguer\+Lista\+Total\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Grava \mbox{\hyperlink{struct_aluguer}{Aluguer}} no bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & Path do bin file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_a01861332c1a55841ad38e02af819f1ce}\label{_aluguer_8h_a01861332c1a55841ad38e02af819f1ce}} 
+\index{Aluguer.h@{Aluguer.h}!InsereAluguerListaTotalNoFim@{InsereAluguerListaTotalNoFim}}
+\index{InsereAluguerListaTotalNoFim@{InsereAluguerListaTotalNoFim}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{InsereAluguerListaTotalNoFim()}{InsereAluguerListaTotalNoFim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ Insere\+Aluguer\+Lista\+Total\+No\+Fim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{novo\+Aluguer\+Lista\+Total }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} na lista de Alugueres. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
+\hline
+\mbox{\texttt{ in}}  & {\em novo\+Aluguer\+Lista\+Total} & novo \mbox{\hyperlink{struct_aluguer}{Aluguer}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de Alugueres; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_af72295eff5b8121178eb75b6ed7fb0f4}\label{_aluguer_8h_af72295eff5b8121178eb75b6ed7fb0f4}} 
+\index{Aluguer.h@{Aluguer.h}!InsertAlugerTotalGestor@{InsertAlugerTotalGestor}}
+\index{InsertAlugerTotalGestor@{InsertAlugerTotalGestor}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{InsertAlugerTotalGestor()}{InsertAlugerTotalGestor()}}
+{\footnotesize\ttfamily void Insert\+Aluger\+Total\+Gestor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_gestor}{Gestor}} $\ast$}]{gestor,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{aluguer\+Total }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} no \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em gestor} & Head da lista \mbox{\hyperlink{struct_gestor}{Gestor}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em aluguer\+Total} & Head da lista \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_ac5007d23049c41d81984ff4f17589e9f}\label{_aluguer_8h_ac5007d23049c41d81984ff4f17589e9f}} 
+\index{Aluguer.h@{Aluguer.h}!InsertAlugueresCliente@{InsertAlugueresCliente}}
+\index{InsertAlugueresCliente@{InsertAlugueresCliente}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{InsertAlugueresCliente()}{InsertAlugueresCliente()}}
+{\footnotesize\ttfamily void Insert\+Alugueres\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{aluguer }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} no Cliente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cliente} & Head da lista Cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em aluguer} & Head da lista \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_a32f0143f1802413dd675a6a9ce7bbe4c}\label{_aluguer_8h_a32f0143f1802413dd675a6a9ce7bbe4c}} 
+\index{Aluguer.h@{Aluguer.h}!InsertAlugueresMeio@{InsertAlugueresMeio}}
+\index{InsertAlugueresMeio@{InsertAlugueresMeio}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{InsertAlugueresMeio()}{InsertAlugueresMeio()}}
+{\footnotesize\ttfamily void Insert\+Alugueres\+Meio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{meio,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{aluguer }\end{DoxyParamCaption})}
+
+
+
+Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} no \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em meio} & Head da lista \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em aluguer} & Head da lista \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_a6a27589566a0afd82f0e6ddfd05a495b}\label{_aluguer_8h_a6a27589566a0afd82f0e6ddfd05a495b}} 
+\index{Aluguer.h@{Aluguer.h}!LerAluguerListaTotalBinario@{LerAluguerListaTotalBinario}}
+\index{LerAluguerListaTotalBinario@{LerAluguerListaTotalBinario}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{LerAluguerListaTotalBinario()}{LerAluguerListaTotalBinario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ Ler\+Aluguer\+Lista\+Total\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_aluguer}{Aluguer}} por um bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & header da lista de Alugueres\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de Alugueres; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_ac728a8d9e8ba13b616c338a648f89f7f}\label{_aluguer_8h_ac728a8d9e8ba13b616c338a648f89f7f}} 
+\index{Aluguer.h@{Aluguer.h}!LerEArmazenarAluguerListaTotal@{LerEArmazenarAluguerListaTotal}}
+\index{LerEArmazenarAluguerListaTotal@{LerEArmazenarAluguerListaTotal}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{LerEArmazenarAluguerListaTotal()}{LerEArmazenarAluguerListaTotal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ Ler\+EArmazenar\+Aluguer\+Lista\+Total (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Le e Armazena \mbox{\hyperlink{struct_aluguer}{Aluguer}} por txt file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filename} & Path do Txt file \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de Alugueres; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_aluguer_8h_ac0d78a581e397a630d7d456874d411d9}\label{_aluguer_8h_ac0d78a581e397a630d7d456874d411d9}} 
+\index{Aluguer.h@{Aluguer.h}!ListarClienteAlugueresById@{ListarClienteAlugueresById}}
+\index{ListarClienteAlugueresById@{ListarClienteAlugueresById}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{ListarClienteAlugueresById()}{ListarClienteAlugueresById()}}
+{\footnotesize\ttfamily int Listar\+Cliente\+Alugueres\+By\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header,  }\item[{int}]{id\+Cliente }\end{DoxyParamCaption})}
+
+
+
+Listar Alugueres por Cliente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Cliente} & Id do Cliente \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_ae08682546035b7defaf7cd5e5420f724}\label{_aluguer_8h_ae08682546035b7defaf7cd5e5420f724}} 
+\index{Aluguer.h@{Aluguer.h}!ListarMeiosAlugueresById@{ListarMeiosAlugueresById}}
+\index{ListarMeiosAlugueresById@{ListarMeiosAlugueresById}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{ListarMeiosAlugueresById()}{ListarMeiosAlugueresById()}}
+{\footnotesize\ttfamily int Listar\+Meios\+Alugueres\+By\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header,  }\item[{int}]{id\+Meios }\end{DoxyParamCaption})}
+
+
+
+Listar Alugueres por Meio. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Meios} & Id do Meio \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_a054847a0089bac03968a797236844e5a}\label{_aluguer_8h_a054847a0089bac03968a797236844e5a}} 
+\index{Aluguer.h@{Aluguer.h}!ListarTodosAlugueres@{ListarTodosAlugueres}}
+\index{ListarTodosAlugueres@{ListarTodosAlugueres}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{ListarTodosAlugueres()}{ListarTodosAlugueres()}}
+{\footnotesize\ttfamily int Listar\+Todos\+Alugueres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Lista todos os Alugueres Existentes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
+\hline
+\end{DoxyParams}

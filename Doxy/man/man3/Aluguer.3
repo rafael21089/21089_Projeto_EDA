@@ -1,0 +1,56 @@
+.TH "Aluguer" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Aluguer \- Estrutura para armazenar Alugueres\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Aluguer\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "float \fBcusto\fP"
+.br
+.ti -1c
+.RI "char \fBestadoDoAluguer\fP [10]"
+.br
+.ti -1c
+.RI "int \fBclienteId\fP"
+.br
+.ti -1c
+.RI "int \fBmeioUsadoId\fP"
+.br
+.ti -1c
+.RI "struct \fBAluguer\fP * \fBnext\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Estrutura para armazenar Alugueres\&. 
+
+Um \fBAluguer\fP contém um id (@id), custo (@custo) ,estado Do \fBAluguer\fP (@estadoDoAluguer) , id do Cliente que fez aluguer (@clienteId) e id do Meio que fez aluguer (@meioUsadoId)\&. Contém apontador para próximo \fBAluguer\fP 
+.SH "Member Data Documentation"
+.PP 
+.SS "int Aluguer::clienteId"
+
+.SS "float Aluguer::custo"
+
+.SS "char Aluguer::estadoDoAluguer[10]"
+
+.SS "int Aluguer::id"
+
+.SS "int Aluguer::meioUsadoId"
+
+.SS "struct \fBAluguer\fP* Aluguer::next"
+apontador para próximo \fBAluguer\fP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

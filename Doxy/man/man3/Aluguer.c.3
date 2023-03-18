@@ -1,0 +1,382 @@
+.TH "Aluguer.c" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Aluguer.c \- Funcoes para Alugueres\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include 'Aluguer\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRT_SECURE_NO_WARNINGS\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBCountAlugueres\fP (\fBAluguer\fP *head)"
+.br
+.RI "Conta quantos alugueres existem\&. "
+.ti -1c
+.RI "void \fBInsertAlugueresCliente\fP (\fBClientes\fP *cliente, \fBAluguer\fP *aluguer)"
+.br
+.RI "Insere \fBAluguer\fP no Cliente\&. "
+.ti -1c
+.RI "void \fBInsertAlugueresMeio\fP (\fBMeiosDeMobilidade\fP *meio, \fBAluguer\fP *aluguer)"
+.br
+.RI "Insere \fBAluguer\fP no \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "void \fBInsertAlugerTotalGestor\fP (\fBGestor\fP *gestor, \fBAluguer\fP *aluguerTotal)"
+.br
+.RI "Insere \fBAluguer\fP no \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "\fBAluguer\fP * \fBCriarAluguerListaTotal\fP (int id, float custo, char *estadoDoAluguer, int clienteId, int meioUsadoId)"
+.br
+.RI "Cria \fBAluguer\fP\&. "
+.ti -1c
+.RI "\fBAluguer\fP * \fBInsereAluguerListaTotalNoFim\fP (\fBAluguer\fP *header, \fBAluguer\fP *novoAluguerListaTotal)"
+.br
+.RI "Insere \fBAluguer\fP na lista de Alugueres\&. "
+.ti -1c
+.RI "bool \fBExisteAluguerListaTotal\fP (\fBAluguer\fP *header, int idAluguerListaTotal)"
+.br
+.RI "Ve se existe \fBAluguer\fP\&. "
+.ti -1c
+.RI "int \fBCountAluguerListaTotal\fP (\fBAluguer\fP *head)"
+.br
+.RI "Conta \fBAluguer\fP da lista total\&. "
+.ti -1c
+.RI "\fBAluguer\fP * \fBLerEArmazenarAluguerListaTotal\fP (char *filename, \fBAluguer\fP *header)"
+.br
+.RI "Le e Armazena \fBAluguer\fP por txt file\&. "
+.ti -1c
+.RI "bool \fBGravarAluguerListaTotalBinario\fP (char *nomeFicheiro, \fBAluguer\fP *header)"
+.br
+.RI "Grava \fBAluguer\fP no bin file\&. "
+.ti -1c
+.RI "\fBAluguer\fP * \fBLerAluguerListaTotalBinario\fP (char *nomeFicheiro)"
+.br
+.RI "Le e Armazena \fBAluguer\fP por um bin file\&. "
+.ti -1c
+.RI "void \fBDistribuirAlugueresHistorico\fP (\fBAluguer\fP *header, \fBMeiosDeMobilidade\fP *headerMeios, \fBClientes\fP *headerClientes)"
+.br
+.RI "Distribui o Historico de Alugueres por cada Cliente e Meio expecifico\&. "
+.ti -1c
+.RI "int \fBListarClienteAlugueresById\fP (\fBAluguer\fP *header, int idCliente)"
+.br
+.RI "Listar Alugueres por Cliente\&. "
+.ti -1c
+.RI "int \fBAluguerClientePorEscrever\fP (\fBAluguer\fP *headAluguer)"
+.br
+.RI "Funcao para insercao de valores para listagem por cliente id\&. "
+.ti -1c
+.RI "int \fBListarMeiosAlugueresById\fP (\fBAluguer\fP *header, int idMeios)"
+.br
+.RI "Listar Alugueres por Meio\&. "
+.ti -1c
+.RI "int \fBAluguerMeiosPorEscrever\fP (\fBAluguer\fP *headAluguer)"
+.br
+.RI "Funcao para insercao de valores para listagem por meio id\&. "
+.ti -1c
+.RI "int \fBListarTodosAlugueres\fP (\fBAluguer\fP *header)"
+.br
+.RI "Lista todos os Alugueres Existentes\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Funcoes para Alugueres\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Rafael Silva @email a21089@alunos.ipca.pt 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023 
+.RE
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRT_SECURE_NO_WARNINGS"
+
+.SH "Function Documentation"
+.PP 
+.SS "int AluguerClientePorEscrever (\fBAluguer\fP * headAluguer)"
+
+.PP
+Funcao para insercao de valores para listagem por cliente id\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres 
+.RE
+.PP
+
+.SS "int AluguerMeiosPorEscrever (\fBAluguer\fP * headAluguer)"
+
+.PP
+Funcao para insercao de valores para listagem por meio id\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadAluguer\fP header da lista de Alugueres 
+.RE
+.PP
+
+.SS "int CountAlugueres (\fBAluguer\fP * head)"
+
+.PP
+Conta quantos alugueres existem\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIhead\fP Head da lista \fBAluguer\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Quantos Alugueres Tem; 
+.RE
+.PP
+
+.SS "int CountAluguerListaTotal (\fBAluguer\fP * head)"
+
+.PP
+Conta \fBAluguer\fP da lista total\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Quantos Alugueres Tem; 
+.RE
+.PP
+
+.SS "\fBAluguer\fP * CriarAluguerListaTotal (int id, float custo, char * estadoDoAluguer, int clienteId, int meioUsadoId)"
+
+.PP
+Cria \fBAluguer\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP id do \fBAluguer\fP 
+.br
+\fIcusto\fP custo do \fBAluguer\fP 
+.br
+\fIestadoDoAluguer\fP estado Do \fBAluguer\fP 
+.br
+\fIclienteId\fP id Cliente 
+.br
+\fImeioUsadoId\fP id Meio
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+novo \fBAluguer\fP; 
+.RE
+.PP
+
+.SS "void DistribuirAlugueresHistorico (\fBAluguer\fP * header, \fBMeiosDeMobilidade\fP * headerMeios, \fBClientes\fP * headerClientes)"
+
+.PP
+Distribui o Historico de Alugueres por cada Cliente e Meio expecifico\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres 
+.br
+\fIheaderMeios\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIheaderClientes\fP header da lista de \fBClientes\fP 
+.RE
+.PP
+
+.SS "bool ExisteAluguerListaTotal (\fBAluguer\fP * header, int idAluguerListaTotal)"
+
+.PP
+Ve se existe \fBAluguer\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres 
+.br
+\fIidAluguerListaTotal\fP id do \fBAluguer\fP da lista total
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool GravarAluguerListaTotalBinario (char * nomeFicheiro, \fBAluguer\fP * header)"
+
+.PP
+Grava \fBAluguer\fP no bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP Path do bin file 
+.br
+\fIheader\fP header da lista de Alugueres
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "\fBAluguer\fP * InsereAluguerListaTotalNoFim (\fBAluguer\fP * header, \fBAluguer\fP * novoAluguerListaTotal)"
+
+.PP
+Insere \fBAluguer\fP na lista de Alugueres\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres 
+.br
+\fInovoAluguerListaTotal\fP novo \fBAluguer\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de Alugueres; 
+.RE
+.PP
+
+.SS "void InsertAlugerTotalGestor (\fBGestor\fP * gestor, \fBAluguer\fP * aluguerTotal)"
+
+.PP
+Insere \fBAluguer\fP no \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgestor\fP Head da lista \fBGestor\fP 
+.br
+\fIaluguerTotal\fP Head da lista \fBAluguer\fP 
+.RE
+.PP
+
+.SS "void InsertAlugueresCliente (\fBClientes\fP * cliente, \fBAluguer\fP * aluguer)"
+
+.PP
+Insere \fBAluguer\fP no Cliente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcliente\fP Head da lista Cliente 
+.br
+\fIaluguer\fP Head da lista \fBAluguer\fP 
+.RE
+.PP
+
+.SS "void InsertAlugueresMeio (\fBMeiosDeMobilidade\fP * meio, \fBAluguer\fP * aluguer)"
+
+.PP
+Insere \fBAluguer\fP no \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImeio\fP Head da lista \fBMeiosDeMobilidade\fP 
+.br
+\fIaluguer\fP Head da lista \fBAluguer\fP 
+.RE
+.PP
+
+.SS "\fBAluguer\fP * LerAluguerListaTotalBinario (char * nomeFicheiro)"
+
+.PP
+Le e Armazena \fBAluguer\fP por um bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP header da lista de Alugueres
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de Alugueres; 
+.RE
+.PP
+
+.SS "\fBAluguer\fP * LerEArmazenarAluguerListaTotal (char * filename, \fBAluguer\fP * header)"
+
+.PP
+Le e Armazena \fBAluguer\fP por txt file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfilename\fP Path do Txt file 
+.br
+\fIheader\fP header da lista de Alugueres
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de Alugueres; 
+.RE
+.PP
+
+.SS "int ListarClienteAlugueresById (\fBAluguer\fP * header, int idCliente)"
+
+.PP
+Listar Alugueres por Cliente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres 
+.br
+\fIidCliente\fP Id do Cliente 
+.RE
+.PP
+
+.SS "int ListarMeiosAlugueresById (\fBAluguer\fP * header, int idMeios)"
+
+.PP
+Listar Alugueres por Meio\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres 
+.br
+\fIidMeios\fP Id do Meio 
+.RE
+.PP
+
+.SS "int ListarTodosAlugueres (\fBAluguer\fP * header)"
+
+.PP
+Lista todos os Alugueres Existentes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

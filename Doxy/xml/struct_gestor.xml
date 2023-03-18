@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_gestor" kind="struct" language="C++" prot="public">
+    <compoundname>Gestor</compoundname>
+    <includes refid="_gestor_8h" local="no">Gestor.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_gestor_1ac9e8085a200dae2e21b09bb6a04641b0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Gestor::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Gestor::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="28" column="9" bodyfile="Gestor.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gestor_1a302767a0825a0627d4c059d44c011c92" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char Gestor::utilizador[50]</definition>
+        <argsstring>[50]</argsstring>
+        <name>utilizador</name>
+        <qualifiedname>Gestor::utilizador</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="29" column="10" bodyfile="Gestor.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gestor_1a9c521b120a032091fda8a0842e851b7b" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char Gestor::distrito[50]</definition>
+        <argsstring>[50]</argsstring>
+        <name>distrito</name>
+        <qualifiedname>Gestor::distrito</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="30" column="10" bodyfile="Gestor.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gestor_1adb1977a48e74da3b51eaa5c737af166c" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+        <definition>struct MeiosDeMobilidade* Gestor::meios</definition>
+        <argsstring></argsstring>
+        <name>meios</name>
+        <qualifiedname>Gestor::meios</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="31" column="29" bodyfile="Gestor.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gestor_1a08eb9249ef1968ca719f88cfe9417a29" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+        <definition>struct Clientes* Gestor::clientes</definition>
+        <argsstring></argsstring>
+        <name>clientes</name>
+        <qualifiedname>Gestor::clientes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="32" column="20" bodyfile="Gestor.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gestor_1a04e963971fa622091a6b1bd31afc0fc9" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+        <definition>struct Aluguer* Gestor::todosAlugueres</definition>
+        <argsstring></argsstring>
+        <name>todosAlugueres</name>
+        <qualifiedname>Gestor::todosAlugueres</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="33" column="19" bodyfile="Gestor.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gestor_1a4a3488699ea7307650bd1968dd268fe6" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+        <definition>struct Gestor* Gestor::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>Gestor::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Gestor.h" line="35" column="18" bodyfile="Gestor.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura para armazenar <ref refid="struct_gestor" kindref="compound">Gestor</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um <ref refid="struct_gestor" kindref="compound">Gestor</ref> contém um id (@id), utilizador (@utilizador), distrito (@distrito) ,meios de mobilidade (@meios) , clientes (@clientes) e todos os Alugueres (@todosAlugueres). Contém apontador para próximo <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>Aluguer</label>
+        <link refid="struct_aluguer"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Clientes</label>
+        <link refid="struct_clientes"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>aluguer</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Gestor</label>
+        <link refid="struct_gestor"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>meios</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>clientes</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>todosAlugueres</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MeiosDeMobilidade</label>
+        <link refid="struct_meios_de_mobilidade"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>aluguer</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Gestor.h" line="27" column="1" bodyfile="Gestor.h" bodystart="27" bodyend="36"/>
+    <listofallmembers>
+      <member refid="struct_gestor_1a08eb9249ef1968ca719f88cfe9417a29" prot="public" virt="non-virtual"><scope>Gestor</scope><name>clientes</name></member>
+      <member refid="struct_gestor_1a9c521b120a032091fda8a0842e851b7b" prot="public" virt="non-virtual"><scope>Gestor</scope><name>distrito</name></member>
+      <member refid="struct_gestor_1ac9e8085a200dae2e21b09bb6a04641b0" prot="public" virt="non-virtual"><scope>Gestor</scope><name>id</name></member>
+      <member refid="struct_gestor_1adb1977a48e74da3b51eaa5c737af166c" prot="public" virt="non-virtual"><scope>Gestor</scope><name>meios</name></member>
+      <member refid="struct_gestor_1a4a3488699ea7307650bd1968dd268fe6" prot="public" virt="non-virtual"><scope>Gestor</scope><name>next</name></member>
+      <member refid="struct_gestor_1a04e963971fa622091a6b1bd31afc0fc9" prot="public" virt="non-virtual"><scope>Gestor</scope><name>todosAlugueres</name></member>
+      <member refid="struct_gestor_1a302767a0825a0627d4c059d44c011c92" prot="public" virt="non-virtual"><scope>Gestor</scope><name>utilizador</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

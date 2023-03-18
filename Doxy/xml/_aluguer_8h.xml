@@ -1,0 +1,936 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_aluguer_8h" kind="file" language="C++">
+    <compoundname>Aluguer.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="_cliente_8h" local="yes">Cliente.h</includes>
+    <includes refid="_meio_de_mobilidade_8h" local="yes">MeioDeMobilidade.h</includes>
+    <includes refid="_gestor_8h" local="yes">Gestor.h</includes>
+    <includedby refid="_aluguer_8c" local="yes">Aluguer.c</includedby>
+    <includedby refid="_cliente_8c" local="yes">Cliente.c</includedby>
+    <includedby refid="_cliente_8h" local="yes">Cliente.h</includedby>
+    <includedby refid="_gestor_8h" local="yes">Gestor.h</includedby>
+    <includedby refid="_meio_de_mobilidade_8h" local="yes">MeioDeMobilidade.h</includedby>
+    <includedby refid="_source_8c" local="yes">Source.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Aluguer.h</label>
+        <link refid="_aluguer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Cliente.h</label>
+        <link refid="_cliente_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Gestor.h</label>
+        <link refid="_gestor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>MeioDeMobilidade.h</label>
+        <link refid="_meio_de_mobilidade_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Aluguer.c</label>
+        <link refid="_aluguer_8c"/>
+      </node>
+      <node id="1">
+        <label>Aluguer.h</label>
+        <link refid="_aluguer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Cliente.c</label>
+        <link refid="_cliente_8c"/>
+      </node>
+      <node id="4">
+        <label>Cliente.h</label>
+        <link refid="_cliente_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Gestor.c</label>
+        <link refid="_gestor_8c"/>
+      </node>
+      <node id="5">
+        <label>Gestor.h</label>
+        <link refid="_gestor_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>MeioDeMobilidade.c</label>
+        <link refid="_meio_de_mobilidade_8c"/>
+      </node>
+      <node id="8">
+        <label>MeioDeMobilidade.h</label>
+        <link refid="_meio_de_mobilidade_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Source.c</label>
+        <link refid="_source_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_aluguer" prot="public">Aluguer</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_aluguer_8h_1afb37cef674625047ed413fd6713ce3c6" prot="public" static="no">
+        <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref></type>
+        <definition>typedef struct Aluguer Aluguer</definition>
+        <argsstring></argsstring>
+        <name>Aluguer</name>
+        <briefdescription>
+<para>Estrutura para armazenar Alugueres. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> contém um id (@id), custo (@custo) ,estado Do <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> (@estadoDoAluguer) , id do Cliente que fez aluguer (@clienteId) e id do Meio que fez aluguer (@meioUsadoId). Contém apontador para próximo <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="40" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_aluguer_8h_1a364ea98f8caba1fe9c157d7b7756ded1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+        <definition>Aluguer * CriarAluguerListaTotal</definition>
+        <argsstring>(int id, float custo, char *estadoDoAluguer, int clienteId, int meioUsadoId)</argsstring>
+        <name>CriarAluguerListaTotal</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>custo</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>estadoDoAluguer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>clienteId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>meioUsadoId</declname>
+        </param>
+        <briefdescription>
+<para>Cria <ref refid="struct_aluguer" kindref="compound">Aluguer</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">custo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>custo do <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">estadoDoAluguer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>estado Do <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">clienteId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meioUsadoId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Meio</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novo <ref refid="struct_aluguer" kindref="compound">Aluguer</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="44" column="9" bodyfile="Aluguer.c" bodystart="103" bodyend="118" declfile="Aluguer.h" declline="44" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a01861332c1a55841ad38e02af819f1ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+        <definition>Aluguer * InsereAluguerListaTotalNoFim</definition>
+        <argsstring>(Aluguer *header, Aluguer *novoAluguerListaTotal)</argsstring>
+        <name>InsereAluguerListaTotalNoFim</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>novoAluguerListaTotal</declname>
+        </param>
+        <briefdescription>
+<para>Insere <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> na lista de Alugueres. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">novoAluguerListaTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>novo <ref refid="struct_aluguer" kindref="compound">Aluguer</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de Alugueres; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="46" column="9" bodyfile="Aluguer.c" bodystart="132" bodyend="149" declfile="Aluguer.h" declline="46" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1accbcb74653afbbceecf56e09ba489b47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ExisteAluguerListaTotal</definition>
+        <argsstring>(Aluguer *header, int idAluguerListaTotal)</argsstring>
+        <name>ExisteAluguerListaTotal</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idAluguerListaTotal</declname>
+        </param>
+        <briefdescription>
+<para>Ve se existe <ref refid="struct_aluguer" kindref="compound">Aluguer</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idAluguerListaTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> da lista total</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="48" column="6" bodyfile="Aluguer.c" bodystart="162" bodyend="171" declfile="Aluguer.h" declline="48" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a4c2eff8a355cdb5f4fa88785d1cba4c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CountAluguerListaTotal</definition>
+        <argsstring>(Aluguer *head)</argsstring>
+        <name>CountAluguerListaTotal</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>head</declname>
+        </param>
+        <briefdescription>
+<para>Conta <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> da lista total. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Quantos Alugueres Tem; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="50" column="5" bodyfile="Aluguer.c" bodystart="182" bodyend="192" declfile="Aluguer.h" declline="50" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a95a6d5a6f110dbf0be765a47e7c3cdca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CountAlugueres</definition>
+        <argsstring>(Aluguer *head)</argsstring>
+        <name>CountAlugueres</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>head</declname>
+        </param>
+        <briefdescription>
+<para>Conta quantos alugueres existem. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">head</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Head da lista <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Quantos Alugueres Tem; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="52" column="5" bodyfile="Aluguer.c" bodystart="33" bodyend="43" declfile="Aluguer.h" declline="52" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1ac5007d23049c41d81984ff4f17589e9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InsertAlugueresCliente</definition>
+        <argsstring>(struct Clientes *cliente, Aluguer *atividade)</argsstring>
+        <name>InsertAlugueresCliente</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>cliente</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>atividade</declname>
+          <defname>aluguer</defname>
+        </param>
+        <briefdescription>
+<para>Insere <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> no Cliente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Head da lista Cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">aluguer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Head da lista <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="55" column="6" bodyfile="Aluguer.c" bodystart="55" bodyend="58" declfile="Aluguer.h" declline="55" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a32f0143f1802413dd675a6a9ce7bbe4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InsertAlugueresMeio</definition>
+        <argsstring>(struct MeiosDeMobilidade *meio, Aluguer *atividade)</argsstring>
+        <name>InsertAlugueresMeio</name>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>meio</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>atividade</declname>
+          <defname>aluguer</defname>
+        </param>
+        <briefdescription>
+<para>Insere <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> no <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">meio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Head da lista <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">aluguer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Head da lista <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="57" column="6" bodyfile="Aluguer.c" bodystart="69" bodyend="72" declfile="Aluguer.h" declline="57" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1af72295eff5b8121178eb75b6ed7fb0f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void InsertAlugerTotalGestor</definition>
+        <argsstring>(struct Gestor *gestor, Aluguer *aluguerTotal)</argsstring>
+        <name>InsertAlugerTotalGestor</name>
+        <param>
+          <type>struct <ref refid="struct_gestor" kindref="compound">Gestor</ref> *</type>
+          <declname>gestor</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>aluguerTotal</declname>
+        </param>
+        <briefdescription>
+<para>Insere <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> no <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">gestor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Head da lista <ref refid="struct_gestor" kindref="compound">Gestor</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">aluguerTotal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Head da lista <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="59" column="6" bodyfile="Aluguer.c" bodystart="83" bodyend="86" declfile="Aluguer.h" declline="59" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1ac728a8d9e8ba13b616c338a648f89f7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+        <definition>Aluguer * LerEArmazenarAluguerListaTotal</definition>
+        <argsstring>(char *filename, Aluguer *header)</argsstring>
+        <name>LerEArmazenarAluguerListaTotal</name>
+        <param>
+          <type>char *</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Le e Armazena <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> por txt file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path do Txt file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de Alugueres; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="62" column="9" bodyfile="Aluguer.c" bodystart="205" bodyend="247" declfile="Aluguer.h" declline="62" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a45631f6edff1cc2c0f3bf7a8c418ce9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GravarAluguerListaTotalBinario</definition>
+        <argsstring>(char *nomeFicheiro, Aluguer *header)</argsstring>
+        <name>GravarAluguerListaTotalBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Grava <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> no bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path do bin file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="64" column="6" bodyfile="Aluguer.c" bodystart="259" bodyend="273" declfile="Aluguer.h" declline="64" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a6a27589566a0afd82f0e6ddfd05a495b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+        <definition>Aluguer * LerAluguerListaTotalBinario</definition>
+        <argsstring>(char *nomeFicheiro)</argsstring>
+        <name>LerAluguerListaTotalBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <briefdescription>
+<para>Le e Armazena <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> por um bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header da lista de Alugueres; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="66" column="9" bodyfile="Aluguer.c" bodystart="285" bodyend="299" declfile="Aluguer.h" declline="66" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a22212ad9258404d36f31ec7793ef824b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DistribuirAlugueresHistorico</definition>
+        <argsstring>(Aluguer *header, struct MeiosDeMobilidade *headerMeios, struct Clientes *headerClientes)</argsstring>
+        <name>DistribuirAlugueresHistorico</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headerMeios</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>headerClientes</declname>
+        </param>
+        <briefdescription>
+<para>Distribui o Historico de Alugueres por cada Cliente e Meio expecifico. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerMeios</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerClientes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="69" column="6" bodyfile="Aluguer.c" bodystart="311" bodyend="350" declfile="Aluguer.h" declline="69" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1ac0d78a581e397a630d7d456874d411d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ListarClienteAlugueresById</definition>
+        <argsstring>(Aluguer *header, int idCliente)</argsstring>
+        <name>ListarClienteAlugueresById</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idCliente</declname>
+        </param>
+        <briefdescription>
+<para>Listar Alugueres por Cliente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idCliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Id do Cliente </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="72" column="5" bodyfile="Aluguer.c" bodystart="362" bodyend="379" declfile="Aluguer.h" declline="72" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a47f7e32244a877e84ade5472bb0f56fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AluguerClientePorEscrever</definition>
+        <argsstring>(Aluguer *headAluguer)</argsstring>
+        <name>AluguerClientePorEscrever</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>headAluguer</declname>
+        </param>
+        <briefdescription>
+<para>Funcao para insercao de valores para listagem por cliente id. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="73" column="5" bodyfile="Aluguer.c" bodystart="388" bodyend="400" declfile="Aluguer.h" declline="73" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1ae08682546035b7defaf7cd5e5420f724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ListarMeiosAlugueresById</definition>
+        <argsstring>(Aluguer *header, int idMeios)</argsstring>
+        <name>ListarMeiosAlugueresById</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idMeios</declname>
+        </param>
+        <briefdescription>
+<para>Listar Alugueres por Meio. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idMeios</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Id do Meio </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="76" column="5" bodyfile="Aluguer.c" bodystart="410" bodyend="427" declfile="Aluguer.h" declline="76" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1af479e88e55e7933452838d1c7fbd9fc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AluguerMeiosPorEscrever</definition>
+        <argsstring>(Aluguer *headAluguer)</argsstring>
+        <name>AluguerMeiosPorEscrever</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>headAluguer</declname>
+        </param>
+        <briefdescription>
+<para>Funcao para insercao de valores para listagem por meio id. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headAluguer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="77" column="5" bodyfile="Aluguer.c" bodystart="436" bodyend="449" declfile="Aluguer.h" declline="77" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_aluguer_8h_1a054847a0089bac03968a797236844e5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ListarTodosAlugueres</definition>
+        <argsstring>(Aluguer *header)</argsstring>
+        <name>ListarTodosAlugueres</name>
+        <param>
+          <type><ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Lista todos os Alugueres Existentes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de Alugueres </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="80" column="5" bodyfile="Aluguer.c" bodystart="460" bodyend="476" declfile="Aluguer.h" declline="80" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Definicao da struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> onde ira guardar o registo de alugueres e as suas respectivas funcoes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Rafael Silva @email <ulink url="mailto:a21089@alunos.ipca.pt">a21089@alunos.ipca.pt</ulink> </para>
+</simplesect>
+<simplesect kind="date"><para>2023 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_cliente_8h" kindref="compound">Cliente.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_meio_de_mobilidade_8h" kindref="compound">MeioDeMobilidade.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_gestor_8h" kindref="compound">Gestor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="struct_aluguer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="struct_aluguer_1af1906e4b06a9a0138a1aa7ccd702ea06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1af1906e4b06a9a0138a1aa7ccd702ea06" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="33" refid="struct_aluguer_1aa57cb80f4c892717b5591c241ea190f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1aa57cb80f4c892717b5591c241ea190f1" kindref="member">custo</ref>;</highlight></codeline>
+<codeline lineno="34" refid="struct_aluguer_1af9ee112002c95739c9c7f46bec01e1e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1af9ee112002c95739c9c7f46bec01e1e5" kindref="member">estadoDoAluguer</ref>[10];</highlight></codeline>
+<codeline lineno="35" refid="struct_aluguer_1a734b03e7e66e3a9f13de99a35a79b3cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1a734b03e7e66e3a9f13de99a35a79b3cf" kindref="member">clienteId</ref>;</highlight></codeline>
+<codeline lineno="36" refid="struct_aluguer_1a3e4a7affe35bb300f69175b4c4b4f44b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1a3e4a7affe35bb300f69175b4c4b4f44b" kindref="member">meioUsadoId</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="struct_aluguer_1a6249c993983dad6039c01fbc42f44853" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="struct_aluguer_1a6249c993983dad6039c01fbc42f44853" kindref="member">next</ref>;<sp/></highlight></codeline>
+<codeline lineno="40" refid="_aluguer_8h_1afb37cef674625047ed413fd6713ce3c6" refkind="member"><highlight class="normal">}<sp/><ref refid="_aluguer_8h_1afb37cef674625047ed413fd6713ce3c6" kindref="member">Aluguer</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//Cria<sp/>um<sp/>Aluguer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="_aluguer_8h_1a364ea98f8caba1fe9c157d7b7756ded1" kindref="member">CriarAluguerListaTotal</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1aa57cb80f4c892717b5591c241ea190f1" kindref="member">custo</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_aluguer_1af9ee112002c95739c9c7f46bec01e1e5" kindref="member">estadoDoAluguer</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1a734b03e7e66e3a9f13de99a35a79b3cf" kindref="member">clienteId</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_aluguer_1a3e4a7affe35bb300f69175b4c4b4f44b" kindref="member">meioUsadoId</ref>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Aluguer<sp/>no<sp/>Header<sp/>de<sp/>Aluguer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="_aluguer_8h_1a01861332c1a55841ad38e02af819f1ce" kindref="member">InsereAluguerListaTotalNoFim</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header,<sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>novoAluguerListaTotal);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>Existe<sp/>Aluguer<sp/>na<sp/>lista<sp/>por<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1accbcb74653afbbceecf56e09ba489b47" kindref="member">ExisteAluguerListaTotal</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idAluguerListaTotal);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//Conta<sp/>quantos<sp/>alugueres<sp/>existem<sp/>Total</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1a4c2eff8a355cdb5f4fa88785d1cba4c2" kindref="member">CountAluguerListaTotal</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>head);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//Conta<sp/>quantos<sp/>alugueres<sp/>existem<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1a95a6d5a6f110dbf0be765a47e7c3cdca" kindref="member">CountAlugueres</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>head);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Aluguer<sp/>no<sp/>Cliente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1ac5007d23049c41d81984ff4f17589e9f" kindref="member">InsertAlugueresCliente</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>cliente,<sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>atividade);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Aluguer<sp/>no<sp/>Meio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1a32f0143f1802413dd675a6a9ce7bbe4c" kindref="member">InsertAlugueresMeio</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>meio,<sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>atividade);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Aluguer<sp/>no<sp/>Gestor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1af72295eff5b8121178eb75b6ed7fb0f4" kindref="member">InsertAlugerTotalGestor</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_gestor" kindref="compound">Gestor</ref>*<sp/>gestor,<sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>aluguerTotal);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>txt<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="_aluguer_8h_1ac728a8d9e8ba13b616c338a648f89f7f" kindref="member">LerEArmazenarAluguerListaTotal</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename,<sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>aluguer<sp/>no<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1a45631f6edff1cc2c0f3bf7a8c418ce9c" kindref="member">GravarAluguerListaTotalBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>bin<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="_aluguer_8h_1a6a27589566a0afd82f0e6ddfd05a495b" kindref="member">LerAluguerListaTotalBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//Distribui<sp/>os<sp/>Alugueres<sp/>por<sp/>Clientes<sp/>e<sp/>Meios</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1a22212ad9258404d36f31ec7793ef824b" kindref="member">DistribuirAlugueresHistorico</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headerMeios,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>headerClientes);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//Listar<sp/>Aluguer<sp/>por<sp/>Cliente<sp/>Id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1ac0d78a581e397a630d7d456874d411d9" kindref="member">ListarClienteAlugueresById</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idCliente);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1a47f7e32244a877e84ade5472bb0f56fe" kindref="member">AluguerClientePorEscrever</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>headAluguer);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//Listar<sp/>Aluguer<sp/>por<sp/>Meio<sp/>Id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1ae08682546035b7defaf7cd5e5420f724" kindref="member">ListarMeiosAlugueresById</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idMeios);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1af479e88e55e7933452838d1c7fbd9fc0" kindref="member">AluguerMeiosPorEscrever</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>headAluguer);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//Listar<sp/>todos<sp/>alugueres</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_aluguer_8h_1a054847a0089bac03968a797236844e5a" kindref="member">ListarTodosAlugueres</ref>(<ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Aluguer.h"/>
+  </compounddef>
+</doxygen>

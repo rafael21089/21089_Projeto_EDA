@@ -1,0 +1,393 @@
+.TH "Cliente.c" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Cliente.c \- Funcoes para \fBClientes\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include 'Aluguer\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRT_SECURE_NO_WARNINGS\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBClientes\fP * \fBCriarClientes\fP (int id, char nome[50], char morada[50], char nif[9], float saldo)"
+.br
+.RI "Cria MeioDeMobilidade\&. "
+.ti -1c
+.RI "\fBClientes\fP * \fBInsereClienteNoFim\fP (\fBClientes\fP *header, \fBClientes\fP *novoCliente)"
+.br
+.RI "Insere Cliente na lista de \fBClientes\fP\&. "
+.ti -1c
+.RI "bool \fBExisteCliente\fP (\fBClientes\fP *header, int idCliente)"
+.br
+.RI "Ver se Cliente existe\&. "
+.ti -1c
+.RI "void \fBMostrarListaClientes\fP (\fBClientes\fP *header)"
+.br
+.RI "Lista os \fBClientes\fP que Existem\&. "
+.ti -1c
+.RI "void \fBMostraCliente\fP (\fBClientes\fP *cliente)"
+.br
+.RI "Lista os \fBClientes\fP que Existem , e escreve\&. "
+.ti -1c
+.RI "\fBClientes\fP * \fBRemoverCliente\fP (\fBClientes\fP *header, int id)"
+.br
+.RI "Remove Cliente na lista de \fBClientes\fP\&. "
+.ti -1c
+.RI "\fBClientes\fP * \fBProcuraClientes\fP (\fBClientes\fP *header, int id)"
+.br
+.RI "Procura Cliente na lista de \fBClientes\fP\&. "
+.ti -1c
+.RI "void \fBAlteraCliente\fP (\fBClientes\fP **header, int id, char *nome)"
+.br
+.RI "Altera Cliente na lista de \fBClientes\fP\&. "
+.ti -1c
+.RI "int \fBRegistoAluguer\fP (\fBClientes\fP **headerCliente, \fBMeiosDeMobilidade\fP **headerMeios, \fBAluguer\fP **headerAluguerTotal, int idCliente, int idMeios)"
+.br
+.RI "Regista um \fBAluguer\fP de um Meio de Mobilidade pelo o Cliente\&. "
+.ti -1c
+.RI "int \fBCountClientes\fP (\fBClientes\fP *head)"
+.br
+.RI "Conta \fBClientes\fP da lista total\&. "
+.ti -1c
+.RI "\fBClientes\fP * \fBLerEArmazenarCliente\fP (char *filename, \fBClientes\fP *header)"
+.br
+.RI "Le e Armazena \fBClientes\fP por txt file\&. "
+.ti -1c
+.RI "bool \fBGravarClientesBinario\fP (char *nomeFicheiro, \fBClientes\fP *header)"
+.br
+.RI "Grava \fBClientes\fP no bin file\&. "
+.ti -1c
+.RI "\fBClientes\fP * \fBLerClientesBinario\fP (char *nomeFicheiro)"
+.br
+.RI "Le e Armazena \fBClientes\fP por um bin file\&. "
+.ti -1c
+.RI "\fBClientes\fP * \fBInserirPorEscreverCliente\fP ()"
+.br
+.RI "Insere \fBClientes\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBAlterarPorEscreverCliente\fP (\fBClientes\fP *headClientes)"
+.br
+.RI "Altera \fBClientes\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBRemoverPorEscreverCliente\fP (\fBClientes\fP *headClientes)"
+.br
+.RI "Remove \fBClientes\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBRegistoPorEscrever\fP (\fBClientes\fP *headClientes, \fBAluguer\fP *headAluguer, \fBMeiosDeMobilidade\fP *headMeio)"
+.br
+.RI "Registar \fBAluguer\fP na consola\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Funcoes para \fBClientes\fP\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Rafael Silva @email a21089@alunos.ipca.pt 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023 
+.RE
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRT_SECURE_NO_WARNINGS"
+
+.SH "Function Documentation"
+.PP 
+.SS "void AlteraCliente (\fBClientes\fP ** header, int id, char * nome)"
+
+.PP
+Altera Cliente na lista de \fBClientes\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP 
+.br
+\fIid\fP id Cliente 
+.br
+\fInome\fP nome Cliente 
+.RE
+.PP
+
+.SS "int AlterarPorEscreverCliente (\fBClientes\fP * headClientes)"
+
+.PP
+Altera \fBClientes\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int CountClientes (\fBClientes\fP * head)"
+
+.PP
+Conta \fBClientes\fP da lista total\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Quantos \fBClientes\fP Tem; 
+.RE
+.PP
+
+.SS "\fBClientes\fP * CriarClientes (int id, char nome[50], char morada[50], char nif[9], float saldo)"
+
+.PP
+Cria MeioDeMobilidade\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP id do Cliente 
+.br
+\fInome\fP nome do Cliente 
+.br
+\fImorada\fP morada do Cliente 
+.br
+\fInif\fP nif do Cliente 
+.br
+\fIsaldo\fP saldo do Cliente
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+novo \fBClientes\fP 
+.RE
+.PP
+
+.SS "bool ExisteCliente (\fBClientes\fP * header, int idCliente)"
+
+.PP
+Ver se Cliente existe\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP 
+.br
+\fIidCliente\fP id do Cliente da lista total
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool GravarClientesBinario (char * nomeFicheiro, \fBClientes\fP * header)"
+
+.PP
+Grava \fBClientes\fP no bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP Path do bin file 
+.br
+\fIheader\fP header da lista de \fBClientes\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "\fBClientes\fP * InsereClienteNoFim (\fBClientes\fP * header, \fBClientes\fP * novoCliente)"
+
+.PP
+Insere Cliente na lista de \fBClientes\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP 
+.br
+\fInovoCliente\fP novo Cliente
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBClientes\fP; 
+.RE
+.PP
+
+.SS "\fBClientes\fP * InserirPorEscreverCliente ()"
+
+.PP
+Insere \fBClientes\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBClientes\fP; 
+.RE
+.PP
+
+.SS "\fBClientes\fP * LerClientesBinario (char * nomeFicheiro)"
+
+.PP
+Le e Armazena \fBClientes\fP por um bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP header da lista de \fBClientes\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBClientes\fP; 
+.RE
+.PP
+
+.SS "\fBClientes\fP * LerEArmazenarCliente (char * filename, \fBClientes\fP * header)"
+
+.PP
+Le e Armazena \fBClientes\fP por txt file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfilename\fP Path do Txt file 
+.br
+\fIheader\fP header da lista de \fBClientes\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBClientes\fP; 
+.RE
+.PP
+
+.SS "void MostraCliente (\fBClientes\fP * cliente)"
+
+.PP
+Lista os \fBClientes\fP que Existem , e escreve\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcliente\fP header da lista de \fBClientes\fP 
+.RE
+.PP
+
+.SS "void MostrarListaClientes (\fBClientes\fP * header)"
+
+.PP
+Lista os \fBClientes\fP que Existem\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP 
+.RE
+.PP
+
+.SS "\fBClientes\fP * ProcuraClientes (\fBClientes\fP * header, int id)"
+
+.PP
+Procura Cliente na lista de \fBClientes\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP 
+.br
+\fIid\fP id Cliente
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBClientes\fP; 
+.RE
+.PP
+
+.SS "int RegistoAluguer (\fBClientes\fP ** headerCliente, \fBMeiosDeMobilidade\fP ** headerMeios, \fBAluguer\fP ** headerAluguerTotal, int idCliente, int idMeios)"
+
+.PP
+Regista um \fBAluguer\fP de um Meio de Mobilidade pelo o Cliente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheaderCliente\fP header da lista de \fBClientes\fP 
+.br
+\fIheaderMeios\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIheaderAluguerTotal\fP header da lista de \fBAluguer\fP 
+.br
+\fIidCliente\fP id Cliente 
+.br
+\fIidMeios\fP id Meio De Mobilidade 
+.RE
+.PP
+
+.SS "int RegistoPorEscrever (\fBClientes\fP * headClientes, \fBAluguer\fP * headAluguer, \fBMeiosDeMobilidade\fP * headMeio)"
+
+.PP
+Registar \fBAluguer\fP na consola\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIheadAluguer\fP header da lista de \fBAluguer\fP 
+.br
+\fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+
+.SS "\fBClientes\fP * RemoverCliente (\fBClientes\fP * header, int id)"
+
+.PP
+Remove Cliente na lista de \fBClientes\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP 
+.br
+\fIid\fP id Cliente
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBClientes\fP; 
+.RE
+.PP
+
+.SS "int RemoverPorEscreverCliente (\fBClientes\fP * headClientes)"
+
+.PP
+Remove \fBClientes\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

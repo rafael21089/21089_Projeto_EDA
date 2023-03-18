@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_aluguer" kind="struct" language="C++" prot="public">
+    <compoundname>Aluguer</compoundname>
+    <includes refid="_aluguer_8h" local="no">Aluguer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_aluguer_1af1906e4b06a9a0138a1aa7ccd702ea06" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Aluguer::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Aluguer::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="32" column="9" bodyfile="Aluguer.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_aluguer_1aa57cb80f4c892717b5591c241ea190f1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Aluguer::custo</definition>
+        <argsstring></argsstring>
+        <name>custo</name>
+        <qualifiedname>Aluguer::custo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="33" column="11" bodyfile="Aluguer.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_aluguer_1af9ee112002c95739c9c7f46bec01e1e5" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char Aluguer::estadoDoAluguer[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>estadoDoAluguer</name>
+        <qualifiedname>Aluguer::estadoDoAluguer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="34" column="10" bodyfile="Aluguer.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_aluguer_1a734b03e7e66e3a9f13de99a35a79b3cf" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Aluguer::clienteId</definition>
+        <argsstring></argsstring>
+        <name>clienteId</name>
+        <qualifiedname>Aluguer::clienteId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="35" column="9" bodyfile="Aluguer.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_aluguer_1a3e4a7affe35bb300f69175b4c4b4f44b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Aluguer::meioUsadoId</definition>
+        <argsstring></argsstring>
+        <name>meioUsadoId</name>
+        <qualifiedname>Aluguer::meioUsadoId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="36" column="9" bodyfile="Aluguer.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_aluguer_1a6249c993983dad6039c01fbc42f44853" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
+        <definition>struct Aluguer* Aluguer::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>Aluguer::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>apontador para próximo <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Aluguer.h" line="38" column="19" bodyfile="Aluguer.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura para armazenar Alugueres. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> contém um id (@id), custo (@custo) ,estado Do <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> (@estadoDoAluguer) , id do Cliente que fez aluguer (@clienteId) e id do Meio que fez aluguer (@meioUsadoId). Contém apontador para próximo <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Aluguer</label>
+        <link refid="struct_aluguer"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Aluguer.h" line="30" column="1" bodyfile="Aluguer.h" bodystart="30" bodyend="40"/>
+    <listofallmembers>
+      <member refid="struct_aluguer_1a734b03e7e66e3a9f13de99a35a79b3cf" prot="public" virt="non-virtual"><scope>Aluguer</scope><name>clienteId</name></member>
+      <member refid="struct_aluguer_1aa57cb80f4c892717b5591c241ea190f1" prot="public" virt="non-virtual"><scope>Aluguer</scope><name>custo</name></member>
+      <member refid="struct_aluguer_1af9ee112002c95739c9c7f46bec01e1e5" prot="public" virt="non-virtual"><scope>Aluguer</scope><name>estadoDoAluguer</name></member>
+      <member refid="struct_aluguer_1af1906e4b06a9a0138a1aa7ccd702ea06" prot="public" virt="non-virtual"><scope>Aluguer</scope><name>id</name></member>
+      <member refid="struct_aluguer_1a3e4a7affe35bb300f69175b4c4b4f44b" prot="public" virt="non-virtual"><scope>Aluguer</scope><name>meioUsadoId</name></member>
+      <member refid="struct_aluguer_1a6249c993983dad6039c01fbc42f44853" prot="public" virt="non-virtual"><scope>Aluguer</scope><name>next</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,61 @@
+.TH "Clientes" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Clientes \- Estrutura para armazenar \fBClientes\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Cliente\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "char \fBnome\fP [50]"
+.br
+.ti -1c
+.RI "char \fBmorada\fP [50]"
+.br
+.ti -1c
+.RI "char \fBnif\fP [9]"
+.br
+.ti -1c
+.RI "float \fBsaldo\fP"
+.br
+.ti -1c
+.RI "struct \fBAluguer\fP * \fBaluguer\fP"
+.br
+.ti -1c
+.RI "struct \fBClientes\fP * \fBnext\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Estrutura para armazenar \fBClientes\fP\&. 
+
+Um Cliente contém um id (@id), nome (@nome), morada (@morada) ,nif (@nif) , saldo (@saldo) e alugueres (@atividade)\&. Contém apontador para próximo \fBClientes\fP 
+.SH "Member Data Documentation"
+.PP 
+.SS "struct \fBAluguer\fP* Clientes::aluguer"
+
+.SS "int Clientes::id"
+
+.SS "char Clientes::morada[50]"
+
+.SS "struct \fBClientes\fP* Clientes::next"
+
+.SS "char Clientes::nif[9]"
+
+.SS "char Clientes::nome[50]"
+
+.SS "float Clientes::saldo"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

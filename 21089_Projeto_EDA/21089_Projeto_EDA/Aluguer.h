@@ -8,7 +8,6 @@
  * @date 2023
  * 
  * @brief Definicao da struct Aluguer onde ira guardar o registo de alugueres e as suas respectivas funcoes
-
 */
 
 

@@ -1,5 +1,15 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+/**
+*  @file Cliente.c
+ * @author Rafael Silva
+ * @email a21089@alunos.ipca.pt
+ * @date 2023
+ *
+ * @brief Funcoes para Clientes
+ * 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,6 +17,19 @@
 
 #include "Aluguer.h"
 
+/**
+*	@brief Cria MeioDeMobilidade.
+*
+*
+*	@param [in] id				id do Cliente
+*	@param [in] nome			nome do Cliente
+*	@param [in] morada			morada do Cliente
+*	@param [in] nif				nif do Cliente
+*	@param [in] saldo			saldo do Cliente
+*
+*	@return novo Clientes
+*
+*/
 
 Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo) {
 
@@ -21,7 +44,7 @@ Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], flo
 
 	Aluguer* ativ = NULL;
 
-	novoCliente->atividade = ativ;
+	novoCliente->aluguer = ativ;
 
 
 	novoCliente->next = NULL;
@@ -29,9 +52,21 @@ Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], flo
 	return novoCliente;
 }
 
+/**
+*	@brief Insere Cliente na lista de Clientes.
+*
+*
+*	@param [in] header						header da lista de Clientes
+*	@param [in] novoCliente					novo Cliente
+*
+*	@return header da lista de Clientes;
+*
+*
+*/
+
 Clientes* InsereClienteNoFim(Clientes* header, Clientes* novoCliente) {
-	//Verificar se o novo jogo já existe!!!
-	if (ExisteCliente(header, novoCliente->id)) return header;	//se existir não insere!
+	//Verificar se o novo cliente já existe
+	if (ExisteCliente(header, novoCliente->id)) return header;
 
 	if (header == NULL) {		//lista vazia
 		header = novoCliente;
@@ -49,7 +84,16 @@ Clientes* InsereClienteNoFim(Clientes* header, Clientes* novoCliente) {
 	return header;
 }
 
-
+/**
+*	@brief Ver se Cliente existe.
+*
+*
+*	@param [in] header						header da lista de Clientes
+*	@param [in] idCliente					id do Cliente da lista total
+*
+*	@return True/False;
+*
+*/
 bool ExisteCliente(Clientes* header, int idCliente) {
 	if (header == NULL) return false;
 	Clientes* aux = header;
@@ -61,7 +105,13 @@ bool ExisteCliente(Clientes* header, int idCliente) {
 	return false;
 }
 
-
+/**
+*	@brief Lista os Clientes que Existem.
+*
+*
+*	@param [in] header					header da lista de Clientes
+*
+*/
 void MostrarListaClientes(Clientes* header) {
 	Clientes* aux = header;
 	while (aux) {
@@ -71,7 +121,13 @@ void MostrarListaClientes(Clientes* header) {
 }
 
 
-
+/**
+*	@brief Lista os Clientes que Existem , e escreve.
+*
+*
+*	@param [in] cliente					header da lista de Clientes
+*
+*/
 void MostraCliente(Clientes* cliente) {
 	if (cliente != NULL)
 	{
@@ -84,11 +140,22 @@ void MostraCliente(Clientes* cliente) {
 	}
 }
 
+/**
+*	@brief Remove Cliente na lista de Clientes.
+*
+*
+*	@param [in] header					header da lista de Clientes
+*	@param [in] id						id Cliente
+*
+*	@return header da lista de Clientes;
+*
+*
+*/
 Clientes* RemoverCliente(Clientes* header, int id) {
-	if (header == NULL) return NULL;			//Lista vazia
-	if (!ExisteCliente(header, id)) return header;	//se não existe
+	if (header == NULL) return NULL;			
+	if (!ExisteCliente(header, id)) return header;	//se não existe retorna
 
-	if (header->id == id) {		//remove no inicio da lista
+	if (header->id == id) {		//Remove no inicio da lista
 		Clientes* aux = header;
 		header = header->next;
 		free(aux);
@@ -97,11 +164,11 @@ Clientes* RemoverCliente(Clientes* header, int id) {
 	{
 		Clientes* aux = header;
 		Clientes* auxAnt = aux;
-		while (aux && aux->id != id) {	//procura para revover
+		while (aux && aux->id != id) {	//Procura para revover
 			auxAnt = aux;
 			aux = aux->next;
 		}
-		if (aux != NULL) {					//se encontrou, remove
+		if (aux != NULL) {					//Se encontrou remove
 			auxAnt->next = aux->next;
 			free(aux);
 		}
@@ -109,15 +176,25 @@ Clientes* RemoverCliente(Clientes* header, int id) {
 	return header;
 }
 
-
+/**
+*	@brief Procura Cliente na lista de Clientes.
+*
+*
+*	@param [in] header					header da lista de Clientes
+*	@param [in] id						id Cliente
+*
+*	@return header da lista de Clientes;
+*
+*
+*/
 Clientes* ProcuraClientes(Clientes* header, int id) {
-	if (header == NULL) return NULL;		//lista vazia
+	if (header == NULL) return NULL;		
 	else
 	{
 		Clientes* aux = header;
 		while (aux != NULL) {
 			if (aux->id == id) {
-				return (aux);		//encontrei
+				return (aux);	
 			}
 			aux = aux->next;
 		}
@@ -125,10 +202,21 @@ Clientes* ProcuraClientes(Clientes* header, int id) {
 	}
 }
 
+
+/**
+*	@brief Altera Cliente na lista de Clientes.
+*
+*
+*	@param [in] header					header da lista de Clientes
+*	@param [in] id						id Cliente
+*	@param [in] nome					nome Cliente
+*
+*
+*/
 void AlteraCliente(Clientes** header, int id, char* nome) {
 	if (*header != NULL) {
 		Clientes* aux = ProcuraClientes(*header, id);
-		if (aux != NULL)		//se encontrou o jogo
+		if (aux != NULL)
 		{
 			strcpy(aux->nome, nome);
 		}
@@ -136,6 +224,18 @@ void AlteraCliente(Clientes** header, int id, char* nome) {
 }
 
 
+/**
+*	@brief Regista um Aluguer de um Meio de Mobilidade pelo o Cliente
+*
+*
+*	@param [in] headerCliente					header da lista de Clientes
+*	@param [in] headerMeios						header da lista de MeiosDeMobilidade
+*	@param [in] headerAluguerTotal				header da lista de Aluguer
+*	@param [in] idCliente						id Cliente
+*	@param [in] idMeios							id Meio De Mobilidade
+*
+*
+*/
 int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , Aluguer** headerAluguerTotal, int idCliente, int idMeios) {
 
 
@@ -155,9 +255,9 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 		int idClienteRegisto = 0;
 		int idMeioRegisto = 0;
 
-		if (cliente->atividade != NULL)
+		if (cliente->aluguer != NULL)
 		{
-			idClienteRegisto = CountAlugueres(cliente->atividade);
+			idClienteRegisto = CountAlugueres(cliente->aluguer);
 		}
 
 
@@ -196,6 +296,15 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 
 }
 
+/**
+*	@brief Conta Clientes da lista total.
+*
+*
+*	@param [in] header					header da lista de Clientes
+*
+*	@return Quantos Clientes Tem;
+*
+*/
 int CountClientes(Clientes* head) {
 	int count = 0;
 	Clientes* current = head;
@@ -209,6 +318,16 @@ int CountClientes(Clientes* head) {
 }
 
 
+/**
+*	@brief Le e Armazena Clientes por txt file.
+*
+*
+*	@param [in] filename				Path do Txt file
+*	@param [in] header					header da lista de Clientes
+*
+*	@return header da lista de Clientes;
+*
+*/
 Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
 
 	FILE* fp;
@@ -225,15 +344,15 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
 	}
 
 	while (fgets(line, 1024, fp)) {
-		// remove trailing newline character
+		//Remove \n e \0
 		line[strcspn(line, "\n")] = '\0';
 
 
 		Clientes* novoCliente = (Clientes*)malloc(sizeof(Clientes));
 
-		// parse line into variables separated by semicolons
+		// Ve linha a linha separado por ";"
 		token = strtok(line, ";");
-		novoCliente->id = atoi(token); // convert string to integer
+		novoCliente->id = atoi(token);
 		token = strtok(NULL, ";");
 		strcpy(novoCliente->nome, token);
 		token = strtok(NULL, ";");
@@ -245,13 +364,12 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
 
 		Aluguer* ativ = NULL;
 
-		novoCliente->atividade = ativ;
+		novoCliente->aluguer = ativ;
 		novoCliente->next = NULL;
 
 
-		header = InsereClienteNoFim(header,novoCliente);
+		header = InsereClienteNoFim(header,novoCliente); // Insere MeiosDeMobilidade
 
-		// print stored variables for testing
 	}
 
 	return header;
@@ -259,7 +377,16 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
 	fclose(fp);
 }
 
-
+/**
+*	@brief Grava Clientes no bin file.
+*
+*
+*	@param [in] nomeFicheiro			Path do bin file
+*	@param [in] header					header da lista de Clientes
+*
+*	@return True/False;
+*
+*/
 bool GravarClientesBinario(char* nomeFicheiro, Clientes* header) {
 	FILE* fp;
 
@@ -277,7 +404,15 @@ bool GravarClientesBinario(char* nomeFicheiro, Clientes* header) {
 	return true;
 }
 
-
+/**
+*	@brief Le e Armazena Clientes por um bin file.
+*
+*
+*	@param [in] nomeFicheiro				header da lista de Clientes
+*
+*	@return header da lista de Clientes;
+*
+*/
 Clientes* LerClientesBinario(char* nomeFicheiro) {
 	FILE* fp;
 	Clientes* header = NULL;
@@ -295,7 +430,12 @@ Clientes* LerClientesBinario(char* nomeFicheiro) {
 }
 
 
-
+/**
+*	@brief Insere Clientes mas na consola
+*
+*	@return header da lista de Clientes;
+*
+*/
 Clientes* InserirPorEscreverCliente() {
 
 
@@ -322,6 +462,12 @@ Clientes* InserirPorEscreverCliente() {
 
 }
 
+/**
+*	@brief Altera Clientes mas na consola
+*
+*	@return 0;
+*
+*/
 int AlterarPorEscreverCliente(Clientes* headClientes) {
 
 
@@ -339,6 +485,12 @@ int AlterarPorEscreverCliente(Clientes* headClientes) {
 
 }
 
+/**
+*	@brief Remove Clientes mas na consola
+*
+*	@return 0;
+*
+*/
 int RemoverPorEscreverCliente(Clientes* headClientes) {
 
 
@@ -354,6 +506,15 @@ int RemoverPorEscreverCliente(Clientes* headClientes) {
 
 }
 
+/**
+*	@brief Registar Aluguer na consola.
+*
+*
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] headAluguer					header da lista de Aluguer
+*	@param [in] headMeio					header da lista de MeiosDeMobilidade
+*
+*/
 
 int RegistoPorEscrever(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMobilidade* headMeio ) {
 

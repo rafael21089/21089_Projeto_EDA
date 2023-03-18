@@ -1,6 +1,17 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+
+/**
+*  @file Gestor.c
+ * @author Rafael Silva
+ * @email a21089@alunos.ipca.pt
+ * @date 2023
+ *
+ * @brief Funcoes para Gestor
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,9 +19,20 @@
 
 #include "Gestor.h"
 
-// ----------------------------------------
-
-
+/**
+*	@brief Cria Gestor.
+*
+*
+*	@param [in] id								id do Gestor
+*	@param [in] utilizador						utilizador do Gestor
+*	@param [in] distrito						distrito Do Gestor
+*	@param [in] meiosDeMobilidadeExistentes		MeioDeMobilidade para Gestor
+*	@param [in] clienteExistentes				Clientes para Gestor
+*	@param [in] aluguerTotal					Aluguer total para Gestor
+*
+*	@return novo Gestor
+*
+*/
 Gestor* CriarNovoGestor(int id, char* utilizador, char* distrito, MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes , Aluguer* aluguerTotal) {
 
 	Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
@@ -28,8 +50,19 @@ Gestor* CriarNovoGestor(int id, char* utilizador, char* distrito, MeiosDeMobilid
 	return novoGestor;
 }
 
+/**
+*	@brief Insere Gestor na lista de Gestor.
+*
+*
+*	@param [in] header								header da lista de Gestor
+*	@param [in] novoGestor							novo Gestor
+*
+*	@return header da lista de Gestor;
+*
+*
+*/
 Gestor* InsereGestorNoFim(Gestor* header, Gestor* novoGestor) {
-	//Verificar se o novo jogo já existe!!!
+	//Verificar se o novo gestor já existe!!!
 	if (ExisteGestor(header, novoGestor->id)) return header;	//se existir não insere!
 
 	if (header == NULL) {		//lista vazia
@@ -48,7 +81,16 @@ Gestor* InsereGestorNoFim(Gestor* header, Gestor* novoGestor) {
 	return header;
 }
 
-
+/**
+*	@brief Ver se Gestor existe.
+*
+*
+*	@param [in] header								header da lista de Gestor
+*	@param [in] idGestor							id do Gestor da lista total
+*
+*	@return True/False;
+*
+*/
 bool ExisteGestor(Gestor* header, int idGestor) {
 	if (header == NULL) return false;
 	Gestor* aux = header;
@@ -60,7 +102,13 @@ bool ExisteGestor(Gestor* header, int idGestor) {
 	return false;
 }
 
-
+/**
+*	@brief Lista os Gestores que Existem.
+*
+*
+*	@param [in] header				header da lista de Gestor
+*
+*/
 void MostrarListaGestor(Gestor* header) {
 	Gestor* aux = header;
 	while (aux) {
@@ -69,6 +117,13 @@ void MostrarListaGestor(Gestor* header) {
 	}
 }
 
+/**
+*	@brief Lista os Gestores que Existem , e escreve.
+*
+*
+*	@param [in] gestor					header da lista de Gestores
+*
+*/
 void MostraGestor(Gestor* gestor) {
 	if (gestor != NULL)
 	{
@@ -79,6 +134,18 @@ void MostraGestor(Gestor* gestor) {
 	}
 }
 
+
+/**
+*	@brief Remove Gestor na lista de Gestores.
+*
+*
+*	@param [in] header					header da lista de Gestor
+*	@param [in] id						id Gestor
+*
+*	@return header da lista de Gestor;
+*
+*
+*/
 Gestor* RemoverGestor(Gestor* header, int id) {
 	if (header == NULL) return NULL;			//Lista vazia
 	if (!ExisteGestor(header, id)) return header;	//se não existe
@@ -104,6 +171,17 @@ Gestor* RemoverGestor(Gestor* header, int id) {
 	return header;
 }
 
+/**
+*	@brief Procura Gestor na lista de Gestores.
+*
+*
+*	@param [in] header					header da lista de Gestor
+*	@param [in] id						id Gestor
+*
+*	@return header da lista de Gestor;
+*
+*
+*/
 Gestor* ProcuraGestor(Gestor* header, int id) {
 	if (header == NULL) return NULL;		//lista vazia
 	else
@@ -111,7 +189,7 @@ Gestor* ProcuraGestor(Gestor* header, int id) {
 		Gestor* aux = header;
 		while (aux != NULL) {
 			if (aux->id == id) {
-				return (aux);		//encontrei
+				return (aux);		//encontrou
 			}
 			aux = aux->next;
 		}
@@ -119,10 +197,20 @@ Gestor* ProcuraGestor(Gestor* header, int id) {
 	}
 }
 
+/**
+*	@brief Altera Gestor na lista de Gestores.
+*
+*
+*	@param [in] header					header da lista de Gestor
+*	@param [in] id						id Gestor
+*	@param [in] utilizador				utilizador Gestor
+*
+*
+*/
 void AlteraGestor(Gestor** header, int id, char* utilizador) {
 	if (*header != NULL) {
 		Gestor* aux = ProcuraGestor(*header, id);
-		if (aux != NULL)		//se encontrou o jogo
+		if (aux != NULL)
 		{
 			strcpy(aux->utilizador, utilizador);
 		}
@@ -131,6 +219,16 @@ void AlteraGestor(Gestor** header, int id, char* utilizador) {
 
 
 
+/**
+*	@brief Le e Armazena Gestor por txt file.
+*
+*
+*	@param [in] filename				Path do Txt file
+*	@param [in] header					header da lista de Gestor
+*
+*	@return header da lista de Gestor;
+*
+*/
 Gestor* LerEArmazenarGestor(char* filename, Gestor* header) {
 
 	FILE* fp;
@@ -147,15 +245,15 @@ Gestor* LerEArmazenarGestor(char* filename, Gestor* header) {
 	}
 
 	while (fgets(line, 1024, fp)) {
-		// remove trailing newline character
+		//Remove \n e \0
 		line[strcspn(line, "\n")] = '\0';
 
 
 		Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
 
-		// parse line into variables separated by semicolons
+		// Ve linha a linha separado por ";"
 		token = strtok(line, ";");
-		novoGestor->id = atoi(token); // convert string to integer
+		novoGestor->id = atoi(token);
 		token = strtok(NULL, ";");
 		strcpy(novoGestor->utilizador, token);
 		token = strtok(NULL, ";");
@@ -172,9 +270,8 @@ Gestor* LerEArmazenarGestor(char* filename, Gestor* header) {
 		novoGestor->next = NULL;
 
 
-		header = InsereGestorNoFim(header, novoGestor);
+		header = InsereGestorNoFim(header, novoGestor); // Insere Gestor
 
-		// print stored variables for testing
 	}
 
 	return header;
@@ -182,7 +279,16 @@ Gestor* LerEArmazenarGestor(char* filename, Gestor* header) {
 	fclose(fp);
 }
 
-
+/**
+*	@brief Grava Gestor no bin file.
+*
+*
+*	@param [in] nomeFicheiro			Path do bin file
+*	@param [in] header					header da lista de Gestor
+*
+*	@return True/False;
+*
+*/
 bool GravarGestorBinario(char* nomeFicheiro, Gestor* header) {
 	FILE* fp;
 
@@ -200,7 +306,15 @@ bool GravarGestorBinario(char* nomeFicheiro, Gestor* header) {
 	return true;
 }
 
-
+/**
+*	@brief Le e Armazena Gestor por um bin file.
+*
+*
+*	@param [in] nomeFicheiro				header da lista de Gestor
+*
+*	@return header da lista de Gestor;
+*
+*/
 Gestor* LerGestorBinario(char* nomeFicheiro) {
 	FILE* fp;
 	Gestor* header = NULL;
@@ -218,6 +332,18 @@ Gestor* LerGestorBinario(char* nomeFicheiro) {
 }
 
 
+/**
+*	@brief Grava Meios de Mobilidade e Clientes nos Gestores todos
+*
+*
+*	@param [in] gestor				header da lista de Gestor
+*	@param [in] alugueresTotal		header da lista de Aluguer
+*	@param [in] clientesHeader		header da lista de Clientes
+*	@param [in] meiosHeader			header da lista de MeiosDeMobilidade
+*
+*	@return 0;
+*
+*/
 int GravarMeiosEClientesNosGestores(Gestor* gestor , Aluguer* alugueresTotal , Clientes* clientesHeader , MeiosDeMobilidade* meiosHeader) {
 
 
@@ -237,7 +363,12 @@ int GravarMeiosEClientesNosGestores(Gestor* gestor , Aluguer* alugueresTotal , C
 }
 
 
-
+/**
+*	@brief Insere Gestor mas na consola
+*
+*	@return header da lista de Gestor;
+*
+*/
 Gestor* InserirPorEscreverGestor() {
 
 
@@ -259,6 +390,14 @@ Gestor* InserirPorEscreverGestor() {
 
 }
 
+/**
+*	@brief Altera Gestor mas na consola
+* 
+*	@param [in] headGestor			header da lista de Gestor
+*
+*	@return 0;
+*
+*/
 int AlterarPorEscreverGestor(Gestor* headGestor) {
 
 
@@ -276,6 +415,14 @@ int AlterarPorEscreverGestor(Gestor* headGestor) {
 
 }
 
+/**
+*	@brief Remove Gestor mas na consola
+* 
+*	@param [in] headGestor				header da lista de Gestor
+* 
+*	@return 0;
+*
+*/
 int RemoverPorEscreverGestor(Gestor* headGestor) {
 
 	int id;

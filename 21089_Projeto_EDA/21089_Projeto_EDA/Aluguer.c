@@ -53,8 +53,8 @@ int CountAlugueres(Aluguer* head) {
 
 
 void InsertAlugueresCliente(Clientes* cliente, Aluguer* aluguer) {
-	aluguer->next = cliente->atividade;
-	cliente->atividade = aluguer;
+	aluguer->next = cliente->aluguer;
+	cliente->aluguer = aluguer;
 }
 
 /**
@@ -321,7 +321,7 @@ void DistribuirAlugueresHistorico(Aluguer* header, MeiosDeMobilidade* headerMeio
 		{
 			if (auxClientes->id == auxAluguer->clienteId) //Se tiver Id do cliente adiciona
 			{
-				auxClientes->atividade = auxAluguer;
+				auxClientes->aluguer = auxAluguer;
 
 				auxClientes->id = CountClientes(headerClientes);
 			}

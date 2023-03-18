@@ -107,7 +107,7 @@ bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* header, int idMeiosDeMobilidade)
 
 
 /**
-*	@brief Mostra os Meios De Mobilidade que Existem.
+*	@brief Lista os Meios De Mobilidade que Existem.
 *
 *
 *	@param [in] header								header da lista de MeiosDeMobilidade
@@ -122,7 +122,7 @@ void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* header) {
 }
 
 /**
-*	@brief Mostra os Meios De Mobilidade que Existem , e escreve.
+*	@brief Lista os Meios De Mobilidade que Existem , e escreve.
 *
 *
 *	@param [in] meiosDeMobilidade					header da lista de MeiosDeMobilidade
@@ -142,11 +142,22 @@ void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
 	}
 }
 
+/**
+*	@brief Remove MeiosDeMobilidade na lista de MeiosDeMobilidade.
+*
+*
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*	@param [in] id						id MeiosDeMobilidade
+*
+*	@return header da lista de MeiosDeMobilidade;
+*
+*
+*/
 MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* header, int id) {
-	if (header == NULL) return NULL;			//Lista vazia
-	if (!ExisteMeiosDeMobilidade(header, id)) return header;	//se não existe
+	if (header == NULL) return NULL;			
+	if (!ExisteMeiosDeMobilidade(header, id)) return header;	//se não existe retorna
 
-	if (header->id == id) {		//remove no inicio da lista
+	if (header->id == id) {		//Remove no inicio da lista
 		MeiosDeMobilidade* aux = header;
 		header = header->next;
 		free(aux);
@@ -155,11 +166,11 @@ MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* header, int id) {
 	{
 		MeiosDeMobilidade* aux = header;
 		MeiosDeMobilidade* auxAnt = aux;
-		while (aux && aux->id != id) {	//procura para revover
+		while (aux && aux->id != id) {	//Procura para revover
 			auxAnt = aux;
 			aux = aux->next;
 		}
-		if (aux != NULL) {					//se encontrou, remove
+		if (aux != NULL) {					//Se encontrou remove
 			auxAnt->next = aux->next;
 			free(aux);
 		}
@@ -167,15 +178,25 @@ MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* header, int id) {
 	return header;
 }
 
-
+/**
+*	@brief Procura MeiosDeMobilidade na lista de MeiosDeMobilidade.
+*
+*
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*	@param [in] id						id MeiosDeMobilidade
+*
+*	@return header da lista de MeiosDeMobilidade;
+*
+*
+*/
 MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* header, int id) {
-	if (header == NULL) return NULL;		//lista vazia
+	if (header == NULL) return NULL;
 	else
 	{
 		MeiosDeMobilidade* aux = header;
 		while (aux != NULL) {
 			if (aux->id == id) {
-				return (aux);		//encontrei
+				return (aux);	
 			}
 			aux = aux->next;
 		}
@@ -183,10 +204,20 @@ MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* header, int id) {
 	}
 }
 
+/**
+*	@brief Altera MeiosDeMobilidade na lista de MeiosDeMobilidade.
+*
+*
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*	@param [in] id						id MeiosDeMobilidade
+*	@param [in] tipo						tipo MeiosDeMobilidade
+*
+*
+*/
 void AlteraMeiosDeMobilidade(MeiosDeMobilidade** header, int id, char* tipo) {
 	if (*header != NULL) {
 		MeiosDeMobilidade* aux = ProcuraMeiosDeMobilidade(*header, id);
-		if (aux != NULL)		//se encontrou o jogo
+		if (aux != NULL)	
 		{
 			strcpy(aux->tipo, tipo);
 		}
@@ -194,7 +225,17 @@ void AlteraMeiosDeMobilidade(MeiosDeMobilidade** header, int id, char* tipo) {
 }
 
 
-int CountMeios(struct MeiosDeMobilidade* head) {
+/**
+*	@brief Conta MeiosDeMobilidade da lista total.
+*
+*
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*
+*	@return Quantos Alugueres Tem;
+*
+*/
+
+int CountMeios(MeiosDeMobilidade* head) {
 	int count = 0;
 	MeiosDeMobilidade* current = head;
 
@@ -206,7 +247,16 @@ int CountMeios(struct MeiosDeMobilidade* head) {
 	return count;
 }
 
-
+/**
+*	@brief Le e Armazena MeiosDeMobilidade por txt file.
+*
+*
+*	@param [in] filename				Path do Txt file
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*
+*	@return header da lista de MeiosDeMobilidade;
+*
+*/
 MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilidade* header) {
 
 	FILE* fp;
@@ -223,21 +273,21 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 	}
 
 	while (fgets(line, 1024, fp)) {
-		// remove trailing newline character
+		//Remove \n e \0
 		line[strcspn(line, "\n")] = '\0';
 
 
 		MeiosDeMobilidade* novoMeioDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
 
-		// parse line into variables separated by semicolons
+		// Ve linha a linha separado por ";"
 		token = strtok(line, ";");
-		novoMeioDeMobilidade->id = atoi(token); // convert string to integer
+		novoMeioDeMobilidade->id = atoi(token); 
 		token = strtok(NULL, ";");
 		strcpy(novoMeioDeMobilidade->tipo, token);
 		token = strtok(NULL, ";");
-		novoMeioDeMobilidade->cargaBateria = atoi(token); // convert string to integer
+		novoMeioDeMobilidade->cargaBateria = atoi(token); 
 		token = strtok(NULL, ";");
-		novoMeioDeMobilidade->custo = atof(token); // convert string to integer
+		novoMeioDeMobilidade->custo = atof(token);
 		token = strtok(NULL, ";");
 		strcpy(novoMeioDeMobilidade->localizacao, token);
 
@@ -247,9 +297,7 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 		novoMeioDeMobilidade->next = NULL;
 
 
-		header = InsereMeiosDeMobilidadeNoFim(header, novoMeioDeMobilidade);
-
-		// print stored variables for testing
+		header = InsereMeiosDeMobilidadeNoFim(header, novoMeioDeMobilidade); // Insere MeiosDeMobilidade
 	}
 
 	return header;
@@ -257,7 +305,16 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 	fclose(fp);
 }
 
-
+/**
+*	@brief Grava MeiosDeMobilidade no bin file.
+*
+*
+*	@param [in] nomeFicheiro			Path do bin file
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*
+*	@return True/False;
+*
+*/
 bool GravarMeiosDeMobilidadeBinario(char* nomeFicheiro, MeiosDeMobilidade* header) {
 	FILE* fp;
 
@@ -275,6 +332,15 @@ bool GravarMeiosDeMobilidadeBinario(char* nomeFicheiro, MeiosDeMobilidade* heade
 	return true;
 }
 
+/**
+*	@brief Le e Armazena MeiosDeMobilidade por um bin file.
+*
+*
+*	@param [in] nomeFicheiro				header da lista de MeiosDeMobilidade
+*
+*	@return header da lista de MeiosDeMobilidade;
+*
+*/
 MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro) {
 	FILE* fp;
 	MeiosDeMobilidade* header = NULL;
@@ -291,7 +357,15 @@ MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro) {
 	return header;
 }
 
-
+/**
+*	@brief Listar MeiosDeMobilidade por Autonomia de forma decrescente
+*
+*
+*	@param [in] header				header da lista de MeiosDeMobilidade
+*
+*	@return 0;
+*
+*/
 int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 
 	int contador = 0;
@@ -299,32 +373,32 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 
 	system("cls");
 
-	// Count the number of nodes in the list
+	// Conta o numbero de nodes
 	while (aux != NULL) {
 		contador++;
 		aux = aux->next;
 	}
 
-	// Create an array of pointers to the nodes in the list using dynamic memory allocation
+	// Cria um array de pointers
 	MeiosDeMobilidade** nodeArray = (MeiosDeMobilidade**)malloc(sizeof(MeiosDeMobilidade*) * contador);
 	if (nodeArray == NULL) {
 		printf("Error: Failed to allocate memory for node array\n");
 		return;
 	}
 
-	// Initialize the array with NULL values
+	// Inicializa
 	for (int i = 0; i < contador; i++) {
 		nodeArray[i] = NULL;
 	}
 
-	// Populate the array with pointers to the nodes in the list
+	// Insere os valores
 	aux = header;
 	for (int i = 0; i < contador; i++) {
 		nodeArray[i] = aux;
 		aux = aux->next;
 	}
 
-	// Sort the array based on the cargaBateria field of each node
+	// Poe os por ordem da Carga da Bateria
 	for (int i = 0; i < contador - 1; i++) {
 		for (int j = 0; j < contador - i - 1; j++) {
 			if (nodeArray[j]->cargaBateria > nodeArray[j + 1]->cargaBateria) {
@@ -335,21 +409,29 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 		}
 	}
 
-	// Traverse the array in reverse order, printing the nodes in the desired order
+	// Da Print de forma reversa para mostrar de forma decrescente
 	for (int i = contador - 1; i >= 0; i--) {
 		printf("id: %d, tipo: %s, cargaBateria: %d, custo: %.2f, localizacao: %s\n",
 			nodeArray[i]->id, nodeArray[i]->tipo, nodeArray[i]->cargaBateria,
 			nodeArray[i]->custo, nodeArray[i]->localizacao);
 	}
 
-	// Free the dynamically allocated memory for the array
 	free(nodeArray);
 
 	return 0;
 
 }
 
-
+/**
+*	@brief Listar MeiosDeMobilidade por geo Codigo
+*
+*
+*	@param [in] header				header da lista de MeiosDeMobilidade
+*	@param [in] geoCodigo			geoCodigo
+*
+*	@return header da lista de MeiosDeMobilidade;
+*
+*/
 int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
 
 	MeiosDeMobilidade* aux = header;
@@ -378,7 +460,12 @@ int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
 }
 
 
-
+/**
+*	@brief Insere MeiosDeMobilidade mas na consola
+*
+*	@return header da lista de MeiosDeMobilidade;
+*
+*/
 MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
 
 
@@ -405,6 +492,12 @@ MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
 
 }
 
+/**
+*	@brief Altera MeiosDeMobilidade mas na consola
+*
+*	@return 0;
+*
+*/
 int AlterarPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
 
@@ -422,6 +515,12 @@ int AlterarPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
 }
 
+/**
+*	@brief Remove MeiosDeMobilidade mas na consola
+*
+*	@return 0;
+*
+*/
 int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
 	int id;
@@ -435,7 +534,12 @@ int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
 }
 
-
+/**
+*	@brief Lista geocodigo MeiosDeMobilidade mas na consola
+*
+*	@return 0;
+*
+*/
 int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
 	char localizacao[50];

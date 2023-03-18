@@ -23,7 +23,7 @@
 /**
  * @brief Estrutura para armazenar Meios De Mobilidade
  *
- * Um Aluguer contém um id (@@id), tipo (@@tipo) ,carga da Bateria (@@cargaBateria) , custo (@@custo) e localizacao (@@aluguer).
+ * Um Meios De Mobilidade contém um id (@@id), tipo (@@tipo) ,carga da Bateria (@@cargaBateria) , custo (@@custo) e localizacao (@@aluguer).
  * Contém apontador para próximo MeiosDeMobilidade
  */
 

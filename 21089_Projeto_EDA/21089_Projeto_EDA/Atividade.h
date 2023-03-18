@@ -55,6 +55,12 @@ Atividade* LerAluguerListaTotalBinario(char* nomeFicheiro);
 
 void DistribuirAlugueresHistorico(Atividade* header, struct MeiosDeMobilidade* headerMeios, struct Clientes* headerClientes);
 
+int ListarClienteAlugueresById(Atividade* header, int idCliente);
+int AluguerClientePorEscrever(Atividade* headAluguer);
+int ListarMeiosAlugueresById(Atividade* header, int idMeios);
+int AluguerMeiosPorEscrever(Atividade* headAluguer);
+int ListarTodosAlugueres(Atividade* header);
+
 
 
 

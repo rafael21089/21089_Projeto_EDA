@@ -226,4 +226,93 @@ void DistribuirAlugueresHistorico(Atividade* header , MeiosDeMobilidade* headerM
 
 
 
+int ListarClienteAlugueresById(Atividade* header , int idCliente) {
+
+	Atividade* aux = header;
+
+	system("cls");
+
+	while (aux != NULL)
+	{
+		if (aux->clienteId == idCliente)
+		{
+			printf(" ID Aluguer: %d , Custo: %f, Estado: %s , Cliente Id: %d, Meio Usado Id: %d \n", aux->id , aux->custo , aux->estadoDoAluguer , aux->clienteId , aux->meioUsadoId);
+		}
+
+		aux = aux->next;
+	}
+
+	return 0;
+}
+
+int AluguerClientePorEscrever(Atividade* headAluguer) {
+
+	int idCliente;
+
+	printf("\n\nDigite o id do cliente que quer ver os alugueres: ");
+	scanf("%d", &idCliente);
+
+
+	ListarClienteAlugueresById(headAluguer,idCliente);
+
+	return 0;
+
+}
+
+
+int ListarMeiosAlugueresById(Atividade* header, int idMeios) {
+
+	Atividade* aux = header;
+
+	system("cls");
+
+	while (aux != NULL)
+	{
+		if (aux->meioUsadoId == idMeios)
+		{
+			printf(" ID Aluguer: %d , Custo: %f, Estado: %s , Cliente Id: %d, Meio Usado Id: %d \n", aux->id, aux->custo, aux->estadoDoAluguer, aux->clienteId, aux->meioUsadoId);
+		}
+
+		aux = aux->next;
+	}
+
+	return 0;
+}
+
+int AluguerMeiosPorEscrever(Atividade* headAluguer) {
+
+	int idMeios;
+
+
+	printf("\n\nDigite o id do meio de mobilidade que quer ver os alugueres: ");
+	scanf("%d", &idMeios);
+
+
+	ListarMeiosAlugueresById(headAluguer, idMeios);
+
+	return 0;
+
+}
+
+
+int ListarTodosAlugueres(Atividade* header) {
+
+	system("cls");
+
+
+	Atividade* aux = header;
+
+	while (aux != NULL)
+	{
+		
+	     printf(" ID Aluguer: %d , Custo: %f, Estado: %s , Cliente Id: %d, Meio Usado Id: %d \n", aux->id, aux->custo, aux->estadoDoAluguer, aux->clienteId, aux->meioUsadoId);
+
+		aux = aux->next;
+	}
+
+	return 0;
+}
+
+
+
 

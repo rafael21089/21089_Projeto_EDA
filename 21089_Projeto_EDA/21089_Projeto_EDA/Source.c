@@ -13,17 +13,13 @@
 int main() {
 
 
-	//Clientes* c1 = CriarClientes(1,"Manuel","Rua X", "123456789",300);
-	//Clientes* c2 = CriarClientes(2,"Manuela","Rua X", "123456789",300);
+	Clientes* headListaClientes = NULL;				//Inicio da lista Clientes
+	MeiosDeMobilidade* headListaMeios = NULL;		//Inicio da lista MeiosDeMobilidade
+	Gestor* headListaGestor = NULL;					//Inicio da lista Gestor
+	Atividade* headListaAluguerTotal = NULL;		//Inicio da lista
 
-	//MeiosDeMobilidade* m1 = CriarMeiosDeMobilidade(1,"Bicicleta",33,20,"BRAGA");
-	//MeiosDeMobilidade* m2 = CriarMeiosDeMobilidade(2,"Bicicleta",44,20,"BARCELOS");
- 
-	Clientes* headListaClientes = NULL;		//inicio da lista
-	MeiosDeMobilidade* headListaMeios = NULL;		//inicio da lista
-	Gestor* headListaGestor = NULL;		//inicio da lista
-	Atividade* headListaAluguerTotal = NULL;		//inicio da lista
 
+	// Armazenamento de listas , se tiver vazia vai ao ficheiro de texto para inserir valores.
 
 	headListaAluguerTotal = LerAluguerListaTotalBinario("ListaAluguerTotalSave.bin");
 	if (headListaAluguerTotal == NULL)
@@ -56,13 +52,16 @@ int main() {
 		headListaGestor = LerEArmazenarGestor("GestorInserir.txt", headListaGestor);
 		GravarGestorBinario("GestorSave.bin", headListaGestor);
 	}
-
-	//Meter tudo em todos os gestores;
 	
-	GravarMeiosEClientesNosGestores(headListaGestor , headListaAluguerTotal,  headListaClientes , headListaMeios);
+	GravarMeiosEClientesNosGestores(headListaGestor , headListaAluguerTotal,  headListaClientes , headListaMeios);  //Grava as listas Clientes e Meios em todos os gestores
+
+
+	// ---------
 
 
 	int escolha;
+
+	// ---------  Menu --------------
 
 	do {
 
@@ -87,10 +86,13 @@ int main() {
 		printf("\n10. Registar Aluguer\n");
 		printf("11. Listar por autonomia meios de mobilidade \n");
 		printf("12. Listar meios de mobilidade existentes com geocodigo\n");
+		printf("13. Listar Alugueres de Cliente: \n");
+		printf("14. Listar Alugueres de Meios: \n");
+		printf("15. Listar todos Alugueres: \n");
 
-		printf("13. Sair\n");
+		printf("16. Sair\n");
 
-		printf("Escolha: ");
+		printf("\nEscolha: ");
 		scanf("%d", &escolha);
 
 		switch (escolha) {
@@ -131,16 +133,32 @@ int main() {
 			ListarMeioAutonomiaDecrescente(headListaMeios);
 			break;
 		case 12:
+			printf("\n\n\n ----------- Listagem ----------\n");
 			ListarGeocodigoPorEscreverMeiosDeMobilidade(headListaMeios);
 			break;
 		case 13:
+			printf("\n\n\n ----------- Listagem ----------\n");
+			AluguerClientePorEscrever(headListaAluguerTotal);
+			break;
+		case 14:
+			printf("\n\n\n ----------- Listagem ----------\n");
+			AluguerMeiosPorEscrever(headListaAluguerTotal);
+			break;
+		case 15:
+			printf("\n\n\n ----------- Listagem ----------\n");
+			ListarTodosAlugueres(headListaAluguerTotal);
+			break;
+		case 16:
 			printf("A Sair\n");
 			break;
 		default:
 			printf("Escolha nao disponivel , inserir outra vez.\n");
 		}
 
-		GravarMeiosEClientesNosGestores(headListaGestor, headListaAluguerTotal, headListaClientes, headListaMeios);
+		
+		GravarMeiosEClientesNosGestores(headListaGestor, headListaAluguerTotal, headListaClientes, headListaMeios);//Grava as listas Clientes e Meios em todos os gestores
+
+		//Grava nos ficheiros binarios as listas:
 
 		GravarClientesBinario("ClientesSave.bin", headListaClientes);
 		GravarMeiosDeMobilidadeBinario("MeiosSave.bin", headListaMeios);
@@ -149,7 +167,7 @@ int main() {
 
 
 
-	} while (escolha != 13);
+	} while (escolha != 16);
 	
 
 	return 0;

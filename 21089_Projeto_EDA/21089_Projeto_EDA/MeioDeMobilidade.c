@@ -241,6 +241,8 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 	int contador = 0;
 	MeiosDeMobilidade* aux = header;
 
+	system("cls");
+
 	// Count the number of nodes in the list
 	while (aux != NULL) {
 		contador++;
@@ -295,6 +297,8 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
 
 	MeiosDeMobilidade* aux = header;
+
+	system("cls");
 
 
 	while (aux != NULL)

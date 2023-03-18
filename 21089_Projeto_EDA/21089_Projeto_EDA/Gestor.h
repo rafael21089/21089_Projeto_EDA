@@ -9,10 +9,10 @@
 #include "MeioDeMobilidade.h"
 
 typedef struct {
-    int Id;
-    char Utilizador[50];
-    struct MeiosDeMobilidade* Meios;
-    struct Clientes* Clientes;
+    int id;
+    char utilizador[50];
+    struct MeiosDeMobilidade* meios;
+    struct Clientes* clientes;
 
     struct Gestor* next;
 } Gestor;
@@ -26,6 +26,11 @@ void MostraGestor(Gestor* gestor);
 Gestor* RemoverGestor(Gestor* header, int id);
 Gestor* ProcuraGestor(Gestor* header, int id);
 void AlteraGestor(Gestor** header, int id, char* utilizador);
+
+
+Gestor* LerEArmazenarGestor(char* filename, Gestor* header);
+bool GravarGestorBinario(char* nomeFicheiro, Gestor* header);
+Gestor* LerGestorBinario(char* nomeFicheiro);
 
 
 

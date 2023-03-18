@@ -9,7 +9,7 @@
 
 
 
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char tipo[50], int cargaBateria, int custo, float localizacao) {
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, char* localizacao) {
 
 
 	MeiosDeMobilidade* novoMeiosDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
@@ -19,7 +19,7 @@ MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char tipo[50], int cargaBateri
 	strcpy(novoMeiosDeMobilidade->tipo, tipo);
 	novoMeiosDeMobilidade->cargaBateria = cargaBateria;
 	novoMeiosDeMobilidade->custo = custo;
-	novoMeiosDeMobilidade->localizacao = localizacao;
+	strcpy(novoMeiosDeMobilidade->localizacao, localizacao);
 
 	Atividade* ativ = NULL;
 
@@ -151,3 +151,86 @@ int CountMeios(struct MeiosDeMobilidade* head) {
 }
 
 
+MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilidade* header) {
+
+	FILE* fp;
+	char line[1024];
+	char* token;
+
+	fp = fopen(filename, "r");
+
+	if (fp == NULL) {
+		printf("File %s does not exist, creating empty file...\n", filename);
+		fp = fopen(filename, "w");
+		fclose(fp);
+		return;
+	}
+
+	while (fgets(line, 1024, fp)) {
+		// remove trailing newline character
+		line[strcspn(line, "\n")] = '\0';
+
+
+		MeiosDeMobilidade* novoMeioDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
+
+		// parse line into variables separated by semicolons
+		token = strtok(line, ";");
+		novoMeioDeMobilidade->id = atoi(token); // convert string to integer
+		token = strtok(NULL, ";");
+		strcpy(novoMeioDeMobilidade->tipo, token);
+		token = strtok(NULL, ";");
+		novoMeioDeMobilidade->cargaBateria = atoi(token); // convert string to integer
+		token = strtok(NULL, ";");
+		novoMeioDeMobilidade->custo = atof(token); // convert string to integer
+		token = strtok(NULL, ";");
+		strcpy(novoMeioDeMobilidade->localizacao, token);
+
+		Atividade* ativ = NULL;
+
+		novoMeioDeMobilidade->atividade = ativ;
+		novoMeioDeMobilidade->next = NULL;
+
+
+		header = InsereMeiosDeMobilidadeNoFim(header, novoMeioDeMobilidade);
+
+		// print stored variables for testing
+	}
+
+	return header;
+
+	fclose(fp);
+}
+
+
+bool GravarMeiosDeMobilidadeBinario(char* nomeFicheiro, MeiosDeMobilidade* header) {
+	FILE* fp;
+
+	if (header == NULL) return false;
+	if ((fp = fopen(nomeFicheiro, "wb")) == NULL) return false;
+
+	// Grava n registos no ficheiro
+	MeiosDeMobilidade* aux = header;
+	while (aux) {
+		// Escrever no ficheiro os dados do registo de memória
+		fwrite(aux, sizeof(MeiosDeMobilidade), 1, fp);
+		aux = aux->next;
+	}
+	fclose(fp);
+	return true;
+}
+
+MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro) {
+	FILE* fp;
+	MeiosDeMobilidade* header = NULL;
+	MeiosDeMobilidade* auxAnt;
+
+	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+
+	// Ler n registos do ficheiro
+	while ((auxAnt = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade))) && fread(auxAnt, sizeof(MeiosDeMobilidade), 1, fp)) {
+		MeiosDeMobilidade* aux = CriarMeiosDeMobilidade(auxAnt->id, auxAnt->tipo, auxAnt->cargaBateria, auxAnt->custo, auxAnt->localizacao);
+		header = InsereMeiosDeMobilidadeNoFim(header, aux);
+	}
+	fclose(fp);
+	return header;
+}

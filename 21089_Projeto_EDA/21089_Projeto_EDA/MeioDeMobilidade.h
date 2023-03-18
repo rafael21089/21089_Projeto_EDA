@@ -12,8 +12,8 @@ typedef struct {
     int id;
     char tipo[50];
     int cargaBateria;
-    int custo;
-    float localizacao;
+    float custo;
+    char localizacao[50];
     struct Atividade* atividade;
 
     struct MeiosDeMobilidade* next;
@@ -21,7 +21,7 @@ typedef struct {
 } MeiosDeMobilidade;
 
 
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char tipo[50], int cargaBateria, int custo, float localizacao);
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, char* localizacao);
 MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* header, MeiosDeMobilidade* novoMeiosDeMobilidade);
 bool ExisteMeiosDeMobilidade(MeiosDeMobilidade* header, int idMeiosDeMobilidade);
 void MostrarListaMeiosDeMobilidade(MeiosDeMobilidade* header);
@@ -30,4 +30,9 @@ MeiosDeMobilidade* RemoverMeiosDeMobilidade(MeiosDeMobilidade* header, int id);
 MeiosDeMobilidade* ProcuraMeiosDeMobilidade(MeiosDeMobilidade* header, int id);
 void AlteraMeiosDeMobilidade(MeiosDeMobilidade** header, int id, char* tipo);
 int CountMeios(struct MeiosDeMobilidade* head);
+
+
+MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilidade* header);
+bool GravarMeiosDeMobilidadeBinario(char* nomeFicheiro, MeiosDeMobilidade* header);
+MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro);
 

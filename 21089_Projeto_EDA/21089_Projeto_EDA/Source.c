@@ -15,17 +15,26 @@ int main() {
 	Clientes* C1 = CriarClientes(1,"Manuel","Rua X", "123456789",3);
 	Clientes* C2 = CriarClientes(2,"Manuela","Rua X", "123456789",3);
 
-	MeiosDeMobilidade* M1 = CriarMeiosDeMobilidade(1,"Bicicleta",67,20,123331);
-	MeiosDeMobilidade* M2 = CriarMeiosDeMobilidade(2,"Bicicleta",44,20,123331);
+	MeiosDeMobilidade* M1 = CriarMeiosDeMobilidade(1,"Bicicleta",67,20,"BRAGA");
+	MeiosDeMobilidade* M2 = CriarMeiosDeMobilidade(2,"Bicicleta",44,20,"BARCELOS");
  
 	Clientes* HeadListaClientes = NULL;		//inicio da lista
 	MeiosDeMobilidade* HeadListaMeios = NULL;		//inicio da lista
 	Gestor* HeadListaGestor = NULL;		//inicio da lista
 
 
-	HeadListaClientes = LerClientesBinario("ClientesSave.bin");
+	//HeadListaClientes = LerClientesBinario("ClientesSave.bin");
 	//HeadListaClientes = LerEArmazenarCliente("ClientesInserir.txt", HeadListaClientes);
-	GravarClientesBinario("ClientesSave.bin", HeadListaClientes);
+	//GravarClientesBinario("ClientesSave.bin", HeadListaClientes);
+
+
+	//HeadListaGestor = LerGestorBinario("GestorSave.bin");
+	//HeadListaGestor = LerEArmazenarGestor("GestorInserir.txt" , HeadListaGestor);
+	//GravarGestorBinario("GestorSave.bin", HeadListaGestor);
+
+	//HeadListaMeios = LerMeiosDeMobilidadeBinario("MeiosSave.bin");
+	//HeadListaMeios = LerEArmazenarMeiosDeMobilidade("MeiosInserir.txt" , HeadListaMeios);
+	//GravarMeiosDeMobilidadeBinario("MeiosSave.bin", HeadListaMeios);
 
 
 	HeadListaClientes = InsereClienteNoFim(HeadListaClientes, C1);

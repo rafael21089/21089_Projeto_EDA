@@ -1,6 +1,6 @@
 ﻿  Source.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(44,59): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(44,78): warning C4133: 'function': incompatible types - from 'Clientes *' to 'Clientes *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(48,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(49,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(53,59): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade *' to 'MeiosDeMobilidade *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(53,78): warning C4133: 'function': incompatible types - from 'Clientes *' to 'Clientes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(57,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(58,52): warning C4133: 'function': incompatible types - from 'MeiosDeMobilidade **' to 'MeiosDeMobilidade **'
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

@@ -11,117 +11,202 @@
 // ----------------------------------------
 
 
-Gestor* CriarNovoGestor(int Id, char Utilizador[50], MeiosDeMobilidade* MeiosDeMobilidadeExistentes, Clientes* ClienteExistentes) {
+Gestor* CriarNovoGestor(int id, char utilizador[50], MeiosDeMobilidade* meiosDeMobilidadeExistentes, Clientes* clienteExistentes) {
 
-	Gestor* NovoGestor = (Gestor*)malloc(sizeof(Gestor));
-	if (NovoGestor == NULL) return NULL;
+	Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
+	if (novoGestor == NULL) return NULL;
 
-	NovoGestor->Id = Id;
-	strcpy(NovoGestor->Utilizador, Utilizador);
-	NovoGestor->Meios = MeiosDeMobilidadeExistentes;
-	NovoGestor->Clientes = ClienteExistentes;
+	novoGestor->id = id;
+	strcpy(novoGestor->utilizador, utilizador);
+	novoGestor->meios = meiosDeMobilidadeExistentes;
+	novoGestor->clientes = clienteExistentes;
 
-	NovoGestor->next = NULL;
+	novoGestor->next = NULL;
 
-	return NovoGestor;
+	return novoGestor;
 }
 
-Gestor* InsereGestorNoFim(Gestor* Header, Gestor* NovoGestor) {
+Gestor* InsereGestorNoFim(Gestor* header, Gestor* novoGestor) {
 	//Verificar se o novo jogo já existe!!!
-	if (ExisteCliente(Header, NovoGestor->Id)) return Header;	//se existir não insere!
+	if (ExisteGestor(header, novoGestor->id)) return header;	//se existir não insere!
 
-	if (Header == NULL) {		//lista vazia
-		Header = NovoGestor;
+	if (header == NULL) {		//lista vazia
+		header = novoGestor;
 	}
 	else
 	{
 		//Posicionar-se no fim da lista
-		Gestor* Aux = Header;
-		while (Aux->next != NULL) {
-			Aux = Aux->next;
+		Gestor* aux = header;
+		while (aux->next != NULL) {
+			aux = aux->next;
 		}
 		//insere no fim da lista
-		Aux->next = NovoGestor;
+		aux->next = novoGestor;
 	}
-	return Header;
+	return header;
 }
 
 
-bool ExisteGestor(Gestor* Header, int IdGestor) {
-	if (Header == NULL) return false;
-	Gestor* Aux = Header;
-	while (Aux != NULL) {
-		if (Aux->Id == IdGestor)
+bool ExisteGestor(Gestor* header, int idGestor) {
+	if (header == NULL) return false;
+	Gestor* aux = header;
+	while (aux != NULL) {
+		if (aux->id == idGestor)
 			return true;
-		Aux = Aux->next;
+		aux = aux->next;
 	}
 	return false;
 }
 
 
-void MostrarListaGestor(Gestor* Header) {
-	Gestor* Aux = Header;
-	while (Aux) {		
-		MostraGestor(Aux);
-		Aux = Aux->next;
+void MostrarListaGestor(Gestor* header) {
+	Gestor* aux = header;
+	while (aux) {
+		MostraGestor(aux);
+		aux = aux->next;
 	}
 }
 
-void MostraGestor(Gestor* Gestor) {
-	if (Gestor != NULL)
+void MostraGestor(Gestor* gestor) {
+	if (gestor != NULL)
 	{
-		printf("\Gestor:\nMeio De Mobilidade ID: %d\n", Gestor->Id);
-		printf("Utilizador: %s\n", Gestor->Utilizador);
+		printf("\Gestor:\nMeio De Mobilidade ID: %d\n", gestor->id);
+		printf("Utilizador: %s\n", gestor->utilizador);
 		printf("\n-------------\n");
 	}
 }
 
-Gestor* RemoverGestor(Gestor* Header, int Id) {
-	if (Header == NULL) return NULL;			//Lista vazia
-	if (!ExisteGestor(Header, Id)) return Header;	//se não existe
+Gestor* RemoverGestor(Gestor* header, int id) {
+	if (header == NULL) return NULL;			//Lista vazia
+	if (!ExisteGestor(header, id)) return header;	//se não existe
 
-	if (Header->Id == Id) {		//remove no inicio da lista
-		Gestor* Aux = Header;
-		Header = Header->next;
-		free(Aux);
+	if (header->id == id) {		//remove no inicio da lista
+		Gestor* aux = header;
+		header = header->next;
+		free(aux);
 	}
 	else
 	{
-		Gestor* Aux = Header;
-		Gestor* AuxAnt = Aux;
-		while (Aux && Aux->Id != Id) {	//procura para revover
-			AuxAnt = Aux;
-			Aux = Aux->next;
+		Gestor* aux = header;
+		Gestor* auxAnt = aux;
+		while (aux && aux->id != id) {	//procura para revover
+			auxAnt = aux;
+			aux = aux->next;
 		}
-		if (Aux != NULL) {					//se encontrou, remove
-			AuxAnt->next = Aux->next;
-			free(Aux);
+		if (aux != NULL) {					//se encontrou, remove
+			auxAnt->next = aux->next;
+			free(aux);
 		}
 	}
-	return Header;
+	return header;
 }
 
-Gestor* ProcuraGestor(Gestor* Header, int Id) {
-	if (Header == NULL) return NULL;		//lista vazia
+Gestor* ProcuraGestor(Gestor* header, int id) {
+	if (header == NULL) return NULL;		//lista vazia
 	else
 	{
-		Gestor* Aux = Header;
-		while (Aux != NULL) {
-			if (Aux->Id == Id) {
-				return (Aux);		//encontrei
+		Gestor* aux = header;
+		while (aux != NULL) {
+			if (aux->id == id) {
+				return (aux);		//encontrei
 			}
-			Aux = Aux->next;
+			aux = aux->next;
 		}
 		return NULL;
 	}
 }
 
-void AlteraGestor(Gestor** Header, int Id, char* Utilizador) {
-	if (*Header != NULL) {
-		Gestor* Aux = ProcuraGestor(*Header, Id);
-		if (Aux != NULL)		//se encontrou o jogo
+void AlteraGestor(Gestor** header, int id, char* utilizador) {
+	if (*header != NULL) {
+		Gestor* aux = ProcuraGestor(*header, id);
+		if (aux != NULL)		//se encontrou o jogo
 		{
-			strcpy(Aux->Utilizador, Utilizador);
+			strcpy(aux->utilizador, utilizador);
 		}
 	}
+}
+
+
+
+Gestor* LerEArmazenarGestor(char* filename, Gestor* header) {
+
+	FILE* fp;
+	char line[1024];
+	char* token;
+
+	fp = fopen(filename, "r");
+
+	if (fp == NULL) {
+		printf("File %s does not exist, creating empty file...\n", filename);
+		fp = fopen(filename, "w");
+		fclose(fp);
+		return;
+	}
+
+	while (fgets(line, 1024, fp)) {
+		// remove trailing newline character
+		line[strcspn(line, "\n")] = '\0';
+
+
+		Gestor* novoGestor = (Gestor*)malloc(sizeof(Gestor));
+
+		// parse line into variables separated by semicolons
+		token = strtok(line, ";");
+		novoGestor->id = atoi(token); // convert string to integer
+		token = strtok(NULL, ";");
+		strcpy(novoGestor->utilizador, token);
+
+
+		Clientes* cliente = NULL;
+		MeiosDeMobilidade* meios = NULL;
+
+		novoGestor->clientes = cliente;
+		novoGestor->meios = meios;
+
+		novoGestor->next = NULL;
+
+
+		header = InsereGestorNoFim(header, novoGestor);
+
+		// print stored variables for testing
+	}
+
+	return header;
+
+	fclose(fp);
+}
+
+
+bool GravarGestorBinario(char* nomeFicheiro, Gestor* header) {
+	FILE* fp;
+
+	if (header == NULL) return false;
+	if ((fp = fopen(nomeFicheiro, "wb")) == NULL) return false;
+
+	// Grava n registos no ficheiro
+	Gestor* aux = header;
+	while (aux) {
+		// Escrever no ficheiro os dados do registo de memória
+		fwrite(aux, sizeof(Gestor), 1, fp);
+		aux = aux->next;
+	}
+	fclose(fp);
+	return true;
+}
+
+
+Gestor* LerGestorBinario(char* nomeFicheiro) {
+	FILE* fp;
+	Gestor* header = NULL;
+	Gestor* auxAnt;
+
+	if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+
+	// Ler n registos do ficheiro
+	while ((auxAnt = (Gestor*)malloc(sizeof(Gestor))) && fread(auxAnt, sizeof(Gestor), 1, fp)) {
+		Gestor* aux = CriarNovoGestor(auxAnt->id, auxAnt->utilizador , NULL , NULL);
+		header = InsereGestorNoFim(header, aux);
+	}
+	fclose(fp);
+	return header;
 }

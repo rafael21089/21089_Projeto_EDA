@@ -268,19 +268,8 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 		}
 
 
-		atividades->id = idClienteRegisto;
-		strcpy(atividades->estadoDoAluguer, "Ativo");
-		atividades->custo = meio->custo;
-		atividades->clienteId = cliente->id;
-		atividades->meioUsadoId = meio->id;
-		atividades->next = NULL;
-
-		atividadesMeios->id = idMeioRegisto;
-		strcpy(atividadesMeios->estadoDoAluguer, "Ativo");
-		atividadesMeios->custo = meio->custo;
-		atividadesMeios->clienteId = cliente->id;
-		atividadesMeios->meioUsadoId = meio->id;
-		atividadesMeios->next = NULL;
+		atividades = CriarAluguerListaTotal(idClienteRegisto, meio->custo, "Ativo", cliente->id, meio->id);
+		atividadesMeios = CriarAluguerListaTotal(idMeioRegisto, meio->custo, "Ativo", cliente->id, meio->id);
 
 		InsertAlugueresCliente(cliente, atividades);
 		InsertAlugueresMeio(meio, atividadesMeios);

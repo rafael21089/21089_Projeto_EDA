@@ -1,7 +1,13 @@
 ﻿  Aluguer.c
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(217,3): warning C4033: 'LerEArmazenarAluguerListaTotal' must return a value
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(231,45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Source.c
+  Cliente.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(332,3): warning C4033: 'LerEArmazenarCliente' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(352,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(487,7): warning C4101: 'nome': unreferenced local variable
   Generating Code...
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(286): warning C4715: 'RegistoAluguer': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(367): warning C4715: 'LerEArmazenarCliente': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(520): warning C4716: 'RegistoPorEscrever': must return a value
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(247): warning C4715: 'LerEArmazenarAluguerListaTotal': not all control paths return a value
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

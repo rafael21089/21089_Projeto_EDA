@@ -375,7 +375,7 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 
 	printf("\n\n\n ----------- Listagem ----------\n");
 
-	// Conta o numbero de nodes
+	// Conta o numero de nodes
 	while (aux != NULL) {
 		contador++;
 		aux = aux->next;

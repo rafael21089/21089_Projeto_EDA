@@ -314,58 +314,41 @@ void DistribuirAlugueresHistorico(Aluguer* header, MeiosDeMobilidade* headerMeio
 	Clientes* auxClientes = headerClientes;
 	MeiosDeMobilidade* auxMeio = headerMeios;
 
-	while (auxClientes != NULL)
+	int idClientes = 1;
+	int idMeios = 1;
+
+	while (auxAluguer != NULL)
 	{
-		Aluguer* auxClienteAluguerOriginal = (Aluguer*)malloc(sizeof(Aluguer));
-
-		while (auxAluguer != NULL)
+		if (ExisteCliente(headerClientes,auxAluguer->clienteId))
 		{
-			if (auxClientes->id == auxAluguer->clienteId)
-			{
+			Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
 
-				auxClienteAluguerOriginal->id = auxAluguer->id;
-				auxClienteAluguerOriginal->custo = auxAluguer->custo;
-				strcpy(auxClienteAluguerOriginal->estadoDoAluguer, auxAluguer->estadoDoAluguer);
-				auxClienteAluguerOriginal->clienteId = auxAluguer->clienteId;
-				auxClienteAluguerOriginal->meioUsadoId = auxAluguer->meioUsadoId;
-				auxClienteAluguerOriginal->next = NULL;
-
-				auxClientes->aluguer = auxClienteAluguerOriginal;
-
-
-			}
-			auxAluguer = auxAluguer->next;
+			novoAluguer = CriarAluguerListaTotal(idClientes, auxAluguer->custo, auxAluguer->estadoDoAluguer, auxAluguer->clienteId, auxAluguer->meioUsadoId);
+			idClientes++;
+			InsertAlugueresCliente(ProcuraClientes(headerClientes, auxAluguer->clienteId), novoAluguer);
 
 		}
 
-		auxClientes = auxClientes->next;
-		auxAluguer = header; 
+		auxAluguer = auxAluguer->next;
 	}
 
 	auxAluguer = header;
 
-	while (auxMeio != NULL)
+	while (auxAluguer != NULL)
 	{
-		Aluguer* auxMeioAluguer = (Aluguer*)malloc(sizeof(Aluguer));
-
-		while (auxAluguer != NULL)
+		if (ExisteMeiosDeMobilidade(headerMeios, auxAluguer->meioUsadoId))
 		{
-			if (auxMeio->id == auxAluguer->meioUsadoId)
-			{
-				auxMeioAluguer->id = auxAluguer->id;
-				auxMeioAluguer->custo = auxAluguer->custo;
-				strcpy(auxMeioAluguer->estadoDoAluguer, auxAluguer->estadoDoAluguer);
-				auxMeioAluguer->clienteId = auxAluguer->clienteId;
-				auxMeioAluguer->meioUsadoId = auxAluguer->meioUsadoId;
-				auxMeioAluguer->next = NULL;;
+			Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
 
-				auxMeio->aluguer = auxMeioAluguer;
-			}
-			auxAluguer = auxAluguer->next;
+			novoAluguer = CriarAluguerListaTotal(idMeios, auxAluguer->custo, auxAluguer->estadoDoAluguer, auxAluguer->clienteId, auxAluguer->meioUsadoId);
+			idMeios++;
+			InsertAlugueresMeio(ProcuraMeiosDeMobilidade(headerMeios, auxAluguer->meioUsadoId), novoAluguer);
+
 		}
-		auxMeio = auxMeio->next;
-		auxAluguer = header;  
+
+		auxAluguer = auxAluguer->next;
 	}
+	
 
 
 }

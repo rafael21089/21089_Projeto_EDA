@@ -142,6 +142,7 @@
     <ClCompile Include="Aluguer.c" />
     <ClCompile Include="Cliente.c" />
     <ClCompile Include="Gestor.c" />
+    <ClCompile Include="Localizacao.c" />
     <ClCompile Include="MeioDeMobilidade.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="Aluguer.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Gestor.h" />
+    <ClInclude Include="Localizacao.h" />
     <ClInclude Include="MeioDeMobilidade.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

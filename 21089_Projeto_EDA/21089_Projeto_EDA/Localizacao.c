@@ -81,7 +81,15 @@ LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista
     if (headLista == NULL)
     {
         return headLista;
+    }
 
+    if (postoOrigem == NULL)
+    {
+        return headLista;
+    }
+    if (postoDestino == NULL)
+    {
+        return headLista;
     }
 
     if (JaTemPostoAdjacente(postoOrigem, postoDestino)) return *headLista;	//se existir não insere!
@@ -199,7 +207,6 @@ bool ExistePosto(LocalizacaoPostos* header, int idPosto) {
 
 LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** headerPostosLista) {
 
-
     FILE* file = fopen(nomeFicheiro, "r");
     if (file == NULL) {
         printf("File %s does not exist, creating empty file...\n", nomeFicheiro);
@@ -236,4 +243,79 @@ LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** he
     fclose(file);
 
     return *headerPostosLista;
+}
+
+
+
+LocalizacaoPostos* LerEArmazenarPostoAdjacente(char* nomeFicheiro, LocalizacaoPostos** headerPostosLista) {
+
+    FILE* file = fopen(nomeFicheiro, "r");
+    if (file == NULL) {
+        printf("File %s does not exist, creating empty file...\n", nomeFicheiro);
+        file = fopen(nomeFicheiro, "w");
+        fclose(file);
+        return;
+    }
+
+    char line[1024];
+    while (fgets(line, sizeof(line), file)) {
+        //Remove \n e \0
+        line[strcspn(line, "\n")] = '\0';
+
+    
+        float distancia = 0;
+        int idOrigem;
+        int idDestino;
+
+        char* token = strtok(line, ";");
+        idOrigem = atoi(token);
+        token = strtok(NULL, ";");
+        idDestino = atoi(token);
+        token = strtok(NULL, ";");
+        distancia = atof(token);
+
+        *headerPostosLista = InserirPostoAdjacente(headerPostosLista, ProcurarPorIdPostos(*headerPostosLista, idOrigem), ProcurarPorIdPostos(*headerPostosLista, idDestino), distancia);
+
+    }
+
+    fclose(file);
+
+    return *headerPostosLista;
+}
+
+
+
+
+bool GravarPostosBinario(char* nomeFicheiro, LocalizacaoPostos* header) {
+    FILE* fp;
+
+    if (header == NULL) return false;
+    if ((fp = fopen(nomeFicheiro, "wb")) == NULL) return false;
+
+    LocalizacaoPostos* aux = header;
+    while (aux) {
+        // Escreve no ficheiro os dados do registo de memória
+        fwrite(aux, sizeof(LocalizacaoPostos), 1, fp);
+        aux = aux->proximo;
+    }
+    fclose(fp);
+    return true;
+}
+
+
+
+LocalizacaoPostos* LerPostosBinario(char* nomeFicheiro) {
+    FILE* fp;
+    LocalizacaoPostos* header = NULL;
+    LocalizacaoPostos* auxAnt;
+
+    if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
+
+    //Ler o registos do ficheiro binario
+    while ((auxAnt = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos))) && fread(auxAnt, sizeof(LocalizacaoPostos), 1, fp)) {
+        LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade,auxAnt->latitude,auxAnt->longitude,auxAnt->geocode,auxAnt->postosAdjacentes); //Cria Aluguer com valores recebidos
+        header = InserePostoGrafo(header, aux); //Insere Aluguer
+    }
+    fclose(fp);
+    return header;
 }

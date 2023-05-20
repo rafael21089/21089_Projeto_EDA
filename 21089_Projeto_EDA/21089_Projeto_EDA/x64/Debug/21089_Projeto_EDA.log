@@ -1,7 +1,7 @@
-﻿  Localizacao.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(83,25): warning C4047: 'return': 'LocalizacaoPostosAdjacentes *' differs in levels of indirection from 'LocalizacaoPostos **'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(87,74): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(112,22): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(208,9): warning C4033: 'LerEArmazenarPosto' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(239): warning C4715: 'LerEArmazenarPosto': not all control paths return a value
+﻿  Source.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(177,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(178,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(179,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(180,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(181,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

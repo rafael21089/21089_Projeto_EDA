@@ -41,6 +41,10 @@ LocalizacaoPostos* ProcurarPorIdPostosComListaToda(LocalizacaoPostos* headerList
 LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id);
 
 LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** headerPostosLista);
+LocalizacaoPostos* LerEArmazenarPostoAdjacente(char* nomeFicheiro, LocalizacaoPostos** headerPostosLista);
+
+bool GravarPostosBinario(char* nomeFicheiro, LocalizacaoPostos* header);
+LocalizacaoPostos* LerPostosBinario(char* nomeFicheiro);
 
 bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* headerDestino);
 bool ExistePosto(LocalizacaoPostos* header, int idPosto);

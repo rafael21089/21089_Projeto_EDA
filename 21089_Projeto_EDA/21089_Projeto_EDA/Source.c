@@ -158,7 +158,17 @@ int main() {
 			break;
 		case 16:
 
-			headListaPostos = LerEArmazenarPosto("PostosInserir.txt", &headListaPostos);
+			//headListaPostos = LerEArmazenarPosto("PostosInserir.txt", &headListaPostos);
+			//headListaPostos = LerEArmazenarPostoAdjacente("PostosAdjacentesInserir.txt", &headListaPostos);
+
+
+			headListaPostos = LerPostosBinario("PostosSave.bin");
+			if (headListaPostos == NULL)
+			{
+				headListaPostos = LerEArmazenarPosto("PostosInserir.txt", &headListaPostos);
+				GravarPostosBinario("PostosSave.bin", headListaPostos);
+
+			}
 
 			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(0,"Braga","asdasd","qweqas", "comida-love-power",NULL));
 			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(1,"Braga","www","qweddqas", "comida-lsse-power", NULL));

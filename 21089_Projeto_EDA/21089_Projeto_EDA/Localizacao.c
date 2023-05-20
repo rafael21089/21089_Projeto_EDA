@@ -17,7 +17,7 @@
 #include "Localizacao.h"
 
 
-LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, const char* longitude, const char* geocode , LocalizacaoPostosAdjacentes* postosAdjacentes) {
+LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude, char* geocode , LocalizacaoPostosAdjacentes* postosAdjacentes) {
     LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
     if (novoPosto == NULL) {
         return NULL;
@@ -193,4 +193,47 @@ bool ExistePosto(LocalizacaoPostos* header, int idPosto) {
         aux = aux->proximo;
     }
     return false;
+}
+
+
+
+LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** headerPostosLista) {
+
+
+    FILE* file = fopen(nomeFicheiro, "r");
+    if (file == NULL) {
+        printf("File %s does not exist, creating empty file...\n", nomeFicheiro);
+        file = fopen(nomeFicheiro, "w");
+        fclose(file);
+        return;
+    }
+
+    char line[1024];
+    while (fgets(line, sizeof(line), file)) {
+        //Remove \n e \0
+        line[strcspn(line, "\n")] = '\0';
+
+        LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
+       
+        char* token = strtok(line, ";");
+        novoPosto->id = atoi(token);
+        token = strtok(NULL, ";");
+        strncpy(novoPosto->cidade, token, sizeof(novoPosto->cidade));
+        token = strtok(NULL, ";");
+        strncpy(novoPosto->latitude, token, sizeof(novoPosto->latitude));
+        token = strtok(NULL, ";");
+        strncpy(novoPosto->longitude, token, sizeof(novoPosto->longitude));
+        token = strtok(NULL, ";");
+        strncpy(novoPosto->geocode, token, sizeof(novoPosto->geocode));
+
+        novoPosto->postosAdjacentes = NULL;
+        novoPosto->proximo = NULL;
+
+        *headerPostosLista = InserePostoGrafo(*headerPostosLista, novoPosto); // Insere Posto
+
+    }
+
+    fclose(file);
+
+    return *headerPostosLista;
 }

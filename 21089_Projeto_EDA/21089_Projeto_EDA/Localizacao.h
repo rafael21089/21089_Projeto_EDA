@@ -31,7 +31,7 @@ typedef struct LocalizacaoPostosAdjacentes {
     struct LocalizacaoPostosAdjacentes* proximo; // Pointer to the next adjacent node
 } LocalizacaoPostosAdjacentes;
 
-LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, const char* longitude, const char* geocode, LocalizacaoPostosAdjacentes* postosAdjacentes);
+LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude, char* geocode, LocalizacaoPostosAdjacentes* postosAdjacentes);
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto);
 
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia);
@@ -39,5 +39,8 @@ LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista
 
 LocalizacaoPostos* ProcurarPorIdPostosComListaToda(LocalizacaoPostos* headerList, int id);
 LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id);
+
+LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** headerPostosLista);
+
 bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* headerDestino);
 bool ExistePosto(LocalizacaoPostos* header, int idPosto);

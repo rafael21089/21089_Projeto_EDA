@@ -12,12 +12,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 
 #include "Gestor.h"
 #include "Cliente.h"
 #include "MeioDeMobilidade.h"
 #include "Aluguer.h"
+#include "Localizacao.h"
 
 
 int main() {
@@ -28,6 +30,7 @@ int main() {
 	Gestor* headListaGestor = NULL;					//Inicio da lista Gestor
 	Aluguer* headListaAluguerTotal = NULL;		//Inicio da lista
 
+	LocalizacaoPostos* headListaPostos = NULL;		//Inicio da lista
 
 	// Armazenamento de listas , se tiver vazia vai ao ficheiro de texto para inserir valores.
 
@@ -154,6 +157,19 @@ int main() {
 			ListarTodosAlugueres(headListaAluguerTotal);
 			break;
 		case 16:
+
+			headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(0,"Braga","asdasd","qweqas", "comida-love-power",NULL));
+			headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(1,"Braga","www","qweddqas", "comida-lsse-power", NULL));
+			headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(2,"Braga","aaaa","sss", "ccc-lsse-power", NULL));
+
+			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,0), ProcurarPorIdPostos(headListaPostos, 1), 20);
+			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,0), ProcurarPorIdPostos(headListaPostos, 1), 20);
+			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,1), ProcurarPorIdPostos(headListaPostos, 0), 20);
+			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,0), ProcurarPorIdPostos(headListaPostos, 2), 40);
+			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,1), ProcurarPorIdPostos(headListaPostos, 2), 40);
+			
+			break;
+		case 17:
 			printf("A Sair\n");
 			break;
 		default:

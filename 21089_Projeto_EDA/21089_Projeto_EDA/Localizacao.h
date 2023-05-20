@@ -31,12 +31,13 @@ typedef struct LocalizacaoPostosAdjacentes {
     struct LocalizacaoPostosAdjacentes* proximo; // Pointer to the next adjacent node
 } LocalizacaoPostosAdjacentes;
 
-LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, const char* longitude, const char* geocode);
+LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, const char* longitude, const char* geocode, LocalizacaoPostosAdjacentes* postosAdjacentes);
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto);
 
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia);
-LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino, float distancia);
+LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino, float distancia);
 
+LocalizacaoPostos* ProcurarPorIdPostosComListaToda(LocalizacaoPostos* headerList, int id);
 LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id);
 bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* headerDestino);
 bool ExistePosto(LocalizacaoPostos* header, int idPosto);

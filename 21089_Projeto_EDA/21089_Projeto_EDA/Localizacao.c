@@ -7,6 +7,7 @@
  * @brief Funcoes para Localizacao
 
 */
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +17,7 @@
 #include "Localizacao.h"
 
 
-LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, const char* longitude, const char* geocode) {
+LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, const char* longitude, const char* geocode , LocalizacaoPostosAdjacentes* postosAdjacentes) {
     LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
     if (novoPosto == NULL) {
         return NULL;
@@ -27,7 +28,7 @@ LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, 
     strncpy(novoPosto->latitude, latitude, LARGURAGERALSTRING);
     strncpy(novoPosto->longitude, longitude, LARGURAGERALSTRING);
     strncpy(novoPosto->geocode, geocode, LARGURAGERALSTRING);
-    novoPosto->postosAdjacentes = NULL;
+    novoPosto->postosAdjacentes = postosAdjacentes;
     novoPosto->proximo = NULL;
 
     return novoPosto;
@@ -63,31 +64,68 @@ LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos
 
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia) {
 
-    LocalizacaoPostosAdjacentes* newEdge = (LocalizacaoPostosAdjacentes*)malloc(sizeof(LocalizacaoPostosAdjacentes));
-    if (newEdge == NULL) {
+    LocalizacaoPostosAdjacentes* postoAdjacente = (LocalizacaoPostosAdjacentes*)malloc(sizeof(LocalizacaoPostosAdjacentes));
+    if (postoAdjacente == NULL) {
         return NULL;
     }
 
-    newEdge->postoDestinoAdjacente = postoDestinoAdjacente;
-    newEdge->distancia = distancia;
-    newEdge->proximo = NULL;
+    postoAdjacente->postoDestinoAdjacente = postoDestinoAdjacente;
+    postoAdjacente->distancia = distancia;
+    postoAdjacente->proximo = NULL;
+
+    return postoAdjacente;
 }
 
-LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos* postoOrigem , LocalizacaoPostos* postoDestino, float distancia) {
+LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem , LocalizacaoPostos* postoDestino, float distancia) {
 
-    if (ExistePosto(postoOrigem, postoDestino)) return postoOrigem;	//se existir não insere!
+    if (headLista == NULL)
+    {
+        return headLista;
+
+    }
+
+    if (JaTemPostoAdjacente(postoOrigem, postoDestino)) return *headLista;	//se existir não insere!
+
 
     if (postoOrigem->postosAdjacentes == NULL) {
-        postoOrigem->postosAdjacentes = postoOrigem;
+
+        LocalizacaoPostos* aux = ProcurarPorIdPostosComListaToda(*headLista, postoOrigem->id);
+        if (aux != NULL)
+         {
+            aux->postosAdjacentes = CriarPostoAdjacente(postoDestino, distancia);
+         }
     }
     else {
         LocalizacaoPostosAdjacentes* aux = postoOrigem->postosAdjacentes;
         while (aux->proximo != NULL) {
             aux = aux->proximo;
         }
-        aux->proximo = postoDestino;
+
+        LocalizacaoPostos* aux2 = ProcurarPorIdPostosComListaToda(*headLista, postoOrigem->id);
+        if (aux2 != NULL)
+        {
+            aux2->postosAdjacentes = aux;
+            aux2->postosAdjacentes->proximo = CriarPostoAdjacente(postoDestino, distancia);
+        }
     }
 
+    return *headLista;
+
+}
+
+LocalizacaoPostos* ProcurarPorIdPostosComListaToda(LocalizacaoPostos* headerList, int id) {
+    if (headerList == NULL) return NULL;		//lista vazia
+    else
+    {
+        LocalizacaoPostos* aux = headerList;
+        while (aux != NULL) {
+            if (aux->id == id) {
+                return (aux);		//encontrou
+            }
+            aux = aux->proximo;
+        }
+        return NULL;
+    }
 }
 
 
@@ -97,7 +135,10 @@ LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id) {
     // Traverse the graph until the node with the matching ID is found
     while (aux != NULL) {
         if (aux->id == id) {
-            return aux;  // Node with the matching ID found
+            LocalizacaoPostos* result = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
+            result = CriarPosto(aux->id, aux->cidade, aux->latitude, aux->longitude, aux->geocode ,aux->postosAdjacentes);
+         
+            return result;  // Node with the matching ID found
         }
 
         // Move to the next adjacent node in the graph
@@ -114,21 +155,31 @@ bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* hea
 
     LocalizacaoPostos* aux = headerOrigem;
     LocalizacaoPostos* aux2 = headerDestino;
-    while (aux != NULL) {
 
-        LocalizacaoPostos* aux3 = aux->postosAdjacentes->postoDestinoAdjacente;
-
-        while (aux3 != NULL)
-        {
-            if (aux3->id == aux2->id)
-                return true;
-
-            aux3 = aux3->proximo;
-        }
-
-        aux = aux->proximo;
-        aux2 = aux2->proximo;
+    if (aux->postosAdjacentes == NULL)
+    {
+        return false;
     }
+    else
+    {
+        while (aux != NULL) {
+
+            LocalizacaoPostos* aux3 = aux->postosAdjacentes->postoDestinoAdjacente;
+
+            while (aux3 != NULL)
+            {
+                if (aux3->id == aux2->id)
+                    return true;
+
+                aux3 = aux3->proximo;
+            }
+
+            aux = aux->proximo;
+            aux2 = aux2->proximo;
+        }
+    }
+
+  
     return false;
 }
 

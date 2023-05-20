@@ -14,29 +14,29 @@
 
 #define LARGURAGERALSTRING 100
 
-typedef struct LocalizacaoPostos{
-	int id;
-	char cidade[LARGURAGERALSTRING];
-	char latitude[LARGURAGERALSTRING];
-	char longitude[LARGURAGERALSTRING];
-	char geocode[LARGURAGERALSTRING];
-}LocalizacaoPostos;
+typedef struct LocalizacaoPostos {
+    int id;
+    char cidade[LARGURAGERALSTRING];
+    char latitude[LARGURAGERALSTRING];
+    char longitude[LARGURAGERALSTRING];
+    char geocode[LARGURAGERALSTRING];
+    struct LocalizacaoPostosAdjacentes* postosAdjacentes; // Pointer to the first adjacent node
+    struct LocalizacaoPostos* proximo; // Pointer to the next adjacent node
 
+} LocalizacaoPostos;
 
-typedef struct LocalizacaoPostosAdjacentes{
+typedef struct LocalizacaoPostosAdjacentes {
+    struct LocalizacaoPostos* postoDestinoAdjacente; // Pointer to the destination node
+    float distancia;
+    struct LocalizacaoPostosAdjacentes* proximo; // Pointer to the next adjacent node
+} LocalizacaoPostosAdjacentes;
 
-	LocalizacaoPostos* postoOrigem;
-	LocalizacaoPostos* postoDestino;
-	float distancia;
+LocalizacaoPostos* CriarPosto(int id, const char* cidade, const char* latitude, const char* longitude, const char* geocode);
+LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto);
 
-	LocalizacaoPostosAdjacentes* proximo;
+LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia);
+LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino, float distancia);
 
-}LocalizacaoPostosAdjacentes;
-
-
-typedef struct LocalizacaoPostosLista {
-
-	LocalizacaoPostos localizacaoPostos;
-	LocalizacaoPostosAdjacentes* primeiraAdjacencia;
-
-}LocalizacaoPostosLista;
+LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id);
+bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* headerDestino);
+bool ExistePosto(LocalizacaoPostos* header, int idPosto);

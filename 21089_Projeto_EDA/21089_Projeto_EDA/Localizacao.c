@@ -36,20 +36,22 @@ LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longit
 
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto) {
 
-    if (ExistePosto(header, novoPosto->id)) return header;	//se existir não insere!
+    if (ExistePosto(header, novoPosto->id)) {
+        return header; // If the posto already exists, return the original header
+    }
 
     if (header == NULL) {
-        header = novoPosto;
+        header = novoPosto; // If the list is empty, set novoPosto as the new header
         return header;
     }
     else {
         LocalizacaoPostos* aux = header;
-        LocalizacaoPostos* ant = aux;
-        while (aux && strcmp(aux->cidade, novoPosto->cidade) > 0) {
+        LocalizacaoPostos* ant = NULL; // Initialize ant to NULL
+        while (aux && aux->id < novoPosto->id) {
             ant = aux;
             aux = aux->proximo;
         }
-        if (aux == header) {
+        if (ant == NULL) {
             novoPosto->proximo = header;
             header = novoPosto;
         }
@@ -70,6 +72,7 @@ LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestino
     }
 
     postoAdjacente->postoDestinoAdjacente = postoDestinoAdjacente;
+    postoAdjacente->idDestino = postoDestinoAdjacente->id;
     postoAdjacente->distancia = distancia;
     postoAdjacente->proximo = NULL;
 
@@ -164,27 +167,29 @@ bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* hea
     LocalizacaoPostos* aux = headerOrigem;
     LocalizacaoPostos* aux2 = headerDestino;
 
-    if (aux->postosAdjacentes == NULL)
+    LocalizacaoPostosAdjacentes* auxAdj = aux->postosAdjacentes;
+
+    if (auxAdj == NULL)
     {
         return false;
     }
     else
     {
         while (aux != NULL) {
+           
+                LocalizacaoPostos* aux3 = aux->postosAdjacentes->postoDestinoAdjacente;
 
-            LocalizacaoPostos* aux3 = aux->postosAdjacentes->postoDestinoAdjacente;
+                while (aux3 != NULL)
+                {
+                    if (aux3->id == aux2->id)
+                        return true;
 
-            while (aux3 != NULL)
-            {
-                if (aux3->id == aux2->id)
-                    return true;
+                    aux3 = aux3->proximo;
+                }
 
-                aux3 = aux3->proximo;
-            }
-
-            aux = aux->proximo;
-            aux2 = aux2->proximo;
-        }
+                aux = aux->proximo;
+                aux2 = aux2->proximo;
+            } 
     }
 
   
@@ -313,9 +318,77 @@ LocalizacaoPostos* LerPostosBinario(char* nomeFicheiro) {
 
     //Ler o registos do ficheiro binario
     while ((auxAnt = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos))) && fread(auxAnt, sizeof(LocalizacaoPostos), 1, fp)) {
-        LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade,auxAnt->latitude,auxAnt->longitude,auxAnt->geocode,auxAnt->postosAdjacentes); //Cria Aluguer com valores recebidos
+        LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade, auxAnt->latitude, auxAnt->longitude, auxAnt->geocode, NULL); //Cria Aluguer com valores recebidos
         header = InserePostoGrafo(header, aux); //Insere Aluguer
     }
     fclose(fp);
     return header;
+}
+
+
+
+
+bool GravarPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPostos* header) {
+    FILE* fp;
+
+    if (header == NULL) return false;
+    if ((fp = fopen(nomeFicheiro, "wb")) == NULL) return false;
+
+    // Save the current postosAdjacentes to the binary file
+
+    LocalizacaoPostos* aux = header;
+
+    while (aux != NULL)
+    {
+        LocalizacaoPostosAdjacentes* adj = aux->postosAdjacentes;
+        while (adj != NULL) {
+            fwrite(&(aux->id), sizeof(int), 1, fp);
+            fwrite(adj, sizeof(LocalizacaoPostosAdjacentes), 1, fp);
+            adj = adj->proximo;
+        }
+
+        aux = aux->proximo;
+    }
+
+
+    fclose(fp);
+    return true;
+}
+
+
+LocalizacaoPostos* LerPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPostos** header , bool* resultado) {
+    FILE* fp;
+
+    if ((fp = fopen(nomeFicheiro, "rb")) == NULL) {
+
+        *resultado = false;
+        return *header;
+    }
+
+
+    int id;
+
+    while (!feof(fp))
+    {
+        int id;
+        LocalizacaoPostosAdjacentes adj;
+
+        // Read the data from the binary file
+        if (fread(&id, sizeof(int), 1, fp) != 1) break;
+        if (fread(&adj, sizeof(LocalizacaoPostosAdjacentes), 1, fp) != 1) break;
+
+        // Create a new node for the list
+        LocalizacaoPostosAdjacentes* newNode = malloc(sizeof(LocalizacaoPostosAdjacentes));
+
+        int idOrigem = id;
+        int idDestino = adj.idDestino;
+        int distancia = adj.distancia;
+
+        *header = InserirPostoAdjacente(header, ProcurarPorIdPostos(*header, idOrigem), ProcurarPorIdPostos(*header, idDestino), distancia);
+     
+    }
+
+    fclose(fp);
+
+    return *header;
 }

@@ -1,7 +1,17 @@
-﻿  Source.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(177,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(178,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(179,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(180,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(181,147): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+﻿  Localizacao.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(86,25): warning C4047: 'return': 'LocalizacaoPostosAdjacentes *' differs in levels of indirection from 'LocalizacaoPostos **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(91,25): warning C4047: 'return': 'LocalizacaoPostosAdjacentes *' differs in levels of indirection from 'LocalizacaoPostos **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(95,25): warning C4047: 'return': 'LocalizacaoPostosAdjacentes *' differs in levels of indirection from 'LocalizacaoPostos **'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(98,74): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(123,22): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(220,9): warning C4033: 'LerEArmazenarPosto' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(262,9): warning C4033: 'LerEArmazenarPostoAdjacente' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(280,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(282,184): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(387,139): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(387,140): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(385,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(369,9): warning C4101: 'id': unreferenced local variable
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(289): warning C4715: 'LerEArmazenarPostoAdjacente': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(251): warning C4715: 'LerEArmazenarPosto': not all control paths return a value
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

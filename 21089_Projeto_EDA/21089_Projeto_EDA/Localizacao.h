@@ -26,6 +26,7 @@ typedef struct LocalizacaoPostos {
 } LocalizacaoPostos;
 
 typedef struct LocalizacaoPostosAdjacentes {
+    int idDestino;
     struct LocalizacaoPostos* postoDestinoAdjacente; // Pointer to the destination node
     float distancia;
     struct LocalizacaoPostosAdjacentes* proximo; // Pointer to the next adjacent node
@@ -45,6 +46,9 @@ LocalizacaoPostos* LerEArmazenarPostoAdjacente(char* nomeFicheiro, LocalizacaoPo
 
 bool GravarPostosBinario(char* nomeFicheiro, LocalizacaoPostos* header);
 LocalizacaoPostos* LerPostosBinario(char* nomeFicheiro);
+
+bool GravarPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPostos* header);
+LocalizacaoPostos* LerPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPostos** header, bool* resultado);
 
 bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* headerDestino);
 bool ExistePosto(LocalizacaoPostos* header, int idPosto);

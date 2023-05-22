@@ -52,3 +52,7 @@ LocalizacaoPostos* LerPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPos
 
 bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* headerDestino);
 bool ExistePosto(LocalizacaoPostos* header, int idPosto);
+
+LocalizacaoPostos* AtualizarPostosAdjacentes(LocalizacaoPostos* headLista);
+
+LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* vertex, LocalizacaoPostos* postoDestino);

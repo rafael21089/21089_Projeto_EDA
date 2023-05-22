@@ -181,16 +181,12 @@ int main() {
 
 			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(0,"Braga","asdasd","qweqas", "comida-love-power",NULL));
 			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(1,"Braga","www","qweddqas", "comida-lsse-power", NULL));
-			headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(2,"Braga","aaaa","sss", "ccc-lsse-power", NULL));
+			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(2,"Braga","aaaa","sss", "ccc-lsse-power", NULL));
 
-			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,0), ProcurarPorIdPostos(headListaPostos, 1), 20);
-			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,0), ProcurarPorIdPostos(headListaPostos, 1), 20);
-			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,1), ProcurarPorIdPostos(headListaPostos, 0), 20);
-			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,0), ProcurarPorIdPostos(headListaPostos, 2), 40);
-			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,1), ProcurarPorIdPostos(headListaPostos, 2), 40);
+			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
 
 			GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
-			GravarPostosBinario("PostosSave.bin", headListaPostos);
+			//GravarPostosBinario("PostosSave.bin", headListaPostos);
 
 			
 			break;

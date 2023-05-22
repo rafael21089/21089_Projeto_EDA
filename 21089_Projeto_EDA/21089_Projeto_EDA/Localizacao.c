@@ -79,50 +79,84 @@ LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestino
     return postoAdjacente;
 }
 
-LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem , LocalizacaoPostos* postoDestino, float distancia) {
-
-    if (headLista == NULL)
-    {
-        return headLista;
+LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino, float distancia) {
+    if (headLista == NULL || postoOrigem == NULL || postoDestino == NULL) {
+        return *headLista;
     }
 
-    if (postoOrigem == NULL)
-    {
-        return headLista;
-    }
-    if (postoDestino == NULL)
-    {
-        return headLista;
+    if (JaTemPostoAdjacente(postoOrigem, postoDestino)) {
+        return *headLista; // Already exists, no need to insert
     }
 
-    if (JaTemPostoAdjacente(postoOrigem, postoDestino)) return *headLista;	//se existir não insere!
+    LocalizacaoPostosAdjacentes* novoAdjacente = CriarPostoAdjacente(postoDestino, distancia);
+    if (novoAdjacente == NULL) {
+        return *headLista; // Failed to create the adjacent node
+    }
 
+    LocalizacaoPostos* aux = ProcurarPorIdPostosComListaToda(*headLista, postoOrigem->id);
 
-    if (postoOrigem->postosAdjacentes == NULL) {
-
-        LocalizacaoPostos* aux = ProcurarPorIdPostosComListaToda(*headLista, postoOrigem->id);
-        if (aux != NULL)
-         {
-            aux->postosAdjacentes = CriarPostoAdjacente(postoDestino, distancia);
-         }
+    if (aux->postosAdjacentes == NULL) {
+        aux->postosAdjacentes = novoAdjacente;
     }
     else {
-        LocalizacaoPostosAdjacentes* aux = postoOrigem->postosAdjacentes;
-        while (aux->proximo != NULL) {
-            aux = aux->proximo;
+        LocalizacaoPostosAdjacentes* aux2 = aux->postosAdjacentes;
+        while (aux2->proximo != NULL) {
+            aux2 = aux2->proximo;
         }
-
-        LocalizacaoPostos* aux2 = ProcurarPorIdPostosComListaToda(*headLista, postoOrigem->id);
-        if (aux2 != NULL)
-        {
-            aux2->postosAdjacentes = aux;
-            aux2->postosAdjacentes->proximo = CriarPostoAdjacente(postoDestino, distancia);
-        }
+        aux2->proximo = novoAdjacente;
     }
 
-    return *headLista;
+ 
+    *headLista = AtualizarPostosAdjacentes(*headLista);
 
+    return *headLista;
 }
+
+
+LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* vertex, LocalizacaoPostos* postoDestino) {
+    if (vertex == NULL || postoDestino == NULL || vertex->postosAdjacentes == NULL) {
+        return NULL;
+    }
+
+    LocalizacaoPostosAdjacentes* adjacente = vertex->postosAdjacentes;
+    while (adjacente != NULL) {
+        if (adjacente->postoDestinoAdjacente == postoDestino) {
+            return adjacente;
+        }
+        adjacente = adjacente->proximo;
+    }
+
+    return NULL; // Adjacent node not found
+}
+
+
+
+
+LocalizacaoPostos* AtualizarPostosAdjacentes(LocalizacaoPostos* headLista) {
+    if (headLista == NULL) {
+        return NULL; // Empty list
+    }
+
+    LocalizacaoPostos* aux = headLista;
+
+    while (aux != NULL) {
+        LocalizacaoPostosAdjacentes* adjacente = aux->postosAdjacentes;
+
+        while (adjacente != NULL) {
+            LocalizacaoPostos* destino = ProcurarPorIdPostos(headLista, adjacente->idDestino);
+            if (destino != NULL) {
+                adjacente->postoDestinoAdjacente = destino;
+            }
+
+            adjacente = adjacente->proximo;
+        }
+
+        aux = aux->proximo;
+    }
+
+    return headLista;
+}
+
 
 LocalizacaoPostos* ProcurarPorIdPostosComListaToda(LocalizacaoPostos* headerList, int id) {
     if (headerList == NULL) return NULL;		//lista vazia

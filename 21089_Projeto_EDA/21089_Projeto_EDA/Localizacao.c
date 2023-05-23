@@ -449,83 +449,98 @@ int findMinDistanceNode(bool visited[], float distances[], int numNodes)
 // Function to perform Dijkstra's algorithm
 void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
 {
-    LocalizacaoPostos* aux = headList;
-    int numNodes = 0;
 
-    while (aux!=NULL)
+
+    if (origemId == destinationId)
     {
-        numNodes++;
-        aux = aux->proximo;
+        printf("\nJa se encontra no Destino\n");
+        
     }
+    else
+    {
+        int numNodes = 0;
+        LocalizacaoPostos* current = headList;
+
+        // Count the number of nodes in the graph
+        while (current != NULL) {
+            numNodes++;
+            current = current->proximo;
+        }
+
+        // Create arrays to store distances and visited flags
+        float* distances = (float*)malloc(numNodes * sizeof(float));
+        bool* visited = (bool*)malloc(numNodes * sizeof(bool));
+        int* previous = (int*)malloc(numNodes * sizeof(int));
+
+        // Initialize distances and visited flags
+        for (int i = 0; i < numNodes; i++) {
+            distances[i] = 200;
+            visited[i] = false;
+            previous[i] = -1;
+        }
+
+        // Set the distance of the source node to 0
+        distances[origemId] = 0;
+
+        // Dijkstra's algorithm
+        for (int i = 0; i < numNodes - 1; i++) {
+            // Find the node with the minimum distance
+            float minDistance = 200;
+            int minIndex = -1;
+
+            for (int j = 0; j < numNodes; j++) {
+                if (!visited[j] && distances[j] < minDistance) {
+                    minDistance = distances[j];
+                    minIndex = j;
+                }
+            }
+
+            // Mark the selected node as visited
+            visited[minIndex] = true;
+
+            // Update distances to adjacent nodes
+            LocalizacaoPostos* currentNode = headList;
+            while (currentNode != NULL) {
+                if (currentNode->id == minIndex) {
+                    LocalizacaoPostosAdjacentes* adjacentNode = currentNode->postosAdjacentes;
+                    while (adjacentNode != NULL) {
+                        float newDistance = distances[minIndex] + adjacentNode->distancia;
+                        if (newDistance < distances[adjacentNode->idDestino]) {
+                            distances[adjacentNode->idDestino] = newDistance;
+                            previous[adjacentNode->idDestino] = minIndex;
+                        }
+                        adjacentNode = adjacentNode->proximo;
+                    }
+                    break;
+                }
+                currentNode = currentNode->proximo;
+            }
+        }
 
 
-    float distances[20]; // Array to store the shortest distances
-    bool visited[20]; // Array to track visited nodes
-    int previous[20]; // Array to track the previous node in the shortest path
+        if (distances[destinationId] == 200)
+        {
+            printf("\n Destino fora de alcance \n");
 
-    // Initialize arrays
-    for (int i = 0; i < numNodes; i++) {
-        distances[i] = INT_MAX;
-        visited[i] = false;
-        previous[i] = -1;
-    }
-
-    distances[origemId] = 0; // Set distance of start node to 0
-
-    
-        int currentNodeIndex = findMinDistanceNode(visited, distances, numNodes);
-        visited[currentNodeIndex] = true;
-
-        LocalizacaoPostos* currentNode = ProcurarPorIdPostos(headList, origemId);
-
-        if (currentNode == NULL) {
-            printf("Node with ID %d not found!\n", currentNodeIndex);
-            return;
         }
         else
         {
+            // Print the shortest distance and path
+            printf("Shortest distance from Node %d to Node %d: %.2f\n", origemId, destinationId, distances[destinationId]);
+            printf("Path: ");
 
-            LocalizacaoPostosAdjacentes* adjacentNode = currentNode->postosAdjacentes;
-            while (adjacentNode != NULL) {
-                int adjacentNodeId = adjacentNode->idDestino;
-                float edgeWeight = adjacentNode->distancia;
-
-                if (!visited[adjacentNodeId] && distances[currentNodeIndex] + edgeWeight < distances[adjacentNodeId]) {
-                    distances[adjacentNodeId] = distances[currentNodeIndex] + edgeWeight;
-                    previous[adjacentNodeId] = currentNodeIndex;
-                }
-
-                if (adjacentNode->proximo != NULL)
-                {
-
-                    adjacentNode = adjacentNode->proximo;
-                }
-                else
-                {
-                    if (adjacentNode->postoDestinoAdjacente->id == destinationId)
-                    {
-                        break;
-                    }
-
-                    adjacentNode->postoDestinoAdjacente = ProcurarPorIdPostos(headList, adjacentNode->postoDestinoAdjacente->postosAdjacentes->idDestino);
-                }
-
-                
-                
+            int currentId = destinationId;
+            while (currentId != -1) {
+                printf("%d ", currentId);
+                currentId = previous[currentId];
             }
-        
+        }
 
-        
+
     }
 
-    // Print the shortest distance and path to the destination node
-    printf("Shortest distance from start node to destination node: %.2f\n", distances[destinationId]);
 
-    printf("Shortest path: ");
-    int pathNode = destinationId;
-    while (pathNode != origemId) {
-        printf("%d ", pathNode);
-        pathNode = previous[pathNode];
-    }
-    printf("%d\n", origemId);
+
+  
+   
 }

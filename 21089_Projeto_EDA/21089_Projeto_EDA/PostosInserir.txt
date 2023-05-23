@@ -1,2 +1,3 @@
-0;Braga;asdasd;ssss;comid-asd-vvv
-1;Braga;sssss;WWW;zxc-asd-wee
+0;Braga;asdasd;ssss
+1;Braga;sssss;WWW
+2;Braga;ssdss;wwz

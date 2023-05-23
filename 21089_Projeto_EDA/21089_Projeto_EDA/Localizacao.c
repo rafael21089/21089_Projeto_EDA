@@ -17,7 +17,7 @@
 #include "Localizacao.h"
 
 
-LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude, char* geocode , LocalizacaoPostosAdjacentes* postosAdjacentes) {
+LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude , LocalizacaoPostosAdjacentes* postosAdjacentes) {
     LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
     if (novoPosto == NULL) {
         return NULL;
@@ -27,7 +27,6 @@ LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longit
     strncpy(novoPosto->cidade, cidade, LARGURAGERALSTRING);
     strncpy(novoPosto->latitude, latitude, LARGURAGERALSTRING);
     strncpy(novoPosto->longitude, longitude, LARGURAGERALSTRING);
-    strncpy(novoPosto->geocode, geocode, LARGURAGERALSTRING);
     novoPosto->postosAdjacentes = postosAdjacentes;
     novoPosto->proximo = NULL;
 
@@ -181,7 +180,7 @@ LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id) {
     while (aux != NULL) {
         if (aux->id == id) {
             LocalizacaoPostos* result = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
-            result = CriarPosto(aux->id, aux->cidade, aux->latitude, aux->longitude, aux->geocode ,aux->postosAdjacentes);
+            result = CriarPosto(aux->id, aux->cidade, aux->latitude, aux->longitude ,aux->postosAdjacentes);
          
             return result;  // Node with the matching ID found
         }
@@ -269,8 +268,6 @@ LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** he
         strncpy(novoPosto->latitude, token, sizeof(novoPosto->latitude));
         token = strtok(NULL, ";");
         strncpy(novoPosto->longitude, token, sizeof(novoPosto->longitude));
-        token = strtok(NULL, ";");
-        strncpy(novoPosto->geocode, token, sizeof(novoPosto->geocode));
 
         novoPosto->postosAdjacentes = NULL;
         novoPosto->proximo = NULL;
@@ -352,7 +349,7 @@ LocalizacaoPostos* LerPostosBinario(char* nomeFicheiro) {
 
     //Ler o registos do ficheiro binario
     while ((auxAnt = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos))) && fread(auxAnt, sizeof(LocalizacaoPostos), 1, fp)) {
-        LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade, auxAnt->latitude, auxAnt->longitude, auxAnt->geocode, NULL); //Cria Aluguer com valores recebidos
+        LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade, auxAnt->latitude, auxAnt->longitude, NULL); //Cria Aluguer com valores recebidos
         header = InserePostoGrafo(header, aux); //Insere Aluguer
     }
     fclose(fp);
@@ -425,4 +422,110 @@ LocalizacaoPostos* LerPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPos
     fclose(fp);
 
     return *header;
+}
+
+
+
+
+
+
+
+// Function to find the minimum distance node in the distance array
+int findMinDistanceNode(bool visited[], float distances[], int numNodes)
+{
+    float minDistance = INT_MAX;
+    int minIndex = -1;
+
+    for (int i = 0; i < numNodes; i++) {
+        if (!visited[i] && distances[i] < minDistance) {
+            minDistance = distances[i];
+            minIndex = i;
+        }
+    }
+
+    return minIndex;
+}
+
+// Function to perform Dijkstra's algorithm
+void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
+{
+    LocalizacaoPostos* aux = headList;
+    int numNodes = 0;
+
+    while (aux!=NULL)
+    {
+        numNodes++;
+        aux = aux->proximo;
+    }
+
+
+    float distances[20]; // Array to store the shortest distances
+    bool visited[20]; // Array to track visited nodes
+    int previous[20]; // Array to track the previous node in the shortest path
+
+    // Initialize arrays
+    for (int i = 0; i < numNodes; i++) {
+        distances[i] = INT_MAX;
+        visited[i] = false;
+        previous[i] = -1;
+    }
+
+    distances[origemId] = 0; // Set distance of start node to 0
+
+    
+        int currentNodeIndex = findMinDistanceNode(visited, distances, numNodes);
+        visited[currentNodeIndex] = true;
+
+        LocalizacaoPostos* currentNode = ProcurarPorIdPostos(headList, origemId);
+
+        if (currentNode == NULL) {
+            printf("Node with ID %d not found!\n", currentNodeIndex);
+            return;
+        }
+        else
+        {
+
+            LocalizacaoPostosAdjacentes* adjacentNode = currentNode->postosAdjacentes;
+            while (adjacentNode != NULL) {
+                int adjacentNodeId = adjacentNode->idDestino;
+                float edgeWeight = adjacentNode->distancia;
+
+                if (!visited[adjacentNodeId] && distances[currentNodeIndex] + edgeWeight < distances[adjacentNodeId]) {
+                    distances[adjacentNodeId] = distances[currentNodeIndex] + edgeWeight;
+                    previous[adjacentNodeId] = currentNodeIndex;
+                }
+
+                if (adjacentNode->proximo != NULL)
+                {
+
+                    adjacentNode = adjacentNode->proximo;
+                }
+                else
+                {
+                    if (adjacentNode->postoDestinoAdjacente->id == destinationId)
+                    {
+                        break;
+                    }
+
+                    adjacentNode->postoDestinoAdjacente = ProcurarPorIdPostos(headList, adjacentNode->postoDestinoAdjacente->postosAdjacentes->idDestino);
+                }
+
+                
+                
+            }
+        
+
+        
+    }
+
+    // Print the shortest distance and path to the destination node
+    printf("Shortest distance from start node to destination node: %.2f\n", distances[destinationId]);
+
+    printf("Shortest path: ");
+    int pathNode = destinationId;
+    while (pathNode != origemId) {
+        printf("%d ", pathNode);
+        pathNode = previous[pathNode];
+    }
+    printf("%d\n", origemId);
 }

@@ -19,7 +19,6 @@ typedef struct LocalizacaoPostos {
     char cidade[LARGURAGERALSTRING];
     char latitude[LARGURAGERALSTRING];
     char longitude[LARGURAGERALSTRING];
-    char geocode[LARGURAGERALSTRING];
     struct LocalizacaoPostosAdjacentes* postosAdjacentes; // Pointer to the first adjacent node
     struct LocalizacaoPostos* proximo; // Pointer to the next adjacent node
 
@@ -32,7 +31,7 @@ typedef struct LocalizacaoPostosAdjacentes {
     struct LocalizacaoPostosAdjacentes* proximo; // Pointer to the next adjacent node
 } LocalizacaoPostosAdjacentes;
 
-LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude, char* geocode, LocalizacaoPostosAdjacentes* postosAdjacentes);
+LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude, LocalizacaoPostosAdjacentes* postosAdjacentes);
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto);
 
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia);
@@ -56,3 +55,5 @@ bool ExistePosto(LocalizacaoPostos* header, int idPosto);
 LocalizacaoPostos* AtualizarPostosAdjacentes(LocalizacaoPostos* headLista);
 
 LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* vertex, LocalizacaoPostos* postoDestino);
+void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId);
+int findMinDistanceNode(bool visited[], float distances[], int numNodes);

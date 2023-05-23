@@ -185,6 +185,7 @@ int main() {
 
 			headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
 
+			dijkstra(headListaPostos,2,0);
 			GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
 			//GravarPostosBinario("PostosSave.bin", headListaPostos);
 

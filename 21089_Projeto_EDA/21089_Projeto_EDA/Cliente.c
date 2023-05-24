@@ -26,12 +26,14 @@
 *	@param [in] morada			morada do Cliente
 *	@param [in] nif				nif do Cliente
 *	@param [in] saldo			saldo do Cliente
+*	@param [in] latitude		latitude do Cliente
+*	@param [in] longitude		longitude do Cliente
 *
 *	@return novo Clientes
 *
 */
 
-Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo) {
+Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo , float latitude , float longitude) {
 
 	Clientes* novoCliente = (Clientes*)malloc(sizeof(Clientes));
 	if (novoCliente == NULL) return NULL;
@@ -45,6 +47,9 @@ Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], flo
 	Aluguer* ativ = NULL;
 
 	novoCliente->aluguer = ativ;
+
+	novoCliente->latitude = latitude;
+	novoCliente->longitude = longitude;
 
 
 	novoCliente->next = NULL;
@@ -136,6 +141,8 @@ void MostraCliente(Clientes* cliente) {
 		printf("Morada: %s\n", cliente->morada);
 		printf("NIF: %s\n", cliente->nif);
 		printf("\nSaldo: %f\n", cliente->saldo);
+		printf("\Latitude: %f\n", cliente->latitude);
+		printf("\nLongitude: %f\n", cliente->longitude);
 		printf("\n-------------\n");
 	}
 }
@@ -350,6 +357,11 @@ Clientes* LerEArmazenarCliente(char* filename, Clientes* header) {
 		strcpy(novoCliente->nif, token);
 		token = strtok(NULL, ";");
 		novoCliente->saldo = atoi(token);
+		token = strtok(NULL, ";");
+		novoCliente->latitude = atof(token);
+		token = strtok(NULL, ";");
+		novoCliente->longitude = atof(token);
+
 
 		Aluguer* ativ = NULL;
 
@@ -411,7 +423,7 @@ Clientes* LerClientesBinario(char* nomeFicheiro) {
 
 	// Ler n registos do ficheiro
 	while ((auxAnt = (Clientes*)malloc(sizeof(Clientes))) && fread(auxAnt, sizeof(Clientes), 1, fp)) {
-		Clientes* aux = CriarClientes(auxAnt->id, auxAnt->nome, auxAnt->morada, auxAnt->nif, auxAnt->saldo);
+		Clientes* aux = CriarClientes(auxAnt->id, auxAnt->nome, auxAnt->morada, auxAnt->nif, auxAnt->saldo, auxAnt->latitude ,auxAnt->longitude);
 		header = InsereClienteNoFim(header, aux);
 	}
 	fclose(fp);
@@ -433,6 +445,8 @@ Clientes* InserirPorEscreverCliente() {
 	char morada[50]; 
 	char nif[9];
 	float saldo;
+	float latitude;
+	float longitude;
 
 	printf("\n\nDigite o id do cliente: ");
 	scanf("%d", &id);
@@ -444,8 +458,12 @@ Clientes* InserirPorEscreverCliente() {
 	scanf("%s", &nif);
 	printf("\nDigite o saldo do cliente: ");
 	scanf("%f", &saldo);
+	printf("\nDigite a latitude do cliente: ");
+	scanf("%f", &latitude);
+	printf("\nDigite a longitude do cliente: ");
+	scanf("%f", &longitude);
 
-	Clientes* clienteNovo = CriarClientes(id,nome,morada,nif,saldo);
+	Clientes* clienteNovo = CriarClientes(id,nome,morada,nif,saldo,latitude,longitude);
 
 	return clienteNovo;
 

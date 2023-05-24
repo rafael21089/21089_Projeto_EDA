@@ -17,7 +17,7 @@
 #include "Localizacao.h"
 
 
-LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude , LocalizacaoPostosAdjacentes* postosAdjacentes) {
+LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude , LocalizacaoPostosAdjacentes* postosAdjacentes) {
     LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
     if (novoPosto == NULL) {
         return NULL;
@@ -25,8 +25,10 @@ LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longit
  
     novoPosto->id = id;
     strncpy(novoPosto->cidade, cidade, LARGURAGERALSTRING);
-    strncpy(novoPosto->latitude, latitude, LARGURAGERALSTRING);
-    strncpy(novoPosto->longitude, longitude, LARGURAGERALSTRING);
+
+    novoPosto->latitude = latitude;
+    novoPosto->longitude = longitude;
+
     novoPosto->postosAdjacentes = postosAdjacentes;
     novoPosto->proximo = NULL;
 
@@ -265,9 +267,9 @@ LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** he
         token = strtok(NULL, ";");
         strncpy(novoPosto->cidade, token, sizeof(novoPosto->cidade));
         token = strtok(NULL, ";");
-        strncpy(novoPosto->latitude, token, sizeof(novoPosto->latitude));
+        novoPosto->latitude = atof(token);
         token = strtok(NULL, ";");
-        strncpy(novoPosto->longitude, token, sizeof(novoPosto->longitude));
+        novoPosto->longitude = atof(token);
 
         novoPosto->postosAdjacentes = NULL;
         novoPosto->proximo = NULL;

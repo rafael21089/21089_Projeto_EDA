@@ -23,7 +23,7 @@
 /**
  * @brief Estrutura para armazenar Clientes
  *
- * Um Cliente contém um id (@@id), nome (@@nome), morada (@@morada) ,nif (@@nif) , saldo (@@saldo) e alugueres (@@atividade).
+ * Um Cliente contém um id (@@id), nome (@@nome), morada (@@morada) ,nif (@@nif) , saldo (@@saldo) , latitude (@@latitude) , longitude (@@longitude) e alugueres (@@atividade).
  * Contém apontador para próximo Clientes
  */
 
@@ -34,6 +34,8 @@ typedef struct Clientes{
     char morada[50];
     char nif[9];
     float saldo;
+    float latitude;
+    float longitude;
     struct Aluguer* aluguer;
 
     struct Clientes* next;
@@ -41,7 +43,8 @@ typedef struct Clientes{
 } Clientes;
 
 //Criar Clientes
-Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo);
+
+Clientes* CriarClientes(int id, char nome[50], char morada[50], char nif[9], float saldo, float latitude, float longitude);
 //Insere Cliente no Header de Clientes
 Clientes* InsereClienteNoFim(Clientes* header, Clientes* novoCliente);
 //Ver se Existe Cliente na lista por id

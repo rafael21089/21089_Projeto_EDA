@@ -28,12 +28,14 @@
 *	@param [in] tipo				tipo do MeioDeMobilidade
 *	@param [in] cargaBateria		carga da Bateria Do MeioDeMobilidade
 *	@param [in] custo				custo Do MeioDeMobilidade
-*	@param [in] localizacao			localizacao Do MeioDeMobilidade
+*	@param [in] cidade				cidade Do MeioDeMobilidade
+*	@param [in] latitude			latitude Do MeioDeMobilidade
+*	@param [in] longitude			longitude Do MeioDeMobilidade
 * 
 *	@return novo MeioDeMobilidade
 *
 */
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, char* localizacao) {
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, char* cidade , float latitude , float longitude) {
 
 
 	MeiosDeMobilidade* novoMeiosDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
@@ -43,7 +45,9 @@ MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, 
 	strcpy(novoMeiosDeMobilidade->tipo, tipo);
 	novoMeiosDeMobilidade->cargaBateria = cargaBateria;
 	novoMeiosDeMobilidade->custo = custo;
-	strcpy(novoMeiosDeMobilidade->localizacao, localizacao);
+	strcpy(novoMeiosDeMobilidade->cidade, cidade);
+	novoMeiosDeMobilidade->latitude = latitude;
+	novoMeiosDeMobilidade->longitude = longitude;
 
 	Aluguer* ativ = NULL;
 
@@ -135,7 +139,9 @@ void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
 		printf("Tipo: %s\n", meiosDeMobilidade->tipo);
 		printf("Carga: %d\n", meiosDeMobilidade->cargaBateria);
 		printf("Custo: %f\n", meiosDeMobilidade->custo);
-		printf("Localizacao: %s\n", meiosDeMobilidade->localizacao);
+		printf("Cidade: %s\n", meiosDeMobilidade->cidade);
+		printf("Latitude: %f\n", meiosDeMobilidade->latitude);
+		printf("Longitude: %f\n", meiosDeMobilidade->longitude);
 
 
 		printf("\n-------------\n");
@@ -289,7 +295,11 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 		token = strtok(NULL, ";");
 		novoMeioDeMobilidade->custo = atof(token);
 		token = strtok(NULL, ";");
-		strcpy(novoMeioDeMobilidade->localizacao, token);
+		strcpy(novoMeioDeMobilidade->cidade, token);
+		token = strtok(NULL, ";");
+		novoMeioDeMobilidade->latitude = atof(token);
+		token = strtok(NULL, ";");
+		novoMeioDeMobilidade->longitude = atof(token);
 
 		Aluguer* ativ = NULL;
 
@@ -350,7 +360,7 @@ MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro) {
 
 	// Ler n registos do ficheiro
 	while ((auxAnt = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade))) && fread(auxAnt, sizeof(MeiosDeMobilidade), 1, fp)) {
-		MeiosDeMobilidade* aux = CriarMeiosDeMobilidade(auxAnt->id, auxAnt->tipo, auxAnt->cargaBateria, auxAnt->custo, auxAnt->localizacao);
+		MeiosDeMobilidade* aux = CriarMeiosDeMobilidade(auxAnt->id, auxAnt->tipo, auxAnt->cargaBateria, auxAnt->custo, auxAnt->cidade , auxAnt->latitude , auxAnt->longitude);
 		header = InsereMeiosDeMobilidadeNoFim(header, aux);
 	}
 	fclose(fp);
@@ -413,9 +423,9 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 
 	// Da Print de forma reversa para mostrar de forma decrescente
 	for (int i = contador - 1; i >= 0; i--) {
-		printf("id: %d, tipo: %s, cargaBateria: %d, custo: %.2f, localizacao: %s\n",
+		printf("id: %d, tipo: %s, cargaBateria: %d, custo: %.2f, Cidade: %s\n",
 			nodeArray[i]->id, nodeArray[i]->tipo, nodeArray[i]->cargaBateria,
-			nodeArray[i]->custo, nodeArray[i]->localizacao);
+			nodeArray[i]->custo, nodeArray[i]->cidade);
 	}
 
 	free(nodeArray);
@@ -445,11 +455,11 @@ int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
 	while (aux != NULL)
 	{
 
-		if (strcmp(aux->localizacao, geoCodigo) == 0)
+		if (strcmp(aux->cidade, geoCodigo) == 0)
 		{
-			printf("id: %d, tipo: %s, cargaBateria: %d, custo: %.2f, localizacao: %s\n",
+			printf("id: %d, tipo: %s, cargaBateria: %d, custo: %.2f, Cidade: %s\n",
 				aux->id, aux->tipo, aux->cargaBateria,
-				aux->custo, aux->localizacao);
+				aux->custo, aux->cidade);
 		}
 
 		aux = aux->next;
@@ -476,7 +486,9 @@ MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
 	char tipo[50];
 	int cargaBateria;
 	float custo;
-	char localizacao[50];
+	char cidade[50];
+	float latitude;
+	float longitude;
 
 	printf("\n\nDigite o id do meio de mobilidade: ");
 	scanf("%d", &id);
@@ -486,10 +498,14 @@ MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
 	scanf("%d", &cargaBateria);
 	printf("\nDigite o custo: ");
 	scanf("%f", &custo);
-	printf("\nDigite a sua localizacao: ");
-	scanf("%s", &localizacao);
+	printf("\nDigite a Cidade: ");
+	scanf("%s", &cidade);
+	printf("\nDigite a latitude: ");
+	scanf("%f", &latitude);
+	printf("\nDigite a longitude: ");
+	scanf("%f", &longitude);
 
-	MeiosDeMobilidade* meioNovo = CriarMeiosDeMobilidade(id, tipo, cargaBateria, custo, localizacao);
+	MeiosDeMobilidade* meioNovo = CriarMeiosDeMobilidade(id, tipo, cargaBateria, custo, cidade , latitude , longitude);
 
 	return meioNovo;
 
@@ -545,12 +561,12 @@ int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 */
 int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
-	char localizacao[50];
+	char cidade[50];
 
-	printf("\n\nDigite a localizacao para encontrar os meios disponiveis: ");
-	scanf("%s", &localizacao);
+	printf("\n\nDigite a Cidade para encontrar os meios disponiveis: ");
+	scanf("%s", &cidade);
 
-	ListarMeioPorGeoCodigo(headMeios, localizacao);
+	ListarMeioPorGeoCodigo(headMeios, cidade);
 
 	return 0;
 

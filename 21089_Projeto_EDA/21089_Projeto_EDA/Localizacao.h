@@ -17,8 +17,8 @@
 typedef struct LocalizacaoPostos {
     int id;
     char cidade[LARGURAGERALSTRING];
-    char latitude[LARGURAGERALSTRING];
-    char longitude[LARGURAGERALSTRING];
+    float latitude;
+    float longitude;
     struct LocalizacaoPostosAdjacentes* postosAdjacentes; // Pointer to the first adjacent node
     struct LocalizacaoPostos* proximo; // Pointer to the next adjacent node
 
@@ -31,7 +31,7 @@ typedef struct LocalizacaoPostosAdjacentes {
     struct LocalizacaoPostosAdjacentes* proximo; // Pointer to the next adjacent node
 } LocalizacaoPostosAdjacentes;
 
-LocalizacaoPostos* CriarPosto(int id, char* cidade, char* latitude, char* longitude, LocalizacaoPostosAdjacentes* postosAdjacentes);
+LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude, LocalizacaoPostosAdjacentes* postosAdjacentes);
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto);
 
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia);

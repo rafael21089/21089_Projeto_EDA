@@ -15,9 +15,10 @@
 #include <stdbool.h>
 
 #include "Localizacao.h"
+#include "MeioDeMobilidade.h"
 
 
-LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude , LocalizacaoPostosAdjacentes* postosAdjacentes) {
+LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude, bool visitado, LocalizacaoPostosAdjacentes* postosAdjacentes) {
     LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
     if (novoPosto == NULL) {
         return NULL;
@@ -28,6 +29,7 @@ LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longit
 
     novoPosto->latitude = latitude;
     novoPosto->longitude = longitude;
+    novoPosto->visitado = visitado;
 
     novoPosto->postosAdjacentes = postosAdjacentes;
     novoPosto->proximo = NULL;
@@ -182,7 +184,7 @@ LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id) {
     while (aux != NULL) {
         if (aux->id == id) {
             LocalizacaoPostos* result = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
-            result = CriarPosto(aux->id, aux->cidade, aux->latitude, aux->longitude ,aux->postosAdjacentes);
+            result = CriarPosto(aux->id, aux->cidade, aux->latitude, aux->longitude , aux->visitado ,aux->postosAdjacentes);
          
             return result;  // Node with the matching ID found
         }
@@ -271,6 +273,7 @@ LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** he
         token = strtok(NULL, ";");
         novoPosto->longitude = atof(token);
 
+        novoPosto->visitado = false;
         novoPosto->postosAdjacentes = NULL;
         novoPosto->proximo = NULL;
 
@@ -351,7 +354,7 @@ LocalizacaoPostos* LerPostosBinario(char* nomeFicheiro) {
 
     //Ler o registos do ficheiro binario
     while ((auxAnt = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos))) && fread(auxAnt, sizeof(LocalizacaoPostos), 1, fp)) {
-        LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade, auxAnt->latitude, auxAnt->longitude, NULL); //Cria Aluguer com valores recebidos
+        LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade, auxAnt->latitude, auxAnt->longitude, auxAnt->visitado, NULL); //Cria Aluguer com valores recebidos
         header = InserePostoGrafo(header, aux); //Insere Aluguer
     }
     fclose(fp);
@@ -427,7 +430,20 @@ LocalizacaoPostos* LerPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPos
 }
 
 
+Camiao* CriarCamiao(int idOrigem , float cargaAtual , float cargaMaxima, LocalizacaoPostos* localizacaoAtual) {
 
+    Camiao* novoCamiao= (Camiao*)malloc(sizeof(Camiao));
+    if (novoCamiao == NULL) {
+        return NULL;
+    }
+
+    novoCamiao->idOrigem = idOrigem;
+    novoCamiao->cargaAtual = cargaAtual;
+    novoCamiao->cargaMaxima = cargaMaxima;
+    novoCamiao->localizacaoAtual = localizacaoAtual;
+
+    return novoCamiao;
+}
 
 
 
@@ -448,18 +464,138 @@ int findMinDistanceNode(bool visited[], float distances[], int numNodes)
     return minIndex;
 }
 
-// Function to perform Dijkstra's algorithm
-void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
-{
+void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeMobilidade* headListMeios) {
 
+    LocalizacaoPostos* auxPontos = headListPontos;
+    MeiosDeMobilidade* auxMeios = headListMeios;
+    Camiao* auxCamiao = camiao;
 
-    if (origemId == destinationId)
-    {
-        printf("\nJa se encontra no Destino\n");
-        
+    int pontosComMeios[100];
+    int i = 0;
+
+    for (int i = 0; i < 100; i++) {
+        pontosComMeios[i] = -1;
     }
-    else
+
+    while (auxPontos != NULL)
     {
+        while (auxMeios != NULL) {
+            if (auxPontos->latitude == auxMeios->latitude && auxPontos->longitude == auxMeios->longitude&& auxMeios->cargaBateria >= 10) {
+                printf("Encontrou nos Pontos: %d o Meio %d \n", auxPontos->id , auxMeios->id);
+                pontosComMeios[i] = auxPontos->id;
+                i++;
+            }
+
+            auxMeios = auxMeios->next;
+        }
+
+        auxMeios = headListMeios;
+        auxPontos = auxPontos->proximo;
+
+    }
+
+    i = 0;
+
+    while (pontosComMeios[i] != -1)
+    {
+        float carga = 0;
+
+        if (verSeAcessivel(ProcurarPorIdPostos(headListPontos , camiao->localizacaoAtual->id) , ProcurarPorIdPostos(headListPontos, pontosComMeios[i])) == true)
+        {
+            if (camiao->localizacaoAtual->id == camiao->idOrigem)
+            {
+                carga = dijkstra(headListPontos, camiao->idOrigem, pontosComMeios[i]);
+                i++;
+
+            }
+            else
+            {
+                carga = carga + dijkstra(headListPontos, camiao->localizacaoAtual->id, pontosComMeios[i]);
+                i++;
+            }
+
+            if (carga + camiao->cargaAtual <= camiao->cargaMaxima)
+            {
+                camiao->cargaAtual = camiao->cargaAtual + carga;
+                camiao->localizacaoAtual = ProcurarPorIdPostos(headListPontos, pontosComMeios[i]);
+
+            }
+            else
+            {
+                carga = carga + dijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem);
+            }
+        }
+        else
+        {
+            i++;
+        }
+
+        
+
+
+
+    }
+
+
+
+
+
+
+
+}
+
+
+// Function to perform Dijkstra's algorithm
+bool verSeAcessivel(LocalizacaoPostos* origemPonto, LocalizacaoPostos* destinoPonto) {
+    // Base case: If source and destination are the same, they are reachable
+    if (origemPonto == destinoPonto) {
+        return true;
+    }
+
+    // Mark the source as visited to avoid revisiting it
+    origemPonto->visitado = true;
+
+    // Traverse through all adjacent nodes of the source
+    LocalizacaoPostosAdjacentes* adjacentNode = origemPonto->postosAdjacentes;
+    while (adjacentNode != NULL) {
+        // If the adjacent node has not been visited, recursively check if it is reachable
+        if (!(adjacentNode->postoDestinoAdjacente->visitado)) {
+
+            if (adjacentNode->postoDestinoAdjacente->id == destinoPonto->id)
+            {
+                return true;
+            }
+            else
+            {
+                bool res = verSeAcessivel(adjacentNode->postoDestinoAdjacente, destinoPonto);
+
+                if (res == true)
+                {
+                    return true;
+                }
+            }  
+            
+        }
+        adjacentNode = adjacentNode->proximo;
+    }
+
+    // Reset the visitado flag of the source as we backtrack
+    origemPonto->visitado = false;
+
+    // If no path is found, return false
+    return false;
+}
+
+
+
+// Function to perform Dijkstra's algorithm
+float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
+{
+    if (origemId == destinationId) {
+        printf("\nJá se encontra no Destino\n");
+        return 0;
+    }
+    else {
         int numNodes = 0;
         LocalizacaoPostos* current = headList;
 
@@ -471,13 +607,11 @@ void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
 
         // Create arrays to store distances and visited flags
         float* distances = (float*)malloc(numNodes * sizeof(float));
-        bool* visited = (bool*)malloc(numNodes * sizeof(bool));
         int* previous = (int*)malloc(numNodes * sizeof(int));
 
         // Initialize distances and visited flags
         for (int i = 0; i < numNodes; i++) {
             distances[i] = 200;
-            visited[i] = false;
             previous[i] = -1;
         }
 
@@ -491,14 +625,14 @@ void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
             int minIndex = -1;
 
             for (int j = 0; j < numNodes; j++) {
-                if (!visited[j] && distances[j] < minDistance) {
+                if (!headList[j].visitado && distances[j] < minDistance) {
                     minDistance = distances[j];
                     minIndex = j;
                 }
             }
 
             // Mark the selected node as visited
-            visited[minIndex] = true;
+            headList[minIndex].visitado = true;
 
             // Update distances to adjacent nodes
             LocalizacaoPostos* currentNode = headList;
@@ -519,14 +653,11 @@ void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
             }
         }
 
-
-        if (distances[destinationId] == 200)
-        {
-            printf("\n Destino fora de alcance \n");
-
+        if (distances[destinationId] == 200) {
+            printf("\nDestino fora de alcance\n");
+            return 0;
         }
-        else
-        {
+        else {
             // Print the shortest distance and path
             printf("Shortest distance from Node %d to Node %d: %.2f\n", origemId, destinationId, distances[destinationId]);
             printf("Path: ");
@@ -536,13 +667,9 @@ void dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
                 printf("%d ", currentId);
                 currentId = previous[currentId];
             }
+
+            return distances[destinationId];
         }
-
-
     }
-
-
-
-  
    
 }

@@ -32,6 +32,9 @@ int main() {
 
 	LocalizacaoPostos* headListaPostos = NULL;		//Inicio da lista
 
+	Camiao* camiao = NULL;		//Inicio da lista
+
+
 	// Armazenamento de listas , se tiver vazia vai ao ficheiro de texto para inserir valores.
 
 	headListaAluguerTotal = LerAluguerListaTotalBinario("ListaAluguerTotalSave.bin");
@@ -186,7 +189,14 @@ int main() {
 			//headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
 			//headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
 
-			dijkstra(headListaPostos,2,4);
+			//dijkstra(headListaPostos,2,4);
+
+
+			camiao = CriarCamiao(0,0,400, ProcurarPorIdPostos(headListaPostos, 0));
+
+			camiaoRecolha(camiao , headListaPostos , headListaMeios);
+
+			//verSeAcessivel(ProcurarPorIdPostos(headListaPostos, 2), ProcurarPorIdPostos(headListaPostos, 4));
 			GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
 			//GravarPostosBinario("PostosSave.bin", headListaPostos);
 

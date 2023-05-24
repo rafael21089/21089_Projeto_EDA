@@ -1,47 +1,19 @@
-﻿  Aluguer.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(217,3): warning C4033: 'LerEArmazenarAluguerListaTotal' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(231,45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Cliente.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(144,10): warning C4129: 'L': unrecognized character escape sequence
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(339,3): warning C4033: 'LerEArmazenarCliente' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(359,35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(361,38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(363,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(505,7): warning C4101: 'nome': unreferenced local variable
-  Gestor.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(244,3): warning C4033: 'LerEArmazenarGestor' must return a value
-  Localizacao.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(85,26): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(89,26): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(94,26): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(113,22): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(255,9): warning C4033: 'LerEArmazenarPosto' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(270,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(272,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(295,9): warning C4033: 'LerEArmazenarPostoAdjacente' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(313,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(315,184): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(420,139): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(420,140): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(418,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(402,9): warning C4101: 'id': unreferenced local variable
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(438,1): warning C4305: 'initializing': truncation from 'int' to 'float'
-  MeioDeMobilidade.c
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(282,3): warning C4033: 'LerEArmazenarMeiosDeMobilidade' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(300,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(302,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(306,47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(308,48): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(406,3): warning C4033: 'ListarMeioAutonomiaDecrescente' must return a value
-  Source.c
-  Generating Code...
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(324): warning C4715: 'LerEArmazenarMeiosDeMobilidade': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\MeioDeMobilidade.c(443): warning C4715: 'ListarMeioAutonomiaDecrescente': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(322): warning C4715: 'LerEArmazenarPostoAdjacente': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(284): warning C4715: 'LerEArmazenarPosto': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Gestor.c(280): warning C4715: 'LerEArmazenarGestor': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(293): warning C4715: 'RegistoAluguer': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(379): warning C4715: 'LerEArmazenarCliente': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Cliente.c(538): warning C4716: 'RegistoPorEscrever': must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Aluguer.c(247): warning C4715: 'LerEArmazenarAluguerListaTotal': not all control paths return a value
+﻿  Localizacao.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(87,26): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(91,26): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(96,26): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(115,22): warning C4133: 'return': incompatible types - from 'LocalizacaoPostos *' to 'LocalizacaoPostosAdjacentes *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(257,9): warning C4033: 'LerEArmazenarPosto' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(272,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(274,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(298,9): warning C4033: 'LerEArmazenarPostoAdjacente' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(316,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(318,184): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(423,139): warning C4244: 'function': conversion from 'int' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(423,140): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(421,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(405,9): warning C4101: 'id': unreferenced local variable
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(454,1): warning C4305: 'initializing': truncation from 'int' to 'float'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(287): warning C4715: 'LerEArmazenarPosto': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(325): warning C4715: 'LerEArmazenarPostoAdjacente': not all control paths return a value
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

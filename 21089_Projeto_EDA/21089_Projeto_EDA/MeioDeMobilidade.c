@@ -31,11 +31,12 @@
 *	@param [in] cidade				cidade Do MeioDeMobilidade
 *	@param [in] latitude			latitude Do MeioDeMobilidade
 *	@param [in] longitude			longitude Do MeioDeMobilidade
+*	@param [in] estado				estado Do MeioDeMobilidade
 * 
 *	@return novo MeioDeMobilidade
 *
 */
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, char* cidade , float latitude , float longitude) {
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, float peso, char* cidade , float latitude , float longitude,bool estado) {
 
 
 	MeiosDeMobilidade* novoMeiosDeMobilidade = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade));
@@ -45,9 +46,11 @@ MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, 
 	strcpy(novoMeiosDeMobilidade->tipo, tipo);
 	novoMeiosDeMobilidade->cargaBateria = cargaBateria;
 	novoMeiosDeMobilidade->custo = custo;
+	novoMeiosDeMobilidade->peso = peso;
 	strcpy(novoMeiosDeMobilidade->cidade, cidade);
 	novoMeiosDeMobilidade->latitude = latitude;
 	novoMeiosDeMobilidade->longitude = longitude;
+	novoMeiosDeMobilidade->estado = estado;
 
 	Aluguer* ativ = NULL;
 
@@ -139,9 +142,11 @@ void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
 		printf("Tipo: %s\n", meiosDeMobilidade->tipo);
 		printf("Carga: %d\n", meiosDeMobilidade->cargaBateria);
 		printf("Custo: %f\n", meiosDeMobilidade->custo);
+		printf("Peso: %f\n", meiosDeMobilidade->peso);
 		printf("Cidade: %s\n", meiosDeMobilidade->cidade);
 		printf("Latitude: %f\n", meiosDeMobilidade->latitude);
 		printf("Longitude: %f\n", meiosDeMobilidade->longitude);
+		printf("\nEstado: %s\n", meiosDeMobilidade->estado ? "Disponivel" : "Indisponivel");
 
 
 		printf("\n-------------\n");
@@ -295,11 +300,15 @@ MeiosDeMobilidade* LerEArmazenarMeiosDeMobilidade(char* filename, MeiosDeMobilid
 		token = strtok(NULL, ";");
 		novoMeioDeMobilidade->custo = atof(token);
 		token = strtok(NULL, ";");
+		novoMeioDeMobilidade->peso = atof(token);
+		token = strtok(NULL, ";");
 		strcpy(novoMeioDeMobilidade->cidade, token);
 		token = strtok(NULL, ";");
 		novoMeioDeMobilidade->latitude = atof(token);
 		token = strtok(NULL, ";");
 		novoMeioDeMobilidade->longitude = atof(token);
+		token = strtok(NULL, ";");
+		novoMeioDeMobilidade->estado = (strcmp(token, "true") == 0);
 
 		Aluguer* ativ = NULL;
 
@@ -360,7 +369,7 @@ MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro) {
 
 	// Ler n registos do ficheiro
 	while ((auxAnt = (MeiosDeMobilidade*)malloc(sizeof(MeiosDeMobilidade))) && fread(auxAnt, sizeof(MeiosDeMobilidade), 1, fp)) {
-		MeiosDeMobilidade* aux = CriarMeiosDeMobilidade(auxAnt->id, auxAnt->tipo, auxAnt->cargaBateria, auxAnt->custo, auxAnt->cidade , auxAnt->latitude , auxAnt->longitude);
+		MeiosDeMobilidade* aux = CriarMeiosDeMobilidade(auxAnt->id, auxAnt->tipo, auxAnt->cargaBateria, auxAnt->custo, auxAnt->peso, auxAnt->cidade , auxAnt->latitude , auxAnt->longitude , auxAnt->estado);
 		header = InsereMeiosDeMobilidadeNoFim(header, aux);
 	}
 	fclose(fp);
@@ -489,6 +498,7 @@ MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
 	char cidade[50];
 	float latitude;
 	float longitude;
+	float peco;
 
 	printf("\n\nDigite o id do meio de mobilidade: ");
 	scanf("%d", &id);
@@ -498,6 +508,8 @@ MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
 	scanf("%d", &cargaBateria);
 	printf("\nDigite o custo: ");
 	scanf("%f", &custo);
+	printf("\nDigite o peso: ");
+	scanf("%f", &peco);
 	printf("\nDigite a Cidade: ");
 	scanf("%s", &cidade);
 	printf("\nDigite a latitude: ");
@@ -505,7 +517,7 @@ MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade() {
 	printf("\nDigite a longitude: ");
 	scanf("%f", &longitude);
 
-	MeiosDeMobilidade* meioNovo = CriarMeiosDeMobilidade(id, tipo, cargaBateria, custo, cidade , latitude , longitude);
+	MeiosDeMobilidade* meioNovo = CriarMeiosDeMobilidade(id, tipo, cargaBateria, custo, peco, cidade , latitude , longitude,true);
 
 	return meioNovo;
 

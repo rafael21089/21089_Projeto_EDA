@@ -31,6 +31,12 @@ typedef struct LocalizacaoPostosAdjacentes {
     struct LocalizacaoPostosAdjacentes* proximo; // Pointer to the next adjacent node
 } LocalizacaoPostosAdjacentes;
 
+typedef struct Camiao {
+    int idOrigem;
+    float carga;
+    LocalizacaoPostos localizacaoAtual;
+} Camiao;
+
 LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude, LocalizacaoPostosAdjacentes* postosAdjacentes);
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto);
 

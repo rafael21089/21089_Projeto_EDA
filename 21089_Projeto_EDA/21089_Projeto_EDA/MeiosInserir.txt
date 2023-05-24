@@ -1,2 +1,2 @@
-1;Carro;22;33;Lisboa;123;321
-2;Trotinete;23;23;Braga;456;654
+1;Carro;22;33;50;Lisboa;123;321;true
+2;Trotinete;23;23;20;Braga;456;654;true

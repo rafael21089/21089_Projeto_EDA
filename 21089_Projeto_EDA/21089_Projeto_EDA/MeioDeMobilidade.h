@@ -23,7 +23,7 @@
 /**
  * @brief Estrutura para armazenar Meios De Mobilidade
  *
- * Um Meios De Mobilidade contém um id (@@id), tipo (@@tipo) ,carga da Bateria (@@cargaBateria) , custo (@@custo) , cidade (@@aluguer) , latitude (@@latitude) , longitude (@@longitude) e alugueres (@@atividade).
+ * Um Meios De Mobilidade contém um id (@@id), tipo (@@tipo) ,carga da Bateria (@@cargaBateria) , custo (@@custo),peso (@@peso) , cidade (@@aluguer) , latitude (@@latitude) , longitude (@@longitude), estado (@@estado) e alugueres (@@atividade).
  * Contém apontador para próximo MeiosDeMobilidade
  */
 #define LARGURAGERALSTRING 100
@@ -33,9 +33,11 @@ typedef struct MeiosDeMobilidade{
     char tipo[LARGURAGERALSTRING];
     int cargaBateria;
     float custo;
+    float peso;
     char cidade[LARGURAGERALSTRING];
     float latitude;
     float longitude;
+    bool estado;
     struct Aluguer* aluguer;
 
     struct MeiosDeMobilidade* next;
@@ -43,7 +45,7 @@ typedef struct MeiosDeMobilidade{
 } MeiosDeMobilidade;
 
 //Criar Meio
-MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, char* cidade, float latitude, float longitude);
+MeiosDeMobilidade* CriarMeiosDeMobilidade(int id, char* tipo, int cargaBateria, float custo, float peso, char* cidade, float latitude, float longitude, bool estado);
 //Insere Meio no Header de Meio
 MeiosDeMobilidade* InsereMeiosDeMobilidadeNoFim(MeiosDeMobilidade* header, MeiosDeMobilidade* novoMeiosDeMobilidade);
 //Ver se Existe Meio na lista por id

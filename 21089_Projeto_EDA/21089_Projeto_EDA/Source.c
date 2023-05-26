@@ -190,19 +190,11 @@ int main() {
 			//headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
 
 			//dijkstra(headListaPostos,2,0);
-			//dijkstra(headListaPostos,0,2);
-			//dijkstra(headListaPostos,2,4);
 
-			
-
-			camiao = CriarCamiao(1,0,400, ProcurarPorIdPostos(headListaPostos, 1));
-
+			camiao = CriarCamiao(2,0,100, ProcurarPorIdPostos(headListaPostos, 2));
 
 			camiaoRecolha(camiao , headListaPostos , headListaMeios);
 
-
-		
-			
 
 			//verSeAcessivel(ProcurarPorIdPostos(headListaPostos, 2), ProcurarPorIdPostos(headListaPostos, 4));
 			//GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);

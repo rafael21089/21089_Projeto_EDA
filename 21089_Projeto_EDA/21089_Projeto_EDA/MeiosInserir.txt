@@ -1,5 +1,5 @@
-1;Carro;22;33;50;Lisboa;1;3;true
-2;Carro;22;33;50;Lisboa;1;4;true
-3;Carro;22;33;50;Lisboa;1;7;true
-4;Carro;22;33;50;Lisboa;1;4;true
+1;Carro;75;33;35;Lisboa;1;3;true
+2;Carro;50;33;50;Lisboa;1;4;true
+3;Carro;80;33;75;Lisboa;1;7;true
+4;Carro;55;33;45;Lisboa;1;4;true
 5;Trotinete;23;23;20;Braga;456;654;true

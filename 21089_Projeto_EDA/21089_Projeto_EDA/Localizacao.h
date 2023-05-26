@@ -87,3 +87,5 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, struct MeiosDeMo
 
 
 bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);
+
+int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList, float* distancia, int* idParaEliminar, float* pesoAtual, float capacidadeMaxima);

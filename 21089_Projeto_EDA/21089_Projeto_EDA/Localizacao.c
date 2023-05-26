@@ -458,7 +458,7 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
     while (auxPontos != NULL)
     {
         while (auxMeios != NULL) {
-            if (auxPontos->latitude == auxMeios->latitude && auxPontos->longitude == auxMeios->longitude && auxMeios->cargaBateria >= 10) {
+            if (auxPontos->latitude == auxMeios->latitude && auxPontos->longitude == auxMeios->longitude && auxMeios->cargaBateria >= 50) {
 
                 CaminhoCamiao* novoCaminho = (CaminhoCamiao*)malloc(sizeof(CaminhoCamiao));
 
@@ -501,165 +501,96 @@ void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
 
     caminho = CreateCaminho(headListPontos , headListMeios);
 
-    // Calculate the length of the linked list
-    int length = 0;
-    CaminhoCamiao* current = caminho;
-
-    // Count the number of nodes in the linked list
-    while (current != NULL) {
-        length++;
-        current = current->proximo;
-    }
-
-    current = caminho;
-
-    // Dynamically allocate memory for the ids array
-
-    int numIds = length + 2;
-    int* ids = malloc((numIds) * sizeof(int));
-
-    for (int i = 0; i < numIds; i++)
-    {
-        if (i == 0)
-        {
-            ids[i] = camiao->localizacaoAtual->id;
-        }
-        else if (i == numIds-1)
-        {
-            ids[i] = camiao->localizacaoAtual->id;
-
-        }
-        else
-        {
-            ids[i] = current->idPosto;
-            current = current->proximo;
-        }
-
-    }
-
-    //camiao = CriarCamiao(0,0,400, ProcurarPorIdPostos(headListaPostos, 0));
-
-
-    //camiaoRecolha(camiao , headListaPostos , headListaMeios);
-
-    float distancia = 0;
-
-    for (int i = 0; i < numIds; i++)
-    {
-        if (i == 0)
-        {
-            float e = dijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem);
-
-            distancia = distancia + e;
-            printf("%d ", camiao->idOrigem);
-            camiao->localizacaoAtual->id = camiao->idOrigem;
-
-        }
-        else if (i == numIds - 1)
-        {
-            float e = dijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem);
-            distancia = distancia + e;
-            printf("%d ", camiao->idOrigem);
-            camiao->localizacaoAtual->id = camiao->idOrigem;
-        }
-        else
-        {
-            int idParaEliminar=0;
-            int e = caminhoMaisPerto(headListPontos, camiao->localizacaoAtual->id, caminho, &distancia , &idParaEliminar);
-            printf("%d ", e);
-
-
-            caminho = RemoverCaminhoNode(caminho, idParaEliminar);
-
-            camiao->localizacaoAtual->id = e;
-        }
-        
-    }
-
-    printf(" Distancia Total: %f", distancia);
-
-    //printf("Shortest path: ");
-    //for (int i = 0; i < numIds; i++) {
-    //    printf("%d ", ids[i]);
-    //}
-
-    //// Solve TSP and get the shortest distance
-    //encontrarMenorCaminho(headListPontos, numIds, ids, camiao->localizacaoAtual->id);
-
-    //printf("Shortest path: ");
-    //for (int i = 0; i < numIds; i++) {
-    //    printf("%d ", ids[i]);
-    //}
-
     
 
-
-    //float yup = caminhoC(headListPontos, caminho, camiao->localizacaoAtual->id , camiao->localizacaoAtual->id);
-
-
+    float distancia = 0;
+    float peso = 0;
 
 
     while (caminho != NULL)
     {
-        //---
+        // Calculate the length of the linked list
+        int length = 0;
+        CaminhoCamiao* current = caminho;
 
-        LocalizacaoPostos* current = headListPontos;
-
-        while (current != NULL)
-        {
-            current->visitado = false;
-
+        // Count the number of nodes in the linked list
+        while (current != NULL) {
+            length++;
             current = current->proximo;
         }
 
-        headListPontos = AtualizarPostosAdjacentes(headListPontos);
+        current = caminho;
 
-        //---
+        // Dynamically allocate memory for the ids array
 
-        if (verSeAcessivel( headListPontos, ProcurarPorIdPostos(headListPontos , camiao->localizacaoAtual->id) , ProcurarPorIdPostos(headListPontos, caminho->idPosto)) == true)
+        int numIds = length + 2;
+        int* ids = malloc((numIds) * sizeof(int));
+
+        for (int i = 0; i < numIds; i++)
         {
-           
-            if (camiao->cargaAtual == camiao->cargaMaxima)
+            if (i == 0)
             {
-                //Ir para o origemId
+                ids[i] = camiao->localizacaoAtual->id;
+            }
+            else if (i == numIds - 1)
+            {
+                ids[i] = camiao->localizacaoAtual->id;
+
             }
             else
             {
-                if (camiao->localizacaoAtual->id == caminho->idPosto)
-                {
-                    camiao->cargaAtual = camiao->cargaAtual + caminho->pesoMeio;
-                    caminho = caminho->proximo;
-                }
-                else
-                {
-                    int idPostoCaminhoCamiao = 0;
-                    //idPostoCaminhoCamiao = caminhoMaisPerto(headListPontos, camiao->localizacaoAtual->id , caminho);
-
-                    //camiao->cargaAtual = recolha(caminho , camiao , idPostoCaminhoCamiao);
-
-                    camiao->localizacaoAtual->id = idPostoCaminhoCamiao;
-
-                    caminho = caminho->proximo;
-
-                }
+                ids[i] = current->idPosto;
+                current = current->proximo;
             }
 
-
-           
-
         }
-        else
+
+        for (int i = 0; i < numIds; i++)
         {
-            printf("Caminho nao encontrado para Meio: %d  no Posto: %d", caminho->idMeio, caminho->idPosto);
-            caminho = caminho->proximo;
+            if (i == 0)
+            {
+                float e = dijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem);
+
+                distancia = distancia + e;
+                printf("%d ", camiao->idOrigem);
+                camiao->localizacaoAtual->id = camiao->idOrigem;
+
+            }
+            else if (i == numIds - 1)
+            {
+                float e = dijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem);
+                distancia = distancia + e;
+                printf("%d ", camiao->idOrigem);
+                camiao->localizacaoAtual->id = camiao->idOrigem;
+            }
+            else
+            {
+                int idParaEliminar = 0;
+                int e = caminhoMaisPerto(headListPontos, camiao->localizacaoAtual->id, caminho, &distancia, &idParaEliminar, &peso , camiao->cargaMaxima);
+
+                if (e >= 0)
+                {
+                    printf("%d ", e);
+                    caminho = RemoverCaminhoNode(caminho, idParaEliminar);
+                    camiao->localizacaoAtual->id = e;
+                }
+
+
+            }
+
         }
+
+        printf(" Distancia Por Fases : %f  ", distancia);
+
+        printf(" peso: %f \n", peso);
+
+        peso = 0;
+
 
     }
 
 
-
-
-
+    printf(" Distancia Total: %f ", distancia);
 
 
 }
@@ -849,9 +780,9 @@ float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
 }
 
 
-int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList, float* distancia ,int* idParaEliminar)
+int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList, float* distancia ,int* idParaEliminar , float* pesoAtual , float capacidadeMaxima)
 {
-    float minDistance = -1;
+    float minDistance = 0;
     int shortestPathIdPosto = -1;
     int idMeio;
     int idPosto = -1;
@@ -864,16 +795,23 @@ int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* c
         // Perform Dijkstra's algorithm to find the shortest distance
         float distance = dijkstra(headList, origemId, destinationId);
 
+        float pesoAux = *pesoAtual;
+
+        pesoAux = pesoAux + currentCaminhoCamiao->pesoMeio;
+
         // Check if the distance is valid and update the minimum distance
-        if (distance >= 0 && (minDistance == -1 || distance < minDistance)) {
+        if (distance >= 0 && (minDistance == 0 || distance < minDistance) && pesoAux <= capacidadeMaxima) {
             minDistance = distance;
             *idParaEliminar = currentCaminhoCamiao->idMeio;
+            *pesoAtual = *pesoAtual + currentCaminhoCamiao->pesoMeio;
+
             idPosto = currentCaminhoCamiao->idPosto;
 
         }
 
         currentCaminhoCamiao = currentCaminhoCamiao->proximo;
     }
+
 
     *distancia = *distancia + minDistance;
     return idPosto;

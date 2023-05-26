@@ -193,21 +193,16 @@ int main() {
 			//dijkstra(headListaPostos,0,2);
 			//dijkstra(headListaPostos,2,4);
 
-			int ids[] = { 0, 1, 1, 4 };  // Example IDs
-			int numIds = sizeof(ids) / sizeof(ids[0]);
+			
 
-			//camiao = CriarCamiao(0,0,400, ProcurarPorIdPostos(headListaPostos, 0));
+			camiao = CriarCamiao(1,0,400, ProcurarPorIdPostos(headListaPostos, 1));
 
 
-			//camiaoRecolha(camiao , headListaPostos , headListaMeios);
-			// 
-			// Solve TSP and get the shortest distance
-			encontrarMenorCaminho(headListaPostos, 5, ids);
+			camiaoRecolha(camiao , headListaPostos , headListaMeios);
 
-			printf("Shortest path: ");
-			for (int i = 0; i < 5; i++) {
-				printf("%d ", ids[i]);
-			}
+
+		
+			
 
 			//verSeAcessivel(ProcurarPorIdPostos(headListaPostos, 2), ProcurarPorIdPostos(headListaPostos, 4));
 			//GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);

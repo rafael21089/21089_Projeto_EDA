@@ -79,24 +79,11 @@ bool verSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto
 Camiao* CriarCamiao(int idOrigem, float cargaAtual, float cargaMaxima, LocalizacaoPostos* localizacaoAtual);
 void camiaoRecolha(Camiao* camiao, LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios);
 
-int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList);
-void printPath(int parent[], int destinationId);
-
-
-float recolha(CaminhoCamiao* caminhoCamiaoList, Camiao* camiao, int idPosto);
 
 CaminhoCamiao* RemoverCaminhoNode(CaminhoCamiao* header, int id);
 
-int caminhoC(LocalizacaoPostos* headList, CaminhoCamiao* camiao, int origemId, int destinationId[]);
-
-
-void swap(int* a, int* b);
-void generateVariations(int arr[], int start, int end, float distancia, LocalizacaoPostos* headLista, int origemId, CaminhoCamiao* caminho, float* shortestDistance);
 
 CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios);
 
 
-float encontrarMenorDistancia(LocalizacaoPostos* posto, bool* visitados);
-
-int encontrarProximoPosto(LocalizacaoPostos* postoAtual, LocalizacaoPostos* postos, int totalPostos);
-void encontrarMenorCaminho(LocalizacaoPostos* postos, int totalPostos, int* caminho);
+bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);

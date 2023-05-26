@@ -448,7 +448,7 @@ Camiao* CriarCamiao(int idOrigem , float cargaAtual , float cargaMaxima, Localiz
 
 
 
-CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilidade* headListMeios) {
+CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilidade* headListMeios ) {
 
     LocalizacaoPostos* auxPontos = headListPontos;
     MeiosDeMobilidade* auxMeios = headListMeios;
@@ -501,55 +501,98 @@ void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
 
     caminho = CreateCaminho(headListPontos , headListMeios);
 
-
- /*   CaminhoCamiao* caminhoAux = caminho;
-   
-
-    float min = 501;
-    int id;
-
-    while (caminhoAux != NULL)
-    {
-        float dist = dijkstra(headListPontos, camiao->localizacaoAtual->id, caminhoAux->idPosto);
-
-        if (dist < min)
-        {
-            min = dist;
-            id = caminhoAux->idPosto;
-        }
-
-        caminhoAux = caminhoAux->proximo;
-    }*/
-
-   
-
-
     // Calculate the length of the linked list
     int length = 0;
-
     CaminhoCamiao* current = caminho;
+
+    // Count the number of nodes in the linked list
     while (current != NULL) {
         length++;
         current = current->proximo;
     }
 
     current = caminho;
-    
 
-    // Calculate the distance of the current combination
+    // Dynamically allocate memory for the ids array
 
-    int* arr = malloc(length * sizeof(int));
+    int numIds = length + 2;
+    int* ids = malloc((numIds) * sizeof(int));
 
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < numIds; i++)
     {
-        arr[i] = current->idPosto;
-        current = current->proximo;
+        if (i == 0)
+        {
+            ids[i] = camiao->localizacaoAtual->id;
+        }
+        else if (i == numIds-1)
+        {
+            ids[i] = camiao->localizacaoAtual->id;
+
+        }
+        else
+        {
+            ids[i] = current->idPosto;
+            current = current->proximo;
+        }
+
     }
 
-    float distancia = 501;
-    float shortestDistance = distancia;  // Initialize shortestDistance with the maximum possible value
-    generateVariations(arr, 0, length - 1, distancia, headListPontos, camiao->localizacaoAtual->id, caminho, &shortestDistance);
-    printf("Shortest distance: %f\n", shortestDistance);
+    //camiao = CriarCamiao(0,0,400, ProcurarPorIdPostos(headListaPostos, 0));
+
+
+    //camiaoRecolha(camiao , headListaPostos , headListaMeios);
+
+    float distancia = 0;
+
+    for (int i = 0; i < numIds; i++)
+    {
+        if (i == 0)
+        {
+            float e = dijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem);
+
+            distancia = distancia + e;
+            printf("%d ", camiao->idOrigem);
+            camiao->localizacaoAtual->id = camiao->idOrigem;
+
+        }
+        else if (i == numIds - 1)
+        {
+            float e = dijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem);
+            distancia = distancia + e;
+            printf("%d ", camiao->idOrigem);
+            camiao->localizacaoAtual->id = camiao->idOrigem;
+        }
+        else
+        {
+            int idParaEliminar=0;
+            int e = caminhoMaisPerto(headListPontos, camiao->localizacaoAtual->id, caminho, &distancia , &idParaEliminar);
+            printf("%d ", e);
+
+
+            caminho = RemoverCaminhoNode(caminho, idParaEliminar);
+
+            camiao->localizacaoAtual->id = e;
+        }
+        
+    }
+
+    printf(" Distancia Total: %f", distancia);
+
+    //printf("Shortest path: ");
+    //for (int i = 0; i < numIds; i++) {
+    //    printf("%d ", ids[i]);
+    //}
+
+    //// Solve TSP and get the shortest distance
+    //encontrarMenorCaminho(headListPontos, numIds, ids, camiao->localizacaoAtual->id);
+
+    //printf("Shortest path: ");
+    //for (int i = 0; i < numIds; i++) {
+    //    printf("%d ", ids[i]);
+    //}
+
+    
+
 
     //float yup = caminhoC(headListPontos, caminho, camiao->localizacaoAtual->id , camiao->localizacaoAtual->id);
 
@@ -622,37 +665,20 @@ void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
 }
 
 
-float recolha(CaminhoCamiao* caminhoCamiaoList , Camiao* camiao, int idPosto) {
-
-
-    CaminhoCamiao* camiaoAux = caminhoCamiaoList;
-
-    float carga = camiao->cargaAtual;
-    float cargaAux = 0;
-
-    while (camiaoAux != NULL)
-    {
-        if (camiaoAux->idPosto == idPosto)
-        {
-            cargaAux = cargaAux + camiaoAux->pesoMeio;
-
-            if (cargaAux + carga <= camiao->cargaMaxima)
-            {
-                carga = carga + cargaAux;
-                printf("\nRecolheu Meio %d no posto %d",camiaoAux->idMeio ,camiaoAux->idPosto);
-                //caminhoCamiaoList = RemoverCaminhoNode(caminhoCamiaoList, camiaoAux->idMeio);
-            }
-        }
-
-        camiaoAux = camiaoAux->proximo;
+bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao) {
+    if (header == NULL) return false;
+    CaminhoCamiao* aux = header;
+    while (aux != NULL) {
+        if (aux->idMeio == idCaminhoCamiao)
+            return true;
+        aux = aux->proximo;
     }
-
-    return carga;
+    return false;
 }
-
-
 CaminhoCamiao* RemoverCaminhoNode(CaminhoCamiao* header, int id) {
     if (header == NULL) return NULL;			//Lista vazia
+
+    if (!ExisteCaminhoNode(header, id)) return;
 
     if (header->idMeio == id) {		//remove no inicio da lista
         Gestor* aux = header;
@@ -822,45 +848,13 @@ float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
     return distance[destinationId];
 }
 
-void printPath(int parent[], int destinationId) {
-    if (parent[destinationId] == -1) {
-        printf("%d ", destinationId);
-        return;
-    }
 
-    printPath(parent, parent[destinationId]);
-    printf("%d ", destinationId);
-}
-
-
-
-int caminhoC(LocalizacaoPostos* headList , CaminhoCamiao* camiao , int origemId , int destinationId[]) {
-
-    // Calculate the smallest distance among the path points
-    float smallestDistance = 500;
-    float alldistance = 0;
-    CaminhoCamiao* currentPoint = camiao;
-    int previousPointId = origemId;
-
-
-    int numIds = sizeof(destinationId) / sizeof(destinationId[0]);
-
-    for (int i = 0; i <= numIds+1; i++)
-    {
-        float pointDistance = dijkstra(headList, origemId, destinationId[i]);
-        alldistance = pointDistance + alldistance;
-    }
-
-  
-
-    return alldistance;
-}
-
-int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList)
+int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList, float* distancia ,int* idParaEliminar)
 {
     float minDistance = -1;
     int shortestPathIdPosto = -1;
-    int id;
+    int idMeio;
+    int idPosto = -1;
 
     // Traverse the CaminhoCamiao list
     CaminhoCamiao* currentCaminhoCamiao = caminhoCamiaoList;
@@ -873,124 +867,16 @@ int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* c
         // Check if the distance is valid and update the minimum distance
         if (distance >= 0 && (minDistance == -1 || distance < minDistance)) {
             minDistance = distance;
-            id = destinationId;
+            *idParaEliminar = currentCaminhoCamiao->idMeio;
+            idPosto = currentCaminhoCamiao->idPosto;
+
         }
 
         currentCaminhoCamiao = currentCaminhoCamiao->proximo;
     }
 
-  
-    return id;
+    *distancia = *distancia + minDistance;
+    return idPosto;
 }
 
 
-// Function to swap two elements
-void swap(int* a, int* b) {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-
-
-
-// Function to generate and print all variations
-void generateVariations(int arr[], int start, int end, float distancia, LocalizacaoPostos* headLista, int origemId, CaminhoCamiao* caminho, float* shortestDistance) {
-
-    if (start == end) {
-        for (int i = 0; i <= end; i++) {
-            printf("%d ", arr[i]);
-        }
-
-        float distanciaAux2 = 0;
-        float distAux = caminhoC(headLista, caminho, arr[0], arr);
-        distanciaAux2 = distAux;
-
-        if (distanciaAux2 < *shortestDistance) {
-            *shortestDistance = distanciaAux2;
-        }
-
-        printf("\n");
-    }
-    else {
-        for (int i = start; i <= end; i++) {
-            swap(&arr[start], &arr[i]);
-            generateVariations(arr, start + 1, end, distancia, headLista, origemId, caminho, shortestDistance);
-            swap(&arr[start], &arr[i]);
-        }
-    }
-
-
-}
-
-
-float calcularDistancia(LocalizacaoPostos* origem, LocalizacaoPostos* destino) {
-    // Assuming Euclidean distance between latitude and longitude coordinates
-    float latDiff = origem->latitude - destino->latitude;
-    float lonDiff = origem->longitude - destino->longitude;
-    return sqrtf(latDiff * latDiff + lonDiff * lonDiff);
-}
-
-float encontrarMenorDistancia(LocalizacaoPostos* posto, bool* visitados) {
-    float menorDistancia = 500;
-    LocalizacaoPostosAdjacentes* adjacente = posto->postosAdjacentes;
-    while (adjacente != NULL) {
-        if (!visitados[adjacente->idDestino] && adjacente->distancia < menorDistancia) {
-            menorDistancia = adjacente->distancia;
-        }
-        adjacente = adjacente->proximo;
-    }
-    return menorDistancia;
-}
-
-
-
-
-
-
-
-
-// Function to find the nearest unvisited location
-int encontrarProximoPosto(LocalizacaoPostos* postoAtual, LocalizacaoPostos* postos, int totalPostos) {
-    int proximoPosto = -1;
-    float menorDistancia = 500;
-
-    LocalizacaoPostosAdjacentes* adjacente = postoAtual->postosAdjacentes;
-    while (adjacente != NULL) {
-        if (!adjacente->postoDestinoAdjacente->visitado) {
-            float distancia = adjacente->distancia;
-            if (distancia < menorDistancia) {
-                menorDistancia = distancia;
-                proximoPosto = adjacente->idDestino;
-            }
-        }
-        adjacente = adjacente->proximo;
-    }
-
-    return proximoPosto;
-}
-
-// Function to find the shortest path using the Nearest Neighbor algorithm
-void encontrarMenorCaminho(LocalizacaoPostos* postos, int totalPostos, int* caminho) {
-    int proximoPosto;
-    int index = 0;
-
-    // Start from the first location
-    LocalizacaoPostos* postoAtual = &postos[0];
-    caminho[index++] = postoAtual->id;
-    postoAtual->visitado = true;
-
-    while (index < totalPostos) {
-        proximoPosto = encontrarProximoPosto(postoAtual, postos, totalPostos);
-        if (proximoPosto == -1) {
-            // If no unvisited location is found, go back to the starting location
-            proximoPosto = 0;
-        }
-
-        postoAtual = ProcurarPorIdPostosComListaToda(postos, proximoPosto);
-        caminho[index++] = postoAtual->id;
-        postoAtual->visitado = true;
-
-        postos = AtualizarPostosAdjacentes(postos);
-    }
-}

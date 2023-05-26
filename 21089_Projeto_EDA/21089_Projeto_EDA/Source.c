@@ -189,15 +189,28 @@ int main() {
 			//headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
 			//headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
 
+			//dijkstra(headListaPostos,2,0);
+			//dijkstra(headListaPostos,0,2);
 			//dijkstra(headListaPostos,2,4);
 
+			int ids[] = { 0, 1, 1, 4 };  // Example IDs
+			int numIds = sizeof(ids) / sizeof(ids[0]);
 
-			camiao = CriarCamiao(0,0,400, ProcurarPorIdPostos(headListaPostos, 0));
+			//camiao = CriarCamiao(0,0,400, ProcurarPorIdPostos(headListaPostos, 0));
 
-			camiaoRecolha(camiao , headListaPostos , headListaMeios);
+
+			//camiaoRecolha(camiao , headListaPostos , headListaMeios);
+			// 
+			// Solve TSP and get the shortest distance
+			encontrarMenorCaminho(headListaPostos, 5, ids);
+
+			printf("Shortest path: ");
+			for (int i = 0; i < 5; i++) {
+				printf("%d ", ids[i]);
+			}
 
 			//verSeAcessivel(ProcurarPorIdPostos(headListaPostos, 2), ProcurarPorIdPostos(headListaPostos, 4));
-			GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
+			//GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
 			//GravarPostosBinario("PostosSave.bin", headListaPostos);
 
 			

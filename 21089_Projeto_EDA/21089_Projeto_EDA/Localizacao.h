@@ -87,7 +87,7 @@ LocalizacaoPostos* RemoverPosto(LocalizacaoPostos* header, int id);
 //Criar Posto Adjacente
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, LocalizacaoPostos* postoOrigem);
 //Insere Posto Adjacente no respetivo Posto
-LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino);
+LocalizacaoPostos* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino);
 //Ver se Existe Posto Adjacente na lista por id
 bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjacentes);
 //Remove Posto Adjacente no respetivo Posto
@@ -119,14 +119,14 @@ bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* hea
 LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* posto, LocalizacaoPostos* postoDestino);
 
 //Funcao que procura o caminho pelo os Postos usando dijkstra 
-float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId, bool querImprimirResultados);
+float AlgoritmoDijkstra(LocalizacaoPostos* headLista, int origemId, int destinoId, bool querImprimirResultados);
 //Ver se é Acessivel ir de um Posto Para Posto
-bool verSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto, LocalizacaoPostos* destinoPonto);
+bool VerSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto, LocalizacaoPostos* destinoPonto);
 
 //Cria Camiao
-Camiao* CriarCamiao(int idOrigem, float cargaAtual, float cargaMaxima, LocalizacaoPostos* localizacaoAtual);
+Camiao* CriarCamiao(float cargaAtual, float cargaMaxima, LocalizacaoPostos* localizacaoAtual);
 //Camiao Recolhe Meios com Menos de 50% De Bateria 
-bool camiaoRecolha(Camiao* camiao, LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios);
+bool CamiaoRecolha(Camiao* camiao, LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios);
 
 //Cria Caminho Node
 CaminhoCamiao* CriarCaminhoNodes(int idPosto, int idMeio, int pesoMeio);
@@ -140,12 +140,12 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, struct MeiosDeMo
 bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);
 
 //Caminho Mais Perto para os Postos no Caminho para Camiao
-int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList, float* distancia, int* idParaEliminar, float* pesoAtual, float capacidadeMaxima);
+int CaminhoMaisPerto(LocalizacaoPostos* headLista, int origemId, CaminhoCamiao* caminhoCamiaoLista, float* distancia, int* idParaEliminar, float* pesoAtual, float capacidadeMaxima);
 //Localizacao do Posto mais perto por Raio com o Cliente como centro
-bool localizacaoRaioClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListPostos, float raio);
+bool LocalizacaoRaioClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListaPostos, float raio);
 //Localizacao do Meio por tipo mais perto por Raio com o Cliente como centro
-bool localizacaoRaioClienteMeio(struct Clientes* cliente, struct MeiosDeMobilidade* headListMeio, float raio, char* tipo);
+bool LocalizacaoRaioClienteMeio(struct Clientes* cliente, struct MeiosDeMobilidade* headListaMeio, float raio, char* tipo);
 //Calcula distancia por Latitude e Longitude de dois Geocodigos
-float calculaDistancia(float latitude1, float longitude1, float latitude2, float longitude2);
+float CalculaDistancia(float latitude1, float longitude1, float latitude2, float longitude2);
 //Distancia e Caminho de Cliente a Meio usando Postos
 LocalizacaoPostos* DistanciaClienteAMeioTotal(struct Clientes* cliente, struct MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos);

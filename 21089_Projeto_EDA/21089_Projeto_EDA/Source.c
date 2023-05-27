@@ -193,8 +193,13 @@ int main() {
 
 			//localizacaoRaioClientePosto(ProcuraClientes(headListaClientes , 1) , headListaPostos, 500.0);
 
-			camiao = CriarCamiao(1,0,100, ProcurarPorIdPostos(headListaPostos, 1));
-			camiaoRecolha(camiao , headListaPostos , headListaMeios);
+
+			//localizacaoRaioClienteMeio(ProcuraClientes(headListaClientes, 1), headListaMeios, 500.0 , "Carro");
+
+			DistanciaClienteAMeioTotal(ProcuraClientes(headListaClientes, 1) , ProcuraMeiosDeMobilidade(headListaMeios, 4) , headListaPostos);
+
+			//camiao = CriarCamiao(0,0,100, ProcurarPorIdPostos(headListaPostos, 0));
+			//camiaoRecolha(camiao , headListaPostos , headListaMeios);
 
 
 			//verSeAcessivel(ProcurarPorIdPostos(headListaPostos, 2), ProcurarPorIdPostos(headListaPostos, 4));

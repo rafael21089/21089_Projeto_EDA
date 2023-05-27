@@ -113,7 +113,7 @@ LocalizacaoPostos* RemoverPosto(LocalizacaoPostos* header, int id) {
 }
 
 
-LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia) {
+LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, LocalizacaoPostos* postoOrigem) {
 
     LocalizacaoPostosAdjacentes* postoAdjacente = (LocalizacaoPostosAdjacentes*)malloc(sizeof(LocalizacaoPostosAdjacentes));
     if (postoAdjacente == NULL) {
@@ -122,13 +122,13 @@ LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestino
 
     postoAdjacente->postoDestinoAdjacente = postoDestinoAdjacente;
     postoAdjacente->idDestino = postoDestinoAdjacente->id;
-    postoAdjacente->distancia = distancia;
+    postoAdjacente->distancia = calculaDistancia(postoDestinoAdjacente->latitude , postoDestinoAdjacente->longitude , postoOrigem->latitude , postoOrigem->longitude);
     postoAdjacente->proximo = NULL;
 
     return postoAdjacente;
 }
 
-LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino, float distancia) {
+LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino) {
     if (headLista == NULL || postoOrigem == NULL || postoDestino == NULL) {
         return *headLista;
     }
@@ -137,7 +137,7 @@ LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista
         return *headLista; // Already exists, no need to insert
     }
 
-    LocalizacaoPostosAdjacentes* novoAdjacente = CriarPostoAdjacente(postoDestino, distancia);
+    LocalizacaoPostosAdjacentes* novoAdjacente = CriarPostoAdjacente(postoDestino, postoOrigem);
     if (novoAdjacente == NULL) {
         return *headLista; // Failed to create the adjacent node
     }
@@ -386,10 +386,8 @@ LocalizacaoPostos* LerEArmazenarPostoAdjacente(char* nomeFicheiro, LocalizacaoPo
         idOrigem = atoi(token);
         token = strtok(NULL, ";");
         idDestino = atoi(token);
-        token = strtok(NULL, ";");
-        distancia = atof(token);
 
-        *headerPostosLista = InserirPostoAdjacente(headerPostosLista, ProcurarPorIdPostos(*headerPostosLista, idOrigem), ProcurarPorIdPostos(*headerPostosLista, idDestino), distancia);
+        *headerPostosLista = InserirPostoAdjacente(headerPostosLista, ProcurarPorIdPostos(*headerPostosLista, idOrigem), ProcurarPorIdPostos(*headerPostosLista, idDestino));
 
     }
 
@@ -492,9 +490,8 @@ LocalizacaoPostos* LerPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPos
 
         int idOrigem = id;
         int idDestino = adj.idDestino;
-        int distancia = adj.distancia;
 
-        *header = InserirPostoAdjacente(header, ProcurarPorIdPostos(*header, idOrigem), ProcurarPorIdPostos(*header, idDestino), distancia);
+        *header = InserirPostoAdjacente(header, ProcurarPorIdPostos(*header, idOrigem), ProcurarPorIdPostos(*header, idDestino));
      
     }
 
@@ -598,7 +595,7 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
     {
         while (auxMeiosNaoEmPostos != NULL)
         {
-            float caminhoParaPontoExtra = calculaDistanciaMeioPosto(auxMeiosNaoEmPostos, auxPontosProximos);
+            float caminhoParaPontoExtra = calculaDistancia(auxMeiosNaoEmPostos->latitude , auxMeiosNaoEmPostos->longitude, auxPontosProximos->latitude , auxPontosProximos->longitude);
 
             if ((caminhoParaPontoExtra <= DISTANCIA_MAXIMA && caminhoParaPontoExtra != 0) && auxMeiosNaoEmPostos->cargaBateria <= 50 && auxMeiosNaoEmPostos->estado == true && !ExisteCaminhoNode(caminho, auxMeiosNaoEmPostos->id)) {
 
@@ -990,42 +987,13 @@ int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* c
 }
 
 
-float calculaDistanciaClientePosto(Clientes* cliente, LocalizacaoPostos* headListPostos) {
 
-    Clientes* auxCliente = cliente;
-    LocalizacaoPostos* auxPostos = headListPostos;
+float calculaDistancia(float latitude1 , float longitude1 , float latitude2 , float longitude2) {
 
-    float lat1 = auxCliente->latitude;
-    float lon1 = auxCliente->longitude;
+    float dLat = (latitude2 - latitude1) * 3.141593 / 180.0f;
+    float dLon = (longitude2 - longitude1) * 3.141593 / 180.0f;
 
-
-    float lat2 = auxPostos->latitude;
-    float lon2 = auxPostos->longitude;
-
-    float dLat = (lat2 - lat1) * 3.141593 / 180.0f;
-    float dLon = (lon2 - lon1) * 3.141593 / 180.0f;
-
-    float a = sinf(dLat / 2) * sinf(dLat / 2) + cosf(lat1 * 3.141593 / 180.0f) * cosf(lat2 * 3.141593 / 180.0f) * sinf(dLon / 2) * sinf(dLon / 2);
-
-    return 2 * TERRA_RAIO * asinf(sqrtf(a));
-}
-
-float calculaDistanciaMeioPosto(MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos) {
-
-    MeiosDeMobilidade* auxMeio = meio;
-    LocalizacaoPostos* auxPostos = headListPostos;
-
-    float lat1 = auxMeio->latitude;
-    float lon1 = auxMeio->longitude;
-
-
-    float lat2 = auxPostos->latitude;
-    float lon2 = auxPostos->longitude;
-
-    float dLat = (lat2 - lat1) * 3.141593 / 180.0f;
-    float dLon = (lon2 - lon1) * 3.141593 / 180.0f;
-
-    float a = sinf(dLat / 2) * sinf(dLat / 2) + cosf(lat1 * 3.141593 / 180.0f) * cosf(lat2 * 3.141593 / 180.0f) * sinf(dLon / 2) * sinf(dLon / 2);
+    float a = sinf(dLat / 2) * sinf(dLat / 2) + cosf(latitude1 * 3.141593 / 180.0f) * cosf(latitude2 * 3.141593 / 180.0f) * sinf(dLon / 2) * sinf(dLon / 2);
 
     return 2 * TERRA_RAIO * asinf(sqrtf(a));
 }
@@ -1049,10 +1017,11 @@ bool localizacaoRaioClientePosto(Clientes* cliente, LocalizacaoPostos* headListP
 
     auxPostos = headListPostos;
 
-    printf("Localizacao de raio %.2f km com centro de (%.4f, %.4f):\n", raio, cliente->latitude, cliente->longitude);
+    printf("Localizacao de raio %.2f km com centro de (%.4f, %.4f) de Postos de Recolha:\n", raio, cliente->latitude, cliente->longitude);
+    printf("\n");
 
     for (int i = 0; i < numLocations; i++) {
-        float distance = calculaDistanciaClientePosto(cliente, auxPostos);
+        float distance = calculaDistancia(cliente->latitude, cliente->longitude , auxPostos->latitude , auxPostos->longitude);
 
         if (distance <= raio) {
             printf("Posto %d - (%.4f, %.4f) - Distancia: %.2f km\n", auxPostos->id, auxPostos->latitude, auxPostos->longitude, distance);
@@ -1064,5 +1033,116 @@ bool localizacaoRaioClientePosto(Clientes* cliente, LocalizacaoPostos* headListP
     return true;
 
 }
+
+
+bool localizacaoRaioClienteMeio(Clientes* cliente, MeiosDeMobilidade* headListMeio, float raio , char* tipo) {
+
+    if (cliente == NULL || headListMeio == NULL)
+    {
+        return false;
+    }
+
+    MeiosDeMobilidade* auxMeio = headListMeio;
+    int numLocations = 0;
+
+    while (auxMeio != NULL)
+    {
+        numLocations++;
+        auxMeio = auxMeio->next;
+    }
+
+    auxMeio = headListMeio;
+
+    printf("Localizacao de raio %.2f km com centro de (%.4f, %.4f) de Meios Nao Alugados do tipo %s:\n", raio/10, cliente->latitude, cliente->longitude , tipo);
+    printf("\n");
+    for (int i = 0; i < numLocations; i++) {
+        float distance = calculaDistancia(cliente->latitude, cliente->longitude, auxMeio->latitude, auxMeio->longitude);
+
+        if (distance <= raio && auxMeio->estado == true && !TemAluguerAtivo(auxMeio->aluguer) && strcmp(auxMeio->tipo, tipo) == 0) {
+            printf("Meio %d - Tipo %s - (%.4f, %.4f) - Distancia: %.2f km\n", auxMeio->id, auxMeio->tipo, auxMeio->latitude, auxMeio->longitude, distance);
+        }
+
+        auxMeio = auxMeio->next;
+    }
+
+    return true;
+
+}
+
+
+LocalizacaoPostos* DistanciaClienteAMeioTotal(Clientes* cliente , MeiosDeMobilidade* meio , LocalizacaoPostos* headListPostos) {
+
+    if (headListPostos == NULL)
+    {
+        return NULL;
+    }
+
+    if (cliente == NULL || meio == NULL)
+    {
+        return headListPostos;
+    }
+
+    LocalizacaoPostos* postoAux = headListPostos;
+
+    float caminhoMaisPertoClientePosto = DISTANCIA_MAXIMA;
+
+    int idOrigemPosto = -1;
+    int idDestinoPosto = -1;
+
+
+    while (postoAux != NULL)
+    {
+        float distanciaAux = calculaDistancia(cliente->latitude, cliente->longitude, postoAux->latitude, postoAux->longitude);
+
+        if (distanciaAux < caminhoMaisPertoClientePosto)
+        {
+            caminhoMaisPertoClientePosto = distanciaAux;
+            idOrigemPosto = postoAux->id;
+        }
+
+        postoAux = postoAux->proximo;
+
+    }
+
+    postoAux = headListPostos;
+
+    float caminhoMaisPertoMeioPosto = DISTANCIA_MAXIMA;
+
+    while (postoAux != NULL)
+    {
+        float distanciaAux = calculaDistancia(meio->latitude, meio->longitude, postoAux->latitude, postoAux->longitude);
+
+        if (distanciaAux < caminhoMaisPertoMeioPosto)
+        {
+            caminhoMaisPertoMeioPosto = distanciaAux;
+            idDestinoPosto = postoAux->id;
+
+        }
+
+        postoAux = postoAux->proximo;
+
+    }
+
+    if (idOrigemPosto != -1 && idDestinoPosto != -1)
+    {
+        printf("\n\Caminho de Ponto %d a Ponto %d:\n\n" , idOrigemPosto, idDestinoPosto);
+
+        printf("%d ", idOrigemPosto);
+        float distanciaCaminho = dijkstra(headListPostos, idOrigemPosto, idDestinoPosto,true);
+        printf("%d ", idDestinoPosto);
+
+        float distanciaCaminhoTotal = distanciaCaminho + caminhoMaisPertoMeioPosto + caminhoMaisPertoClientePosto;
+
+        printf("\n\nDistancia Total: %.2f km  (Caminho Normal: %.2f km)  (Caminho Extra: %.2f km)\n", distanciaCaminhoTotal, distanciaCaminho , caminhoMaisPertoMeioPosto + caminhoMaisPertoClientePosto);
+
+    }
+
+
+
+    return headListPostos;
+
+
+}
+
 
 

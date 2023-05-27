@@ -52,8 +52,8 @@ LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos
 bool ExistePosto(LocalizacaoPostos* header, int idPosto);
 LocalizacaoPostos* RemoverPosto(LocalizacaoPostos* header, int id);
 
-LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia);
-LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino, float distancia);
+LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, LocalizacaoPostos* postoOrigem);
+LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino);
 bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjacentes);
 LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostosAdjacentes* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id);
 
@@ -86,7 +86,7 @@ bool camiaoRecolha(Camiao* camiao, LocalizacaoPostos* headListPontos, struct Mei
 CaminhoCamiao* RemoverCaminhoNode(CaminhoCamiao* header, int id);
 
 
-CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, MeiosDeMobilidade* headListMeios, float* distanciaExtra);
+CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios, float* distanciaExtra);
 
 
 bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);
@@ -95,9 +95,11 @@ int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* c
 
 
 bool localizacaoRaioClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListPostos, float raio);
-float calculaDistanciaClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListPostos);
+bool localizacaoRaioClienteMeio(struct Clientes* cliente, struct MeiosDeMobilidade* headListMeio, float raio, char* tipo);
 
-float calculaDistanciaMeioPosto(struct MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos);
+float calculaDistancia(float latitude1, float longitude1, float latitude2, float longitude2);
 
 CaminhoCamiao* CriarCaminhoNodes(int idPosto, int idMeio, int pesoMeio);
 CaminhoCamiao* InserirCaminho(CaminhoCamiao* headLista, CaminhoCamiao* novoCaminho);
+
+LocalizacaoPostos* DistanciaClienteAMeioTotal(struct Clientes* cliente, struct MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos);

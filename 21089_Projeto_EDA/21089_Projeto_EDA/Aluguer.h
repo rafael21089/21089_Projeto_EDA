@@ -46,6 +46,10 @@ Aluguer* CriarAluguerListaTotal(int id, float custo, char* estadoDoAluguer, int 
 Aluguer* InsereAluguerListaTotalNoFim(Aluguer* header, Aluguer* novoAluguerListaTotal);
 //Ver se Existe Aluguer na lista por id
 bool ExisteAluguerListaTotal(Aluguer* header, int idAluguerListaTotal);
+
+//Ver se Tem Um Aluguer Ativo
+bool TemAluguerAtivo(Aluguer* header);
+
 //Conta quantos alugueres existem Total
 int CountAluguerListaTotal(Aluguer* head);
 //Conta quantos alugueres existem 

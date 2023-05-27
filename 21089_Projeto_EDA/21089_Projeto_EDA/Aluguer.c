@@ -488,3 +488,26 @@ int ListarTodosAlugueres(Aluguer* header) {
 
 
 
+/**
+*	@brief Ve se tem Aluguer Ativo
+*
+*
+*	@param [in] header								header da lista de Alugueres
+*
+*	@return True/False;
+*
+*/
+
+bool TemAluguerAtivo(Aluguer* header) {
+	if (header == NULL) return false;
+	Aluguer* aux = header;
+	while (aux != NULL) {
+		if (strcmp(aux->estadoDoAluguer, "Ativo") == 0)
+			return true;
+		aux = aux->next;
+	}
+	return false;
+}
+
+
+

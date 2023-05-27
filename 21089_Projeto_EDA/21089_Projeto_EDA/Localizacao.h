@@ -86,7 +86,7 @@ bool camiaoRecolha(Camiao* camiao, LocalizacaoPostos* headListPontos, struct Mei
 CaminhoCamiao* RemoverCaminhoNode(CaminhoCamiao* header, int id);
 
 
-CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios);
+CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, MeiosDeMobilidade* headListMeios, float* distanciaExtra);
 
 
 bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);
@@ -98,3 +98,6 @@ bool localizacaoRaioClientePosto(struct Clientes* cliente, LocalizacaoPostos* he
 float calculaDistanciaClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListPostos);
 
 float calculaDistanciaMeioPosto(struct MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos);
+
+CaminhoCamiao* CriarCaminhoNodes(int idPosto, int idMeio, int pesoMeio);
+CaminhoCamiao* InserirCaminho(CaminhoCamiao* headLista, CaminhoCamiao* novoCaminho);

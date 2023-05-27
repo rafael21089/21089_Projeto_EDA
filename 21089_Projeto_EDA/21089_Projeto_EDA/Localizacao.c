@@ -520,9 +520,41 @@ Camiao* CriarCamiao(int idOrigem , float cargaAtual , float cargaMaxima, Localiz
 }
 
 
+CaminhoCamiao* CriarCaminhoNodes(int idPosto, int idMeio, int pesoMeio) {
+
+    CaminhoCamiao* novoCaminho = (Camiao*)malloc(sizeof(Camiao));
+    if (novoCaminho == NULL) {
+        return NULL;
+    }
+
+    novoCaminho->idPosto = idPosto;
+    novoCaminho->idMeio = idMeio;
+    novoCaminho->pesoMeio = pesoMeio;
+    novoCaminho->proximo = NULL;
+
+    return novoCaminho;
+}
+
+CaminhoCamiao* InserirCaminho(CaminhoCamiao* headLista , CaminhoCamiao* novoCaminho) {
+
+    if (headLista == NULL) {
+        headLista = novoCaminho;
+    }
+    else
+    {
+        CaminhoCamiao* aux = headLista;
+        while (aux->proximo != NULL) {
+            aux = aux->proximo;
+        }
+
+        aux->proximo = novoCaminho;
+    }
+
+    return headLista;
+}
 
 
-CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilidade* headListMeios ) {
+CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilidade* headListMeios, float* distanciaExtra ) {
 
     LocalizacaoPostos* auxPontos = headListPontos;
     MeiosDeMobilidade* auxMeios = headListMeios;
@@ -536,28 +568,13 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
         while (auxMeios != NULL) {
             if (auxPontos->latitude == auxMeios->latitude && auxPontos->longitude == auxMeios->longitude && auxMeios->cargaBateria <= 50 && auxMeios->estado == true) {
 
-                CaminhoCamiao* novoCaminho = (CaminhoCamiao*)malloc(sizeof(CaminhoCamiao));
+                CaminhoCamiao* novoCaminho = CriarCaminhoNodes(auxPontos->id, auxMeios->id, auxMeios->peso);
 
-                novoCaminho->idPosto = auxPontos->id;
-                novoCaminho->idMeio = auxMeios->id;
-                novoCaminho->pesoMeio = auxMeios->peso;
-                novoCaminho->proximo = NULL;
-
+                caminho = InserirCaminho(caminho , novoCaminho);
 
                 printf("Caminho: Posto %d - (%.4f, %.4f) Com Meio de Mobilidade %d com peso %.2f kg \n", novoCaminho->idPosto, auxPontos->latitude, auxPontos->longitude, auxMeios->id , auxMeios->peso);
 
-                if (caminho == NULL) {
-                    caminho = novoCaminho;
-                }
-                else
-                {
-                    CaminhoCamiao* aux = caminho;
-                    while (aux->proximo != NULL) {
-                        aux = aux->proximo;
-                    }
-
-                    aux->proximo = novoCaminho;
-                }
+               
             }
 
             auxMeios = auxMeios->next;
@@ -603,34 +620,18 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
         {
             printf("Caminho: Posto %d - (%.4f, %.4f) - Distancia Extra Para Chegar a Meio de Mobilidade %d : %.2f km  com peso %.2f kg \n", idPostoMaisPerto, latitudeMaisPerto, longitudeMaisPerto, idMeioMaisPerto, caminhoMaisPerto, pesoMaisPerto);
 
-            CaminhoCamiao* novoCaminho = (CaminhoCamiao*)malloc(sizeof(CaminhoCamiao));
+            CaminhoCamiao* novoCaminho = CriarCaminhoNodes(idPostoMaisPerto, idMeioMaisPerto, pesoMaisPerto);
 
-            novoCaminho->idPosto = idPostoMaisPerto;
-            novoCaminho->idMeio = idMeioMaisPerto;
-            novoCaminho->pesoMeio = pesoMaisPerto;
-            novoCaminho->proximo = NULL;
+            caminho = InserirCaminho(caminho, novoCaminho);
 
-            if (caminho == NULL) {
-                caminho = novoCaminho;
-            }
-            else
-            {
-                CaminhoCamiao* aux = caminho;
-                while (aux->proximo != NULL) {
-                    aux = aux->proximo;
-                }
-
-                aux->proximo = novoCaminho;
-            }
+            *distanciaExtra = *distanciaExtra + caminhoMaisPerto;
         }
         
         auxMeiosNaoEmPostos = headListMeios;
         auxPontosProximos = auxPontosProximos->proximo;
     }
 
-    
-
-
+   
 
     printf("\n\n");
 
@@ -654,7 +655,9 @@ bool camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
 
     CaminhoCamiao* caminho = NULL;
 
-    caminho = CreateCaminho(headListPontos , headListMeios);
+    float distanciaExtra = 0;
+
+    caminho = CreateCaminho(headListPontos , headListMeios, &distanciaExtra);
 
     
 
@@ -748,7 +751,7 @@ bool camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
     }
 
 
-    printf("\n Distancia Total: %.2f km \n\n", distancia);
+    printf("\n Distancia Total da Viagem: %.2f km (normal) + %.2f km (extra) = %.2f km  \n", distancia , distanciaExtra,  distancia + distanciaExtra);
 
     return true;
 }

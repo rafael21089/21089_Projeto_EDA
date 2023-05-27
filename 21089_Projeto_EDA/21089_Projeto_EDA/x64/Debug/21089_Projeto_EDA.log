@@ -17,23 +17,25 @@ C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projet
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(497,140): warning C4133: '=': incompatible types - from 'LocalizacaoPostosAdjacentes *' to 'LocalizacaoPostos *'
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(495,1): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(479,9): warning C4101: 'id': unreferenced local variable
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(543,55): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(610,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(770,41): warning C4033: 'RemoverCaminhoNode' must return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(956,9): warning C4101: 'idMeio': unreferenced local variable
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1005,78): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1005,111): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1007,44): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1002,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1003,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1025,78): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1025,111): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1027,44): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1022,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1023,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(525,1): warning C4133: 'initializing': incompatible types - from 'Camiao *' to 'CaminhoCamiao *'
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(557,124): warning C4029: declared formal parameter list different from definition
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(571,107): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(623,108): warning C4244: 'function': conversion from 'float' to 'int', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(773,41): warning C4033: 'RemoverCaminhoNode' must return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(959,9): warning C4101: 'idMeio': unreferenced local variable
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1008,78): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1008,111): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1010,44): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1005,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1006,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1028,78): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1028,111): warning C4244: 'function': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1030,44): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1025,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(1026,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(113): warning C4715: 'RemoverPosto': not all control paths return a value
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(219): warning C4715: 'RemoverPostoAdjacente': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(399): warning C4715: 'LerEArmazenarPostoAdjacente': not all control paths return a value
 C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(361): warning C4715: 'LerEArmazenarPosto': not all control paths return a value
-C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(791): warning C4715: 'RemoverCaminhoNode': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(399): warning C4715: 'LerEArmazenarPostoAdjacente': not all control paths return a value
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Localizacao.c(794): warning C4715: 'RemoverCaminhoNode': not all control paths return a value
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

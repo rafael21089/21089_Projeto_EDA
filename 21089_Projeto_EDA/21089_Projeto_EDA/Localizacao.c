@@ -1,5 +1,5 @@
 /**
-*  @file Aluguer.c
+*  @file Localizacao.c
  * @author Rafael Silva
  * @email a21089@alunos.ipca.pt
  * @date 2023
@@ -162,12 +162,12 @@ LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista
 }
 
 
-LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* vertex, LocalizacaoPostos* postoDestino) {
-    if (vertex == NULL || postoDestino == NULL || vertex->postosAdjacentes == NULL) {
+LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* posto, LocalizacaoPostos* postoDestino) {
+    if (posto == NULL || postoDestino == NULL || posto->postosAdjacentes == NULL) {
         return NULL;
     }
 
-    LocalizacaoPostosAdjacentes* adjacente = vertex->postosAdjacentes;
+    LocalizacaoPostosAdjacentes* adjacente = posto->postosAdjacentes;
     while (adjacente != NULL) {
         if (adjacente->postoDestinoAdjacente == postoDestino) {
             return adjacente;

@@ -191,7 +191,9 @@ int main() {
 
 			//dijkstra(headListaPostos,2,0);
 
-			camiao = CriarCamiao(2,0,100, ProcurarPorIdPostos(headListaPostos, 2));
+			//localizacaoRaioCliente(ProcuraClientes(headListaClientes , 1) , headListaPostos, 500.0);
+
+			camiao = CriarCamiao(0,0,100, ProcurarPorIdPostos(headListaPostos, 0));
 
 			camiaoRecolha(camiao , headListaPostos , headListaMeios);
 

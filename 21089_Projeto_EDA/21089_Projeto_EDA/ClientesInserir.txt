@@ -1,2 +1,2 @@
-1;Rafael;Braga;12345;200
-2;Marco;Barcelos;12333;300
+1;Rafael;Braga;12345;200;41.579114;-8.480740
+2;Marco;Barcelos;12333;300;41.578833;-8.481577

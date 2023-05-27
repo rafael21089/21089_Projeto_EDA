@@ -77,7 +77,7 @@ bool verSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto
 
 
 Camiao* CriarCamiao(int idOrigem, float cargaAtual, float cargaMaxima, LocalizacaoPostos* localizacaoAtual);
-void camiaoRecolha(Camiao* camiao, LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios);
+bool camiaoRecolha(Camiao* camiao, LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios);
 
 
 CaminhoCamiao* RemoverCaminhoNode(CaminhoCamiao* header, int id);
@@ -89,3 +89,7 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, struct MeiosDeMo
 bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);
 
 int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList, float* distancia, int* idParaEliminar, float* pesoAtual, float capacidadeMaxima);
+
+
+bool localizacaoRaioCliente(struct Clientes* cliente, LocalizacaoPostos* headListPostos, double radius);
+float calculaDistanciaClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListPostos);

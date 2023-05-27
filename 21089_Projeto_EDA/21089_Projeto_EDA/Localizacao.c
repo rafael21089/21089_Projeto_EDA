@@ -13,9 +13,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <math.h>
 
 #include "Localizacao.h"
 #include "MeioDeMobilidade.h"
+
+
+#define MAXIMO_DE_NODES_CAMINHO 100
+#define DISTANCIA_MAXIMA 500
+#define TERRA_RAIO 6371.0
 
 
 LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude, bool visitado, LocalizacaoPostosAdjacentes* postosAdjacentes) {
@@ -458,7 +464,7 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
     while (auxPontos != NULL)
     {
         while (auxMeios != NULL) {
-            if (auxPontos->latitude == auxMeios->latitude && auxPontos->longitude == auxMeios->longitude && auxMeios->cargaBateria >= 50) {
+            if (auxPontos->latitude == auxMeios->latitude && auxPontos->longitude == auxMeios->longitude && auxMeios->cargaBateria <= 50 && auxMeios->estado == true) {
 
                 CaminhoCamiao* novoCaminho = (CaminhoCamiao*)malloc(sizeof(CaminhoCamiao));
 
@@ -491,7 +497,12 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
 
 }
 
-void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeMobilidade* headListMeios) {
+bool camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeMobilidade* headListMeios) {
+
+    if (headListPontos == NULL || headListMeios == NULL || camiao == NULL)
+    {
+        return false;
+    }
 
     LocalizacaoPostos* auxPontos = headListPontos;
     MeiosDeMobilidade* auxMeios = headListMeios;
@@ -512,6 +523,7 @@ void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
         // Calculate the length of the linked list
         int length = 0;
         CaminhoCamiao* current = caminho;
+        float distanciaAux = distancia;
 
         // Count the number of nodes in the linked list
         while (current != NULL) {
@@ -580,9 +592,11 @@ void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
 
         }
 
-        printf(" Distancia Por Fases : %f  ", distancia);
+        distanciaAux = distancia - distanciaAux;
 
-        printf(" peso: %f \n", peso);
+        printf(" Distancia Por Fases Cometida: %.2f km ", distanciaAux);
+
+        printf(" Peso Na Viagem: %.2f kg\n", peso);
 
         peso = 0;
 
@@ -590,9 +604,9 @@ void camiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
     }
 
 
-    printf(" Distancia Total: %f ", distancia);
+    printf("\n Distancia Total: %.2f km \n\n", distancia);
 
-
+    return true;
 }
 
 
@@ -675,7 +689,6 @@ bool verSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto
 }
 
 
-#define MAX_NODES 100
 
 float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
 {
@@ -698,12 +711,12 @@ float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
     }
 
     // Create arrays for storing distance and parent information
-    float distance[MAX_NODES];
-    int parent[MAX_NODES];
+    float distance[MAXIMO_DE_NODES_CAMINHO];
+    int parent[MAXIMO_DE_NODES_CAMINHO];
 
     // Initialize distance and parent arrays
     for (int i = 0; i < numNodes; i++) {
-        distance[i] = 500;
+        distance[i] = DISTANCIA_MAXIMA;
         parent[i] = -1;
     }
 
@@ -712,10 +725,10 @@ float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
 
     // Dijkstra's algorithm
     for (int count = 0; count < numNodes - 1; count++) {
-        float minDistance = 500;
+        float minDistance = DISTANCIA_MAXIMA;
         LocalizacaoPostos* minNode = NULL;
 
-        // Find the node with the minimum distance
+        //Encontra o node com menos distancia ainda nao visitado
         current = headList;
         while (current != NULL) {
             if (!current->visitado && distance[current->id] <= minDistance) {
@@ -726,7 +739,7 @@ float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId)
         }
 
         if (minNode == NULL) {
-            // All remaining nodes are unreachable
+            // Se nulo sai do Loop
             break;
         }
 
@@ -815,6 +828,62 @@ int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* c
 
     *distancia = *distancia + minDistance;
     return idPosto;
+}
+
+
+float calculaDistanciaClientePosto(Clientes* cliente, LocalizacaoPostos* headListPostos) {
+
+    Clientes* auxCliente = cliente;
+    LocalizacaoPostos* auxPostos = headListPostos;
+
+    float lat1 = auxCliente->latitude;
+    float lon1 = auxCliente->longitude;
+
+
+    float lat2 = auxPostos->latitude;
+    float lon2 = auxPostos->longitude;
+
+    float dLat = (lat2 - lat1) * 3.141593 / 180.0f;
+    float dLon = (lon2 - lon1) * 3.141593 / 180.0f;
+
+    float a = sinf(dLat / 2) * sinf(dLat / 2) + cosf(lat1 * 3.141593 / 180.0f) * cosf(lat2 * 3.141593 / 180.0f) * sinf(dLon / 2) * sinf(dLon / 2);
+
+    return 2 * TERRA_RAIO * asinf(sqrtf(a));
+}
+
+
+bool localizacaoRaioCliente(Clientes* cliente, LocalizacaoPostos* headListPostos, double radius) {
+
+    if (cliente == NULL || headListPostos == NULL)
+    {
+        return false;
+    }
+
+    LocalizacaoPostos* auxPostos = headListPostos;
+    int numLocations = 0;
+
+    while (auxPostos != NULL)
+    {
+        numLocations++;
+        auxPostos = auxPostos->proximo;
+    }
+
+    auxPostos = headListPostos;
+
+    printf("Localizacao de raio %.2f km com centro de (%.4f, %.4f):\n", radius, cliente->latitude, cliente->longitude);
+
+    for (int i = 0; i < numLocations; i++) {
+        float distance = calculaDistanciaClientePosto(cliente, auxPostos);
+
+        if (distance <= radius) {
+            printf("Posto %d - (%.4f, %.4f) - Distancia: %.2f km\n", auxPostos->id, auxPostos->latitude, auxPostos->longitude, distance);
+        }
+
+        auxPostos = auxPostos->proximo;
+    }
+
+    return true;
+
 }
 
 

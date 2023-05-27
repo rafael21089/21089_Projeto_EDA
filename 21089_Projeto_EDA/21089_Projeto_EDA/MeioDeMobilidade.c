@@ -584,3 +584,49 @@ int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
 }
 
+
+/**
+*	@brief Altera Estado MeiosDeMobilidade na lista de MeiosDeMobilidade.
+*
+*
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*	@param [in] id						id MeiosDeMobilidade
+*	@param [in] estado					estado MeiosDeMobilidade
+*
+*
+*/
+void AlteraEstadoMeiosDeMobilidade(MeiosDeMobilidade** header, int id, bool estado) {
+	if (*header != NULL) {
+		MeiosDeMobilidade* aux = ProcuraMeiosDeMobilidade(*header, id);
+		if (aux != NULL)
+		{
+			aux->estado = estado;
+		}
+	}
+}
+
+
+/**
+*	@brief Altera Localizacao MeiosDeMobilidade na lista de MeiosDeMobilidade.
+*
+*
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*	@param [in] id						id MeiosDeMobilidade
+*	@param [in] latitude				latitude MeiosDeMobilidade
+*	@param [in] longitude				longitude MeiosDeMobilidade
+*
+*
+*/
+void AlteraLocalizacaoMeiosDeMobilidade(MeiosDeMobilidade** header, int id, float latitude, float longitude) {
+	if (*header != NULL) {
+		MeiosDeMobilidade* aux = ProcuraMeiosDeMobilidade(*header, id);
+		if (aux != NULL)
+		{
+			aux->longitude = longitude;
+			aux->latitude = latitude;
+		}
+	}
+}
+
+
+

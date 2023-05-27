@@ -1,5 +1,5 @@
-1;Carro;75;33;35;Lisboa;41.578592;-8.481706;true
+1;Carro;20;33;35;Lisboa;41.578592;-8.481706;true
 2;Carro;50;33;20;Lisboa;41.578592;-8.481706;true
-3;Carro;80;33;50;Lisboa;41.580373;-8.490278;true
+3;Carro;30;33;50;Lisboa;41.580373;-8.490278;true
 4;Carro;55;33;33;Lisboa;41.580223;-8.509214;true
-5;Trotinete;23;23;20;Braga;41.616457;-8.584362;true
+5;Trotinete;23;23;20;Braga;41.616450;-8.584362;true

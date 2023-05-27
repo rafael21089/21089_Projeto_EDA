@@ -82,4 +82,10 @@ int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
 //Lista Meio por Geocodigo
 int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
 
+//Altera o estado do Meio de Mobilidade
+void AlteraEstadoMeiosDeMobilidade(MeiosDeMobilidade** header, int id, bool estado);
+
+//Altera a latitude e longitude (geocodigo) do Meio de Mobilidade
+void AlteraLocalizacaoMeiosDeMobilidade(MeiosDeMobilidade** header, int id, float latitude, float longitude);
+
 

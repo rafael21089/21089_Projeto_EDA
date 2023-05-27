@@ -49,9 +49,13 @@ typedef struct CaminhoCamiao {
 
 LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude, bool visitado, LocalizacaoPostosAdjacentes* postosAdjacentes);
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto);
+bool ExistePosto(LocalizacaoPostos* header, int idPosto);
+LocalizacaoPostos* RemoverPosto(LocalizacaoPostos* header, int id);
 
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, float distancia);
 LocalizacaoPostosAdjacentes* InserirPostoAdjacente(LocalizacaoPostos** headLista, LocalizacaoPostos* postoOrigem, LocalizacaoPostos* postoDestino, float distancia);
+bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjacentes);
+LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostosAdjacentes* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id);
 
 LocalizacaoPostos* ProcurarPorIdPostosComListaToda(LocalizacaoPostos* headerList, int id);
 LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerList, int id);
@@ -66,12 +70,11 @@ bool GravarPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPostos* header
 LocalizacaoPostos* LerPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPostos** header, bool* resultado);
 
 bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* headerDestino);
-bool ExistePosto(LocalizacaoPostos* header, int idPosto);
 
 LocalizacaoPostos* AtualizarPostosAdjacentes(LocalizacaoPostos* headLista);
 
 LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* vertex, LocalizacaoPostos* postoDestino);
-float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId);
+float dijkstra(LocalizacaoPostos* headList, int origemId, int destinationId, bool querImprimirResultados);
 
 bool verSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto, LocalizacaoPostos* destinoPonto);
 
@@ -91,5 +94,7 @@ bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);
 int caminhoMaisPerto(LocalizacaoPostos* headList, int origemId, CaminhoCamiao* caminhoCamiaoList, float* distancia, int* idParaEliminar, float* pesoAtual, float capacidadeMaxima);
 
 
-bool localizacaoRaioCliente(struct Clientes* cliente, LocalizacaoPostos* headListPostos, double radius);
+bool localizacaoRaioClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListPostos, float raio);
 float calculaDistanciaClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListPostos);
+
+float calculaDistanciaMeioPosto(struct MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos);

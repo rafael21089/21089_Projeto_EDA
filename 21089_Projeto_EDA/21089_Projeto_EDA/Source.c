@@ -95,6 +95,8 @@ int main() {
 
 	do
 	{
+		system("cls");
+
 		printf("\n----------- Menu -----------:\n");
 		printf("1. Area de Gestor\n");
 		printf("2. Area de Cliente\n");
@@ -114,6 +116,8 @@ int main() {
 
 			if (!ExisteGestor(headListaGestor , idGestor))
 			{
+				system("cls");
+
 				printf("\nNao Exite Gestor com esse Id");
 				escolhaClienteGestor = 0;
 			}
@@ -126,6 +130,8 @@ int main() {
 			scanf("%d", &idCliente);
 			if (!ExisteCliente(headListaClientes, idCliente))
 			{
+				system("cls");
+
 				printf("\nNao Exite Cliente com esse Id");
 				escolhaClienteGestor = 0;
 			}
@@ -135,6 +141,7 @@ int main() {
 		default:
 			printf("Escolha nao disponivel , inserir outra vez.\n");
 		}
+
 
 	} while (escolhaClienteGestor != 1 && escolhaClienteGestor != 2 && escolhaClienteGestor != 3);
 
@@ -290,36 +297,62 @@ int main() {
 	do {
 
 		printf("\nCliente Dados:\n");
+
 		//Mostrar Dados
-
+		MostraCliente(ProcuraClientes(headListaClientes,idCliente));
+		
 		printf("\n----------- Menu -----------:\n");
-		printf("1. Inserir Cliente\n");
-		printf("2. Alterar Cliente\n");
+		printf("1. Registo Aluguer de um Meio\n");
+		printf("2. Historico de Alugueres\n");
+		printf("\n3. Lista todos os Postos de Recolha\n");
+		printf("4. Lista todos os Postos de Recolha em um raio de 50 km\n");
+		printf("5. Lista todos os Meios em um raio de 50 km de um certo tipo\n");
+		printf("\n6. Ir para Meio\n");
+		printf("6. Ir para Posto\n");
+
+		printf("\n7. Alterar Dados\n");
+		printf("8. Aumentar Saldo\n");
+		printf("9. Parar Aluguer Ativo\n");
 
 
-		printf("24. Sair\n");
+		printf("10. Sair\n");
 
 		printf("\nEscolha: ");
 		scanf("%d", &escolha);
 
 		switch (escolha) {
 		
+
 		case 1:
-			AluguerClientePorEscrever(headListaAluguerTotal);
+			RegistoPorEscreverClienteWindow(headListaClientes, headListaAluguerTotal, headListaMeios , idCliente);
 			break;
 		case 2:
+			ListarClienteAlugueresById(headListaClientes, idCliente);
+			break;
+		case 3:
 			ListarTodosPostos(headListaPostos);
 			break;
+		case 4:
+			LocalizacaoRaioClientePosto(ProcuraClientes(headListaClientes , idCliente) , headListaPostos, 500.0);
+			break;
+		case 5:
+			ProcurarRaioMeioCliente(headListaClientes, headListaMeios, idCliente);
+			break;
+		case 6:
 
-			//Ver qual mais perto raio Posto
-			//Ver qual mais perto raio Meio
-			//Alterar Dados
-			//Ir para Meio
-			//Alugar Meio
-			//Saldo Meter Dinheiro
-			//Ver Historico de Alugueres
-			//Parar Aluguer
-	
+			break;
+		case 7:
+
+			break;
+		case 8:
+
+			break;
+		case 9:
+
+			break;
+		case 10:
+
+			break;
 
 
 		case 24:
@@ -342,7 +375,7 @@ int main() {
 		GravarPostosBinario("PostosSave.bin", headListaPostos);
 
 
-	} while (escolha <= 24);
+	} while (escolha <= 10);
 	}
 
 

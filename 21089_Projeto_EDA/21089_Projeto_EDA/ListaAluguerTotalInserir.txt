@@ -1,2 +1,2 @@
-1;23;Ativo;1;1
-2;23;Ativo;1;2
+1;23;Inativo;1;1
+2;23;Inativo;1;2

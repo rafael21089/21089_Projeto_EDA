@@ -1374,6 +1374,8 @@ float CalculaDistancia(float latitude1 , float longitude1 , float latitude2 , fl
 */
 bool LocalizacaoRaioClientePosto(Clientes* cliente, LocalizacaoPostos* headListaPostos, float raio) {
 
+    system("cls");
+
     if (cliente == NULL || headListaPostos == NULL)
     {
         return false;
@@ -1390,7 +1392,7 @@ bool LocalizacaoRaioClientePosto(Clientes* cliente, LocalizacaoPostos* headLista
 
     auxPostos = headListaPostos;
 
-    printf("Localizacao de raio %.2f km com centro de (%.4f, %.4f) de Postos de Recolha:\n", raio, cliente->latitude, cliente->longitude);
+    printf("Localizacao de raio %.2f km com centro de (%.4f, %.4f) de Postos de Recolha:\n", raio/10, cliente->latitude, cliente->longitude);
     printf("\n");
 
     for (int i = 0; i < numLocalizacoes; i++) {

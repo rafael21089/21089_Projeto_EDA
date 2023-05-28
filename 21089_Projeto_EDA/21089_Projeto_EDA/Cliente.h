@@ -77,4 +77,9 @@ int AlterarPorEscreverCliente(Clientes* headClientes);
 int RemoverPorEscreverCliente(Clientes* headClientes);
 int RegistoPorEscrever(Clientes* headClientes, struct Aluguer* headAluguer, struct MeiosDeMobilidade* headMeio);
 
+//Registo Para Cliente Escrever (Window Clinte)
+int RegistoPorEscreverClienteWindow(Clientes* headClientes, struct Aluguer* headAluguer, struct MeiosDeMobilidade* headMeio, int idCliente);
+//Procurar por um Raio Meios de um tipo
+int ProcurarRaioMeioCliente(Clientes* headClientes, struct MeiosDeMobilidade* headMeio, int idCliente);
+
 

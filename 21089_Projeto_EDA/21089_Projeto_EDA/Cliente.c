@@ -16,6 +16,7 @@
 #include <stdbool.h>
 
 #include "Aluguer.h"
+#include "Localizacao.h"
 
 /**
 *	@brief Cria MeioDeMobilidade.
@@ -140,9 +141,10 @@ void MostraCliente(Clientes* cliente) {
 		printf("Nome: %s\n", cliente->nome);
 		printf("Morada: %s\n", cliente->morada);
 		printf("NIF: %s\n", cliente->nif);
-		printf("\nSaldo: %f\n", cliente->saldo);
-		printf("\Latitude: %f\n", cliente->latitude);
-		printf("\nLongitude: %f\n", cliente->longitude);
+		printf("Latitude: %f\n", cliente->latitude);
+		printf("Longitude: %f\n", cliente->longitude);
+		printf("\nSaldo: %.2f\n", cliente->saldo);
+
 		printf("\n-------------\n");
 	}
 }
@@ -534,5 +536,51 @@ int RegistoPorEscrever(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMo
 	scanf("%d", &idMeio);
 
 	RegistoAluguer(&headClientes, &headMeio, &headAluguer, idCliente, idMeio);
+
+}
+
+
+/**
+*	@brief Registar Aluguer na consola Cliente.
+*
+*
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] headAluguer					header da lista de Aluguer
+*	@param [in] headMeio					header da lista de MeiosDeMobilidade
+*
+*/
+
+int RegistoPorEscreverClienteWindow(Clientes* headClientes, Aluguer* headAluguer, MeiosDeMobilidade* headMeio, int idCliente) {
+
+	int idMeio;
+
+	printf("\nDigite o id do meio de mobilidade : ");
+	scanf("%d", &idMeio);
+
+	RegistoAluguer(&headClientes, &headMeio, &headAluguer, idCliente, idMeio);
+
+}
+
+
+/**
+*	@brief Procurar por um Raio Meios de um tipo
+*
+*
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] headAluguer					header da lista de Aluguer
+*	@param [in] headMeio					header da lista de MeiosDeMobilidade
+*
+*/
+
+int ProcurarRaioMeioCliente(Clientes* headClientes, MeiosDeMobilidade* headMeio, int idCliente) {
+
+	char meioTipo[100];
+
+	printf("\nDigite o tipo do meio de mobilidade que quer encontrar: ");
+	scanf("%s", &meioTipo);
+
+	system("cls");
+
+	LocalizacaoRaioClienteMeio(ProcuraClientes(headClientes, idCliente), headMeio, 500.0, meioTipo);
 
 }

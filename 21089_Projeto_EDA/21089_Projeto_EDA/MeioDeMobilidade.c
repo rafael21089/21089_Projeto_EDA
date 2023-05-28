@@ -141,8 +141,8 @@ void MostraMeiosDeMobilidade(MeiosDeMobilidade* meiosDeMobilidade) {
 		printf("\nMeio De Mobilidade ID: %d\n", meiosDeMobilidade->id);
 		printf("Tipo: %s\n", meiosDeMobilidade->tipo);
 		printf("Carga: %d\n", meiosDeMobilidade->cargaBateria);
-		printf("Custo: %f\n", meiosDeMobilidade->custo);
-		printf("Peso: %f\n", meiosDeMobilidade->peso);
+		printf("Custo: %.2f\n", meiosDeMobilidade->custo);
+		printf("Peso: %.2f\n", meiosDeMobilidade->peso);
 		printf("Cidade: %s\n", meiosDeMobilidade->cidade);
 		printf("Latitude: %f\n", meiosDeMobilidade->latitude);
 		printf("Longitude: %f\n", meiosDeMobilidade->longitude);

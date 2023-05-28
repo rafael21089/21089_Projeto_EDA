@@ -1,2 +1,3 @@
 ﻿  Source.c
+C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\21089_Projeto_EDA\Source.c(319,48): warning C4133: 'function': incompatible types - from 'Clientes *' to 'Aluguer *'
   21089_Projeto_EDA.vcxproj -> C:\Users\rafae\Documents\GitHub\21089_Projeto_EDA\21089_Projeto_EDA\x64\Debug\21089_Projeto_EDA.exe

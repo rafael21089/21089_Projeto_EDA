@@ -305,17 +305,18 @@ int main() {
 		printf("1. Registo Aluguer de um Meio\n");
 		printf("2. Historico de Alugueres\n");
 		printf("\n3. Lista todos os Postos de Recolha\n");
-		printf("4. Lista todos os Postos de Recolha em um raio de 50 km\n");
-		printf("5. Lista todos os Meios em um raio de 50 km de um certo tipo\n");
-		printf("\n6. Ir para Meio\n");
-		printf("6. Ir para Posto\n");
+		printf("\n4. Lista todos os Meios\n");
+		printf("5. Lista todos os Postos de Recolha em um raio de 50 km\n");
+		printf("6. Lista todos os Meios em um raio de 50 km de um certo tipo\n");
+		printf("\n7. Ir para Meio de Mobilidade\n");
+		printf("8. Ir para Posto de Recolha\n");
 
-		printf("\n7. Alterar Dados\n");
-		printf("8. Aumentar Saldo\n");
-		printf("9. Parar Aluguer Ativo\n");
+		printf("\n9. Alterar Dados (nome)\n");
+		printf("10. Aumentar Saldo\n");
+		printf("11. Parar Aluguer Ativo\n");
 
 
-		printf("10. Sair\n");
+		printf("12. Sair\n");
 
 		printf("\nEscolha: ");
 		scanf("%d", &escolha);
@@ -333,29 +334,32 @@ int main() {
 			ListarTodosPostos(headListaPostos);
 			break;
 		case 4:
-			LocalizacaoRaioClientePosto(ProcuraClientes(headListaClientes , idCliente) , headListaPostos, 500.0);
+			system("cls");
+			MostrarListaMeiosDeMobilidade(headListaMeios);
 			break;
 		case 5:
-			ProcurarRaioMeioCliente(headListaClientes, headListaMeios, idCliente);
+			LocalizacaoRaioClientePosto(ProcuraClientes(headListaClientes , idCliente) , headListaPostos, 500.0);
 			break;
 		case 6:
-
+			ProcurarRaioMeioCliente(headListaClientes, headListaMeios, idCliente);
 			break;
 		case 7:
-
+			ClienteParaMeioLocalizacao(headListaClientes, headListaMeios , headListaPostos , idCliente);
 			break;
 		case 8:
-
+			ClienteParaPostoLocalizacao(headListaClientes , headListaPostos , idCliente);
 			break;
 		case 9:
-
+			AlterarPorEscreverClienteWindowCliente(headListaClientes , idCliente);
 			break;
 		case 10:
 
 			break;
+		case 11:
 
+			break;
 
-		case 24:
+		case 12:
 			printf("A Sair\n");
 			break;
 		default:
@@ -375,7 +379,7 @@ int main() {
 		GravarPostosBinario("PostosSave.bin", headListaPostos);
 
 
-	} while (escolha <= 10);
+	} while (escolha <= 12);
 	}
 
 

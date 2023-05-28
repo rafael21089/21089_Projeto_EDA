@@ -163,8 +163,8 @@ bool LocalizacaoRaioClienteMeio(struct Clientes* cliente, struct MeiosDeMobilida
 float CalculaDistancia(float latitude1, float longitude1, float latitude2, float longitude2);
 //Distancia e Caminho de Cliente a Meio usando Postos
 LocalizacaoPostos* DistanciaClienteAMeioTotal(struct Clientes* cliente, struct MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos);
-
-
+//Distancia e Caminho de Cliente a Posto
+LocalizacaoPostos* DistanciaClienteAPostoTotal(struct Clientes* cliente, LocalizacaoPostos* headListaPostos, int idPostoDestino);
 //Cria Posto Escrever
 int CriarPostoEscrever(LocalizacaoPostos* headPosto);
 //Listar Postos
@@ -181,3 +181,6 @@ int RemoverAdjacenciaPostoEscrever(LocalizacaoPostos* headPosto);
 
 //Camiao Recolha Escrever
 int CamiaoRecolhaEscrever(LocalizacaoPostos* headPosto, struct MeiosDeMobilidade* headListaMeios);
+//Cliente Para Posto Escrever
+int ClienteParaPostoLocalizacao(struct Clientes* headClientes, LocalizacaoPostos* headListaPostos, int idCliente);
+

@@ -495,6 +495,25 @@ int AlterarPorEscreverCliente(Clientes* headClientes) {
 }
 
 /**
+*	@brief Altera Clientes mas na consola
+*
+*	@return 0;
+*
+*/
+int AlterarPorEscreverClienteWindowCliente(Clientes* headClientes , int idCliente) {
+
+	char nome[50];
+
+	printf("\nDigite o novo nome do cliente: ");
+	scanf("%s", &nome);
+
+	AlteraCliente(&headClientes, idCliente, nome);
+
+	return 0;
+
+}
+
+/**
 *	@brief Remove Clientes mas na consola
 *
 *	@return 0;
@@ -536,6 +555,7 @@ int RegistoPorEscrever(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMo
 	scanf("%d", &idMeio);
 
 	RegistoAluguer(&headClientes, &headMeio, &headAluguer, idCliente, idMeio);
+	return 0;
 
 }
 
@@ -558,6 +578,7 @@ int RegistoPorEscreverClienteWindow(Clientes* headClientes, Aluguer* headAluguer
 	scanf("%d", &idMeio);
 
 	RegistoAluguer(&headClientes, &headMeio, &headAluguer, idCliente, idMeio);
+	return 0;
 
 }
 
@@ -582,5 +603,68 @@ int ProcurarRaioMeioCliente(Clientes* headClientes, MeiosDeMobilidade* headMeio,
 	system("cls");
 
 	LocalizacaoRaioClienteMeio(ProcuraClientes(headClientes, idCliente), headMeio, 500.0, meioTipo);
+	return 0;
+
+}
+
+
+/**
+*	@brief Cliente vai a Meio
+*
+*
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] headAluguer					header da lista de Aluguer
+*	@param [in] headMeio					header da lista de MeiosDeMobilidade
+*
+*/
+
+int ClienteParaMeioLocalizacao(Clientes* headClientes, MeiosDeMobilidade* headMeio , LocalizacaoPostos* headListaPostos , int idCliente) {
+
+
+	int idMeio;
+
+	printf("\nDigite o meio de mobilidade que quer ir: ");
+	scanf("%d", &idMeio);
+
+	system("cls");
+
+	if (ExisteMeiosDeMobilidade(headMeio, idMeio))
+	{
+		DistanciaClienteAMeioTotal(ProcuraClientes(headClientes, idCliente), ProcuraMeiosDeMobilidade(headMeio, idMeio), headListaPostos);
+	}
+
+
+	return 0;
+
+}
+
+
+/**
+*	@brief Cliente vai a Posto
+*
+*
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] headAluguer					header da lista de Aluguer
+*	@param [in] headMeio					header da lista de MeiosDeMobilidade
+*
+*/
+
+int ClienteParaPostoLocalizacao(Clientes* headClientes, LocalizacaoPostos* headListaPostos, int idCliente) {
+
+
+	int idPosto;
+
+	printf("\nDigite o posto que quer ir: ");
+	scanf("%d", &idPosto);
+
+	system("cls");
+
+	if (ExistePosto(headListaPostos, idPosto))
+	{
+		DistanciaClienteAPostoTotal(ProcuraClientes(headClientes, idCliente), headListaPostos , idPosto);
+	}
+
+
+	return 0;
 
 }

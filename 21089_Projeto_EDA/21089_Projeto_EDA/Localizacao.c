@@ -1456,7 +1456,7 @@ bool LocalizacaoRaioClienteMeio(Clientes* cliente, MeiosDeMobilidade* headListaM
 }
 
 /**
-*	@brief Localizacao Raio no Cliente para Meios de um Tipo
+*	@brief Cliente Vai A Localizacao do Meio
 *
 *	@param [in] cliente				     cliente
 *	@param [in] meio		             meio
@@ -1522,13 +1522,18 @@ LocalizacaoPostos* DistanciaClienteAMeioTotal(Clientes* cliente , MeiosDeMobilid
     //Se encontrar
     if (idOrigemPosto != -1 && idDestinoPosto != -1)
     {
-        printf("\n\Caminho de Ponto %d a Ponto %d:\n\n" , idOrigemPosto, idDestinoPosto);
+        printf("\nCaminho Para Meio %d:\n", meio->id);
+
+        printf("\nCaminho de Posto Mais Proximo de Cliente: Posto %d , a Posto Mais Proximo de Meio: Posto %d\n\n" , idOrigemPosto, idDestinoPosto);
 
         printf("%d -> ", idOrigemPosto);
         float distanciaCaminho = AlgoritmoDijkstra(headListaPostos, idOrigemPosto, idDestinoPosto,true);  //Calcula Distancia
         printf("%d ", idDestinoPosto);
 
         float distanciaCaminhoTotal = distanciaCaminho + caminhoMaisPertoMeioPosto + caminhoMaisPertoClientePosto;
+
+        cliente->latitude = meio->latitude;
+        cliente->longitude = meio->longitude;
 
         printf("\n\nDistancia Total: %.2f km  (Caminho Normal: %.2f km)  (Caminho Extra: %.2f km)\n", distanciaCaminhoTotal, distanciaCaminho , caminhoMaisPertoMeioPosto + caminhoMaisPertoClientePosto);
 
@@ -1541,6 +1546,83 @@ LocalizacaoPostos* DistanciaClienteAMeioTotal(Clientes* cliente , MeiosDeMobilid
 
 }
 
+
+
+/**
+*	@brief Cliente Vai A Localizacao do Posto
+*
+*	@param [in] cliente				     cliente
+*	@param [in] headListPostos			 head lista Postos
+*	@param [in] idPostoDestino			 id Posto Destino
+*
+*	@return headListPostos de LocalizacaoPostos;
+*
+*/
+LocalizacaoPostos* DistanciaClienteAPostoTotal(Clientes* cliente, LocalizacaoPostos* headListaPostos , int idPostoDestino) {
+
+    if (headListaPostos == NULL)
+    {
+        return NULL;
+    }
+
+    if (cliente == NULL)
+    {
+        return headListaPostos;
+    }
+
+    LocalizacaoPostos* postoAux = headListaPostos;
+
+    float caminhoMaisPertoClientePosto = DISTANCIA_MAXIMA;
+
+    int idOrigemPosto = -1;
+
+    //Ve Qual Posto mais perto de o Cliente
+    while (postoAux != NULL)
+    {
+        float distanciaAux = CalculaDistancia(cliente->latitude, cliente->longitude, postoAux->posto->latitude, postoAux->posto->longitude);
+
+        if (distanciaAux < caminhoMaisPertoClientePosto)
+        {
+            caminhoMaisPertoClientePosto = distanciaAux;
+            idOrigemPosto = postoAux->posto->id;
+        }
+
+        postoAux = postoAux->proximo;
+
+    }
+
+    postoAux = headListaPostos;
+    
+
+
+    //Se encontrar Posto
+    if (idOrigemPosto != -1)
+    {
+        printf("\nCaminho Para Posto %d:\n", idPostoDestino);
+
+        printf("\nCaminho de Posto %d a Posto %d\n\n", idOrigemPosto, idPostoDestino);
+
+        printf("%d -> ", idOrigemPosto);
+        float distanciaCaminho = AlgoritmoDijkstra(headListaPostos, idOrigemPosto, idPostoDestino, true);  //Calcula Distancia
+        printf("%d ", idPostoDestino);
+
+        float distanciaCaminhoTotal = distanciaCaminho  + caminhoMaisPertoClientePosto;
+
+        LocalizacaoPostos* posto = ProcurarPorIdPostos(headListaPostos , idPostoDestino);
+
+        cliente->latitude = posto->posto->latitude;
+        cliente->longitude = posto->posto->longitude;
+
+        printf("\n\nDistancia Total: %.2f km  (Caminho Normal: %.2f km)  (Caminho Extra: %.2f km)\n", distanciaCaminhoTotal, distanciaCaminho, caminhoMaisPertoClientePosto);
+
+    }
+
+
+
+    return headListaPostos;
+
+
+}
 
 /**
 *	@brief Lista todos os Postos

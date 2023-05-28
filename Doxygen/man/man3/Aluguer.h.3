@@ -1,4 +1,4 @@
-.TH "Aluguer.h" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.TH "Aluguer.h" 3 "Sun May 28 2023" "21089_Projeto_EDA" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,6 +51,10 @@ Aluguer.h \- Definicao da struct \fBAluguer\fP onde ira guardar o registo de alu
 .RI "bool \fBExisteAluguerListaTotal\fP (\fBAluguer\fP *header, int idAluguerListaTotal)"
 .br
 .RI "Ve se existe \fBAluguer\fP\&. "
+.ti -1c
+.RI "bool \fBTemAluguerAtivo\fP (\fBAluguer\fP *header)"
+.br
+.RI "Ve se tem \fBAluguer\fP Ativo\&. "
 .ti -1c
 .RI "int \fBCountAluguerListaTotal\fP (\fBAluguer\fP *head)"
 .br
@@ -387,6 +391,22 @@ Lista todos os Alugueres Existentes\&.
 \fBParameters\fP
 .RS 4
 \fIheader\fP header da lista de Alugueres 
+.RE
+.PP
+
+.SS "bool TemAluguerAtivo (\fBAluguer\fP * header)"
+
+.PP
+Ve se tem \fBAluguer\fP Ativo\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de Alugueres
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
 .RE
 .PP
 

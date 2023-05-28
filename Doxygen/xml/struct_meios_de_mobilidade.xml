@@ -16,12 +16,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="31" column="9" bodyfile="MeioDeMobilidade.h" bodystart="31" bodyend="-1"/>
+        <location file="MeioDeMobilidade.h" line="32" column="9" bodyfile="MeioDeMobilidade.h" bodystart="32" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1aeffd627a96d90b315ce613cb1553f53a" prot="public" static="no" mutable="no">
         <type>char</type>
-        <definition>char MeiosDeMobilidade::tipo[50]</definition>
-        <argsstring>[50]</argsstring>
+        <definition>char MeiosDeMobilidade::tipo[LARGURAGERALSTRING]</definition>
+        <argsstring>[LARGURAGERALSTRING]</argsstring>
         <name>tipo</name>
         <qualifiedname>MeiosDeMobilidade::tipo</qualifiedname>
         <briefdescription>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="32" column="10" bodyfile="MeioDeMobilidade.h" bodystart="32" bodyend="-1"/>
+        <location file="MeioDeMobilidade.h" line="33" column="10" bodyfile="MeioDeMobilidade.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="33" column="9" bodyfile="MeioDeMobilidade.h" bodystart="33" bodyend="-1"/>
+        <location file="MeioDeMobilidade.h" line="34" column="9" bodyfile="MeioDeMobilidade.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -58,21 +58,77 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="34" column="11" bodyfile="MeioDeMobilidade.h" bodystart="34" bodyend="-1"/>
+        <location file="MeioDeMobilidade.h" line="35" column="11" bodyfile="MeioDeMobilidade.h" bodystart="35" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" prot="public" static="no" mutable="no">
-        <type>char</type>
-        <definition>char MeiosDeMobilidade::localizacao[50]</definition>
-        <argsstring>[50]</argsstring>
-        <name>localizacao</name>
-        <qualifiedname>MeiosDeMobilidade::localizacao</qualifiedname>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1ae5b428f0867e2749c9f7c46b3cbaa7c8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float MeiosDeMobilidade::peso</definition>
+        <argsstring></argsstring>
+        <name>peso</name>
+        <qualifiedname>MeiosDeMobilidade::peso</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="35" column="10" bodyfile="MeioDeMobilidade.h" bodystart="35" bodyend="-1"/>
+        <location file="MeioDeMobilidade.h" line="36" column="11" bodyfile="MeioDeMobilidade.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1acb2f4481add69276fdb042b3e943cf0e" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char MeiosDeMobilidade::cidade[LARGURAGERALSTRING]</definition>
+        <argsstring>[LARGURAGERALSTRING]</argsstring>
+        <name>cidade</name>
+        <qualifiedname>MeiosDeMobilidade::cidade</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="37" column="10" bodyfile="MeioDeMobilidade.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float MeiosDeMobilidade::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>MeiosDeMobilidade::latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="38" column="11" bodyfile="MeioDeMobilidade.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float MeiosDeMobilidade::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>MeiosDeMobilidade::longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="39" column="11" bodyfile="MeioDeMobilidade.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool MeiosDeMobilidade::estado</definition>
+        <argsstring></argsstring>
+        <name>estado</name>
+        <qualifiedname>MeiosDeMobilidade::estado</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="40" column="10" bodyfile="MeioDeMobilidade.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" prot="public" static="no" mutable="no">
         <type>struct <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> *</type>
@@ -86,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="36" column="19" bodyfile="MeioDeMobilidade.h" bodystart="36" bodyend="-1"/>
+        <location file="MeioDeMobilidade.h" line="41" column="19" bodyfile="MeioDeMobilidade.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" prot="public" static="no" mutable="no">
         <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
@@ -100,14 +156,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="38" column="29" bodyfile="MeioDeMobilidade.h" bodystart="38" bodyend="-1"/>
+        <location file="MeioDeMobilidade.h" line="43" column="29" bodyfile="MeioDeMobilidade.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Estrutura para armazenar Meios De Mobilidade. </para>
     </briefdescription>
     <detaileddescription>
-<para>Um Meios De Mobilidade contém um id (@id), tipo (@tipo) ,carga da Bateria (@cargaBateria) , custo (@custo) e localizacao (@aluguer). Contém apontador para próximo <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
@@ -128,15 +182,19 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="MeioDeMobilidade.h" line="30" column="1" bodyfile="MeioDeMobilidade.h" bodystart="30" bodyend="40"/>
+    <location file="MeioDeMobilidade.h" line="31" column="1" bodyfile="MeioDeMobilidade.h" bodystart="31" bodyend="45"/>
     <listofallmembers>
       <member refid="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>aluguer</name></member>
       <member refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>cargaBateria</name></member>
+      <member refid="struct_meios_de_mobilidade_1acb2f4481add69276fdb042b3e943cf0e" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>cidade</name></member>
       <member refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>custo</name></member>
+      <member refid="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>estado</name></member>
       <member refid="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>id</name></member>
-      <member refid="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>localizacao</name></member>
+      <member refid="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>latitude</name></member>
+      <member refid="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>longitude</name></member>
       <member refid="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>next</name></member>
-      <member refid="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>tipo</name></member>
+      <member refid="struct_meios_de_mobilidade_1ae5b428f0867e2749c9f7c46b3cbaa7c8" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>peso</name></member>
+      <member refid="struct_meios_de_mobilidade_1aeffd627a96d90b315ce613cb1553f53a" prot="public" virt="non-virtual"><scope>MeiosDeMobilidade</scope><name>tipo</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

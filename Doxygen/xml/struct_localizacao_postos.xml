@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_localizacao_postos" kind="struct" language="C++" prot="public">
+    <compoundname>LocalizacaoPostos</compoundname>
+    <includes refid="_localizacao_8h" local="no">Localizacao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_localizacao_postos_1a35f72ee153e3999d91120d6017f4b49b" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_postos" kindref="compound">Postos</ref> *</type>
+        <definition>struct Postos* LocalizacaoPostos::posto</definition>
+        <argsstring></argsstring>
+        <name>posto</name>
+        <qualifiedname>LocalizacaoPostos::posto</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="42" column="18" bodyfile="Localizacao.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_localizacao_postos_1a90ea2ff04d0aa1939ffa823df0eabc79" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>struct LocalizacaoPostos* LocalizacaoPostos::proximo</definition>
+        <argsstring></argsstring>
+        <name>proximo</name>
+        <qualifiedname>LocalizacaoPostos::proximo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="43" column="29" bodyfile="Localizacao.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura para Grafo orientado de <ref refid="struct_postos" kindref="compound">Postos</ref> de Localizacao. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> contém posto (@posto). Contém apontador para próximo <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocalizacaoPostos</label>
+        <link refid="struct_localizacao_postos"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>posto</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>LocalizacaoPostosAdjacentes</label>
+        <link refid="struct_localizacao_postos_adjacentes"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>postoDestinoAdjacente</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Postos</label>
+        <link refid="struct_postos"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>postosAdjacentes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Localizacao.h" line="41" column="1" bodyfile="Localizacao.h" bodystart="41" bodyend="45"/>
+    <listofallmembers>
+      <member refid="struct_localizacao_postos_1a35f72ee153e3999d91120d6017f4b49b" prot="public" virt="non-virtual"><scope>LocalizacaoPostos</scope><name>posto</name></member>
+      <member refid="struct_localizacao_postos_1a90ea2ff04d0aa1939ffa823df0eabc79" prot="public" virt="non-virtual"><scope>LocalizacaoPostos</scope><name>proximo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

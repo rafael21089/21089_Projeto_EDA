@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_postos" kind="struct" language="C++" prot="public">
+    <compoundname>Postos</compoundname>
+    <includes refid="_localizacao_8h" local="no">Localizacao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_postos_1ac640e134fc538b13943a26a0f795d09d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Postos::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Postos::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="25" column="9" bodyfile="Localizacao.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_postos_1a7891c2a23e5e95a50737127632ca8680" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char Postos::cidade[LARGURAGERALSTRING]</definition>
+        <argsstring>[LARGURAGERALSTRING]</argsstring>
+        <name>cidade</name>
+        <qualifiedname>Postos::cidade</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="26" column="10" bodyfile="Localizacao.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_postos_1a774fd4f5f24a600f6cc9c8c3d89bd5bb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Postos::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>Postos::latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="27" column="11" bodyfile="Localizacao.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_postos_1a9e552dabddeea08fc5c422faee8c4d17" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Postos::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>Postos::longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="28" column="11" bodyfile="Localizacao.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_postos_1af1b864c7d4d7ddc4533c32e3d6ba160e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Postos::visitado</definition>
+        <argsstring></argsstring>
+        <name>visitado</name>
+        <qualifiedname>Postos::visitado</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="29" column="10" bodyfile="Localizacao.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_postos_1acc620109a6eb989e68ea70f21b065082" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+        <definition>struct LocalizacaoPostosAdjacentes* Postos::postosAdjacentes</definition>
+        <argsstring></argsstring>
+        <name>postosAdjacentes</name>
+        <qualifiedname>Postos::postosAdjacentes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="30" column="39" bodyfile="Localizacao.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura de Vertices (<ref refid="struct_postos" kindref="compound">Postos</ref>) para grafo orientado de <ref refid="struct_postos" kindref="compound">Postos</ref> de Localizacao (<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>) </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um <ref refid="struct_postos" kindref="compound">Postos</ref> contém um id (@id), cidade (@cidade) ,latitude (@latitude) , longitude (@longitude), visitado (@visitado) e postosAdjacentes (@postosAdjacentes). </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>LocalizacaoPostos</label>
+        <link refid="struct_localizacao_postos"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>posto</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>LocalizacaoPostosAdjacentes</label>
+        <link refid="struct_localizacao_postos_adjacentes"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>postoDestinoAdjacente</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Postos</label>
+        <link refid="struct_postos"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>postosAdjacentes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Localizacao.h" line="24" column="1" bodyfile="Localizacao.h" bodystart="24" bodyend="32"/>
+    <listofallmembers>
+      <member refid="struct_postos_1a7891c2a23e5e95a50737127632ca8680" prot="public" virt="non-virtual"><scope>Postos</scope><name>cidade</name></member>
+      <member refid="struct_postos_1ac640e134fc538b13943a26a0f795d09d" prot="public" virt="non-virtual"><scope>Postos</scope><name>id</name></member>
+      <member refid="struct_postos_1a774fd4f5f24a600f6cc9c8c3d89bd5bb" prot="public" virt="non-virtual"><scope>Postos</scope><name>latitude</name></member>
+      <member refid="struct_postos_1a9e552dabddeea08fc5c422faee8c4d17" prot="public" virt="non-virtual"><scope>Postos</scope><name>longitude</name></member>
+      <member refid="struct_postos_1acc620109a6eb989e68ea70f21b065082" prot="public" virt="non-virtual"><scope>Postos</scope><name>postosAdjacentes</name></member>
+      <member refid="struct_postos_1af1b864c7d4d7ddc4533c32e3d6ba160e" prot="public" virt="non-virtual"><scope>Postos</scope><name>visitado</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -10,6 +10,7 @@
     <includedby refid="_aluguer_8h" local="yes">Aluguer.h</includedby>
     <includedby refid="_cliente_8h" local="yes">Cliente.h</includedby>
     <includedby refid="_gestor_8h" local="yes">Gestor.h</includedby>
+    <includedby refid="_localizacao_8c" local="yes">Localizacao.c</includedby>
     <includedby refid="_meio_de_mobilidade_8c" local="yes">MeioDeMobilidade.c</includedby>
     <includedby refid="_source_8c" local="yes">Source.c</includedby>
     <incdepgraph>
@@ -135,6 +136,10 @@
         </childnode>
       </node>
       <node id="9">
+        <label>Localizacao.c</label>
+        <link refid="_localizacao_8c"/>
+      </node>
+      <node id="10">
         <label>MeioDeMobilidade.c</label>
         <link refid="_meio_de_mobilidade_8c"/>
       </node>
@@ -149,6 +154,8 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
         <childnode refid="8" relation="include">
         </childnode>
       </node>
@@ -158,6 +165,21 @@
       </node>
     </invincdepgraph>
     <innerclass refid="struct_meios_de_mobilidade" prot="public">MeiosDeMobilidade</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_meio_de_mobilidade_8h_1a0989190f17dd96837d94d1cd29df8c1b" prot="public" static="no">
+        <name>LARGURAGERALSTRING</name>
+        <initializer>100</initializer>
+        <briefdescription>
+<para>Estrutura para armazenar Meios De Mobilidade. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um Meios De Mobilidade contém um id (@id), tipo (@tipo) ,carga da Bateria (@cargaBateria) , custo (@custo),peso (@peso) , cidade (@aluguer) , latitude (@latitude) , longitude (@longitude), estado (@estado) e alugueres (@atividade). Contém apontador para próximo <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="29" column="9" bodyfile="MeioDeMobilidade.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
       <sectiondef kind="typedef">
       <memberdef kind="typedef" id="_meio_de_mobilidade_8h_1a86b2f68e756ccb72d84b972655976379" prot="public" static="no">
         <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref></type>
@@ -165,21 +187,19 @@
         <argsstring></argsstring>
         <name>MeiosDeMobilidade</name>
         <briefdescription>
-<para>Estrutura para armazenar Meios De Mobilidade. </para>
         </briefdescription>
         <detaileddescription>
-<para>Um Meios De Mobilidade contém um id (@id), tipo (@tipo) ,carga da Bateria (@cargaBateria) , custo (@custo) e localizacao (@aluguer). Contém apontador para próximo <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="40" column="19"/>
+        <location file="MeioDeMobilidade.h" line="45" column="19"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="_meio_de_mobilidade_8h_1a2053eb016b634c1241ba27fa54dd5b7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1a318a4065db4cfd0ccbcce81204ffb29a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
         <definition>MeiosDeMobilidade * CriarMeiosDeMobilidade</definition>
-        <argsstring>(int id, char *tipo, int cargaBateria, float custo, char *localizacao)</argsstring>
+        <argsstring>(int id, char *tipo, int cargaBateria, float custo, float peso, char *cidade, float latitude, float longitude, bool estado)</argsstring>
         <name>CriarMeiosDeMobilidade</name>
         <param>
           <type>int</type>
@@ -198,8 +218,24 @@
           <declname>custo</declname>
         </param>
         <param>
+          <type>float</type>
+          <declname>peso</declname>
+        </param>
+        <param>
           <type>char *</type>
-          <declname>localizacao</declname>
+          <declname>cidade</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>estado</declname>
         </param>
         <briefdescription>
 <para>Cria MeioDeMobilidade. </para>
@@ -239,10 +275,34 @@
 </parameteritem>
 <parameteritem>
 <parameternamelist>
-<parametername direction="in">localizacao</parametername>
+<parametername direction="in">cidade</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>localizacao Do MeioDeMobilidade</para>
+<para>cidade Do MeioDeMobilidade </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude Do MeioDeMobilidade </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude Do MeioDeMobilidade </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">estado</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>estado Do MeioDeMobilidade</para>
 </parameterdescription>
 </parameteritem>
 </parameterlist>
@@ -252,7 +312,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="43" column="19" bodyfile="MeioDeMobilidade.c" bodystart="36" bodyend="55" declfile="MeioDeMobilidade.h" declline="43" declcolumn="19"/>
+        <location file="MeioDeMobilidade.h" line="48" column="19" bodyfile="MeioDeMobilidade.c" bodystart="39" bodyend="62" declfile="MeioDeMobilidade.h" declline="48" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1abf76c13c165ba6f4dd12278f351f6c4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
@@ -294,7 +354,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="45" column="19" bodyfile="MeioDeMobilidade.c" bodystart="68" bodyend="85" declfile="MeioDeMobilidade.h" declline="45" declcolumn="19"/>
+        <location file="MeioDeMobilidade.h" line="50" column="19" bodyfile="MeioDeMobilidade.c" bodystart="75" bodyend="92" declfile="MeioDeMobilidade.h" declline="50" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1ac7f639655c2abae685b690ba6fe76720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -336,7 +396,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="47" column="6" bodyfile="MeioDeMobilidade.c" bodystart="97" bodyend="106" declfile="MeioDeMobilidade.h" declline="47" declcolumn="6"/>
+        <location file="MeioDeMobilidade.h" line="52" column="6" bodyfile="MeioDeMobilidade.c" bodystart="104" bodyend="113" declfile="MeioDeMobilidade.h" declline="52" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1a5895547a678f65123fd2ba5ba74b363d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -364,7 +424,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="49" column="6" bodyfile="MeioDeMobilidade.c" bodystart="116" bodyend="122" declfile="MeioDeMobilidade.h" declline="49" declcolumn="6"/>
+        <location file="MeioDeMobilidade.h" line="54" column="6" bodyfile="MeioDeMobilidade.c" bodystart="123" bodyend="129" declfile="MeioDeMobilidade.h" declline="54" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1a3145ebd44cbe6a259aa52cc5aa9b68e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -392,7 +452,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="50" column="6" bodyfile="MeioDeMobilidade.c" bodystart="131" bodyend="143" declfile="MeioDeMobilidade.h" declline="50" declcolumn="6"/>
+        <location file="MeioDeMobilidade.h" line="55" column="6" bodyfile="MeioDeMobilidade.c" bodystart="138" bodyend="154" declfile="MeioDeMobilidade.h" declline="55" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1a2ac5e56c2f7c748210c39123bc89636f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
@@ -434,7 +494,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="52" column="19" bodyfile="MeioDeMobilidade.c" bodystart="156" bodyend="179" declfile="MeioDeMobilidade.h" declline="52" declcolumn="19"/>
+        <location file="MeioDeMobilidade.h" line="57" column="19" bodyfile="MeioDeMobilidade.c" bodystart="167" bodyend="190" declfile="MeioDeMobilidade.h" declline="57" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1ac1f7417ee214f298ded2ac65cf79bcb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
@@ -476,7 +536,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="54" column="19" bodyfile="MeioDeMobilidade.c" bodystart="192" bodyend="205" declfile="MeioDeMobilidade.h" declline="54" declcolumn="19"/>
+        <location file="MeioDeMobilidade.h" line="59" column="19" bodyfile="MeioDeMobilidade.c" bodystart="203" bodyend="216" declfile="MeioDeMobilidade.h" declline="59" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1ae1a7ed01c9801362233a7fc5cd8d73d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -528,7 +588,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="56" column="6" bodyfile="MeioDeMobilidade.c" bodystart="217" bodyend="225" declfile="MeioDeMobilidade.h" declline="56" declcolumn="6"/>
+        <location file="MeioDeMobilidade.h" line="61" column="6" bodyfile="MeioDeMobilidade.c" bodystart="228" bodyend="236" declfile="MeioDeMobilidade.h" declline="61" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1ac6290e0f6a9e38ab349e91ea8e5397e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -558,7 +618,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="58" column="5" bodyfile="MeioDeMobilidade.c" bodystart="238" bodyend="248" declfile="MeioDeMobilidade.h" declline="58" declcolumn="5"/>
+        <location file="MeioDeMobilidade.h" line="63" column="5" bodyfile="MeioDeMobilidade.c" bodystart="249" bodyend="259" declfile="MeioDeMobilidade.h" declline="63" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1aec511efb01d6cdd3c1f0d93713bd701e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
@@ -600,7 +660,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="61" column="19" bodyfile="MeioDeMobilidade.c" bodystart="260" bodyend="306" declfile="MeioDeMobilidade.h" declline="61" declcolumn="19"/>
+        <location file="MeioDeMobilidade.h" line="66" column="19" bodyfile="MeioDeMobilidade.c" bodystart="271" bodyend="325" declfile="MeioDeMobilidade.h" declline="66" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1a3f4e98a98059d05efb30e22c01d0e363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -642,7 +702,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="63" column="6" bodyfile="MeioDeMobilidade.c" bodystart="318" bodyend="333" declfile="MeioDeMobilidade.h" declline="63" declcolumn="6"/>
+        <location file="MeioDeMobilidade.h" line="68" column="6" bodyfile="MeioDeMobilidade.c" bodystart="337" bodyend="352" declfile="MeioDeMobilidade.h" declline="68" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1a2a29797de1f13f3ed60a97f9a1972e3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
@@ -672,7 +732,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="65" column="19" bodyfile="MeioDeMobilidade.c" bodystart="344" bodyend="358" declfile="MeioDeMobilidade.h" declline="65" declcolumn="19"/>
+        <location file="MeioDeMobilidade.h" line="70" column="19" bodyfile="MeioDeMobilidade.c" bodystart="363" bodyend="377" declfile="MeioDeMobilidade.h" declline="70" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1a352c826c410cb083ad3ec478a2db7862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -702,13 +762,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="68" column="5" bodyfile="MeioDeMobilidade.c" bodystart="369" bodyend="423" declfile="MeioDeMobilidade.h" declline="68" declcolumn="5"/>
+        <location file="MeioDeMobilidade.h" line="73" column="5" bodyfile="MeioDeMobilidade.c" bodystart="388" bodyend="444" declfile="MeioDeMobilidade.h" declline="73" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="_meio_de_mobilidade_8h_1ad0c010862a5de3a77255bf47ab7d87a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1a7a6b38470e5ae8d5d040633db514c6e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>int ListarMeioPorGeoCodigo</definition>
+        <definition>int ListarCidadePorGeoCodigo</definition>
         <argsstring>(MeiosDeMobilidade *header, char *geoCodigo)</argsstring>
-        <name>ListarMeioPorGeoCodigo</name>
+        <name>ListarCidadePorGeoCodigo</name>
         <param>
           <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
           <declname>header</declname>
@@ -744,7 +804,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="70" column="5" bodyfile="MeioDeMobilidade.c" bodystart="435" bodyend="460" declfile="MeioDeMobilidade.h" declline="70" declcolumn="5"/>
+        <location file="MeioDeMobilidade.h" line="75" column="5" bodyfile="MeioDeMobilidade.c" bodystart="456" bodyend="482" declfile="MeioDeMobilidade.h" declline="75" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1aa9a10d8dc25db240e69162e6919c15cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
@@ -761,7 +821,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="73" column="19" bodyfile="MeioDeMobilidade.c" bodystart="469" bodyend="493" declfile="MeioDeMobilidade.h" declline="73" declcolumn="19"/>
+        <location file="MeioDeMobilidade.h" line="78" column="19" bodyfile="MeioDeMobilidade.c" bodystart="491" bodyend="524" declfile="MeioDeMobilidade.h" declline="78" declcolumn="19"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1aa9d8675aa9e56968341533fa8eb95996" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -782,7 +842,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="74" column="5" bodyfile="MeioDeMobilidade.c" bodystart="501" bodyend="516" declfile="MeioDeMobilidade.h" declline="74" declcolumn="5"/>
+        <location file="MeioDeMobilidade.h" line="79" column="5" bodyfile="MeioDeMobilidade.c" bodystart="532" bodyend="547" declfile="MeioDeMobilidade.h" declline="79" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="_meio_de_mobilidade_8h_1ae5198c399a2e4d1f022c102debd0e5f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -803,13 +863,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="75" column="5" bodyfile="MeioDeMobilidade.c" bodystart="524" bodyend="535" declfile="MeioDeMobilidade.h" declline="75" declcolumn="5"/>
+        <location file="MeioDeMobilidade.h" line="80" column="5" bodyfile="MeioDeMobilidade.c" bodystart="555" bodyend="566" declfile="MeioDeMobilidade.h" declline="80" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="_meio_de_mobilidade_8h_1a6d357c9fb9104618406f7132210d0336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1a93ff976ee74eb46bac3f57a48ff5437c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
-        <definition>int ListarGeocodigoPorEscreverMeiosDeMobilidade</definition>
+        <definition>int ListarCidadePorEscreverMeiosDeMobilidade</definition>
         <argsstring>(MeiosDeMobilidade *headMeios)</argsstring>
-        <name>ListarGeocodigoPorEscreverMeiosDeMobilidade</name>
+        <name>ListarCidadePorEscreverMeiosDeMobilidade</name>
         <param>
           <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
           <declname>headMeios</declname>
@@ -824,7 +884,345 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="MeioDeMobilidade.h" line="78" column="5" bodyfile="MeioDeMobilidade.c" bodystart="543" bodyend="554" declfile="MeioDeMobilidade.h" declline="78" declcolumn="5"/>
+        <location file="MeioDeMobilidade.h" line="83" column="5" bodyfile="MeioDeMobilidade.c" bodystart="574" bodyend="585" declfile="MeioDeMobilidade.h" declline="83" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1aaf0ecf7a2cc817bd0080786639057fa9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlteraEstadoMeiosDeMobilidade</definition>
+        <argsstring>(MeiosDeMobilidade **header, int id, bool estado)</argsstring>
+        <name>AlteraEstadoMeiosDeMobilidade</name>
+        <param>
+          <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> **</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>estado</declname>
+        </param>
+        <briefdescription>
+<para>Altera Estado <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> na lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">estado</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>estado <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="86" column="6" bodyfile="MeioDeMobilidade.c" bodystart="598" bodyend="606" declfile="MeioDeMobilidade.h" declline="86" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1adf60694e4b7726c8d3bde5d40c00364c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlteraLocalizacaoMeiosDeMobilidade</definition>
+        <argsstring>(MeiosDeMobilidade **header, int id, float latitude, float longitude)</argsstring>
+        <name>AlteraLocalizacaoMeiosDeMobilidade</name>
+        <param>
+          <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> **</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+<para>Altera Localizacao <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> na lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="89" column="6" bodyfile="MeioDeMobilidade.c" bodystart="620" bodyend="629" declfile="MeioDeMobilidade.h" declline="89" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1ab5beda976a61bd3ac6799428145550f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AtivarDesativarMeio</definition>
+        <argsstring>(MeiosDeMobilidade *header, int id, bool estado)</argsstring>
+        <name>AtivarDesativarMeio</name>
+        <param>
+          <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>estado</declname>
+        </param>
+        <briefdescription>
+<para>Alterar Estado Meio. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id de Meio </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">estado</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>estado de Meio</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="92" column="5" bodyfile="MeioDeMobilidade.c" bodystart="641" bodyend="662" declfile="MeioDeMobilidade.h" declline="92" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1a3c9ae59b54ea130e33a5f982cd30c1f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AlterarEstadoEscrever</definition>
+        <argsstring>(MeiosDeMobilidade *headMeios)</argsstring>
+        <name>AlterarEstadoEscrever</name>
+        <param>
+          <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headMeios</declname>
+        </param>
+        <briefdescription>
+<para>Alterar Estado Meio Escrever. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="94" column="5" bodyfile="MeioDeMobilidade.c" bodystart="672" bodyend="701" declfile="MeioDeMobilidade.h" declline="94" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1aa2aa532b29073ee3b510e8494d4facaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AlterarLocalizacao</definition>
+        <argsstring>(MeiosDeMobilidade *header, int id, float latitude, float longitude)</argsstring>
+        <name>AlterarLocalizacao</name>
+        <param>
+          <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+<para>Alterar Localizacao Meio. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id de Meio </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude nova de Meio </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude nova de Meio</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="96" column="5" bodyfile="MeioDeMobilidade.c" bodystart="715" bodyend="737" declfile="MeioDeMobilidade.h" declline="96" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1a2bb0e84f93e165898dcedb27bafc92c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AlterarLocalizacaoEstadoEscrever</definition>
+        <argsstring>(MeiosDeMobilidade *headMeios)</argsstring>
+        <name>AlterarLocalizacaoEstadoEscrever</name>
+        <param>
+          <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headMeios</declname>
+        </param>
+        <briefdescription>
+<para>Alterar Localizacao Meio Escrever. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="98" column="5" bodyfile="MeioDeMobilidade.c" bodystart="748" bodyend="766" declfile="MeioDeMobilidade.h" declline="98" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_meio_de_mobilidade_8h_1aeafec8a1dc2165f025454ad7e9f4db08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EstadoAluguer</definition>
+        <argsstring>(MeiosDeMobilidade *headMeios, int idMeio)</argsstring>
+        <name>EstadoAluguer</name>
+        <param>
+          <type><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headMeios</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idMeio</declname>
+        </param>
+        <briefdescription>
+<para>Ver se Ta Reservado No Momento. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idMeio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Meio </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MeioDeMobilidade.h" line="100" column="6" bodyfile="MeioDeMobilidade.c" bodystart="777" bodyend="799" declfile="MeioDeMobilidade.h" declline="100" declcolumn="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -850,57 +1248,80 @@
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30" refid="struct_meios_de_mobilidade" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>{</highlight></codeline>
-<codeline lineno="31" refid="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" kindref="member">id</ref>;</highlight></codeline>
-<codeline lineno="32" refid="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" kindref="member">tipo</ref>[50];</highlight></codeline>
-<codeline lineno="33" refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" kindref="member">cargaBateria</ref>;</highlight></codeline>
-<codeline lineno="34" refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" kindref="member">custo</ref>;</highlight></codeline>
-<codeline lineno="35" refid="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" kindref="member">localizacao</ref>[50];</highlight></codeline>
-<codeline lineno="36" refid="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" kindref="member">aluguer</ref>;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" kindref="member">next</ref>;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="_meio_de_mobilidade_8h_1a86b2f68e756ccb72d84b972655976379" refkind="member"><highlight class="normal">}<sp/><ref refid="_meio_de_mobilidade_8h_1a86b2f68e756ccb72d84b972655976379" kindref="member">MeiosDeMobilidade</ref>;</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//Criar<sp/>Meio</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1a2053eb016b634c1241ba27fa54dd5b7b" kindref="member">CriarMeiosDeMobilidade</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" kindref="member">tipo</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" kindref="member">cargaBateria</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" kindref="member">custo</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" kindref="member">localizacao</ref>);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Meio<sp/>no<sp/>Header<sp/>de<sp/>Meio</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1abf76c13c165ba6f4dd12278f351f6c4c" kindref="member">InsereMeiosDeMobilidadeNoFim</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>novoMeiosDeMobilidade);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>Existe<sp/>Meio<sp/>na<sp/>lista<sp/>por<sp/>id</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ac7f639655c2abae685b690ba6fe76720" kindref="member">ExisteMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idMeiosDeMobilidade);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//Mostra<sp/>Lista<sp/>de<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a5895547a678f65123fd2ba5ba74b363d" kindref="member">MostrarListaMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a3145ebd44cbe6a259aa52cc5aa9b68e8" kindref="member">MostraMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>meiosDeMobilidade);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//Remove<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1a2ac5e56c2f7c748210c39123bc89636f" kindref="member">RemoverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//Procura<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1ac1f7417ee214f298ded2ac65cf79bcb0" kindref="member">ProcuraMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ae1a7ed01c9801362233a7fc5cd8d73d2" kindref="member">AlteraMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>**<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" kindref="member">tipo</ref>);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//Counta<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ac6290e0f6a9e38ab349e91ea8e5397e8" kindref="member">CountMeios</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>head);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>txt<sp/>file</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1aec511efb01d6cdd3c1f0d93713bd701e" kindref="member">LerEArmazenarMeiosDeMobilidade</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename,<sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>Meios<sp/>De<sp/>Mobilidade<sp/>no<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a3f4e98a98059d05efb30e22c01d0e363" kindref="member">GravarMeiosDeMobilidadeBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>bin<sp/>file</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1a2a29797de1f13f3ed60a97f9a1972e3f" kindref="member">LerMeiosDeMobilidadeBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro);</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//Lista<sp/>Meio<sp/>Autonomia<sp/>de<sp/>forma<sp/>Decrescente</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a352c826c410cb083ad3ec478a2db7862" kindref="member">ListarMeioAutonomiaDecrescente</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//Lista<sp/>Meio<sp/>por<sp/>Geocodigo</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ad0c010862a5de3a77255bf47ab7d87a4" kindref="member">ListarMeioPorGeoCodigo</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>geoCodigo);</highlight></codeline>
+<codeline lineno="29" refid="_meio_de_mobilidade_8h_1a0989190f17dd96837d94d1cd29df8c1b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LARGURAGERALSTRING<sp/>100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="struct_meios_de_mobilidade" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>{</highlight></codeline>
+<codeline lineno="32" refid="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="33" refid="struct_meios_de_mobilidade_1aeffd627a96d90b315ce613cb1553f53a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1aeffd627a96d90b315ce613cb1553f53a" kindref="member">tipo</ref>[<ref refid="_meio_de_mobilidade_8h_1a0989190f17dd96837d94d1cd29df8c1b" kindref="member">LARGURAGERALSTRING</ref>];</highlight></codeline>
+<codeline lineno="34" refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" kindref="member">cargaBateria</ref>;</highlight></codeline>
+<codeline lineno="35" refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" kindref="member">custo</ref>;</highlight></codeline>
+<codeline lineno="36" refid="struct_meios_de_mobilidade_1ae5b428f0867e2749c9f7c46b3cbaa7c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1ae5b428f0867e2749c9f7c46b3cbaa7c8" kindref="member">peso</ref>;</highlight></codeline>
+<codeline lineno="37" refid="struct_meios_de_mobilidade_1acb2f4481add69276fdb042b3e943cf0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1acb2f4481add69276fdb042b3e943cf0e" kindref="member">cidade</ref>[<ref refid="_meio_de_mobilidade_8h_1a0989190f17dd96837d94d1cd29df8c1b" kindref="member">LARGURAGERALSTRING</ref>];</highlight></codeline>
+<codeline lineno="38" refid="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" kindref="member">latitude</ref>;</highlight></codeline>
+<codeline lineno="39" refid="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" kindref="member">longitude</ref>;</highlight></codeline>
+<codeline lineno="40" refid="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" kindref="member">estado</ref>;</highlight></codeline>
+<codeline lineno="41" refid="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_aluguer" kindref="compound">Aluguer</ref>*<sp/><ref refid="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" kindref="member">aluguer</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="_meio_de_mobilidade_8h_1a86b2f68e756ccb72d84b972655976379" refkind="member"><highlight class="normal">}<sp/><ref refid="_meio_de_mobilidade_8h_1a86b2f68e756ccb72d84b972655976379" kindref="member">MeiosDeMobilidade</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//Criar<sp/>Meio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1a318a4065db4cfd0ccbcce81204ffb29a" kindref="member">CriarMeiosDeMobilidade</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_meios_de_mobilidade_1aeffd627a96d90b315ce613cb1553f53a" kindref="member">tipo</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" kindref="member">cargaBateria</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" kindref="member">custo</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1ae5b428f0867e2749c9f7c46b3cbaa7c8" kindref="member">peso</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_meios_de_mobilidade_1acb2f4481add69276fdb042b3e943cf0e" kindref="member">cidade</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" kindref="member">latitude</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" kindref="member">longitude</ref>,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" kindref="member">estado</ref>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Meio<sp/>no<sp/>Header<sp/>de<sp/>Meio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1abf76c13c165ba6f4dd12278f351f6c4c" kindref="member">InsereMeiosDeMobilidadeNoFim</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>novoMeiosDeMobilidade);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>Existe<sp/>Meio<sp/>na<sp/>lista<sp/>por<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ac7f639655c2abae685b690ba6fe76720" kindref="member">ExisteMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idMeiosDeMobilidade);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//Mostra<sp/>Lista<sp/>de<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a5895547a678f65123fd2ba5ba74b363d" kindref="member">MostrarListaMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a3145ebd44cbe6a259aa52cc5aa9b68e8" kindref="member">MostraMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>meiosDeMobilidade);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//Remove<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1a2ac5e56c2f7c748210c39123bc89636f" kindref="member">RemoverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//Procura<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1ac1f7417ee214f298ded2ac65cf79bcb0" kindref="member">ProcuraMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ae1a7ed01c9801362233a7fc5cd8d73d2" kindref="member">AlteraMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>**<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="struct_meios_de_mobilidade_1aeffd627a96d90b315ce613cb1553f53a" kindref="member">tipo</ref>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//Counta<sp/>Meios<sp/>De<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ac6290e0f6a9e38ab349e91ea8e5397e8" kindref="member">CountMeios</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>head);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>txt<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1aec511efb01d6cdd3c1f0d93713bd701e" kindref="member">LerEArmazenarMeiosDeMobilidade</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>filename,<sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>Meios<sp/>De<sp/>Mobilidade<sp/>no<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a3f4e98a98059d05efb30e22c01d0e363" kindref="member">GravarMeiosDeMobilidadeBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>bin<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1a2a29797de1f13f3ed60a97f9a1972e3f" kindref="member">LerMeiosDeMobilidadeBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro);</highlight></codeline>
 <codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//Inserir,Remover<sp/>e<sp/>Alterar<sp/>na<sp/>consola</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1aa9a10d8dc25db240e69162e6919c15cb" kindref="member">InserirPorEscreverMeiosDeMobilidade</ref>();</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1aa9d8675aa9e56968341533fa8eb95996" kindref="member">AlterarPorEscreverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ae5198c399a2e4d1f022c102debd0e5f7" kindref="member">RemoverPorEscreverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//Lista<sp/>Meio<sp/>Autonomia<sp/>de<sp/>forma<sp/>Decrescente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a352c826c410cb083ad3ec478a2db7862" kindref="member">ListarMeioAutonomiaDecrescente</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//Lista<sp/>Meio<sp/>por<sp/>Geocodigo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a7a6b38470e5ae8d5d040633db514c6e2" kindref="member">ListarCidadePorGeoCodigo</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>geoCodigo);</highlight></codeline>
 <codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//Lista<sp/>Meio<sp/>por<sp/>Geocodigo</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a6d357c9fb9104618406f7132210d0336" kindref="member">ListarGeocodigoPorEscreverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//Inserir,Remover<sp/>e<sp/>Alterar<sp/>na<sp/>consola</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/><ref refid="_meio_de_mobilidade_8h_1aa9a10d8dc25db240e69162e6919c15cb" kindref="member">InserirPorEscreverMeiosDeMobilidade</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1aa9d8675aa9e56968341533fa8eb95996" kindref="member">AlterarPorEscreverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ae5198c399a2e4d1f022c102debd0e5f7" kindref="member">RemoverPorEscreverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//Lista<sp/>Meio<sp/>por<sp/>Cidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a93ff976ee74eb46bac3f57a48ff5437c" kindref="member">ListarCidadePorEscreverMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>o<sp/>estado<sp/>do<sp/>Meio<sp/>de<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1aaf0ecf7a2cc817bd0080786639057fa9" kindref="member">AlteraEstadoMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>**<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" kindref="member">estado</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//Altera<sp/>a<sp/>latitude<sp/>e<sp/>longitude<sp/>(geocodigo)<sp/>do<sp/>Meio<sp/>de<sp/>Mobilidade</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1adf60694e4b7726c8d3bde5d40c00364c" kindref="member">AlteraLocalizacaoMeiosDeMobilidade</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>**<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" kindref="member">latitude</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" kindref="member">longitude</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//Ativa<sp/>ou<sp/>Desativa<sp/>Meio</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1ab5beda976a61bd3ac6799428145550f8" kindref="member">AtivarDesativarMeio</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" kindref="member">estado</ref>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//Escrever<sp/>Alterar<sp/>Estado</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a3c9ae59b54ea130e33a5f982cd30c1f1" kindref="member">AlterarEstadoEscrever</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//Alterar<sp/>Localizacao</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1aa2aa532b29073ee3b510e8494d4facaf" kindref="member">AlterarLocalizacao</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" kindref="member">latitude</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" kindref="member">longitude</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//Alterar<sp/>Localizacao<sp/>Escrever</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1a2bb0e84f93e165898dcedb27bafc92c5" kindref="member">AlterarLocalizacaoEstadoEscrever</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>Estados<sp/>Aluguer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_meio_de_mobilidade_8h_1aeafec8a1dc2165f025454ad7e9f4db08" kindref="member">EstadoAluguer</ref>(<ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headMeios,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idMeio);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="MeioDeMobilidade.h"/>
   </compounddef>

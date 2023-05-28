@@ -1,4 +1,4 @@
-.TH "MeioDeMobilidade.c" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.TH "MeioDeMobilidade.c" 3 "Sun May 28 2023" "21089_Projeto_EDA" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -29,7 +29,7 @@ MeioDeMobilidade.c \- Funcoes para MeioDeMobilidade\&.
 
 .in +1c
 .ti -1c
-.RI "\fBMeiosDeMobilidade\fP * \fBCriarMeiosDeMobilidade\fP (int id, char *tipo, int cargaBateria, float custo, char *localizacao)"
+.RI "\fBMeiosDeMobilidade\fP * \fBCriarMeiosDeMobilidade\fP (int id, char *tipo, int cargaBateria, float custo, float peso, char *cidade, float latitude, float longitude, bool estado)"
 .br
 .RI "Cria MeioDeMobilidade\&. "
 .ti -1c
@@ -81,7 +81,7 @@ MeioDeMobilidade.c \- Funcoes para MeioDeMobilidade\&.
 .br
 .RI "Listar \fBMeiosDeMobilidade\fP por Autonomia de forma decrescente\&. "
 .ti -1c
-.RI "int \fBListarMeioPorGeoCodigo\fP (\fBMeiosDeMobilidade\fP *header, char *geoCodigo)"
+.RI "int \fBListarCidadePorGeoCodigo\fP (\fBMeiosDeMobilidade\fP *header, char *geoCodigo)"
 .br
 .RI "Listar \fBMeiosDeMobilidade\fP por geo Codigo\&. "
 .ti -1c
@@ -97,9 +97,37 @@ MeioDeMobilidade.c \- Funcoes para MeioDeMobilidade\&.
 .br
 .RI "Remove \fBMeiosDeMobilidade\fP mas na consola\&. "
 .ti -1c
-.RI "int \fBListarGeocodigoPorEscreverMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *headMeios)"
+.RI "int \fBListarCidadePorEscreverMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP *headMeios)"
 .br
 .RI "Lista geocodigo \fBMeiosDeMobilidade\fP mas na consola\&. "
+.ti -1c
+.RI "void \fBAlteraEstadoMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP **header, int id, bool estado)"
+.br
+.RI "Altera Estado \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "void \fBAlteraLocalizacaoMeiosDeMobilidade\fP (\fBMeiosDeMobilidade\fP **header, int id, float latitude, float longitude)"
+.br
+.RI "Altera Localizacao \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. "
+.ti -1c
+.RI "int \fBAtivarDesativarMeio\fP (\fBMeiosDeMobilidade\fP *header, int id, bool estado)"
+.br
+.RI "Alterar Estado Meio\&. "
+.ti -1c
+.RI "int \fBAlterarEstadoEscrever\fP (\fBMeiosDeMobilidade\fP *headMeios)"
+.br
+.RI "Alterar Estado Meio Escrever\&. "
+.ti -1c
+.RI "int \fBAlterarLocalizacao\fP (\fBMeiosDeMobilidade\fP *header, int id, float latitude, float longitude)"
+.br
+.RI "Alterar Localizacao Meio\&. "
+.ti -1c
+.RI "int \fBAlterarLocalizacaoEstadoEscrever\fP (\fBMeiosDeMobilidade\fP *headMeios)"
+.br
+.RI "Alterar Localizacao Meio Escrever\&. "
+.ti -1c
+.RI "bool \fBEstadoAluguer\fP (\fBMeiosDeMobilidade\fP *headMeios, int idMeio)"
+.br
+.RI "Ver se Ta Reservado No Momento\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -124,6 +152,38 @@ Rafael Silva @email a21089@alunos.ipca.pt
 
 .SH "Function Documentation"
 .PP 
+.SS "void AlteraEstadoMeiosDeMobilidade (\fBMeiosDeMobilidade\fP ** header, int id, bool estado)"
+
+.PP
+Altera Estado \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id \fBMeiosDeMobilidade\fP 
+.br
+\fIestado\fP estado \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+
+.SS "void AlteraLocalizacaoMeiosDeMobilidade (\fBMeiosDeMobilidade\fP ** header, int id, float latitude, float longitude)"
+
+.PP
+Altera Localizacao \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id \fBMeiosDeMobilidade\fP 
+.br
+\fIlatitude\fP latitude \fBMeiosDeMobilidade\fP 
+.br
+\fIlongitude\fP longitude \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+
 .SS "void AlteraMeiosDeMobilidade (\fBMeiosDeMobilidade\fP ** header, int id, char * tipo)"
 
 .PP
@@ -139,10 +199,84 @@ Altera \fBMeiosDeMobilidade\fP na lista de \fBMeiosDeMobilidade\fP\&.
 .RE
 .PP
 
+.SS "int AlterarEstadoEscrever (\fBMeiosDeMobilidade\fP * headMeios)"
+
+.PP
+Alterar Estado Meio Escrever\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int AlterarLocalizacao (\fBMeiosDeMobilidade\fP * header, int id, float latitude, float longitude)"
+
+.PP
+Alterar Localizacao Meio\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id de Meio 
+.br
+\fIlatitude\fP latitude nova de Meio 
+.br
+\fIlongitude\fP longitude nova de Meio
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int AlterarLocalizacaoEstadoEscrever (\fBMeiosDeMobilidade\fP * headMeios)"
+
+.PP
+Alterar Localizacao Meio Escrever\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
 .SS "int AlterarPorEscreverMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * headMeios)"
 
 .PP
 Altera \fBMeiosDeMobilidade\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int AtivarDesativarMeio (\fBMeiosDeMobilidade\fP * header, int id, bool estado)"
+
+.PP
+Alterar Estado Meio\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id de Meio 
+.br
+\fIestado\fP estado de Meio
+.RE
 .PP
 \fBReturns\fP
 .RS 4
@@ -166,7 +300,7 @@ Quantos Alugueres Tem;
 .RE
 .PP
 
-.SS "\fBMeiosDeMobilidade\fP * CriarMeiosDeMobilidade (int id, char * tipo, int cargaBateria, float custo, char * localizacao)"
+.SS "\fBMeiosDeMobilidade\fP * CriarMeiosDeMobilidade (int id, char * tipo, int cargaBateria, float custo, float peso, char * cidade, float latitude, float longitude, bool estado)"
 
 .PP
 Cria MeioDeMobilidade\&. 
@@ -181,12 +315,36 @@ Cria MeioDeMobilidade\&.
 .br
 \fIcusto\fP custo Do MeioDeMobilidade 
 .br
-\fIlocalizacao\fP localizacao Do MeioDeMobilidade
+\fIcidade\fP cidade Do MeioDeMobilidade 
+.br
+\fIlatitude\fP latitude Do MeioDeMobilidade 
+.br
+\fIlongitude\fP longitude Do MeioDeMobilidade 
+.br
+\fIestado\fP estado Do MeioDeMobilidade
 .RE
 .PP
 \fBReturns\fP
 .RS 4
 novo MeioDeMobilidade 
+.RE
+.PP
+
+.SS "bool EstadoAluguer (\fBMeiosDeMobilidade\fP * headMeios, int idMeio)"
+
+.PP
+Ver se Ta Reservado No Momento\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIidMeio\fP id do Meio 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
 .RE
 .PP
 
@@ -289,7 +447,7 @@ header da lista de \fBMeiosDeMobilidade\fP;
 .RE
 .PP
 
-.SS "int ListarGeocodigoPorEscreverMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * headMeios)"
+.SS "int ListarCidadePorEscreverMeiosDeMobilidade (\fBMeiosDeMobilidade\fP * headMeios)"
 
 .PP
 Lista geocodigo \fBMeiosDeMobilidade\fP mas na consola\&. 
@@ -297,6 +455,24 @@ Lista geocodigo \fBMeiosDeMobilidade\fP mas na consola\&.
 \fBReturns\fP
 .RS 4
 0; 
+.RE
+.PP
+
+.SS "int ListarCidadePorGeoCodigo (\fBMeiosDeMobilidade\fP * header, char * geoCodigo)"
+
+.PP
+Listar \fBMeiosDeMobilidade\fP por geo Codigo\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIgeoCodigo\fP geoCodigo
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header da lista de \fBMeiosDeMobilidade\fP; 
 .RE
 .PP
 
@@ -313,24 +489,6 @@ Listar \fBMeiosDeMobilidade\fP por Autonomia de forma decrescente\&.
 \fBReturns\fP
 .RS 4
 0; 
-.RE
-.PP
-
-.SS "int ListarMeioPorGeoCodigo (\fBMeiosDeMobilidade\fP * header, char * geoCodigo)"
-
-.PP
-Listar \fBMeiosDeMobilidade\fP por geo Codigo\&. 
-.PP
-\fBParameters\fP
-.RS 4
-\fIheader\fP header da lista de \fBMeiosDeMobilidade\fP 
-.br
-\fIgeoCodigo\fP geoCodigo
-.RE
-.PP
-\fBReturns\fP
-.RS 4
-header da lista de \fBMeiosDeMobilidade\fP; 
 .RE
 .PP
 

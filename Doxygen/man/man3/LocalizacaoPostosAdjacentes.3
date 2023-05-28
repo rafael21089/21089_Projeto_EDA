@@ -1,0 +1,46 @@
+.TH "LocalizacaoPostosAdjacentes" 3 "Sun May 28 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+LocalizacaoPostosAdjacentes \- Estrutura de Arestas (\fBLocalizacaoPostosAdjacentes\fP) para \fBPostos\fP de Localizacao\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Localizacao\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBidDestino\fP"
+.br
+.ti -1c
+.RI "struct \fBLocalizacaoPostos\fP * \fBpostoDestinoAdjacente\fP"
+.br
+.ti -1c
+.RI "float \fBdistancia\fP"
+.br
+.ti -1c
+.RI "struct \fBLocalizacaoPostosAdjacentes\fP * \fBproximo\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Estrutura de Arestas (\fBLocalizacaoPostosAdjacentes\fP) para \fBPostos\fP de Localizacao\&. 
+
+Um \fBLocalizacaoPostos\fP contém um idDestino (@id), postoDestinoAdjacente (@postoDestinoAdjacente) e distancia (@distancia)\&. Contém apontador para próximo \fBLocalizacaoPostosAdjacentes\fP 
+.SH "Member Data Documentation"
+.PP 
+.SS "float LocalizacaoPostosAdjacentes::distancia"
+
+.SS "int LocalizacaoPostosAdjacentes::idDestino"
+
+.SS "struct \fBLocalizacaoPostos\fP* LocalizacaoPostosAdjacentes::postoDestinoAdjacente"
+
+.SS "struct \fBLocalizacaoPostosAdjacentes\fP* LocalizacaoPostosAdjacentes::proximo"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

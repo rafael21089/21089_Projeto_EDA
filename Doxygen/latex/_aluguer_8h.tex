@@ -30,6 +30,8 @@ typedef struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} \mbox{\hyperlink{_alug
 \begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_aluguer}{Aluguer}} na lista de Alugueres. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{_aluguer_8h_accbcb74653afbbceecf56e09ba489b47}{Existe\+Aluguer\+Lista\+Total}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header, int id\+Aluguer\+Lista\+Total)
 \begin{DoxyCompactList}\small\item\em Ve se existe \mbox{\hyperlink{struct_aluguer}{Aluguer}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_aluguer_8h_ad6eb85fc80e5f2a9553726e16b41241a}{Tem\+Aluguer\+Ativo}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Ve se tem \mbox{\hyperlink{struct_aluguer}{Aluguer}} Ativo. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_aluguer_8h_a4c2eff8a355cdb5f4fa88785d1cba4c2}{Count\+Aluguer\+Lista\+Total}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$head)
 \begin{DoxyCompactList}\small\item\em Conta \mbox{\hyperlink{struct_aluguer}{Aluguer}} da lista total. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_aluguer_8h_a95a6d5a6f110dbf0be765a47e7c3cdca}{Count\+Alugueres}} (\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$head)
@@ -394,3 +396,21 @@ Lista todos os Alugueres Existentes.
 \mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{_aluguer_8h_ad6eb85fc80e5f2a9553726e16b41241a}\label{_aluguer_8h_ad6eb85fc80e5f2a9553726e16b41241a}} 
+\index{Aluguer.h@{Aluguer.h}!TemAluguerAtivo@{TemAluguerAtivo}}
+\index{TemAluguerAtivo@{TemAluguerAtivo}!Aluguer.h@{Aluguer.h}}
+\doxysubsubsection{\texorpdfstring{TemAluguerAtivo()}{TemAluguerAtivo()}}
+{\footnotesize\ttfamily bool Tem\+Aluguer\+Ativo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Ve se tem \mbox{\hyperlink{struct_aluguer}{Aluguer}} Ativo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de Alugueres\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}

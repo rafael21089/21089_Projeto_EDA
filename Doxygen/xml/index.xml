@@ -8,12 +8,26 @@
     <member refid="struct_aluguer_1a3e4a7affe35bb300f69175b4c4b4f44b" kind="variable"><name>meioUsadoId</name></member>
     <member refid="struct_aluguer_1a6249c993983dad6039c01fbc42f44853" kind="variable"><name>next</name></member>
   </compound>
+  <compound refid="struct_camiao" kind="struct"><name>Camiao</name>
+    <member refid="struct_camiao_1a58ce4ddbaab309abe4fa436080b71f2e" kind="variable"><name>idOrigem</name></member>
+    <member refid="struct_camiao_1ab36037d83c58cefca27c1848fb48f2bc" kind="variable"><name>cargaAtual</name></member>
+    <member refid="struct_camiao_1add8da85911d761f92f984df6af8ccc89" kind="variable"><name>cargaMaxima</name></member>
+    <member refid="struct_camiao_1a7f49ae4f76ec73f1a90fdb9694c32ea4" kind="variable"><name>localizacaoAtual</name></member>
+  </compound>
+  <compound refid="struct_caminho_camiao" kind="struct"><name>CaminhoCamiao</name>
+    <member refid="struct_caminho_camiao_1a6678bcebd8cf21c8b3d333f736a85a7a" kind="variable"><name>idPosto</name></member>
+    <member refid="struct_caminho_camiao_1a07da2c5d833d53342a467943226e1f94" kind="variable"><name>idMeio</name></member>
+    <member refid="struct_caminho_camiao_1ad00310940ed0767b5b97d39db0350211" kind="variable"><name>pesoMeio</name></member>
+    <member refid="struct_caminho_camiao_1a78b00c2f902cf63ca86b28a9f4955e99" kind="variable"><name>proximo</name></member>
+  </compound>
   <compound refid="struct_clientes" kind="struct"><name>Clientes</name>
     <member refid="struct_clientes_1ae6387aa3fc43d1c94a1dc168b3fe31bc" kind="variable"><name>id</name></member>
     <member refid="struct_clientes_1ac8e67a1b7b832cc40b74b2ed3a7c57a7" kind="variable"><name>nome</name></member>
     <member refid="struct_clientes_1a37c37fdb729d2e4bc0227c0c524ff3f6" kind="variable"><name>morada</name></member>
     <member refid="struct_clientes_1a4b8e8df864ef8cd471049cea0087ecfd" kind="variable"><name>nif</name></member>
     <member refid="struct_clientes_1aa5120d0d3469cb9a87487c23e55613a7" kind="variable"><name>saldo</name></member>
+    <member refid="struct_clientes_1a77f719c83c880c369164f5d35c3b9588" kind="variable"><name>latitude</name></member>
+    <member refid="struct_clientes_1a421448c0c502644d00d32999c31d3db4" kind="variable"><name>longitude</name></member>
     <member refid="struct_clientes_1ae3bac67f7cdbc22bb9cc7757964a2ec4" kind="variable"><name>aluguer</name></member>
     <member refid="struct_clientes_1a0107ed40b13a9b5463c0c1dff1af9c76" kind="variable"><name>next</name></member>
   </compound>
@@ -26,14 +40,36 @@
     <member refid="struct_gestor_1a04e963971fa622091a6b1bd31afc0fc9" kind="variable"><name>todosAlugueres</name></member>
     <member refid="struct_gestor_1a4a3488699ea7307650bd1968dd268fe6" kind="variable"><name>next</name></member>
   </compound>
+  <compound refid="struct_localizacao_postos" kind="struct"><name>LocalizacaoPostos</name>
+    <member refid="struct_localizacao_postos_1a35f72ee153e3999d91120d6017f4b49b" kind="variable"><name>posto</name></member>
+    <member refid="struct_localizacao_postos_1a90ea2ff04d0aa1939ffa823df0eabc79" kind="variable"><name>proximo</name></member>
+  </compound>
+  <compound refid="struct_localizacao_postos_adjacentes" kind="struct"><name>LocalizacaoPostosAdjacentes</name>
+    <member refid="struct_localizacao_postos_adjacentes_1a5526534cbe5e113f9c065ea6c0ac014a" kind="variable"><name>idDestino</name></member>
+    <member refid="struct_localizacao_postos_adjacentes_1a7c0f248b312debdd652f3a960b9f2484" kind="variable"><name>postoDestinoAdjacente</name></member>
+    <member refid="struct_localizacao_postos_adjacentes_1a572371434832982896e6da25ee4b83f1" kind="variable"><name>distancia</name></member>
+    <member refid="struct_localizacao_postos_adjacentes_1a6a3f7f7220cf4ce875ff67cb1544892c" kind="variable"><name>proximo</name></member>
+  </compound>
   <compound refid="struct_meios_de_mobilidade" kind="struct"><name>MeiosDeMobilidade</name>
     <member refid="struct_meios_de_mobilidade_1a923adfb67913dbf857333a5f82cab9a7" kind="variable"><name>id</name></member>
-    <member refid="struct_meios_de_mobilidade_1a465d0a7227f22659d4a7a62eace57e32" kind="variable"><name>tipo</name></member>
+    <member refid="struct_meios_de_mobilidade_1aeffd627a96d90b315ce613cb1553f53a" kind="variable"><name>tipo</name></member>
     <member refid="struct_meios_de_mobilidade_1a7c6220207d884aab5525b9a806916598" kind="variable"><name>cargaBateria</name></member>
     <member refid="struct_meios_de_mobilidade_1a62ae3f78ac214f74e36e7e9168b7d844" kind="variable"><name>custo</name></member>
-    <member refid="struct_meios_de_mobilidade_1ab4b9f731605c5b611af1d9e747517363" kind="variable"><name>localizacao</name></member>
+    <member refid="struct_meios_de_mobilidade_1ae5b428f0867e2749c9f7c46b3cbaa7c8" kind="variable"><name>peso</name></member>
+    <member refid="struct_meios_de_mobilidade_1acb2f4481add69276fdb042b3e943cf0e" kind="variable"><name>cidade</name></member>
+    <member refid="struct_meios_de_mobilidade_1aac54b4f5bf2c9f1b6ee8a88fb4d7d250" kind="variable"><name>latitude</name></member>
+    <member refid="struct_meios_de_mobilidade_1a15c4cc613890a40d8cd46f1fd08bfde0" kind="variable"><name>longitude</name></member>
+    <member refid="struct_meios_de_mobilidade_1a3945ab68c2f073d788eeb5a53dbf151e" kind="variable"><name>estado</name></member>
     <member refid="struct_meios_de_mobilidade_1a55fee232d3d3babf4676b583a105707a" kind="variable"><name>aluguer</name></member>
     <member refid="struct_meios_de_mobilidade_1a7812857896a523f027712aa27cd6b0cd" kind="variable"><name>next</name></member>
+  </compound>
+  <compound refid="struct_postos" kind="struct"><name>Postos</name>
+    <member refid="struct_postos_1ac640e134fc538b13943a26a0f795d09d" kind="variable"><name>id</name></member>
+    <member refid="struct_postos_1a7891c2a23e5e95a50737127632ca8680" kind="variable"><name>cidade</name></member>
+    <member refid="struct_postos_1a774fd4f5f24a600f6cc9c8c3d89bd5bb" kind="variable"><name>latitude</name></member>
+    <member refid="struct_postos_1a9e552dabddeea08fc5c422faee8c4d17" kind="variable"><name>longitude</name></member>
+    <member refid="struct_postos_1af1b864c7d4d7ddc4533c32e3d6ba160e" kind="variable"><name>visitado</name></member>
+    <member refid="struct_postos_1acc620109a6eb989e68ea70f21b065082" kind="variable"><name>postosAdjacentes</name></member>
   </compound>
   <compound refid="_aluguer_8c" kind="file"><name>Aluguer.c</name>
     <member refid="_aluguer_8c_1af08ec37a8c99d747fb60fa15bc28678b" kind="define"><name>_CRT_SECURE_NO_WARNINGS</name></member>
@@ -54,12 +90,14 @@
     <member refid="_aluguer_8c_1ae08682546035b7defaf7cd5e5420f724" kind="function"><name>ListarMeiosAlugueresById</name></member>
     <member refid="_aluguer_8c_1af479e88e55e7933452838d1c7fbd9fc0" kind="function"><name>AluguerMeiosPorEscrever</name></member>
     <member refid="_aluguer_8c_1a054847a0089bac03968a797236844e5a" kind="function"><name>ListarTodosAlugueres</name></member>
+    <member refid="_aluguer_8c_1ad6eb85fc80e5f2a9553726e16b41241a" kind="function"><name>TemAluguerAtivo</name></member>
   </compound>
   <compound refid="_aluguer_8h" kind="file"><name>Aluguer.h</name>
     <member refid="_aluguer_8h_1afb37cef674625047ed413fd6713ce3c6" kind="typedef"><name>Aluguer</name></member>
     <member refid="_aluguer_8h_1a364ea98f8caba1fe9c157d7b7756ded1" kind="function"><name>CriarAluguerListaTotal</name></member>
     <member refid="_aluguer_8h_1a01861332c1a55841ad38e02af819f1ce" kind="function"><name>InsereAluguerListaTotalNoFim</name></member>
     <member refid="_aluguer_8h_1accbcb74653afbbceecf56e09ba489b47" kind="function"><name>ExisteAluguerListaTotal</name></member>
+    <member refid="_aluguer_8h_1ad6eb85fc80e5f2a9553726e16b41241a" kind="function"><name>TemAluguerAtivo</name></member>
     <member refid="_aluguer_8h_1a4c2eff8a355cdb5f4fa88785d1cba4c2" kind="function"><name>CountAluguerListaTotal</name></member>
     <member refid="_aluguer_8h_1a95a6d5a6f110dbf0be765a47e7c3cdca" kind="function"><name>CountAlugueres</name></member>
     <member refid="_aluguer_8h_1ac5007d23049c41d81984ff4f17589e9f" kind="function"><name>InsertAlugueresCliente</name></member>
@@ -77,14 +115,15 @@
   </compound>
   <compound refid="_cliente_8c" kind="file"><name>Cliente.c</name>
     <member refid="_cliente_8c_1af08ec37a8c99d747fb60fa15bc28678b" kind="define"><name>_CRT_SECURE_NO_WARNINGS</name></member>
-    <member refid="_cliente_8c_1a3116b97016d33b487a8188517d0ebe15" kind="function"><name>CriarClientes</name></member>
+    <member refid="_cliente_8c_1a1047a713bff442cd4a9b9cbbff74bfad" kind="function"><name>CriarClientes</name></member>
     <member refid="_cliente_8c_1adab003d43eaf01cd19da2354ef7c184d" kind="function"><name>InsereClienteNoFim</name></member>
     <member refid="_cliente_8c_1a5b1510d72a1708e2a2a97929eedc6b96" kind="function"><name>ExisteCliente</name></member>
     <member refid="_cliente_8c_1ab69c5b6a62657eefc965de3b0925bd7d" kind="function"><name>MostrarListaClientes</name></member>
     <member refid="_cliente_8c_1a7d89fb3ece417391247b23ee492c006f" kind="function"><name>MostraCliente</name></member>
     <member refid="_cliente_8c_1a83d2511d0a642efe2e00c566ff4bfb88" kind="function"><name>RemoverCliente</name></member>
     <member refid="_cliente_8c_1accdeb91c05866425b30c53e8c339927b" kind="function"><name>ProcuraClientes</name></member>
-    <member refid="_cliente_8c_1ac88a1d64c94994aec09f458d5eb412c7" kind="function"><name>AlteraCliente</name></member>
+    <member refid="_cliente_8c_1a976063293eb792074816977869c2f554" kind="function"><name>AlteraCliente</name></member>
+    <member refid="_cliente_8c_1af91297c22f0e08d3e0ba6d1c6c5edee5" kind="function"><name>AumentarSaldoCliente</name></member>
     <member refid="_cliente_8c_1a8c3e4de65811bc87d57f1b48bf9cd67f" kind="function"><name>RegistoAluguer</name></member>
     <member refid="_cliente_8c_1ad5a73913e046fa3a43eedfd9f595a08a" kind="function"><name>CountClientes</name></member>
     <member refid="_cliente_8c_1a035761bf6ee64e84f737e0f2ba1db4cc" kind="function"><name>LerEArmazenarCliente</name></member>
@@ -92,19 +131,28 @@
     <member refid="_cliente_8c_1a06601e111f3554919bec4eab1bc844cc" kind="function"><name>LerClientesBinario</name></member>
     <member refid="_cliente_8c_1a0201d3d9572211f08c42c880fe0408c7" kind="function"><name>InserirPorEscreverCliente</name></member>
     <member refid="_cliente_8c_1a1792acf5c4d9aa313f2d10bdc49dfa41" kind="function"><name>AlterarPorEscreverCliente</name></member>
+    <member refid="_cliente_8c_1a4219d628ea8c17a875e16f49d529cf69" kind="function"><name>AlterarPorEscreverClienteWindowCliente</name></member>
     <member refid="_cliente_8c_1a40e950a56f4998295f564464fa712327" kind="function"><name>RemoverPorEscreverCliente</name></member>
     <member refid="_cliente_8c_1a5978d39456ff63c7768aa1c956c71f24" kind="function"><name>RegistoPorEscrever</name></member>
+    <member refid="_cliente_8c_1a8b8bc5f78b526b40a25cc1ce4f99e247" kind="function"><name>RegistoPorEscreverClienteWindow</name></member>
+    <member refid="_cliente_8c_1ace9a3036def8ce88971a4749eb3428e3" kind="function"><name>ProcurarRaioMeioCliente</name></member>
+    <member refid="_cliente_8c_1a2c9fbf8b5f04198fa33e3c3610c3e3a4" kind="function"><name>ClienteParaMeioLocalizacao</name></member>
+    <member refid="_cliente_8c_1a6bc956997f23421f853a398cad00868d" kind="function"><name>ClienteParaPostoLocalizacao</name></member>
+    <member refid="_cliente_8c_1aad6666c35bebf418fb6101ca1ddfaf13" kind="function"><name>ClienteViagemEscrever</name></member>
+    <member refid="_cliente_8c_1affd1f3f8d1af38e5441bd61b04ac5d0e" kind="function"><name>AumentarSaldoPorEscreverCliente</name></member>
+    <member refid="_cliente_8c_1aeb388598f1a219268192ae53a6834868" kind="function"><name>ParaAluguerAtivo</name></member>
+    <member refid="_cliente_8c_1a69f488b0c5cc092d0b9b4486f95dbe5b" kind="function"><name>EstadoAluguerCliente</name></member>
   </compound>
   <compound refid="_cliente_8h" kind="file"><name>Cliente.h</name>
     <member refid="_cliente_8h_1a3804dbf24f9b38637b81b5072252ed41" kind="typedef"><name>Clientes</name></member>
-    <member refid="_cliente_8h_1a3116b97016d33b487a8188517d0ebe15" kind="function"><name>CriarClientes</name></member>
+    <member refid="_cliente_8h_1a1047a713bff442cd4a9b9cbbff74bfad" kind="function"><name>CriarClientes</name></member>
     <member refid="_cliente_8h_1adab003d43eaf01cd19da2354ef7c184d" kind="function"><name>InsereClienteNoFim</name></member>
     <member refid="_cliente_8h_1a5b1510d72a1708e2a2a97929eedc6b96" kind="function"><name>ExisteCliente</name></member>
     <member refid="_cliente_8h_1ab69c5b6a62657eefc965de3b0925bd7d" kind="function"><name>MostrarListaClientes</name></member>
     <member refid="_cliente_8h_1a7d89fb3ece417391247b23ee492c006f" kind="function"><name>MostraCliente</name></member>
     <member refid="_cliente_8h_1a83d2511d0a642efe2e00c566ff4bfb88" kind="function"><name>RemoverCliente</name></member>
     <member refid="_cliente_8h_1accdeb91c05866425b30c53e8c339927b" kind="function"><name>ProcuraClientes</name></member>
-    <member refid="_cliente_8h_1ac88a1d64c94994aec09f458d5eb412c7" kind="function"><name>AlteraCliente</name></member>
+    <member refid="_cliente_8h_1a976063293eb792074816977869c2f554" kind="function"><name>AlteraCliente</name></member>
     <member refid="_cliente_8h_1ad5a73913e046fa3a43eedfd9f595a08a" kind="function"><name>CountClientes</name></member>
     <member refid="_cliente_8h_1a035761bf6ee64e84f737e0f2ba1db4cc" kind="function"><name>LerEArmazenarCliente</name></member>
     <member refid="_cliente_8h_1aef19859d740cee6d2cec68f187c55fca" kind="function"><name>GravarClientesBinario</name></member>
@@ -114,6 +162,15 @@
     <member refid="_cliente_8h_1a1792acf5c4d9aa313f2d10bdc49dfa41" kind="function"><name>AlterarPorEscreverCliente</name></member>
     <member refid="_cliente_8h_1a40e950a56f4998295f564464fa712327" kind="function"><name>RemoverPorEscreverCliente</name></member>
     <member refid="_cliente_8h_1a38c33d4b4b0423a3d4ebbc77aa07e126" kind="function"><name>RegistoPorEscrever</name></member>
+    <member refid="_cliente_8h_1a4219d628ea8c17a875e16f49d529cf69" kind="function"><name>AlterarPorEscreverClienteWindowCliente</name></member>
+    <member refid="_cliente_8h_1a27a49e48e3f7ac67fec1317a650a5fd1" kind="function"><name>RegistoPorEscreverClienteWindow</name></member>
+    <member refid="_cliente_8h_1a957506af251ef5ef33ed2c6132d40283" kind="function"><name>ProcurarRaioMeioCliente</name></member>
+    <member refid="_cliente_8h_1a4b809467f7804e46f4f98e4e3dfb6917" kind="function"><name>ClienteParaMeioLocalizacao</name></member>
+    <member refid="_cliente_8h_1af91297c22f0e08d3e0ba6d1c6c5edee5" kind="function"><name>AumentarSaldoCliente</name></member>
+    <member refid="_cliente_8h_1affd1f3f8d1af38e5441bd61b04ac5d0e" kind="function"><name>AumentarSaldoPorEscreverCliente</name></member>
+    <member refid="_cliente_8h_1a289858714db2456e59854159b4295b08" kind="function"><name>ParaAluguerAtivo</name></member>
+    <member refid="_cliente_8h_1ae57abf0dbbe0f3228e10a522daca4d58" kind="function"><name>ClienteViagemEscrever</name></member>
+    <member refid="_cliente_8h_1a69f488b0c5cc092d0b9b4486f95dbe5b" kind="function"><name>EstadoAluguerCliente</name></member>
   </compound>
   <compound refid="_gestor_8c" kind="file"><name>Gestor.c</name>
     <member refid="_gestor_8c_1af08ec37a8c99d747fb60fa15bc28678b" kind="define"><name>_CRT_SECURE_NO_WARNINGS</name></member>
@@ -151,9 +208,112 @@
     <member refid="_gestor_8h_1a024a7c83b12202fe2106fc44ab97fd72" kind="function"><name>AlterarPorEscreverGestor</name></member>
     <member refid="_gestor_8h_1a7d4b7cb5a7e4956cd3eff700c7e71f2a" kind="function"><name>RemoverPorEscreverGestor</name></member>
   </compound>
+  <compound refid="_localizacao_8c" kind="file"><name>Localizacao.c</name>
+    <member refid="_localizacao_8c_1af08ec37a8c99d747fb60fa15bc28678b" kind="define"><name>_CRT_SECURE_NO_WARNINGS</name></member>
+    <member refid="_localizacao_8c_1a83cd1531702a993458d551f4652d3322" kind="define"><name>MAXIMO_DE_NODES_CAMINHO</name></member>
+    <member refid="_localizacao_8c_1a3bd4e03e947e65932b368c8f11bf1ac2" kind="define"><name>DISTANCIA_MAXIMA</name></member>
+    <member refid="_localizacao_8c_1af4e977ad1b053e78fe052bd0b8313c18" kind="define"><name>TERRA_RAIO</name></member>
+    <member refid="_localizacao_8c_1a917d6d2d775d373ae85b0da3418953fa" kind="function"><name>CriarPosto</name></member>
+    <member refid="_localizacao_8c_1a34f0f341b3a7cad7d221f3445149c8a4" kind="function"><name>InserePostoGrafo</name></member>
+    <member refid="_localizacao_8c_1aea4dcac14173d151996c977cea33c7be" kind="function"><name>ExistePosto</name></member>
+    <member refid="_localizacao_8c_1af0d96496de0610c313a08c77012e0e1a" kind="function"><name>RemoverPosto</name></member>
+    <member refid="_localizacao_8c_1a12019acb011864ae6d2f49945127352c" kind="function"><name>CriarPostoAdjacente</name></member>
+    <member refid="_localizacao_8c_1acc46b37615ba552d5145a49998c49c0c" kind="function"><name>InserirPostoAdjacente</name></member>
+    <member refid="_localizacao_8c_1a24d1fc186d5e3e795a4752d529bb136b" kind="function"><name>ProcurarPostoAdjacente</name></member>
+    <member refid="_localizacao_8c_1ae13e7a5b6e4b0e7ef4e36721dbf62b2e" kind="function"><name>ExistePostoAdjacente</name></member>
+    <member refid="_localizacao_8c_1a428c61bf3570d03070138c2ee3915618" kind="function"><name>RemoverPostoAdjacente</name></member>
+    <member refid="_localizacao_8c_1afb5e6ac1104d6fb1789fe2781603ee6d" kind="function"><name>AlteraPosto</name></member>
+    <member refid="_localizacao_8c_1ae5693b6481846047cb631712836fe481" kind="function"><name>AtualizarPostosAdjacentes</name></member>
+    <member refid="_localizacao_8c_1a98412cb8ed9b9afab9ebe8fc4937dccd" kind="function"><name>ProcurarPorIdPostosComListaToda</name></member>
+    <member refid="_localizacao_8c_1a9458bb81b3919467ff894b10592f376c" kind="function"><name>ProcurarPorIdPostos</name></member>
+    <member refid="_localizacao_8c_1aee9619708ddc7a29eb453e6d99b7e706" kind="function"><name>JaTemPostoAdjacente</name></member>
+    <member refid="_localizacao_8c_1a1a1ed2e8668f869d6cfd8bc603e363e9" kind="function"><name>LerEArmazenarPosto</name></member>
+    <member refid="_localizacao_8c_1ab96b2a442f46a2f37d04675c545fe9b4" kind="function"><name>LerEArmazenarPostoAdjacente</name></member>
+    <member refid="_localizacao_8c_1ae259e82fa4f2cf7665aadb03b1b43720" kind="function"><name>GravarPostosBinario</name></member>
+    <member refid="_localizacao_8c_1ad7488639a31c510e9c3d2b9164a8909a" kind="function"><name>LerPostosBinario</name></member>
+    <member refid="_localizacao_8c_1ae63e5f2a4249e539d9bd9ba7e1aed95b" kind="function"><name>GravarPostosAdjacentesBinario</name></member>
+    <member refid="_localizacao_8c_1ad3ecac9b9c4c88c93999af32e51c39bc" kind="function"><name>LerPostosAdjacentesBinario</name></member>
+    <member refid="_localizacao_8c_1adeab533d98259d138791270d082bfd97" kind="function"><name>CriarCamiao</name></member>
+    <member refid="_localizacao_8c_1a76758dc7655b64399f93fe2ff9c4c5a6" kind="function"><name>CriarCaminhoNodes</name></member>
+    <member refid="_localizacao_8c_1a3a3bc394d3e9bb1b21d2403a9b41adaf" kind="function"><name>InserirCaminho</name></member>
+    <member refid="_localizacao_8c_1a80968772d4fd27633ad4a906b58f3c84" kind="function"><name>CreateCaminho</name></member>
+    <member refid="_localizacao_8c_1a3114fb8a7267ca2aec25e660d877e183" kind="function"><name>CamiaoRecolha</name></member>
+    <member refid="_localizacao_8c_1a00da2c5c4a8f217934c723abdc00e2ac" kind="function"><name>ExisteCaminhoNode</name></member>
+    <member refid="_localizacao_8c_1a4c3404ae93bd20ebfc06cb61bde212b9" kind="function"><name>RemoverCaminhoNode</name></member>
+    <member refid="_localizacao_8c_1a23d8bfa325cd235b3fe42d3f3225a5ac" kind="function"><name>VerSeAcessivel</name></member>
+    <member refid="_localizacao_8c_1a862b10e87a0619f70319449a5b220692" kind="function"><name>AlgoritmoDijkstra</name></member>
+    <member refid="_localizacao_8c_1a88aab6b739da8f584ff60f563a507a48" kind="function"><name>CaminhoMaisPerto</name></member>
+    <member refid="_localizacao_8c_1ab941cfd88fb3fcc9fa78711c8a5efe74" kind="function"><name>CalculaDistancia</name></member>
+    <member refid="_localizacao_8c_1ad3b188c7eaa18a939e2a89e9247f8e68" kind="function"><name>LocalizacaoRaioClientePosto</name></member>
+    <member refid="_localizacao_8c_1afeffadbe47a1f9f6cb170dd3d919dea2" kind="function"><name>LocalizacaoRaioClienteMeio</name></member>
+    <member refid="_localizacao_8c_1a8c3b7494b1cebc1357170c4c7366c343" kind="function"><name>DistanciaClienteAMeioTotal</name></member>
+    <member refid="_localizacao_8c_1a2d2e8bffbca29aeb159c71a2bf408f69" kind="function"><name>DistanciaClienteAPostoTotal</name></member>
+    <member refid="_localizacao_8c_1a10c9a97465f6fdb18a596869f699e444" kind="function"><name>ViajarComMeioAteLocalizacao</name></member>
+    <member refid="_localizacao_8c_1adc4329a44be71a177aecebda7eead543" kind="function"><name>ListarTodosPostos</name></member>
+    <member refid="_localizacao_8c_1a0871c9f8f5ea85ff1eb101653784d115" kind="function"><name>RemoverPostoEscrever</name></member>
+    <member refid="_localizacao_8c_1a78fb4f45a3940d7959894e2b9a5a49f9" kind="function"><name>AlterarPorEscreverPosto</name></member>
+    <member refid="_localizacao_8c_1a82cf298291d519409b2c49cdcdd9a710" kind="function"><name>CriarPostoEscrever</name></member>
+    <member refid="_localizacao_8c_1a7fc1eea568f63eea85ed20c8c3b09929" kind="function"><name>CriarAdjacenciaPostoEscrever</name></member>
+    <member refid="_localizacao_8c_1aad9f4d3e8025a5fab76ab129d5315ec0" kind="function"><name>RemoverAdjacenciaPostoEscrever</name></member>
+    <member refid="_localizacao_8c_1a1802c6093d1299a2cd66fadcabc851df" kind="function"><name>CamiaoRecolhaEscrever</name></member>
+    <member refid="_localizacao_8c_1a32ab6e24616a095720277a09b92ba035" kind="function"><name>ListaAdjacentes</name></member>
+  </compound>
+  <compound refid="_localizacao_8h" kind="file"><name>Localizacao.h</name>
+    <member refid="_localizacao_8h_1a0989190f17dd96837d94d1cd29df8c1b" kind="define"><name>LARGURAGERALSTRING</name></member>
+    <member refid="_localizacao_8h_1ab50f7baafd568ae2202d87a68b8e8fb4" kind="typedef"><name>Postos</name></member>
+    <member refid="_localizacao_8h_1a97bccbabae829ae41ae7e21140e806c1" kind="typedef"><name>LocalizacaoPostos</name></member>
+    <member refid="_localizacao_8h_1a5a1d199448378d2aa51cdef9c0017de8" kind="typedef"><name>LocalizacaoPostosAdjacentes</name></member>
+    <member refid="_localizacao_8h_1a352bfb0fc41a9ee4052458095043510a" kind="typedef"><name>Camiao</name></member>
+    <member refid="_localizacao_8h_1af9513cfb4803d467d35ac74a144e63ea" kind="typedef"><name>CaminhoCamiao</name></member>
+    <member refid="_localizacao_8h_1a917d6d2d775d373ae85b0da3418953fa" kind="function"><name>CriarPosto</name></member>
+    <member refid="_localizacao_8h_1a34f0f341b3a7cad7d221f3445149c8a4" kind="function"><name>InserePostoGrafo</name></member>
+    <member refid="_localizacao_8h_1aea4dcac14173d151996c977cea33c7be" kind="function"><name>ExistePosto</name></member>
+    <member refid="_localizacao_8h_1af0d96496de0610c313a08c77012e0e1a" kind="function"><name>RemoverPosto</name></member>
+    <member refid="_localizacao_8h_1afb5e6ac1104d6fb1789fe2781603ee6d" kind="function"><name>AlteraPosto</name></member>
+    <member refid="_localizacao_8h_1a12019acb011864ae6d2f49945127352c" kind="function"><name>CriarPostoAdjacente</name></member>
+    <member refid="_localizacao_8h_1acc46b37615ba552d5145a49998c49c0c" kind="function"><name>InserirPostoAdjacente</name></member>
+    <member refid="_localizacao_8h_1ae13e7a5b6e4b0e7ef4e36721dbf62b2e" kind="function"><name>ExistePostoAdjacente</name></member>
+    <member refid="_localizacao_8h_1a428c61bf3570d03070138c2ee3915618" kind="function"><name>RemoverPostoAdjacente</name></member>
+    <member refid="_localizacao_8h_1ae5693b6481846047cb631712836fe481" kind="function"><name>AtualizarPostosAdjacentes</name></member>
+    <member refid="_localizacao_8h_1a98412cb8ed9b9afab9ebe8fc4937dccd" kind="function"><name>ProcurarPorIdPostosComListaToda</name></member>
+    <member refid="_localizacao_8h_1a5b4c9ce9964c3ee1af7a8c3ecc916348" kind="function"><name>ProcurarPorIdPostos</name></member>
+    <member refid="_localizacao_8h_1a1a1ed2e8668f869d6cfd8bc603e363e9" kind="function"><name>LerEArmazenarPosto</name></member>
+    <member refid="_localizacao_8h_1ab96b2a442f46a2f37d04675c545fe9b4" kind="function"><name>LerEArmazenarPostoAdjacente</name></member>
+    <member refid="_localizacao_8h_1ae259e82fa4f2cf7665aadb03b1b43720" kind="function"><name>GravarPostosBinario</name></member>
+    <member refid="_localizacao_8h_1ad7488639a31c510e9c3d2b9164a8909a" kind="function"><name>LerPostosBinario</name></member>
+    <member refid="_localizacao_8h_1ae63e5f2a4249e539d9bd9ba7e1aed95b" kind="function"><name>GravarPostosAdjacentesBinario</name></member>
+    <member refid="_localizacao_8h_1ad3ecac9b9c4c88c93999af32e51c39bc" kind="function"><name>LerPostosAdjacentesBinario</name></member>
+    <member refid="_localizacao_8h_1aee9619708ddc7a29eb453e6d99b7e706" kind="function"><name>JaTemPostoAdjacente</name></member>
+    <member refid="_localizacao_8h_1a24d1fc186d5e3e795a4752d529bb136b" kind="function"><name>ProcurarPostoAdjacente</name></member>
+    <member refid="_localizacao_8h_1a862b10e87a0619f70319449a5b220692" kind="function"><name>AlgoritmoDijkstra</name></member>
+    <member refid="_localizacao_8h_1a23d8bfa325cd235b3fe42d3f3225a5ac" kind="function"><name>VerSeAcessivel</name></member>
+    <member refid="_localizacao_8h_1adeab533d98259d138791270d082bfd97" kind="function"><name>CriarCamiao</name></member>
+    <member refid="_localizacao_8h_1afef8865bd15713876772778cdc3beaa0" kind="function"><name>CamiaoRecolha</name></member>
+    <member refid="_localizacao_8h_1a76758dc7655b64399f93fe2ff9c4c5a6" kind="function"><name>CriarCaminhoNodes</name></member>
+    <member refid="_localizacao_8h_1a3a3bc394d3e9bb1b21d2403a9b41adaf" kind="function"><name>InserirCaminho</name></member>
+    <member refid="_localizacao_8h_1a4c3404ae93bd20ebfc06cb61bde212b9" kind="function"><name>RemoverCaminhoNode</name></member>
+    <member refid="_localizacao_8h_1a7362e50190c52ce36c84869c1fc8bb73" kind="function"><name>CreateCaminho</name></member>
+    <member refid="_localizacao_8h_1a00da2c5c4a8f217934c723abdc00e2ac" kind="function"><name>ExisteCaminhoNode</name></member>
+    <member refid="_localizacao_8h_1a88aab6b739da8f584ff60f563a507a48" kind="function"><name>CaminhoMaisPerto</name></member>
+    <member refid="_localizacao_8h_1a97ae139580e6dcb75f660bcb769ef30f" kind="function"><name>LocalizacaoRaioClientePosto</name></member>
+    <member refid="_localizacao_8h_1a44653c240f0de57b5e51e8136e4e8d98" kind="function"><name>LocalizacaoRaioClienteMeio</name></member>
+    <member refid="_localizacao_8h_1ab941cfd88fb3fcc9fa78711c8a5efe74" kind="function"><name>CalculaDistancia</name></member>
+    <member refid="_localizacao_8h_1aa3fcb3e1e437c105e5fbc54fc3e6da39" kind="function"><name>DistanciaClienteAMeioTotal</name></member>
+    <member refid="_localizacao_8h_1aceeb062bf0e522508ab4e80150260367" kind="function"><name>DistanciaClienteAPostoTotal</name></member>
+    <member refid="_localizacao_8h_1a82cf298291d519409b2c49cdcdd9a710" kind="function"><name>CriarPostoEscrever</name></member>
+    <member refid="_localizacao_8h_1adc4329a44be71a177aecebda7eead543" kind="function"><name>ListarTodosPostos</name></member>
+    <member refid="_localizacao_8h_1a0871c9f8f5ea85ff1eb101653784d115" kind="function"><name>RemoverPostoEscrever</name></member>
+    <member refid="_localizacao_8h_1a78fb4f45a3940d7959894e2b9a5a49f9" kind="function"><name>AlterarPorEscreverPosto</name></member>
+    <member refid="_localizacao_8h_1a7fc1eea568f63eea85ed20c8c3b09929" kind="function"><name>CriarAdjacenciaPostoEscrever</name></member>
+    <member refid="_localizacao_8h_1aad9f4d3e8025a5fab76ab129d5315ec0" kind="function"><name>RemoverAdjacenciaPostoEscrever</name></member>
+    <member refid="_localizacao_8h_1a99605a57eeaf433cde24d5d6e686d868" kind="function"><name>CamiaoRecolhaEscrever</name></member>
+    <member refid="_localizacao_8h_1a84dc30c63e24c6e3858fa62ad073f460" kind="function"><name>ClienteParaPostoLocalizacao</name></member>
+    <member refid="_localizacao_8h_1a9bcc0a5dba458a32e5fc281fc773b183" kind="function"><name>ViajarComMeioAteLocalizacao</name></member>
+    <member refid="_localizacao_8h_1a32ab6e24616a095720277a09b92ba035" kind="function"><name>ListaAdjacentes</name></member>
+  </compound>
   <compound refid="_meio_de_mobilidade_8c" kind="file"><name>MeioDeMobilidade.c</name>
     <member refid="_meio_de_mobilidade_8c_1af08ec37a8c99d747fb60fa15bc28678b" kind="define"><name>_CRT_SECURE_NO_WARNINGS</name></member>
-    <member refid="_meio_de_mobilidade_8c_1a2053eb016b634c1241ba27fa54dd5b7b" kind="function"><name>CriarMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8c_1a318a4065db4cfd0ccbcce81204ffb29a" kind="function"><name>CriarMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8c_1abf76c13c165ba6f4dd12278f351f6c4c" kind="function"><name>InsereMeiosDeMobilidadeNoFim</name></member>
     <member refid="_meio_de_mobilidade_8c_1ac7f639655c2abae685b690ba6fe76720" kind="function"><name>ExisteMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8c_1a5895547a678f65123fd2ba5ba74b363d" kind="function"><name>MostrarListaMeiosDeMobilidade</name></member>
@@ -166,15 +326,23 @@
     <member refid="_meio_de_mobilidade_8c_1a3f4e98a98059d05efb30e22c01d0e363" kind="function"><name>GravarMeiosDeMobilidadeBinario</name></member>
     <member refid="_meio_de_mobilidade_8c_1a2a29797de1f13f3ed60a97f9a1972e3f" kind="function"><name>LerMeiosDeMobilidadeBinario</name></member>
     <member refid="_meio_de_mobilidade_8c_1a352c826c410cb083ad3ec478a2db7862" kind="function"><name>ListarMeioAutonomiaDecrescente</name></member>
-    <member refid="_meio_de_mobilidade_8c_1ad0c010862a5de3a77255bf47ab7d87a4" kind="function"><name>ListarMeioPorGeoCodigo</name></member>
+    <member refid="_meio_de_mobilidade_8c_1a7a6b38470e5ae8d5d040633db514c6e2" kind="function"><name>ListarCidadePorGeoCodigo</name></member>
     <member refid="_meio_de_mobilidade_8c_1aa9a10d8dc25db240e69162e6919c15cb" kind="function"><name>InserirPorEscreverMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8c_1aa9d8675aa9e56968341533fa8eb95996" kind="function"><name>AlterarPorEscreverMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8c_1ae5198c399a2e4d1f022c102debd0e5f7" kind="function"><name>RemoverPorEscreverMeiosDeMobilidade</name></member>
-    <member refid="_meio_de_mobilidade_8c_1a6d357c9fb9104618406f7132210d0336" kind="function"><name>ListarGeocodigoPorEscreverMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8c_1a93ff976ee74eb46bac3f57a48ff5437c" kind="function"><name>ListarCidadePorEscreverMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8c_1aaf0ecf7a2cc817bd0080786639057fa9" kind="function"><name>AlteraEstadoMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8c_1adf60694e4b7726c8d3bde5d40c00364c" kind="function"><name>AlteraLocalizacaoMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8c_1ab5beda976a61bd3ac6799428145550f8" kind="function"><name>AtivarDesativarMeio</name></member>
+    <member refid="_meio_de_mobilidade_8c_1a3c9ae59b54ea130e33a5f982cd30c1f1" kind="function"><name>AlterarEstadoEscrever</name></member>
+    <member refid="_meio_de_mobilidade_8c_1aa2aa532b29073ee3b510e8494d4facaf" kind="function"><name>AlterarLocalizacao</name></member>
+    <member refid="_meio_de_mobilidade_8c_1a2bb0e84f93e165898dcedb27bafc92c5" kind="function"><name>AlterarLocalizacaoEstadoEscrever</name></member>
+    <member refid="_meio_de_mobilidade_8c_1aeafec8a1dc2165f025454ad7e9f4db08" kind="function"><name>EstadoAluguer</name></member>
   </compound>
   <compound refid="_meio_de_mobilidade_8h" kind="file"><name>MeioDeMobilidade.h</name>
+    <member refid="_meio_de_mobilidade_8h_1a0989190f17dd96837d94d1cd29df8c1b" kind="define"><name>LARGURAGERALSTRING</name></member>
     <member refid="_meio_de_mobilidade_8h_1a86b2f68e756ccb72d84b972655976379" kind="typedef"><name>MeiosDeMobilidade</name></member>
-    <member refid="_meio_de_mobilidade_8h_1a2053eb016b634c1241ba27fa54dd5b7b" kind="function"><name>CriarMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8h_1a318a4065db4cfd0ccbcce81204ffb29a" kind="function"><name>CriarMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8h_1abf76c13c165ba6f4dd12278f351f6c4c" kind="function"><name>InsereMeiosDeMobilidadeNoFim</name></member>
     <member refid="_meio_de_mobilidade_8h_1ac7f639655c2abae685b690ba6fe76720" kind="function"><name>ExisteMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8h_1a5895547a678f65123fd2ba5ba74b363d" kind="function"><name>MostrarListaMeiosDeMobilidade</name></member>
@@ -187,11 +355,18 @@
     <member refid="_meio_de_mobilidade_8h_1a3f4e98a98059d05efb30e22c01d0e363" kind="function"><name>GravarMeiosDeMobilidadeBinario</name></member>
     <member refid="_meio_de_mobilidade_8h_1a2a29797de1f13f3ed60a97f9a1972e3f" kind="function"><name>LerMeiosDeMobilidadeBinario</name></member>
     <member refid="_meio_de_mobilidade_8h_1a352c826c410cb083ad3ec478a2db7862" kind="function"><name>ListarMeioAutonomiaDecrescente</name></member>
-    <member refid="_meio_de_mobilidade_8h_1ad0c010862a5de3a77255bf47ab7d87a4" kind="function"><name>ListarMeioPorGeoCodigo</name></member>
+    <member refid="_meio_de_mobilidade_8h_1a7a6b38470e5ae8d5d040633db514c6e2" kind="function"><name>ListarCidadePorGeoCodigo</name></member>
     <member refid="_meio_de_mobilidade_8h_1aa9a10d8dc25db240e69162e6919c15cb" kind="function"><name>InserirPorEscreverMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8h_1aa9d8675aa9e56968341533fa8eb95996" kind="function"><name>AlterarPorEscreverMeiosDeMobilidade</name></member>
     <member refid="_meio_de_mobilidade_8h_1ae5198c399a2e4d1f022c102debd0e5f7" kind="function"><name>RemoverPorEscreverMeiosDeMobilidade</name></member>
-    <member refid="_meio_de_mobilidade_8h_1a6d357c9fb9104618406f7132210d0336" kind="function"><name>ListarGeocodigoPorEscreverMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8h_1a93ff976ee74eb46bac3f57a48ff5437c" kind="function"><name>ListarCidadePorEscreverMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8h_1aaf0ecf7a2cc817bd0080786639057fa9" kind="function"><name>AlteraEstadoMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8h_1adf60694e4b7726c8d3bde5d40c00364c" kind="function"><name>AlteraLocalizacaoMeiosDeMobilidade</name></member>
+    <member refid="_meio_de_mobilidade_8h_1ab5beda976a61bd3ac6799428145550f8" kind="function"><name>AtivarDesativarMeio</name></member>
+    <member refid="_meio_de_mobilidade_8h_1a3c9ae59b54ea130e33a5f982cd30c1f1" kind="function"><name>AlterarEstadoEscrever</name></member>
+    <member refid="_meio_de_mobilidade_8h_1aa2aa532b29073ee3b510e8494d4facaf" kind="function"><name>AlterarLocalizacao</name></member>
+    <member refid="_meio_de_mobilidade_8h_1a2bb0e84f93e165898dcedb27bafc92c5" kind="function"><name>AlterarLocalizacaoEstadoEscrever</name></member>
+    <member refid="_meio_de_mobilidade_8h_1aeafec8a1dc2165f025454ad7e9f4db08" kind="function"><name>EstadoAluguer</name></member>
   </compound>
   <compound refid="_source_8c" kind="file"><name>Source.c</name>
     <member refid="_source_8c_1af08ec37a8c99d747fb60fa15bc28678b" kind="define"><name>_CRT_SECURE_NO_WARNINGS</name></member>

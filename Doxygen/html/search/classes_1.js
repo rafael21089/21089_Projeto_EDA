@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['clientes_0',['Clientes',['../struct_clientes.html',1,'']]]
+  ['camiao_0',['Camiao',['../struct_camiao.html',1,'']]],
+  ['caminhocamiao_1',['CaminhoCamiao',['../struct_caminho_camiao.html',1,'']]],
+  ['clientes_2',['Clientes',['../struct_clientes.html',1,'']]]
 ];

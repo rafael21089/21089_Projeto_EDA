@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_caminho_camiao" kind="struct" language="C++" prot="public">
+    <compoundname>CaminhoCamiao</compoundname>
+    <includes refid="_localizacao_8h" local="no">Localizacao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_caminho_camiao_1a6678bcebd8cf21c8b3d333f736a85a7a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CaminhoCamiao::idPosto</definition>
+        <argsstring></argsstring>
+        <name>idPosto</name>
+        <qualifiedname>CaminhoCamiao::idPosto</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="83" column="9" bodyfile="Localizacao.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_caminho_camiao_1a07da2c5d833d53342a467943226e1f94" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CaminhoCamiao::idMeio</definition>
+        <argsstring></argsstring>
+        <name>idMeio</name>
+        <qualifiedname>CaminhoCamiao::idMeio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="84" column="9" bodyfile="Localizacao.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_caminho_camiao_1ad00310940ed0767b5b97d39db0350211" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int CaminhoCamiao::pesoMeio</definition>
+        <argsstring></argsstring>
+        <name>pesoMeio</name>
+        <qualifiedname>CaminhoCamiao::pesoMeio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="85" column="9" bodyfile="Localizacao.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_caminho_camiao_1a78b00c2f902cf63ca86b28a9f4955e99" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+        <definition>struct CaminhoCamiao* CaminhoCamiao::proximo</definition>
+        <argsstring></argsstring>
+        <name>proximo</name>
+        <qualifiedname>CaminhoCamiao::proximo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="86" column="25" bodyfile="Localizacao.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura Para Guardar os Pontos Que o <ref refid="struct_camiao" kindref="compound">Camiao</ref> irá Prosseguir. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> contém um idPosto (@idPosto), idMeio (@idMeio) e pesoMeio (@pesoMeio). Contém apontador para próximo <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CaminhoCamiao</label>
+        <link refid="struct_caminho_camiao"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Localizacao.h" line="82" column="1" bodyfile="Localizacao.h" bodystart="82" bodyend="87"/>
+    <listofallmembers>
+      <member refid="struct_caminho_camiao_1a07da2c5d833d53342a467943226e1f94" prot="public" virt="non-virtual"><scope>CaminhoCamiao</scope><name>idMeio</name></member>
+      <member refid="struct_caminho_camiao_1a6678bcebd8cf21c8b3d333f736a85a7a" prot="public" virt="non-virtual"><scope>CaminhoCamiao</scope><name>idPosto</name></member>
+      <member refid="struct_caminho_camiao_1ad00310940ed0767b5b97d39db0350211" prot="public" virt="non-virtual"><scope>CaminhoCamiao</scope><name>pesoMeio</name></member>
+      <member refid="struct_caminho_camiao_1a78b00c2f902cf63ca86b28a9f4955e99" prot="public" virt="non-virtual"><scope>CaminhoCamiao</scope><name>proximo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

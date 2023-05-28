@@ -1,4 +1,4 @@
-.TH "Clientes" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.TH "Clientes" 3 "Sun May 28 2023" "21089_Projeto_EDA" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -28,6 +28,12 @@ Clientes \- Estrutura para armazenar \fBClientes\fP\&.
 .RI "float \fBsaldo\fP"
 .br
 .ti -1c
+.RI "float \fBlatitude\fP"
+.br
+.ti -1c
+.RI "float \fBlongitude\fP"
+.br
+.ti -1c
 .RI "struct \fBAluguer\fP * \fBaluguer\fP"
 .br
 .ti -1c
@@ -38,12 +44,16 @@ Clientes \- Estrutura para armazenar \fBClientes\fP\&.
 .PP 
 Estrutura para armazenar \fBClientes\fP\&. 
 
-Um Cliente contém um id (@id), nome (@nome), morada (@morada) ,nif (@nif) , saldo (@saldo) e alugueres (@atividade)\&. Contém apontador para próximo \fBClientes\fP 
+Um Cliente contém um id (@id), nome (@nome), morada (@morada) ,nif (@nif) , saldo (@saldo) , latitude (@latitude) , longitude (@longitude) e alugueres (@atividade)\&. Contém apontador para próximo \fBClientes\fP 
 .SH "Member Data Documentation"
 .PP 
 .SS "struct \fBAluguer\fP* Clientes::aluguer"
 
 .SS "int Clientes::id"
+
+.SS "float Clientes::latitude"
+
+.SS "float Clientes::longitude"
 
 .SS "char Clientes::morada[50]"
 

@@ -1,9 +1,8 @@
-.TH "MeiosDeMobilidade" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.TH "MeiosDeMobilidade" 3 "Sun May 28 2023" "21089_Projeto_EDA" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-MeiosDeMobilidade \- Estrutura para armazenar Meios De Mobilidade\&.  
-
+MeiosDeMobilidade
 .SH SYNOPSIS
 .br
 .PP
@@ -16,7 +15,7 @@ MeiosDeMobilidade \- Estrutura para armazenar Meios De Mobilidade\&.
 .RI "int \fBid\fP"
 .br
 .ti -1c
-.RI "char \fBtipo\fP [50]"
+.RI "char \fBtipo\fP [\fBLARGURAGERALSTRING\fP]"
 .br
 .ti -1c
 .RI "int \fBcargaBateria\fP"
@@ -25,7 +24,19 @@ MeiosDeMobilidade \- Estrutura para armazenar Meios De Mobilidade\&.
 .RI "float \fBcusto\fP"
 .br
 .ti -1c
-.RI "char \fBlocalizacao\fP [50]"
+.RI "float \fBpeso\fP"
+.br
+.ti -1c
+.RI "char \fBcidade\fP [\fBLARGURAGERALSTRING\fP]"
+.br
+.ti -1c
+.RI "float \fBlatitude\fP"
+.br
+.ti -1c
+.RI "float \fBlongitude\fP"
+.br
+.ti -1c
+.RI "bool \fBestado\fP"
 .br
 .ti -1c
 .RI "struct \fBAluguer\fP * \fBaluguer\fP"
@@ -34,26 +45,29 @@ MeiosDeMobilidade \- Estrutura para armazenar Meios De Mobilidade\&.
 .RI "struct \fBMeiosDeMobilidade\fP * \fBnext\fP"
 .br
 .in -1c
-.SH "Detailed Description"
-.PP 
-Estrutura para armazenar Meios De Mobilidade\&. 
-
-Um Meios De Mobilidade contém um id (@id), tipo (@tipo) ,carga da Bateria (@cargaBateria) , custo (@custo) e localizacao (@aluguer)\&. Contém apontador para próximo \fBMeiosDeMobilidade\fP 
 .SH "Member Data Documentation"
 .PP 
 .SS "struct \fBAluguer\fP* MeiosDeMobilidade::aluguer"
 
 .SS "int MeiosDeMobilidade::cargaBateria"
 
+.SS "char MeiosDeMobilidade::cidade[\fBLARGURAGERALSTRING\fP]"
+
 .SS "float MeiosDeMobilidade::custo"
+
+.SS "bool MeiosDeMobilidade::estado"
 
 .SS "int MeiosDeMobilidade::id"
 
-.SS "char MeiosDeMobilidade::localizacao[50]"
+.SS "float MeiosDeMobilidade::latitude"
+
+.SS "float MeiosDeMobilidade::longitude"
 
 .SS "struct \fBMeiosDeMobilidade\fP* MeiosDeMobilidade::next"
 
-.SS "char MeiosDeMobilidade::tipo[50]"
+.SS "float MeiosDeMobilidade::peso"
+
+.SS "char MeiosDeMobilidade::tipo[\fBLARGURAGERALSTRING\fP]"
 
 
 .SH "Author"

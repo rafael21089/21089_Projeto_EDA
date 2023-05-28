@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['meiosdemobilidade_0',['MeiosDeMobilidade',['../_meio_de_mobilidade_8h.html#a86b2f68e756ccb72d84b972655976379',1,'MeioDeMobilidade.h']]]
+  ['localizacaopostos_0',['LocalizacaoPostos',['../_localizacao_8h.html#a97bccbabae829ae41ae7e21140e806c1',1,'Localizacao.h']]],
+  ['localizacaopostosadjacentes_1',['LocalizacaoPostosAdjacentes',['../_localizacao_8h.html#a5a1d199448378d2aa51cdef9c0017de8',1,'Localizacao.h']]]
 ];

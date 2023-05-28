@@ -31,41 +31,45 @@
 \DoxyCodeLine{46 \mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{_aluguer_8h_a01861332c1a55841ad38e02af819f1ce}{InsereAluguerListaTotalNoFim}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* novoAluguerListaTotal);}
 \DoxyCodeLine{47 \textcolor{comment}{//Ver se Existe Aluguer na lista por id}}
 \DoxyCodeLine{48 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_aluguer_8h_accbcb74653afbbceecf56e09ba489b47}{ExisteAluguerListaTotal}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \textcolor{keywordtype}{int} idAluguerListaTotal);}
-\DoxyCodeLine{49 \textcolor{comment}{//Conta quantos alugueres existem Total}}
-\DoxyCodeLine{50 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a4c2eff8a355cdb5f4fa88785d1cba4c2}{CountAluguerListaTotal}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* head);}
-\DoxyCodeLine{51 \textcolor{comment}{//Conta quantos alugueres existem }}
-\DoxyCodeLine{52 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a95a6d5a6f110dbf0be765a47e7c3cdca}{CountAlugueres}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* head);}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \textcolor{comment}{//Insere Aluguer no Cliente}}
-\DoxyCodeLine{55 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_ac5007d23049c41d81984ff4f17589e9f}{InsertAlugueresCliente}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* cliente, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* atividade);}
-\DoxyCodeLine{56 \textcolor{comment}{//Insere Aluguer no Meio}}
-\DoxyCodeLine{57 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_a32f0143f1802413dd675a6a9ce7bbe4c}{InsertAlugueresMeio}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* meio, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* atividade);}
-\DoxyCodeLine{58 \textcolor{comment}{//Insere Aluguer no Gestor}}
-\DoxyCodeLine{59 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_af72295eff5b8121178eb75b6ed7fb0f4}{InsertAlugerTotalGestor}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_gestor}{Gestor}}* gestor, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* aluguerTotal);}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61 \textcolor{comment}{//Le e armazena txt file}}
-\DoxyCodeLine{62 \mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{_aluguer_8h_ac728a8d9e8ba13b616c338a648f89f7f}{LerEArmazenarAluguerListaTotal}}(\textcolor{keywordtype}{char}* filename, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* header);}
-\DoxyCodeLine{63 \textcolor{comment}{//Grava aluguer no ficheiro binario}}
-\DoxyCodeLine{64 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_aluguer_8h_a45631f6edff1cc2c0f3bf7a8c418ce9c}{GravarAluguerListaTotalBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* header);}
-\DoxyCodeLine{65 \textcolor{comment}{//Le e armazena bin file}}
-\DoxyCodeLine{66 \mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{_aluguer_8h_a6a27589566a0afd82f0e6ddfd05a495b}{LerAluguerListaTotalBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro);}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68 \textcolor{comment}{//Distribui os Alugueres por Clientes e Meios}}
-\DoxyCodeLine{69 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_a22212ad9258404d36f31ec7793ef824b}{DistribuirAlugueresHistorico}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headerMeios, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* headerClientes);}
-\DoxyCodeLine{70 }
-\DoxyCodeLine{71 \textcolor{comment}{//Listar Aluguer por Cliente Id}}
-\DoxyCodeLine{72 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_ac0d78a581e397a630d7d456874d411d9}{ListarClienteAlugueresById}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \textcolor{keywordtype}{int} idCliente);}
-\DoxyCodeLine{73 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a47f7e32244a877e84ade5472bb0f56fe}{AluguerClientePorEscrever}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* headAluguer);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{//Ver se Tem Um Aluguer Ativo}}
+\DoxyCodeLine{51 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_aluguer_8h_ad6eb85fc80e5f2a9553726e16b41241a}{TemAluguerAtivo}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{comment}{//Conta quantos alugueres existem Total}}
+\DoxyCodeLine{54 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a4c2eff8a355cdb5f4fa88785d1cba4c2}{CountAluguerListaTotal}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* head);}
+\DoxyCodeLine{55 \textcolor{comment}{//Conta quantos alugueres existem }}
+\DoxyCodeLine{56 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a95a6d5a6f110dbf0be765a47e7c3cdca}{CountAlugueres}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* head);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{comment}{//Insere Aluguer no Cliente}}
+\DoxyCodeLine{59 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_ac5007d23049c41d81984ff4f17589e9f}{InsertAlugueresCliente}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* cliente, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* atividade);}
+\DoxyCodeLine{60 \textcolor{comment}{//Insere Aluguer no Meio}}
+\DoxyCodeLine{61 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_a32f0143f1802413dd675a6a9ce7bbe4c}{InsertAlugueresMeio}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* meio, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* atividade);}
+\DoxyCodeLine{62 \textcolor{comment}{//Insere Aluguer no Gestor}}
+\DoxyCodeLine{63 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_af72295eff5b8121178eb75b6ed7fb0f4}{InsertAlugerTotalGestor}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_gestor}{Gestor}}* gestor, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* aluguerTotal);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{comment}{//Le e armazena txt file}}
+\DoxyCodeLine{66 \mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{_aluguer_8h_ac728a8d9e8ba13b616c338a648f89f7f}{LerEArmazenarAluguerListaTotal}}(\textcolor{keywordtype}{char}* filename, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* header);}
+\DoxyCodeLine{67 \textcolor{comment}{//Grava aluguer no ficheiro binario}}
+\DoxyCodeLine{68 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_aluguer_8h_a45631f6edff1cc2c0f3bf7a8c418ce9c}{GravarAluguerListaTotalBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_aluguer}{Aluguer}}* header);}
+\DoxyCodeLine{69 \textcolor{comment}{//Le e armazena bin file}}
+\DoxyCodeLine{70 \mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{_aluguer_8h_a6a27589566a0afd82f0e6ddfd05a495b}{LerAluguerListaTotalBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{comment}{//Distribui os Alugueres por Clientes e Meios}}
+\DoxyCodeLine{73 \textcolor{keywordtype}{void} \mbox{\hyperlink{_aluguer_8h_a22212ad9258404d36f31ec7793ef824b}{DistribuirAlugueresHistorico}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headerMeios, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* headerClientes);}
 \DoxyCodeLine{74 }
-\DoxyCodeLine{75 \textcolor{comment}{//Listar Aluguer por Meio Id}}
-\DoxyCodeLine{76 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_ae08682546035b7defaf7cd5e5420f724}{ListarMeiosAlugueresById}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \textcolor{keywordtype}{int} idMeios);}
-\DoxyCodeLine{77 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_af479e88e55e7933452838d1c7fbd9fc0}{AluguerMeiosPorEscrever}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* headAluguer);}
+\DoxyCodeLine{75 \textcolor{comment}{//Listar Aluguer por Cliente Id}}
+\DoxyCodeLine{76 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_ac0d78a581e397a630d7d456874d411d9}{ListarClienteAlugueresById}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \textcolor{keywordtype}{int} idCliente);}
+\DoxyCodeLine{77 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a47f7e32244a877e84ade5472bb0f56fe}{AluguerClientePorEscrever}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* headAluguer);}
 \DoxyCodeLine{78 }
-\DoxyCodeLine{79 \textcolor{comment}{//Listar todos alugueres}}
-\DoxyCodeLine{80 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a054847a0089bac03968a797236844e5a}{ListarTodosAlugueres}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header);}
-\DoxyCodeLine{81 }
+\DoxyCodeLine{79 \textcolor{comment}{//Listar Aluguer por Meio Id}}
+\DoxyCodeLine{80 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_ae08682546035b7defaf7cd5e5420f724}{ListarMeiosAlugueresById}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header, \textcolor{keywordtype}{int} idMeios);}
+\DoxyCodeLine{81 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_af479e88e55e7933452838d1c7fbd9fc0}{AluguerMeiosPorEscrever}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* headAluguer);}
 \DoxyCodeLine{82 }
-\DoxyCodeLine{83 }
-\DoxyCodeLine{84 }
+\DoxyCodeLine{83 \textcolor{comment}{//Listar todos alugueres}}
+\DoxyCodeLine{84 \textcolor{keywordtype}{int} \mbox{\hyperlink{_aluguer_8h_a054847a0089bac03968a797236844e5a}{ListarTodosAlugueres}}(\mbox{\hyperlink{struct_aluguer}{Aluguer}}* header);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 }
 
 \end{DoxyCode}

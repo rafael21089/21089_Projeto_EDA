@@ -1,0 +1,1155 @@
+\hypertarget{_localizacao_8h}{}\doxysection{Localizacao.\+h File Reference}
+\label{_localizacao_8h}\index{Localizacao.h@{Localizacao.h}}
+
+
+Definicao da struct Localizacao onde ira guardar o registo de postos e postos adjacentes, com as suas respectivas funcoes.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_postos}{Postos}}
+\begin{DoxyCompactList}\small\item\em Estrutura de Vertices (\mbox{\hyperlink{struct_postos}{Postos}}) para grafo orientado de \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}
+\begin{DoxyCompactList}\small\item\em Estrutura para Grafo orientado de \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}}
+\begin{DoxyCompactList}\small\item\em Estrutura de Arestas (\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}}) para \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_camiao}{Camiao}}
+\begin{DoxyCompactList}\small\item\em Estrutura de \mbox{\hyperlink{struct_camiao}{Camiao}} Que Recolhe Meios de Mobilidade. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}}
+\begin{DoxyCompactList}\small\item\em Estrutura Para Guardar os Pontos Que o \mbox{\hyperlink{struct_camiao}{Camiao}} irá Prosseguir. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_localizacao_8h_a0989190f17dd96837d94d1cd29df8c1b}{LARGURAGERALSTRING}}~100
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_postos}{Postos}} \mbox{\hyperlink{_localizacao_8h_ab50f7baafd568ae2202d87a68b8e8fb4}{Postos}}
+\begin{DoxyCompactList}\small\item\em Estrutura de Vertices (\mbox{\hyperlink{struct_postos}{Postos}}) para grafo orientado de \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \mbox{\hyperlink{_localizacao_8h_a97bccbabae829ae41ae7e21140e806c1}{Localizacao\+Postos}}
+\begin{DoxyCompactList}\small\item\em Estrutura para Grafo orientado de \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} \mbox{\hyperlink{_localizacao_8h_a5a1d199448378d2aa51cdef9c0017de8}{Localizacao\+Postos\+Adjacentes}}
+\begin{DoxyCompactList}\small\item\em Estrutura de Arestas (\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}}) para \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_camiao}{Camiao}} \mbox{\hyperlink{_localizacao_8h_a352bfb0fc41a9ee4052458095043510a}{Camiao}}
+\begin{DoxyCompactList}\small\item\em Estrutura de \mbox{\hyperlink{struct_camiao}{Camiao}} Que Recolhe Meios de Mobilidade. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} \mbox{\hyperlink{_localizacao_8h_af9513cfb4803d467d35ac74a144e63ea}{Caminho\+Camiao}}
+\begin{DoxyCompactList}\small\item\em Estrutura Para Guardar os Pontos Que o \mbox{\hyperlink{struct_camiao}{Camiao}} irá Prosseguir. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a917d6d2d775d373ae85b0da3418953fa}{Criar\+Posto}} (int id, char $\ast$cidade, float latitude, float longitude, bool visitado, \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$postos\+Adjacentes)
+\begin{DoxyCompactList}\small\item\em Cria Novo Posto . \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a34f0f341b3a7cad7d221f3445149c8a4}{Insere\+Posto\+Grafo}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$novo\+Posto)
+\begin{DoxyCompactList}\small\item\em Insere Posto na lista de \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_aea4dcac14173d151996c977cea33c7be}{Existe\+Posto}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header, int id\+Posto)
+\begin{DoxyCompactList}\small\item\em Ver se Posto existe na lista de \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_af0d96496de0610c313a08c77012e0e1a}{Remover\+Posto}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Remove Posto na lista de \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_localizacao_8h_afb5e6ac1104d6fb1789fe2781603ee6d}{Altera\+Posto}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header, int id, float latitude, float longitude)
+\begin{DoxyCompactList}\small\item\em Altera Posto (Latitude e Longitude) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a12019acb011864ae6d2f49945127352c}{Criar\+Posto\+Adjacente}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$posto\+Destino\+Adjacente, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$posto\+Origem)
+\begin{DoxyCompactList}\small\item\em Cria Posto Adjacente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_acc46b37615ba552d5145a49998c49c0c}{Inserir\+Posto\+Adjacente}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$head\+Lista, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$posto\+Origem, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$posto\+Destino)
+\begin{DoxyCompactList}\small\item\em Insere Posto Adjacente para um Posto. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_ae13e7a5b6e4b0e7ef4e36721dbf62b2e}{Existe\+Posto\+Adjacente}} (\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$header, int id\+Postos\+Adjacentes)
+\begin{DoxyCompactList}\small\item\em Ver se Existe Posto Adjacente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a428c61bf3570d03070138c2ee3915618}{Remover\+Posto\+Adjacente}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header\+Postos, \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$header\+Posto\+Adjacente, int id, int id\+Origem)
+\begin{DoxyCompactList}\small\item\em Remove Posto Adjacente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_ae5693b6481846047cb631712836fe481}{Atualizar\+Postos\+Adjacentes}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista)
+\begin{DoxyCompactList}\small\item\em Atualiza \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes de \mbox{\hyperlink{struct_postos}{Postos}} para Todos os \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a98412cb8ed9b9afab9ebe8fc4937dccd}{Procurar\+Por\+Id\+Postos\+Com\+Lista\+Toda}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header\+List, int id)
+\begin{DoxyCompactList}\small\item\em Procura Por Id \mbox{\hyperlink{struct_postos}{Postos}} Com a Lista Toda. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a5b4c9ce9964c3ee1af7a8c3ecc916348}{Procurar\+Por\+Id\+Postos}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header\+List, int id)
+\begin{DoxyCompactList}\small\item\em Procura Por Id \mbox{\hyperlink{struct_postos}{Postos}} Com so o Posto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a1a1ed2e8668f869d6cfd8bc603e363e9}{Ler\+EArmazenar\+Posto}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$header\+Postos\+Lista)
+\begin{DoxyCompactList}\small\item\em Ler txt file e Guarda Posto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_ab96b2a442f46a2f37d04675c545fe9b4}{Ler\+EArmazenar\+Posto\+Adjacente}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$header\+Postos\+Lista)
+\begin{DoxyCompactList}\small\item\em Ler txt file e Guarda Posto Adjacentes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_ae259e82fa4f2cf7665aadb03b1b43720}{Gravar\+Postos\+Binario}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Guarda \mbox{\hyperlink{struct_postos}{Postos}} em Bin file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_ad7488639a31c510e9c3d2b9164a8909a}{Ler\+Postos\+Binario}} (char $\ast$nome\+Ficheiro)
+\begin{DoxyCompactList}\small\item\em Le \mbox{\hyperlink{struct_postos}{Postos}} do Bin file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_ae63e5f2a4249e539d9bd9ba7e1aed95b}{Gravar\+Postos\+Adjacentes\+Binario}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Guarda \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes em Bin file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_ad3ecac9b9c4c88c93999af32e51c39bc}{Ler\+Postos\+Adjacentes\+Binario}} (char $\ast$nome\+Ficheiro, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$header, bool $\ast$resultado)
+\begin{DoxyCompactList}\small\item\em Le \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes do Bin file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_aee9619708ddc7a29eb453e6d99b7e706}{Ja\+Tem\+Posto\+Adjacente}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header\+Origem, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header\+Destino)
+\begin{DoxyCompactList}\small\item\em Ver Se Ja Tem o Posto Adjacente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a24d1fc186d5e3e795a4752d529bb136b}{Procurar\+Posto\+Adjacente}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$posto, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$posto\+Destino)
+\begin{DoxyCompactList}\small\item\em Procura Posto Adjacente. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_localizacao_8h_a862b10e87a0619f70319449a5b220692}{Algoritmo\+Dijkstra}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista, int origem\+Id, int destino\+Id, bool quer\+Imprimir\+Resultados)
+\begin{DoxyCompactList}\small\item\em Algoritmo Dijkstra para obter o caminho mais pequeno. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_a23d8bfa325cd235b3fe42d3f3225a5ac}{Ver\+Se\+Acessivel}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$origem\+Ponto, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$destino\+Ponto)
+\begin{DoxyCompactList}\small\item\em Ver Se o Caminho de dois \mbox{\hyperlink{struct_postos}{Postos}} Sao Acessiveis. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_camiao}{Camiao}} $\ast$ \mbox{\hyperlink{_localizacao_8h_adeab533d98259d138791270d082bfd97}{Criar\+Camiao}} (float carga\+Atual, float carga\+Maxima, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$localizacao\+Atual)
+\begin{DoxyCompactList}\small\item\em Cria \mbox{\hyperlink{struct_camiao}{Camiao}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_afef8865bd15713876772778cdc3beaa0}{Camiao\+Recolha}} (\mbox{\hyperlink{struct_camiao}{Camiao}} $\ast$camiao, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+List\+Pontos, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+List\+Meios)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_camiao}{Camiao}} Recolhe os Meios. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a76758dc7655b64399f93fe2ff9c4c5a6}{Criar\+Caminho\+Nodes}} (int id\+Posto, int id\+Meio, int peso\+Meio)
+\begin{DoxyCompactList}\small\item\em Cria Caminho para \mbox{\hyperlink{struct_camiao}{Camiao}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a3a3bc394d3e9bb1b21d2403a9b41adaf}{Inserir\+Caminho}} (\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$head\+Lista, \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$novo\+Caminho)
+\begin{DoxyCompactList}\small\item\em Insere novo Caminho para \mbox{\hyperlink{struct_camiao}{Camiao}} na Lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a4c3404ae93bd20ebfc06cb61bde212b9}{Remover\+Caminho\+Node}} (\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$header, int id)
+\begin{DoxyCompactList}\small\item\em Remove o Node no Caminho. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a7362e50190c52ce36c84869c1fc8bb73}{Create\+Caminho}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+List\+Pontos, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+List\+Meios, float $\ast$distancia\+Extra)
+\begin{DoxyCompactList}\small\item\em Cria Caminho. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_a00da2c5c4a8f217934c723abdc00e2ac}{Existe\+Caminho\+Node}} (\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$header, int id\+Caminho\+Camiao)
+\begin{DoxyCompactList}\small\item\em Ver se Existe o Node no Caminho. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_a88aab6b739da8f584ff60f563a507a48}{Caminho\+Mais\+Perto}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista, int origem\+Id, \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$caminho\+Camiao\+Lista, float $\ast$distancia, int $\ast$id\+Para\+Eliminar, float $\ast$peso\+Atual, float capacidade\+Maxima)
+\begin{DoxyCompactList}\small\item\em Caminho Mais Pequeno Para o Caminho \mbox{\hyperlink{struct_camiao}{Camiao}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_a97ae139580e6dcb75f660bcb769ef30f}{Localizacao\+Raio\+Cliente\+Posto}} (struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista\+Postos, float raio)
+\begin{DoxyCompactList}\small\item\em Localizacao Raio no Cliente para \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_localizacao_8h_a44653c240f0de57b5e51e8136e4e8d98}{Localizacao\+Raio\+Cliente\+Meio}} (struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Lista\+Meio, float raio, char $\ast$tipo)
+\begin{DoxyCompactList}\small\item\em Localizacao Raio no Cliente para Meios de um Tipo. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_localizacao_8h_ab941cfd88fb3fcc9fa78711c8a5efe74}{Calcula\+Distancia}} (float latitude1, float longitude1, float latitude2, float longitude2)
+\begin{DoxyCompactList}\small\item\em Calcula distancia de dois geocodigos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_aa3fcb3e1e437c105e5fbc54fc3e6da39}{Distancia\+Cliente\+AMeio\+Total}} (struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$meio, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+List\+Postos)
+\begin{DoxyCompactList}\small\item\em Cliente Vai A Localizacao do Meio. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_aceeb062bf0e522508ab4e80150260367}{Distancia\+Cliente\+APosto\+Total}} (struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista\+Postos, int id\+Posto\+Destino)
+\begin{DoxyCompactList}\small\item\em Cliente Vai A Localizacao do Posto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_a82cf298291d519409b2c49cdcdd9a710}{Criar\+Posto\+Escrever}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Posto)
+\begin{DoxyCompactList}\small\item\em Criar \mbox{\hyperlink{struct_postos}{Postos}} mas a escrever. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_adc4329a44be71a177aecebda7eead543}{Listar\+Todos\+Postos}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$header)
+\begin{DoxyCompactList}\small\item\em Lista todos os \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a0871c9f8f5ea85ff1eb101653784d115}{Remover\+Posto\+Escrever}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Postos)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{struct_postos}{Postos}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_a78fb4f45a3940d7959894e2b9a5a49f9}{Alterar\+Por\+Escrever\+Posto}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Posto)
+\begin{DoxyCompactList}\small\item\em Altera \mbox{\hyperlink{struct_postos}{Postos}} mas na consola. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_a7fc1eea568f63eea85ed20c8c3b09929}{Criar\+Adjacencia\+Posto\+Escrever}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Posto)
+\begin{DoxyCompactList}\small\item\em Criar Adjacencia de \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_aad9f4d3e8025a5fab76ab129d5315ec0}{Remover\+Adjacencia\+Posto\+Escrever}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Posto)
+\begin{DoxyCompactList}\small\item\em Remover Adjacencia de \mbox{\hyperlink{struct_postos}{Postos}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_a99605a57eeaf433cde24d5d6e686d868}{Camiao\+Recolha\+Escrever}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Posto, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Lista\+Meios)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_camiao}{Camiao}} Recolha. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_a84dc30c63e24c6e3858fa62ad073f460}{Cliente\+Para\+Posto\+Localizacao}} (struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$head\+Clientes, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista\+Postos, int id\+Cliente)
+\begin{DoxyCompactList}\small\item\em Cliente vai a Posto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ \mbox{\hyperlink{_localizacao_8h_a9bcc0a5dba458a32e5fc281fc773b183}{Viajar\+Com\+Meio\+Ate\+Localizacao}} (struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$cliente, \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Lista\+Postos, struct \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Lista\+Meio, float latitude, float longitude)
+\begin{DoxyCompactList}\small\item\em Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_localizacao_8h_a32ab6e24616a095720277a09b92ba035}{Lista\+Adjacentes}} (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$head\+Posto)
+\begin{DoxyCompactList}\small\item\em Mostrar \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definicao da struct Localizacao onde ira guardar o registo de postos e postos adjacentes, com as suas respectivas funcoes. 
+
+\begin{DoxyAuthor}{Author}
+Rafael Silva @email \href{mailto:a21089@alunos.ipca.pt}{\texttt{ a21089@alunos.\+ipca.\+pt}} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_localizacao_8h_a0989190f17dd96837d94d1cd29df8c1b}\label{_localizacao_8h_a0989190f17dd96837d94d1cd29df8c1b}} 
+\index{Localizacao.h@{Localizacao.h}!LARGURAGERALSTRING@{LARGURAGERALSTRING}}
+\index{LARGURAGERALSTRING@{LARGURAGERALSTRING}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LARGURAGERALSTRING}{LARGURAGERALSTRING}}
+{\footnotesize\ttfamily \#define LARGURAGERALSTRING~100}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_localizacao_8h_a352bfb0fc41a9ee4052458095043510a}\label{_localizacao_8h_a352bfb0fc41a9ee4052458095043510a}} 
+\index{Localizacao.h@{Localizacao.h}!Camiao@{Camiao}}
+\index{Camiao@{Camiao}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{Camiao}{Camiao}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_camiao}{Camiao}} \mbox{\hyperlink{struct_camiao}{Camiao}}}
+
+
+
+Estrutura de \mbox{\hyperlink{struct_camiao}{Camiao}} Que Recolhe Meios de Mobilidade. 
+
+Um \mbox{\hyperlink{struct_camiao}{Camiao}} contém um id\+Origem (@id\+Origem), carga\+Atual (@carga\+Atual) , carga\+Maxima (@carga\+Maxima) e localizacao\+Atual (@localizacao\+Atual). \mbox{\Hypertarget{_localizacao_8h_af9513cfb4803d467d35ac74a144e63ea}\label{_localizacao_8h_af9513cfb4803d467d35ac74a144e63ea}} 
+\index{Localizacao.h@{Localizacao.h}!CaminhoCamiao@{CaminhoCamiao}}
+\index{CaminhoCamiao@{CaminhoCamiao}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CaminhoCamiao}{CaminhoCamiao}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}}}
+
+
+
+Estrutura Para Guardar os Pontos Que o \mbox{\hyperlink{struct_camiao}{Camiao}} irá Prosseguir. 
+
+Um \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} contém um id\+Posto (@id\+Posto), id\+Meio (@id\+Meio) e peso\+Meio (@peso\+Meio). Contém apontador para próximo \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} \mbox{\Hypertarget{_localizacao_8h_a97bccbabae829ae41ae7e21140e806c1}\label{_localizacao_8h_a97bccbabae829ae41ae7e21140e806c1}} 
+\index{Localizacao.h@{Localizacao.h}!LocalizacaoPostos@{LocalizacaoPostos}}
+\index{LocalizacaoPostos@{LocalizacaoPostos}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LocalizacaoPostos}{LocalizacaoPostos}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}}
+
+
+
+Estrutura para Grafo orientado de \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao. 
+
+Um \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} contém posto (@posto). Contém apontador para próximo \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \mbox{\Hypertarget{_localizacao_8h_a5a1d199448378d2aa51cdef9c0017de8}\label{_localizacao_8h_a5a1d199448378d2aa51cdef9c0017de8}} 
+\index{Localizacao.h@{Localizacao.h}!LocalizacaoPostosAdjacentes@{LocalizacaoPostosAdjacentes}}
+\index{LocalizacaoPostosAdjacentes@{LocalizacaoPostosAdjacentes}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LocalizacaoPostosAdjacentes}{LocalizacaoPostosAdjacentes}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}}}
+
+
+
+Estrutura de Arestas (\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}}) para \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao. 
+
+Um \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} contém um id\+Destino (@id), posto\+Destino\+Adjacente (@posto\+Destino\+Adjacente) e distancia (@distancia). Contém apontador para próximo \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} \mbox{\Hypertarget{_localizacao_8h_ab50f7baafd568ae2202d87a68b8e8fb4}\label{_localizacao_8h_ab50f7baafd568ae2202d87a68b8e8fb4}} 
+\index{Localizacao.h@{Localizacao.h}!Postos@{Postos}}
+\index{Postos@{Postos}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{Postos}{Postos}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_postos}{Postos}} \mbox{\hyperlink{struct_postos}{Postos}}}
+
+
+
+Estrutura de Vertices (\mbox{\hyperlink{struct_postos}{Postos}}) para grafo orientado de \mbox{\hyperlink{struct_postos}{Postos}} de Localizacao (\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}) 
+
+Um \mbox{\hyperlink{struct_postos}{Postos}} contém um id (@id), cidade (@cidade) ,latitude (@latitude) , longitude (@longitude), visitado (@visitado) e postos\+Adjacentes (@postos\+Adjacentes). 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_localizacao_8h_a862b10e87a0619f70319449a5b220692}\label{_localizacao_8h_a862b10e87a0619f70319449a5b220692}} 
+\index{Localizacao.h@{Localizacao.h}!AlgoritmoDijkstra@{AlgoritmoDijkstra}}
+\index{AlgoritmoDijkstra@{AlgoritmoDijkstra}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{AlgoritmoDijkstra()}{AlgoritmoDijkstra()}}
+{\footnotesize\ttfamily float Algoritmo\+Dijkstra (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista,  }\item[{int}]{origem\+Id,  }\item[{int}]{destino\+Id,  }\item[{bool}]{quer\+Imprimir\+Resultados }\end{DoxyParamCaption})}
+
+
+
+Algoritmo Dijkstra para obter o caminho mais pequeno. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Lista} & head lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em origem\+Id} & id posto de Origem \\
+\hline
+\mbox{\texttt{ in}}  & {\em destino\+Id} & id posto de Destino \\
+\hline
+\mbox{\texttt{ in}}  & {\em quer\+Imprimir\+Resultados} & ver se quer imprimir o path ou nao\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+distancia\mbox{[}destino\+Id\mbox{]}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_afb5e6ac1104d6fb1789fe2781603ee6d}\label{_localizacao_8h_afb5e6ac1104d6fb1789fe2781603ee6d}} 
+\index{Localizacao.h@{Localizacao.h}!AlteraPosto@{AlteraPosto}}
+\index{AlteraPosto@{AlteraPosto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{AlteraPosto()}{AlteraPosto()}}
+{\footnotesize\ttfamily void Altera\+Posto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header,  }\item[{int}]{id,  }\item[{float}]{latitude,  }\item[{float}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Altera Posto (Latitude e Longitude) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em latitude} & latitude Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude} & longitude Posto \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_localizacao_8h_a78fb4f45a3940d7959894e2b9a5a49f9}\label{_localizacao_8h_a78fb4f45a3940d7959894e2b9a5a49f9}} 
+\index{Localizacao.h@{Localizacao.h}!AlterarPorEscreverPosto@{AlterarPorEscreverPosto}}
+\index{AlterarPorEscreverPosto@{AlterarPorEscreverPosto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{AlterarPorEscreverPosto()}{AlterarPorEscreverPosto()}}
+{\footnotesize\ttfamily int Alterar\+Por\+Escrever\+Posto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Posto }\end{DoxyParamCaption})}
+
+
+
+Altera \mbox{\hyperlink{struct_postos}{Postos}} mas na consola. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Postos} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ae5693b6481846047cb631712836fe481}\label{_localizacao_8h_ae5693b6481846047cb631712836fe481}} 
+\index{Localizacao.h@{Localizacao.h}!AtualizarPostosAdjacentes@{AtualizarPostosAdjacentes}}
+\index{AtualizarPostosAdjacentes@{AtualizarPostosAdjacentes}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{AtualizarPostosAdjacentes()}{AtualizarPostosAdjacentes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Atualizar\+Postos\+Adjacentes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista }\end{DoxyParamCaption})}
+
+
+
+Atualiza \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes de \mbox{\hyperlink{struct_postos}{Postos}} para Todos os \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Lista} & header dos postos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+Lista de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ab941cfd88fb3fcc9fa78711c8a5efe74}\label{_localizacao_8h_ab941cfd88fb3fcc9fa78711c8a5efe74}} 
+\index{Localizacao.h@{Localizacao.h}!CalculaDistancia@{CalculaDistancia}}
+\index{CalculaDistancia@{CalculaDistancia}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CalculaDistancia()}{CalculaDistancia()}}
+{\footnotesize\ttfamily float Calcula\+Distancia (\begin{DoxyParamCaption}\item[{float}]{latitude1,  }\item[{float}]{longitude1,  }\item[{float}]{latitude2,  }\item[{float}]{longitude2 }\end{DoxyParamCaption})}
+
+
+
+Calcula distancia de dois geocodigos. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em latitude1} & latitude do primeiro \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude1} & longitude do primeiro \\
+\hline
+\mbox{\texttt{ in}}  & {\em latitude2} & latitude do segundo \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude2} & longitude do segundo\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_afef8865bd15713876772778cdc3beaa0}\label{_localizacao_8h_afef8865bd15713876772778cdc3beaa0}} 
+\index{Localizacao.h@{Localizacao.h}!CamiaoRecolha@{CamiaoRecolha}}
+\index{CamiaoRecolha@{CamiaoRecolha}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CamiaoRecolha()}{CamiaoRecolha()}}
+{\footnotesize\ttfamily bool Camiao\+Recolha (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_camiao}{Camiao}} $\ast$}]{camiao,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+List\+Pontos,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+List\+Meios }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{struct_camiao}{Camiao}} Recolhe os Meios. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em camiao} & camiao \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+List\+Pontos} & head lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+List\+Meios} & head lista de meios\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a99605a57eeaf433cde24d5d6e686d868}\label{_localizacao_8h_a99605a57eeaf433cde24d5d6e686d868}} 
+\index{Localizacao.h@{Localizacao.h}!CamiaoRecolhaEscrever@{CamiaoRecolhaEscrever}}
+\index{CamiaoRecolhaEscrever@{CamiaoRecolhaEscrever}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CamiaoRecolhaEscrever()}{CamiaoRecolhaEscrever()}}
+{\footnotesize\ttfamily int Camiao\+Recolha\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Posto,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Lista\+Meios }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{struct_camiao}{Camiao}} Recolha. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Postos} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+Lista\+Meios} & header de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a88aab6b739da8f584ff60f563a507a48}\label{_localizacao_8h_a88aab6b739da8f584ff60f563a507a48}} 
+\index{Localizacao.h@{Localizacao.h}!CaminhoMaisPerto@{CaminhoMaisPerto}}
+\index{CaminhoMaisPerto@{CaminhoMaisPerto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CaminhoMaisPerto()}{CaminhoMaisPerto()}}
+{\footnotesize\ttfamily int Caminho\+Mais\+Perto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista,  }\item[{int}]{origem\+Id,  }\item[{\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$}]{caminho\+Camiao\+Lista,  }\item[{float $\ast$}]{distancia,  }\item[{int $\ast$}]{id\+Para\+Eliminar,  }\item[{float $\ast$}]{peso\+Atual,  }\item[{float}]{capacidade\+Maxima }\end{DoxyParamCaption})}
+
+
+
+Caminho Mais Pequeno Para o Caminho \mbox{\hyperlink{struct_camiao}{Camiao}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Lista} & head lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em origem\+Id} & id posto de Origem \\
+\hline
+\mbox{\texttt{ in}}  & {\em caminho\+Camiao\+Lista} & caminho do \mbox{\hyperlink{struct_camiao}{Camiao}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em distancia} & distancia \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Para\+Eliminar} & id posto para eliminar \\
+\hline
+\mbox{\texttt{ in}}  & {\em peso\+Atual} & peso atual \\
+\hline
+\mbox{\texttt{ in}}  & {\em capacidade\+Maxima} & capacidade Maxima\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+id\+Posto; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a84dc30c63e24c6e3858fa62ad073f460}\label{_localizacao_8h_a84dc30c63e24c6e3858fa62ad073f460}} 
+\index{Localizacao.h@{Localizacao.h}!ClienteParaPostoLocalizacao@{ClienteParaPostoLocalizacao}}
+\index{ClienteParaPostoLocalizacao@{ClienteParaPostoLocalizacao}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ClienteParaPostoLocalizacao()}{ClienteParaPostoLocalizacao()}}
+{\footnotesize\ttfamily int Cliente\+Para\+Posto\+Localizacao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{head\+Clientes,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista\+Postos,  }\item[{int}]{id\+Cliente }\end{DoxyParamCaption})}
+
+
+
+Cliente vai a Posto. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Clientes} & header da lista de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+Aluguer} & header da lista de \mbox{\hyperlink{struct_aluguer}{Aluguer}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+Meio} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id de \mbox{\hyperlink{struct_clientes}{Clientes}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a7362e50190c52ce36c84869c1fc8bb73}\label{_localizacao_8h_a7362e50190c52ce36c84869c1fc8bb73}} 
+\index{Localizacao.h@{Localizacao.h}!CreateCaminho@{CreateCaminho}}
+\index{CreateCaminho@{CreateCaminho}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CreateCaminho()}{CreateCaminho()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ Create\+Caminho (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+List\+Pontos,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+List\+Meios,  }\item[{float $\ast$}]{distancia\+Extra }\end{DoxyParamCaption})}
+
+
+
+Cria Caminho. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+List\+Pontos} & head lista de pontos \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+List\+Meios} & head lista de meios \\
+\hline
+\mbox{\texttt{ in}}  & {\em distancia\+Extra} & distancia extra para chegar aos pontos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+caminho de \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a7fc1eea568f63eea85ed20c8c3b09929}\label{_localizacao_8h_a7fc1eea568f63eea85ed20c8c3b09929}} 
+\index{Localizacao.h@{Localizacao.h}!CriarAdjacenciaPostoEscrever@{CriarAdjacenciaPostoEscrever}}
+\index{CriarAdjacenciaPostoEscrever@{CriarAdjacenciaPostoEscrever}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CriarAdjacenciaPostoEscrever()}{CriarAdjacenciaPostoEscrever()}}
+{\footnotesize\ttfamily int Criar\+Adjacencia\+Posto\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Posto }\end{DoxyParamCaption})}
+
+
+
+Criar Adjacencia de \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Postos} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_adeab533d98259d138791270d082bfd97}\label{_localizacao_8h_adeab533d98259d138791270d082bfd97}} 
+\index{Localizacao.h@{Localizacao.h}!CriarCamiao@{CriarCamiao}}
+\index{CriarCamiao@{CriarCamiao}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CriarCamiao()}{CriarCamiao()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_camiao}{Camiao}} $\ast$ Criar\+Camiao (\begin{DoxyParamCaption}\item[{float}]{carga\+Atual,  }\item[{float}]{carga\+Maxima,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{localizacao\+Atual }\end{DoxyParamCaption})}
+
+
+
+Cria \mbox{\hyperlink{struct_camiao}{Camiao}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em carga\+Atual} & carga Atual do camiao \\
+\hline
+\mbox{\texttt{ in}}  & {\em carga\+Maxima} & carga Maxima do \mbox{\hyperlink{struct_camiao}{Camiao}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em localizacao\+Atual} & localizacao Atual\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo\+Camiao de \mbox{\hyperlink{struct_camiao}{Camiao}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a76758dc7655b64399f93fe2ff9c4c5a6}\label{_localizacao_8h_a76758dc7655b64399f93fe2ff9c4c5a6}} 
+\index{Localizacao.h@{Localizacao.h}!CriarCaminhoNodes@{CriarCaminhoNodes}}
+\index{CriarCaminhoNodes@{CriarCaminhoNodes}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CriarCaminhoNodes()}{CriarCaminhoNodes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ Criar\+Caminho\+Nodes (\begin{DoxyParamCaption}\item[{int}]{id\+Posto,  }\item[{int}]{id\+Meio,  }\item[{int}]{peso\+Meio }\end{DoxyParamCaption})}
+
+
+
+Cria Caminho para \mbox{\hyperlink{struct_camiao}{Camiao}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id\+Posto} & id do Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Meio} & id do Meio \\
+\hline
+\mbox{\texttt{ in}}  & {\em peso\+Meio} & peso do Meio\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo\+Caminho de \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a917d6d2d775d373ae85b0da3418953fa}\label{_localizacao_8h_a917d6d2d775d373ae85b0da3418953fa}} 
+\index{Localizacao.h@{Localizacao.h}!CriarPosto@{CriarPosto}}
+\index{CriarPosto@{CriarPosto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CriarPosto()}{CriarPosto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Criar\+Posto (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{char $\ast$}]{cidade,  }\item[{float}]{latitude,  }\item[{float}]{longitude,  }\item[{bool}]{visitado,  }\item[{\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$}]{postos\+Adjacentes }\end{DoxyParamCaption})}
+
+
+
+Cria Novo Posto . 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em id} & id do Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em cidade} & cidade do Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em latitude} & latitude do Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude} & longitude do Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em visitado} & ver se ta visitado o Posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em postos\+Adjacentes} & postos Adjacentes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+novo\+Posto de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a12019acb011864ae6d2f49945127352c}\label{_localizacao_8h_a12019acb011864ae6d2f49945127352c}} 
+\index{Localizacao.h@{Localizacao.h}!CriarPostoAdjacente@{CriarPostoAdjacente}}
+\index{CriarPostoAdjacente@{CriarPostoAdjacente}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CriarPostoAdjacente()}{CriarPostoAdjacente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$ Criar\+Posto\+Adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{posto\+Destino\+Adjacente,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{posto\+Origem }\end{DoxyParamCaption})}
+
+
+
+Cria Posto Adjacente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em posto\+Destino\+Adjacente} & posto que quer ficar Adjacente (Destino) \\
+\hline
+\mbox{\texttt{ in}}  & {\em posto\+Origem} & posto origem (Origem)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+posto\+Adjacente de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a82cf298291d519409b2c49cdcdd9a710}\label{_localizacao_8h_a82cf298291d519409b2c49cdcdd9a710}} 
+\index{Localizacao.h@{Localizacao.h}!CriarPostoEscrever@{CriarPostoEscrever}}
+\index{CriarPostoEscrever@{CriarPostoEscrever}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{CriarPostoEscrever()}{CriarPostoEscrever()}}
+{\footnotesize\ttfamily int Criar\+Posto\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Posto }\end{DoxyParamCaption})}
+
+
+
+Criar \mbox{\hyperlink{struct_postos}{Postos}} mas a escrever. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Postos} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_aa3fcb3e1e437c105e5fbc54fc3e6da39}\label{_localizacao_8h_aa3fcb3e1e437c105e5fbc54fc3e6da39}} 
+\index{Localizacao.h@{Localizacao.h}!DistanciaClienteAMeioTotal@{DistanciaClienteAMeioTotal}}
+\index{DistanciaClienteAMeioTotal@{DistanciaClienteAMeioTotal}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{DistanciaClienteAMeioTotal()}{DistanciaClienteAMeioTotal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Distancia\+Cliente\+AMeio\+Total (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{meio,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista\+Postos }\end{DoxyParamCaption})}
+
+
+
+Cliente Vai A Localizacao do Meio. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cliente} & cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em meio} & meio \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+List\+Postos} & head lista \mbox{\hyperlink{struct_postos}{Postos}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+List\+Postos de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_aceeb062bf0e522508ab4e80150260367}\label{_localizacao_8h_aceeb062bf0e522508ab4e80150260367}} 
+\index{Localizacao.h@{Localizacao.h}!DistanciaClienteAPostoTotal@{DistanciaClienteAPostoTotal}}
+\index{DistanciaClienteAPostoTotal@{DistanciaClienteAPostoTotal}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{DistanciaClienteAPostoTotal()}{DistanciaClienteAPostoTotal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Distancia\+Cliente\+APosto\+Total (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista\+Postos,  }\item[{int}]{id\+Posto\+Destino }\end{DoxyParamCaption})}
+
+
+
+Cliente Vai A Localizacao do Posto. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cliente} & cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+List\+Postos} & head lista \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Posto\+Destino} & id Posto Destino\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+List\+Postos de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a00da2c5c4a8f217934c723abdc00e2ac}\label{_localizacao_8h_a00da2c5c4a8f217934c723abdc00e2ac}} 
+\index{Localizacao.h@{Localizacao.h}!ExisteCaminhoNode@{ExisteCaminhoNode}}
+\index{ExisteCaminhoNode@{ExisteCaminhoNode}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ExisteCaminhoNode()}{ExisteCaminhoNode()}}
+{\footnotesize\ttfamily bool Existe\+Caminho\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$}]{header,  }\item[{int}]{id\+Caminho\+Camiao }\end{DoxyParamCaption})}
+
+
+
+Ver se Existe o Node no Caminho. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & head do Caminho de \mbox{\hyperlink{struct_camiao}{Camiao}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Caminho\+Camiao} & id do node do Caminho de \mbox{\hyperlink{struct_camiao}{Camiao}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_aea4dcac14173d151996c977cea33c7be}\label{_localizacao_8h_aea4dcac14173d151996c977cea33c7be}} 
+\index{Localizacao.h@{Localizacao.h}!ExistePosto@{ExistePosto}}
+\index{ExistePosto@{ExistePosto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ExistePosto()}{ExistePosto()}}
+{\footnotesize\ttfamily bool Existe\+Posto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header,  }\item[{int}]{id\+Posto }\end{DoxyParamCaption})}
+
+
+
+Ver se Posto existe na lista de \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da Lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Posto} & id do Posto\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ae13e7a5b6e4b0e7ef4e36721dbf62b2e}\label{_localizacao_8h_ae13e7a5b6e4b0e7ef4e36721dbf62b2e}} 
+\index{Localizacao.h@{Localizacao.h}!ExistePostoAdjacente@{ExistePostoAdjacente}}
+\index{ExistePostoAdjacente@{ExistePostoAdjacente}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ExistePostoAdjacente()}{ExistePostoAdjacente()}}
+{\footnotesize\ttfamily bool Existe\+Posto\+Adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$}]{header,  }\item[{int}]{id\+Postos\+Adjacentes }\end{DoxyParamCaption})}
+
+
+
+Ver se Existe Posto Adjacente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header de postos \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Postos\+Adjacentes} & id de postos adjacentes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ae63e5f2a4249e539d9bd9ba7e1aed95b}\label{_localizacao_8h_ae63e5f2a4249e539d9bd9ba7e1aed95b}} 
+\index{Localizacao.h@{Localizacao.h}!GravarPostosAdjacentesBinario@{GravarPostosAdjacentesBinario}}
+\index{GravarPostosAdjacentesBinario@{GravarPostosAdjacentesBinario}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{GravarPostosAdjacentesBinario()}{GravarPostosAdjacentesBinario()}}
+{\footnotesize\ttfamily bool Gravar\+Postos\+Adjacentes\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Guarda \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes em Bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & nome do Ficheiro \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de postos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ae259e82fa4f2cf7665aadb03b1b43720}\label{_localizacao_8h_ae259e82fa4f2cf7665aadb03b1b43720}} 
+\index{Localizacao.h@{Localizacao.h}!GravarPostosBinario@{GravarPostosBinario}}
+\index{GravarPostosBinario@{GravarPostosBinario}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{GravarPostosBinario()}{GravarPostosBinario()}}
+{\footnotesize\ttfamily bool Gravar\+Postos\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Guarda \mbox{\hyperlink{struct_postos}{Postos}} em Bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & nome do Ficheiro \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da lista de postos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a34f0f341b3a7cad7d221f3445149c8a4}\label{_localizacao_8h_a34f0f341b3a7cad7d221f3445149c8a4}} 
+\index{Localizacao.h@{Localizacao.h}!InserePostoGrafo@{InserePostoGrafo}}
+\index{InserePostoGrafo@{InserePostoGrafo}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{InserePostoGrafo()}{InserePostoGrafo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Insere\+Posto\+Grafo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{novo\+Posto }\end{DoxyParamCaption})}
+
+
+
+Insere Posto na lista de \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da Lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em novo\+Posto} & novo Posto Para Inserir\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a3a3bc394d3e9bb1b21d2403a9b41adaf}\label{_localizacao_8h_a3a3bc394d3e9bb1b21d2403a9b41adaf}} 
+\index{Localizacao.h@{Localizacao.h}!InserirCaminho@{InserirCaminho}}
+\index{InserirCaminho@{InserirCaminho}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{InserirCaminho()}{InserirCaminho()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ Inserir\+Caminho (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$}]{head\+Lista,  }\item[{\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$}]{novo\+Caminho }\end{DoxyParamCaption})}
+
+
+
+Insere novo Caminho para \mbox{\hyperlink{struct_camiao}{Camiao}} na Lista. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Lista} & head lista do caminho do camiao \\
+\hline
+\mbox{\texttt{ in}}  & {\em novo\+Caminho} & novo node para Caminho \mbox{\hyperlink{struct_camiao}{Camiao}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+Lista de \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_acc46b37615ba552d5145a49998c49c0c}\label{_localizacao_8h_acc46b37615ba552d5145a49998c49c0c}} 
+\index{Localizacao.h@{Localizacao.h}!InserirPostoAdjacente@{InserirPostoAdjacente}}
+\index{InserirPostoAdjacente@{InserirPostoAdjacente}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{InserirPostoAdjacente()}{InserirPostoAdjacente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Inserir\+Posto\+Adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$}]{head\+Lista,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{posto\+Origem,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{posto\+Destino }\end{DoxyParamCaption})}
+
+
+
+Insere Posto Adjacente para um Posto. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Lista} & head Lista \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em posto\+Origem} & posto origem (Origem) \\
+\hline
+\mbox{\texttt{ in}}  & {\em posto\+Destino} & posto destino (Destino)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+Lista de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_aee9619708ddc7a29eb453e6d99b7e706}\label{_localizacao_8h_aee9619708ddc7a29eb453e6d99b7e706}} 
+\index{Localizacao.h@{Localizacao.h}!JaTemPostoAdjacente@{JaTemPostoAdjacente}}
+\index{JaTemPostoAdjacente@{JaTemPostoAdjacente}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{JaTemPostoAdjacente()}{JaTemPostoAdjacente()}}
+{\footnotesize\ttfamily bool Ja\+Tem\+Posto\+Adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header\+Origem,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header\+Destino }\end{DoxyParamCaption})}
+
+
+
+Ver Se Ja Tem o Posto Adjacente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header\+Origem} & header do posto de origem \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Destino} & header do posto de destino\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a1a1ed2e8668f869d6cfd8bc603e363e9}\label{_localizacao_8h_a1a1ed2e8668f869d6cfd8bc603e363e9}} 
+\index{Localizacao.h@{Localizacao.h}!LerEArmazenarPosto@{LerEArmazenarPosto}}
+\index{LerEArmazenarPosto@{LerEArmazenarPosto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LerEArmazenarPosto()}{LerEArmazenarPosto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Ler\+EArmazenar\+Posto (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$}]{header\+Postos\+Lista }\end{DoxyParamCaption})}
+
+
+
+Ler txt file e Guarda Posto. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & nome do Ficheiro \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Postos\+Lista} & header da lista de postos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header\+Postos\+Lista de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ab96b2a442f46a2f37d04675c545fe9b4}\label{_localizacao_8h_ab96b2a442f46a2f37d04675c545fe9b4}} 
+\index{Localizacao.h@{Localizacao.h}!LerEArmazenarPostoAdjacente@{LerEArmazenarPostoAdjacente}}
+\index{LerEArmazenarPostoAdjacente@{LerEArmazenarPostoAdjacente}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LerEArmazenarPostoAdjacente()}{LerEArmazenarPostoAdjacente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Ler\+EArmazenar\+Posto\+Adjacente (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$}]{header\+Postos\+Lista }\end{DoxyParamCaption})}
+
+
+
+Ler txt file e Guarda Posto Adjacentes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & nome do Ficheiro \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Postos\+Lista} & header da lista de postos\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header\+Postos\+Lista de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ad3ecac9b9c4c88c93999af32e51c39bc}\label{_localizacao_8h_ad3ecac9b9c4c88c93999af32e51c39bc}} 
+\index{Localizacao.h@{Localizacao.h}!LerPostosAdjacentesBinario@{LerPostosAdjacentesBinario}}
+\index{LerPostosAdjacentesBinario@{LerPostosAdjacentesBinario}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LerPostosAdjacentesBinario()}{LerPostosAdjacentesBinario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Ler\+Postos\+Adjacentes\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$$\ast$}]{header,  }\item[{bool $\ast$}]{resultado }\end{DoxyParamCaption})}
+
+
+
+Le \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes do Bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & nome do Ficheiro \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & header da Lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em resultado} & resultado da funcao\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_ad7488639a31c510e9c3d2b9164a8909a}\label{_localizacao_8h_ad7488639a31c510e9c3d2b9164a8909a}} 
+\index{Localizacao.h@{Localizacao.h}!LerPostosBinario@{LerPostosBinario}}
+\index{LerPostosBinario@{LerPostosBinario}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LerPostosBinario()}{LerPostosBinario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Ler\+Postos\+Binario (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Ficheiro }\end{DoxyParamCaption})}
+
+
+
+Le \mbox{\hyperlink{struct_postos}{Postos}} do Bin file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em nome\+Ficheiro} & nome do Ficheiro\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a32ab6e24616a095720277a09b92ba035}\label{_localizacao_8h_a32ab6e24616a095720277a09b92ba035}} 
+\index{Localizacao.h@{Localizacao.h}!ListaAdjacentes@{ListaAdjacentes}}
+\index{ListaAdjacentes@{ListaAdjacentes}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ListaAdjacentes()}{ListaAdjacentes()}}
+{\footnotesize\ttfamily int Lista\+Adjacentes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Posto }\end{DoxyParamCaption})}
+
+
+
+Mostrar \mbox{\hyperlink{struct_postos}{Postos}} Adjacentes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Postos} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_adc4329a44be71a177aecebda7eead543}\label{_localizacao_8h_adc4329a44be71a177aecebda7eead543}} 
+\index{Localizacao.h@{Localizacao.h}!ListarTodosPostos@{ListarTodosPostos}}
+\index{ListarTodosPostos@{ListarTodosPostos}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ListarTodosPostos()}{ListarTodosPostos()}}
+{\footnotesize\ttfamily int Listar\+Todos\+Postos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Lista todos os \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a44653c240f0de57b5e51e8136e4e8d98}\label{_localizacao_8h_a44653c240f0de57b5e51e8136e4e8d98}} 
+\index{Localizacao.h@{Localizacao.h}!LocalizacaoRaioClienteMeio@{LocalizacaoRaioClienteMeio}}
+\index{LocalizacaoRaioClienteMeio@{LocalizacaoRaioClienteMeio}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LocalizacaoRaioClienteMeio()}{LocalizacaoRaioClienteMeio()}}
+{\footnotesize\ttfamily bool Localizacao\+Raio\+Cliente\+Meio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Lista\+Meio,  }\item[{float}]{raio,  }\item[{char $\ast$}]{tipo }\end{DoxyParamCaption})}
+
+
+
+Localizacao Raio no Cliente para Meios de um Tipo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cliente} & cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+Lista\+Meio} & lista \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em raio} & raio \\
+\hline
+\mbox{\texttt{ in}}  & {\em tipo} & tipo do meio\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a97ae139580e6dcb75f660bcb769ef30f}\label{_localizacao_8h_a97ae139580e6dcb75f660bcb769ef30f}} 
+\index{Localizacao.h@{Localizacao.h}!LocalizacaoRaioClientePosto@{LocalizacaoRaioClientePosto}}
+\index{LocalizacaoRaioClientePosto@{LocalizacaoRaioClientePosto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{LocalizacaoRaioClientePosto()}{LocalizacaoRaioClientePosto()}}
+{\footnotesize\ttfamily bool Localizacao\+Raio\+Cliente\+Posto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista\+Postos,  }\item[{float}]{raio }\end{DoxyParamCaption})}
+
+
+
+Localizacao Raio no Cliente para \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cliente} & cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+List\+Postos} & lista \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em raio} & raio\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a5b4c9ce9964c3ee1af7a8c3ecc916348}\label{_localizacao_8h_a5b4c9ce9964c3ee1af7a8c3ecc916348}} 
+\index{Localizacao.h@{Localizacao.h}!ProcurarPorIdPostos@{ProcurarPorIdPostos}}
+\index{ProcurarPorIdPostos@{ProcurarPorIdPostos}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ProcurarPorIdPostos()}{ProcurarPorIdPostos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Procurar\+Por\+Id\+Postos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header\+Lista,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Procura Por Id \mbox{\hyperlink{struct_postos}{Postos}} Com so o Posto. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header\+List} & header de postos \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id do Posto\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+Lista de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a98412cb8ed9b9afab9ebe8fc4937dccd}\label{_localizacao_8h_a98412cb8ed9b9afab9ebe8fc4937dccd}} 
+\index{Localizacao.h@{Localizacao.h}!ProcurarPorIdPostosComListaToda@{ProcurarPorIdPostosComListaToda}}
+\index{ProcurarPorIdPostosComListaToda@{ProcurarPorIdPostosComListaToda}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ProcurarPorIdPostosComListaToda()}{ProcurarPorIdPostosComListaToda()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Procurar\+Por\+Id\+Postos\+Com\+Lista\+Toda (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header\+List,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Procura Por Id \mbox{\hyperlink{struct_postos}{Postos}} Com a Lista Toda. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Lista} & header de postos \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id do Posto\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+Lista de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a24d1fc186d5e3e795a4752d529bb136b}\label{_localizacao_8h_a24d1fc186d5e3e795a4752d529bb136b}} 
+\index{Localizacao.h@{Localizacao.h}!ProcurarPostoAdjacente@{ProcurarPostoAdjacente}}
+\index{ProcurarPostoAdjacente@{ProcurarPostoAdjacente}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ProcurarPostoAdjacente()}{ProcurarPostoAdjacente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$ Procurar\+Posto\+Adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{posto,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{posto\+Destino }\end{DoxyParamCaption})}
+
+
+
+Procura Posto Adjacente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em posto} & posto \\
+\hline
+\mbox{\texttt{ in}}  & {\em posto\+Destino} & posto destino que quer Procurar\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+adjacente de \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_aad9f4d3e8025a5fab76ab129d5315ec0}\label{_localizacao_8h_aad9f4d3e8025a5fab76ab129d5315ec0}} 
+\index{Localizacao.h@{Localizacao.h}!RemoverAdjacenciaPostoEscrever@{RemoverAdjacenciaPostoEscrever}}
+\index{RemoverAdjacenciaPostoEscrever@{RemoverAdjacenciaPostoEscrever}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{RemoverAdjacenciaPostoEscrever()}{RemoverAdjacenciaPostoEscrever()}}
+{\footnotesize\ttfamily int Remover\+Adjacencia\+Posto\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Posto }\end{DoxyParamCaption})}
+
+
+
+Remover Adjacencia de \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Postos} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a4c3404ae93bd20ebfc06cb61bde212b9}\label{_localizacao_8h_a4c3404ae93bd20ebfc06cb61bde212b9}} 
+\index{Localizacao.h@{Localizacao.h}!RemoverCaminhoNode@{RemoverCaminhoNode}}
+\index{RemoverCaminhoNode@{RemoverCaminhoNode}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{RemoverCaminhoNode()}{RemoverCaminhoNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$ Remover\+Caminho\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove o Node no Caminho. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & head do Caminho de \mbox{\hyperlink{struct_camiao}{Camiao}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id do node do Caminho de \mbox{\hyperlink{struct_camiao}{Camiao}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header de \mbox{\hyperlink{struct_caminho_camiao}{Caminho\+Camiao}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_af0d96496de0610c313a08c77012e0e1a}\label{_localizacao_8h_af0d96496de0610c313a08c77012e0e1a}} 
+\index{Localizacao.h@{Localizacao.h}!RemoverPosto@{RemoverPosto}}
+\index{RemoverPosto@{RemoverPosto}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{RemoverPosto()}{RemoverPosto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Remover\+Posto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove Posto na lista de \mbox{\hyperlink{struct_postos}{Postos}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da Lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id Posto Para Remover\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a428c61bf3570d03070138c2ee3915618}\label{_localizacao_8h_a428c61bf3570d03070138c2ee3915618}} 
+\index{Localizacao.h@{Localizacao.h}!RemoverPostoAdjacente@{RemoverPostoAdjacente}}
+\index{RemoverPostoAdjacente@{RemoverPostoAdjacente}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{RemoverPostoAdjacente()}{RemoverPostoAdjacente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$ Remover\+Posto\+Adjacente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{header\+Postos,  }\item[{\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}} $\ast$}]{header\+Posto\+Adjacente,  }\item[{int}]{id,  }\item[{int}]{id\+Origem }\end{DoxyParamCaption})}
+
+
+
+Remove Posto Adjacente. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header\+Postos} & header dos postos \\
+\hline
+\mbox{\texttt{ in}}  & {\em header\+Posto\+Adjacente} & header de postos adjacentes \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id de qual quer remover\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header\+Posto\+Adjacente de \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{Localizacao\+Postos\+Adjacentes}}; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a0871c9f8f5ea85ff1eb101653784d115}\label{_localizacao_8h_a0871c9f8f5ea85ff1eb101653784d115}} 
+\index{Localizacao.h@{Localizacao.h}!RemoverPostoEscrever@{RemoverPostoEscrever}}
+\index{RemoverPostoEscrever@{RemoverPostoEscrever}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{RemoverPostoEscrever()}{RemoverPostoEscrever()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Remover\+Posto\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Postos }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{struct_postos}{Postos}} mas na consola. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Postos} & header de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+Postos; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a23d8bfa325cd235b3fe42d3f3225a5ac}\label{_localizacao_8h_a23d8bfa325cd235b3fe42d3f3225a5ac}} 
+\index{Localizacao.h@{Localizacao.h}!VerSeAcessivel@{VerSeAcessivel}}
+\index{VerSeAcessivel@{VerSeAcessivel}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{VerSeAcessivel()}{VerSeAcessivel()}}
+{\footnotesize\ttfamily bool Ver\+Se\+Acessivel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{origem\+Ponto,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{destino\+Ponto }\end{DoxyParamCaption})}
+
+
+
+Ver Se o Caminho de dois \mbox{\hyperlink{struct_postos}{Postos}} Sao Acessiveis. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em head\+Lista} & head lista de \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em origem\+Ponto} & posto de Origem \\
+\hline
+\mbox{\texttt{ in}}  & {\em destino\+Ponto} & posto de Destino\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True/\+False; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_localizacao_8h_a9bcc0a5dba458a32e5fc281fc773b183}\label{_localizacao_8h_a9bcc0a5dba458a32e5fc281fc773b183}} 
+\index{Localizacao.h@{Localizacao.h}!ViajarComMeioAteLocalizacao@{ViajarComMeioAteLocalizacao}}
+\index{ViajarComMeioAteLocalizacao@{ViajarComMeioAteLocalizacao}!Localizacao.h@{Localizacao.h}}
+\doxysubsubsection{\texorpdfstring{ViajarComMeioAteLocalizacao()}{ViajarComMeioAteLocalizacao()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$ Viajar\+Com\+Meio\+Ate\+Localizacao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$}]{cliente,  }\item[{\mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}} $\ast$}]{head\+Lista\+Postos,  }\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Lista\+Meio,  }\item[{float}]{latitude,  }\item[{float}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cliente} & cliente \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+List\+Postos} & head lista \mbox{\hyperlink{struct_postos}{Postos}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em head\+Lista\+Meio} & head lista \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em latitude} & latitude do destino \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude} & longitude do destino\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+head\+List\+Postos de \mbox{\hyperlink{struct_localizacao_postos}{Localizacao\+Postos}}; 
+\end{DoxyReturn}

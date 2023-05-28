@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_camiao" kind="struct" language="C++" prot="public">
+    <compoundname>Camiao</compoundname>
+    <includes refid="_localizacao_8h" local="no">Localizacao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_camiao_1a58ce4ddbaab309abe4fa436080b71f2e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Camiao::idOrigem</definition>
+        <argsstring></argsstring>
+        <name>idOrigem</name>
+        <qualifiedname>Camiao::idOrigem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="70" column="9" bodyfile="Localizacao.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_camiao_1ab36037d83c58cefca27c1848fb48f2bc" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Camiao::cargaAtual</definition>
+        <argsstring></argsstring>
+        <name>cargaAtual</name>
+        <qualifiedname>Camiao::cargaAtual</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="71" column="11" bodyfile="Localizacao.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_camiao_1add8da85911d761f92f984df6af8ccc89" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Camiao::cargaMaxima</definition>
+        <argsstring></argsstring>
+        <name>cargaMaxima</name>
+        <qualifiedname>Camiao::cargaMaxima</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="72" column="11" bodyfile="Localizacao.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_camiao_1a7f49ae4f76ec73f1a90fdb9694c32ea4" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>struct LocalizacaoPostos* Camiao::localizacaoAtual</definition>
+        <argsstring></argsstring>
+        <name>localizacaoAtual</name>
+        <qualifiedname>Camiao::localizacaoAtual</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="73" column="29" bodyfile="Localizacao.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura de <ref refid="struct_camiao" kindref="compound">Camiao</ref> Que Recolhe Meios de Mobilidade. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um <ref refid="struct_camiao" kindref="compound">Camiao</ref> contém um idOrigem (@idOrigem), cargaAtual (@cargaAtual) , cargaMaxima (@cargaMaxima) e localizacaoAtual (@localizacaoAtual). </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Camiao</label>
+        <link refid="struct_camiao"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>localizacaoAtual</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>LocalizacaoPostos</label>
+        <link refid="struct_localizacao_postos"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>posto</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>LocalizacaoPostosAdjacentes</label>
+        <link refid="struct_localizacao_postos_adjacentes"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>postoDestinoAdjacente</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Postos</label>
+        <link refid="struct_postos"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>postosAdjacentes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Localizacao.h" line="69" column="1" bodyfile="Localizacao.h" bodystart="69" bodyend="74"/>
+    <listofallmembers>
+      <member refid="struct_camiao_1ab36037d83c58cefca27c1848fb48f2bc" prot="public" virt="non-virtual"><scope>Camiao</scope><name>cargaAtual</name></member>
+      <member refid="struct_camiao_1add8da85911d761f92f984df6af8ccc89" prot="public" virt="non-virtual"><scope>Camiao</scope><name>cargaMaxima</name></member>
+      <member refid="struct_camiao_1a58ce4ddbaab309abe4fa436080b71f2e" prot="public" virt="non-virtual"><scope>Camiao</scope><name>idOrigem</name></member>
+      <member refid="struct_camiao_1a7f49ae4f76ec73f1a90fdb9694c32ea4" prot="public" virt="non-virtual"><scope>Camiao</scope><name>localizacaoAtual</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

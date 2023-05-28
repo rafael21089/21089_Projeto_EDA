@@ -18,7 +18,7 @@ Funcoes para Meio\+De\+Mobilidade.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8c_a2053eb016b634c1241ba27fa54dd5b7b}{Criar\+Meios\+De\+Mobilidade}} (int id, char $\ast$tipo, int carga\+Bateria, float custo, char $\ast$localizacao)
+\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8c_a318a4065db4cfd0ccbcce81204ffb29a}{Criar\+Meios\+De\+Mobilidade}} (int id, char $\ast$tipo, int carga\+Bateria, float custo, float peso, char $\ast$cidade, float latitude, float longitude, bool estado)
 \begin{DoxyCompactList}\small\item\em Cria Meio\+De\+Mobilidade. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8c_abf76c13c165ba6f4dd12278f351f6c4c}{Insere\+Meios\+De\+Mobilidade\+No\+Fim}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$novo\+Meios\+De\+Mobilidade)
 \begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
@@ -44,7 +44,7 @@ bool \mbox{\hyperlink{_meio_de_mobilidade_8c_a3f4e98a98059d05efb30e22c01d0e363}{
 \begin{DoxyCompactList}\small\item\em Le e Armazena \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por um bin file. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_meio_de_mobilidade_8c_a352c826c410cb083ad3ec478a2db7862}{Listar\+Meio\+Autonomia\+Decrescente}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header)
 \begin{DoxyCompactList}\small\item\em Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por Autonomia de forma decrescente. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{_meio_de_mobilidade_8c_ad0c010862a5de3a77255bf47ab7d87a4}{Listar\+Meio\+Por\+Geo\+Codigo}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, char $\ast$geo\+Codigo)
+int \mbox{\hyperlink{_meio_de_mobilidade_8c_a7a6b38470e5ae8d5d040633db514c6e2}{Listar\+Cidade\+Por\+Geo\+Codigo}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, char $\ast$geo\+Codigo)
 \begin{DoxyCompactList}\small\item\em Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por geo Codigo. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ \mbox{\hyperlink{_meio_de_mobilidade_8c_aa9a10d8dc25db240e69162e6919c15cb}{Inserir\+Por\+Escrever\+Meios\+De\+Mobilidade}} ()
 \begin{DoxyCompactList}\small\item\em Insere \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\item 
@@ -52,8 +52,22 @@ int \mbox{\hyperlink{_meio_de_mobilidade_8c_aa9d8675aa9e56968341533fa8eb95996}{A
 \begin{DoxyCompactList}\small\item\em Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_meio_de_mobilidade_8c_ae5198c399a2e4d1f022c102debd0e5f7}{Remover\+Por\+Escrever\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
 \begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{_meio_de_mobilidade_8c_a6d357c9fb9104618406f7132210d0336}{Listar\+Geocodigo\+Por\+Escrever\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
-\begin{DoxyCompactList}\small\item\em Lista geocodigo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{_meio_de_mobilidade_8c_a93ff976ee74eb46bac3f57a48ff5437c}{Listar\+Cidade\+Por\+Escrever\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
+\begin{DoxyCompactList}\small\item\em Lista geocodigo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_meio_de_mobilidade_8c_aaf0ecf7a2cc817bd0080786639057fa9}{Altera\+Estado\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$header, int id, bool estado)
+\begin{DoxyCompactList}\small\item\em Altera Estado \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_meio_de_mobilidade_8c_adf60694e4b7726c8d3bde5d40c00364c}{Altera\+Localizacao\+Meios\+De\+Mobilidade}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$header, int id, float latitude, float longitude)
+\begin{DoxyCompactList}\small\item\em Altera Localizacao \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8c_ab5beda976a61bd3ac6799428145550f8}{Ativar\+Desativar\+Meio}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, int id, bool estado)
+\begin{DoxyCompactList}\small\item\em Alterar Estado Meio. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8c_a3c9ae59b54ea130e33a5f982cd30c1f1}{Alterar\+Estado\+Escrever}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
+\begin{DoxyCompactList}\small\item\em Alterar Estado Meio Escrever. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8c_aa2aa532b29073ee3b510e8494d4facaf}{Alterar\+Localizacao}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$header, int id, float latitude, float longitude)
+\begin{DoxyCompactList}\small\item\em Alterar Localizacao Meio. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_meio_de_mobilidade_8c_a2bb0e84f93e165898dcedb27bafc92c5}{Alterar\+Localizacao\+Estado\+Escrever}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios)
+\begin{DoxyCompactList}\small\item\em Alterar Localizacao Meio Escrever. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_meio_de_mobilidade_8c_aeafec8a1dc2165f025454ad7e9f4db08}{Estado\+Aluguer}} (\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$head\+Meios, int id\+Meio)
+\begin{DoxyCompactList}\small\item\em Ver se Ta Reservado No Momento. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -77,6 +91,46 @@ Rafael Silva @email \href{mailto:a21089@alunos.ipca.pt}{\texttt{ a21089@alunos.\
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_aaf0ecf7a2cc817bd0080786639057fa9}\label{_meio_de_mobilidade_8c_aaf0ecf7a2cc817bd0080786639057fa9}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AlteraEstadoMeiosDeMobilidade@{AlteraEstadoMeiosDeMobilidade}}
+\index{AlteraEstadoMeiosDeMobilidade@{AlteraEstadoMeiosDeMobilidade}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{AlteraEstadoMeiosDeMobilidade()}{AlteraEstadoMeiosDeMobilidade()}}
+{\footnotesize\ttfamily void Altera\+Estado\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$}]{header,  }\item[{int}]{id,  }\item[{bool}]{estado }\end{DoxyParamCaption})}
+
+
+
+Altera Estado \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em estado} & estado \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_adf60694e4b7726c8d3bde5d40c00364c}\label{_meio_de_mobilidade_8c_adf60694e4b7726c8d3bde5d40c00364c}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AlteraLocalizacaoMeiosDeMobilidade@{AlteraLocalizacaoMeiosDeMobilidade}}
+\index{AlteraLocalizacaoMeiosDeMobilidade@{AlteraLocalizacaoMeiosDeMobilidade}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{AlteraLocalizacaoMeiosDeMobilidade()}{AlteraLocalizacaoMeiosDeMobilidade()}}
+{\footnotesize\ttfamily void Altera\+Localizacao\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$$\ast$}]{header,  }\item[{int}]{id,  }\item[{float}]{latitude,  }\item[{float}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Altera Localizacao \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em latitude} & latitude \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude} & longitude \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{_meio_de_mobilidade_8c_ae1a7ed01c9801362233a7fc5cd8d73d2}\label{_meio_de_mobilidade_8c_ae1a7ed01c9801362233a7fc5cd8d73d2}} 
 \index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AlteraMeiosDeMobilidade@{AlteraMeiosDeMobilidade}}
 \index{AlteraMeiosDeMobilidade@{AlteraMeiosDeMobilidade}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
@@ -96,6 +150,66 @@ Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na l
 \mbox{\texttt{ in}}  & {\em tipo} & tipo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_a3c9ae59b54ea130e33a5f982cd30c1f1}\label{_meio_de_mobilidade_8c_a3c9ae59b54ea130e33a5f982cd30c1f1}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AlterarEstadoEscrever@{AlterarEstadoEscrever}}
+\index{AlterarEstadoEscrever@{AlterarEstadoEscrever}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{AlterarEstadoEscrever()}{AlterarEstadoEscrever()}}
+{\footnotesize\ttfamily int Alterar\+Estado\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios }\end{DoxyParamCaption})}
+
+
+
+Alterar Estado Meio Escrever. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_aa2aa532b29073ee3b510e8494d4facaf}\label{_meio_de_mobilidade_8c_aa2aa532b29073ee3b510e8494d4facaf}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AlterarLocalizacao@{AlterarLocalizacao}}
+\index{AlterarLocalizacao@{AlterarLocalizacao}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{AlterarLocalizacao()}{AlterarLocalizacao()}}
+{\footnotesize\ttfamily int Alterar\+Localizacao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{int}]{id,  }\item[{float}]{latitude,  }\item[{float}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Alterar Localizacao Meio. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id de Meio \\
+\hline
+\mbox{\texttt{ in}}  & {\em latitude} & latitude nova de Meio \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude} & longitude nova de Meio\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_a2bb0e84f93e165898dcedb27bafc92c5}\label{_meio_de_mobilidade_8c_a2bb0e84f93e165898dcedb27bafc92c5}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AlterarLocalizacaoEstadoEscrever@{AlterarLocalizacaoEstadoEscrever}}
+\index{AlterarLocalizacaoEstadoEscrever@{AlterarLocalizacaoEstadoEscrever}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{AlterarLocalizacaoEstadoEscrever()}{AlterarLocalizacaoEstadoEscrever()}}
+{\footnotesize\ttfamily int Alterar\+Localizacao\+Estado\+Escrever (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios }\end{DoxyParamCaption})}
+
+
+
+Alterar Localizacao Meio Escrever. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
 \mbox{\Hypertarget{_meio_de_mobilidade_8c_aa9d8675aa9e56968341533fa8eb95996}\label{_meio_de_mobilidade_8c_aa9d8675aa9e56968341533fa8eb95996}} 
 \index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AlterarPorEscreverMeiosDeMobilidade@{AlterarPorEscreverMeiosDeMobilidade}}
 \index{AlterarPorEscreverMeiosDeMobilidade@{AlterarPorEscreverMeiosDeMobilidade}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
@@ -106,6 +220,28 @@ Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} na l
 
 Altera \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} mas na consola. 
 
+\begin{DoxyReturn}{Returns}
+0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_ab5beda976a61bd3ac6799428145550f8}\label{_meio_de_mobilidade_8c_ab5beda976a61bd3ac6799428145550f8}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!AtivarDesativarMeio@{AtivarDesativarMeio}}
+\index{AtivarDesativarMeio@{AtivarDesativarMeio}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{AtivarDesativarMeio()}{AtivarDesativarMeio()}}
+{\footnotesize\ttfamily int Ativar\+Desativar\+Meio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{int}]{id,  }\item[{bool}]{estado }\end{DoxyParamCaption})}
+
+
+
+Alterar Estado Meio. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id} & id de Meio \\
+\hline
+\mbox{\texttt{ in}}  & {\em estado} & estado de Meio\\
+\hline
+\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 0; 
 \end{DoxyReturn}
@@ -127,11 +263,11 @@ Conta \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} da li
 \begin{DoxyReturn}{Returns}
 Quantos Alugueres Tem; 
 \end{DoxyReturn}
-\mbox{\Hypertarget{_meio_de_mobilidade_8c_a2053eb016b634c1241ba27fa54dd5b7b}\label{_meio_de_mobilidade_8c_a2053eb016b634c1241ba27fa54dd5b7b}} 
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_a318a4065db4cfd0ccbcce81204ffb29a}\label{_meio_de_mobilidade_8c_a318a4065db4cfd0ccbcce81204ffb29a}} 
 \index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!CriarMeiosDeMobilidade@{CriarMeiosDeMobilidade}}
 \index{CriarMeiosDeMobilidade@{CriarMeiosDeMobilidade}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
 \doxysubsubsection{\texorpdfstring{CriarMeiosDeMobilidade()}{CriarMeiosDeMobilidade()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Criar\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{char $\ast$}]{tipo,  }\item[{int}]{carga\+Bateria,  }\item[{float}]{custo,  }\item[{char $\ast$}]{localizacao }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$ Criar\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{char $\ast$}]{tipo,  }\item[{int}]{carga\+Bateria,  }\item[{float}]{custo,  }\item[{float}]{peso,  }\item[{char $\ast$}]{cidade,  }\item[{float}]{latitude,  }\item[{float}]{longitude,  }\item[{bool}]{estado }\end{DoxyParamCaption})}
 
 
 
@@ -147,11 +283,37 @@ Cria Meio\+De\+Mobilidade.
 \hline
 \mbox{\texttt{ in}}  & {\em custo} & custo Do Meio\+De\+Mobilidade \\
 \hline
-\mbox{\texttt{ in}}  & {\em localizacao} & localizacao Do Meio\+De\+Mobilidade\\
+\mbox{\texttt{ in}}  & {\em cidade} & cidade Do Meio\+De\+Mobilidade \\
+\hline
+\mbox{\texttt{ in}}  & {\em latitude} & latitude Do Meio\+De\+Mobilidade \\
+\hline
+\mbox{\texttt{ in}}  & {\em longitude} & longitude Do Meio\+De\+Mobilidade \\
+\hline
+\mbox{\texttt{ in}}  & {\em estado} & estado Do Meio\+De\+Mobilidade\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 novo Meio\+De\+Mobilidade 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_aeafec8a1dc2165f025454ad7e9f4db08}\label{_meio_de_mobilidade_8c_aeafec8a1dc2165f025454ad7e9f4db08}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!EstadoAluguer@{EstadoAluguer}}
+\index{EstadoAluguer@{EstadoAluguer}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{EstadoAluguer()}{EstadoAluguer()}}
+{\footnotesize\ttfamily bool Estado\+Aluguer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios,  }\item[{int}]{id\+Meio }\end{DoxyParamCaption})}
+
+
+
+Ver se Ta Reservado No Momento. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em id\+Meio} & id do Meio \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0; 
 \end{DoxyReturn}
 \mbox{\Hypertarget{_meio_de_mobilidade_8c_ac7f639655c2abae685b690ba6fe76720}\label{_meio_de_mobilidade_8c_ac7f639655c2abae685b690ba6fe76720}} 
 \index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!ExisteMeiosDeMobilidade@{ExisteMeiosDeMobilidade}}
@@ -264,11 +426,11 @@ Le e Armazena \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade
 \begin{DoxyReturn}{Returns}
 header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
 \end{DoxyReturn}
-\mbox{\Hypertarget{_meio_de_mobilidade_8c_a6d357c9fb9104618406f7132210d0336}\label{_meio_de_mobilidade_8c_a6d357c9fb9104618406f7132210d0336}} 
-\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!ListarGeocodigoPorEscreverMeiosDeMobilidade@{ListarGeocodigoPorEscreverMeiosDeMobilidade}}
-\index{ListarGeocodigoPorEscreverMeiosDeMobilidade@{ListarGeocodigoPorEscreverMeiosDeMobilidade}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
-\doxysubsubsection{\texorpdfstring{ListarGeocodigoPorEscreverMeiosDeMobilidade()}{ListarGeocodigoPorEscreverMeiosDeMobilidade()}}
-{\footnotesize\ttfamily int Listar\+Geocodigo\+Por\+Escrever\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_a93ff976ee74eb46bac3f57a48ff5437c}\label{_meio_de_mobilidade_8c_a93ff976ee74eb46bac3f57a48ff5437c}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!ListarCidadePorEscreverMeiosDeMobilidade@{ListarCidadePorEscreverMeiosDeMobilidade}}
+\index{ListarCidadePorEscreverMeiosDeMobilidade@{ListarCidadePorEscreverMeiosDeMobilidade}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{ListarCidadePorEscreverMeiosDeMobilidade()}{ListarCidadePorEscreverMeiosDeMobilidade()}}
+{\footnotesize\ttfamily int Listar\+Cidade\+Por\+Escrever\+Meios\+De\+Mobilidade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{head\+Meios }\end{DoxyParamCaption})}
 
 
 
@@ -276,6 +438,26 @@ Lista geocodigo \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilida
 
 \begin{DoxyReturn}{Returns}
 0; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_meio_de_mobilidade_8c_a7a6b38470e5ae8d5d040633db514c6e2}\label{_meio_de_mobilidade_8c_a7a6b38470e5ae8d5d040633db514c6e2}} 
+\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!ListarCidadePorGeoCodigo@{ListarCidadePorGeoCodigo}}
+\index{ListarCidadePorGeoCodigo@{ListarCidadePorGeoCodigo}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
+\doxysubsubsection{\texorpdfstring{ListarCidadePorGeoCodigo()}{ListarCidadePorGeoCodigo()}}
+{\footnotesize\ttfamily int Listar\+Cidade\+Por\+Geo\+Codigo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{char $\ast$}]{geo\+Codigo }\end{DoxyParamCaption})}
+
+
+
+Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por geo Codigo. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em geo\+Codigo} & geo\+Codigo\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
 \end{DoxyReturn}
 \mbox{\Hypertarget{_meio_de_mobilidade_8c_a352c826c410cb083ad3ec478a2db7862}\label{_meio_de_mobilidade_8c_a352c826c410cb083ad3ec478a2db7862}} 
 \index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!ListarMeioAutonomiaDecrescente@{ListarMeioAutonomiaDecrescente}}
@@ -294,26 +476,6 @@ Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por 
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 0; 
-\end{DoxyReturn}
-\mbox{\Hypertarget{_meio_de_mobilidade_8c_ad0c010862a5de3a77255bf47ab7d87a4}\label{_meio_de_mobilidade_8c_ad0c010862a5de3a77255bf47ab7d87a4}} 
-\index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!ListarMeioPorGeoCodigo@{ListarMeioPorGeoCodigo}}
-\index{ListarMeioPorGeoCodigo@{ListarMeioPorGeoCodigo}!MeioDeMobilidade.c@{MeioDeMobilidade.c}}
-\doxysubsubsection{\texorpdfstring{ListarMeioPorGeoCodigo()}{ListarMeioPorGeoCodigo()}}
-{\footnotesize\ttfamily int Listar\+Meio\+Por\+Geo\+Codigo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} $\ast$}]{header,  }\item[{char $\ast$}]{geo\+Codigo }\end{DoxyParamCaption})}
-
-
-
-Listar \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} por geo Codigo. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em header} & header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}} \\
-\hline
-\mbox{\texttt{ in}}  & {\em geo\+Codigo} & geo\+Codigo\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-header da lista de \mbox{\hyperlink{struct_meios_de_mobilidade}{Meios\+De\+Mobilidade}}; 
 \end{DoxyReturn}
 \mbox{\Hypertarget{_meio_de_mobilidade_8c_a3145ebd44cbe6a259aa52cc5aa9b68e8}\label{_meio_de_mobilidade_8c_a3145ebd44cbe6a259aa52cc5aa9b68e8}} 
 \index{MeioDeMobilidade.c@{MeioDeMobilidade.c}!MostraMeiosDeMobilidade@{MostraMeiosDeMobilidade}}

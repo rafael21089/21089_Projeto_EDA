@@ -22,6 +22,10 @@ char \mbox{\hyperlink{struct_clientes_a4b8e8df864ef8cd471049cea0087ecfd}{nif}} \
 \item 
 float \mbox{\hyperlink{struct_clientes_aa5120d0d3469cb9a87487c23e55613a7}{saldo}}
 \item 
+float \mbox{\hyperlink{struct_clientes_a77f719c83c880c369164f5d35c3b9588}{latitude}}
+\item 
+float \mbox{\hyperlink{struct_clientes_a421448c0c502644d00d32999c31d3db4}{longitude}}
+\item 
 struct \mbox{\hyperlink{struct_aluguer}{Aluguer}} $\ast$ \mbox{\hyperlink{struct_clientes_ae3bac67f7cdbc22bb9cc7757964a2ec4}{aluguer}}
 \item 
 struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{struct_clientes_a0107ed40b13a9b5463c0c1dff1af9c76}{next}}
@@ -31,7 +35,7 @@ struct \mbox{\hyperlink{struct_clientes}{Clientes}} $\ast$ \mbox{\hyperlink{stru
 \doxysubsection{Detailed Description}
 Estrutura para armazenar \mbox{\hyperlink{struct_clientes}{Clientes}}. 
 
-Um Cliente contém um id (@id), nome (@nome), morada (@morada) ,nif (@nif) , saldo (@saldo) e alugueres (@atividade). Contém apontador para próximo \mbox{\hyperlink{struct_clientes}{Clientes}} 
+Um Cliente contém um id (@id), nome (@nome), morada (@morada) ,nif (@nif) , saldo (@saldo) , latitude (@latitude) , longitude (@longitude) e alugueres (@atividade). Contém apontador para próximo \mbox{\hyperlink{struct_clientes}{Clientes}} 
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{struct_clientes_ae3bac67f7cdbc22bb9cc7757964a2ec4}\label{struct_clientes_ae3bac67f7cdbc22bb9cc7757964a2ec4}} 
@@ -45,6 +49,18 @@ Um Cliente contém um id (@id), nome (@nome), morada (@morada) ,nif (@nif) , sald
 \index{id@{id}!Clientes@{Clientes}}
 \doxysubsubsection{\texorpdfstring{id}{id}}
 {\footnotesize\ttfamily int Clientes\+::id}
+
+\mbox{\Hypertarget{struct_clientes_a77f719c83c880c369164f5d35c3b9588}\label{struct_clientes_a77f719c83c880c369164f5d35c3b9588}} 
+\index{Clientes@{Clientes}!latitude@{latitude}}
+\index{latitude@{latitude}!Clientes@{Clientes}}
+\doxysubsubsection{\texorpdfstring{latitude}{latitude}}
+{\footnotesize\ttfamily float Clientes\+::latitude}
+
+\mbox{\Hypertarget{struct_clientes_a421448c0c502644d00d32999c31d3db4}\label{struct_clientes_a421448c0c502644d00d32999c31d3db4}} 
+\index{Clientes@{Clientes}!longitude@{longitude}}
+\index{longitude@{longitude}!Clientes@{Clientes}}
+\doxysubsubsection{\texorpdfstring{longitude}{longitude}}
+{\footnotesize\ttfamily float Clientes\+::longitude}
 
 \mbox{\Hypertarget{struct_clientes_a37c37fdb729d2e4bc0227c0c524ff3f6}\label{struct_clientes_a37c37fdb729d2e4bc0227c0c524ff3f6}} 
 \index{Clientes@{Clientes}!morada@{morada}}

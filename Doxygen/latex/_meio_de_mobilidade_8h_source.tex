@@ -13,56 +13,79 @@
 \DoxyCodeLine{20 }
 \DoxyCodeLine{21 }
 \DoxyCodeLine{22 }
-\DoxyCodeLine{30 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}\{}
-\DoxyCodeLine{31     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_meios_de_mobilidade_a923adfb67913dbf857333a5f82cab9a7}{id}};}
-\DoxyCodeLine{32     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_meios_de_mobilidade_a465d0a7227f22659d4a7a62eace57e32}{tipo}}[50];}
-\DoxyCodeLine{33     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_meios_de_mobilidade_a7c6220207d884aab5525b9a806916598}{cargaBateria}};}
-\DoxyCodeLine{34     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a62ae3f78ac214f74e36e7e9168b7d844}{custo}};}
-\DoxyCodeLine{35     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_meios_de_mobilidade_ab4b9f731605c5b611af1d9e747517363}{localizacao}}[50];}
-\DoxyCodeLine{36     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{struct_meios_de_mobilidade_a55fee232d3d3babf4676b583a105707a}{aluguer}};}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{struct_meios_de_mobilidade_a7812857896a523f027712aa27cd6b0cd}{next}};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \} \mbox{\hyperlink{_meio_de_mobilidade_8h_a86b2f68e756ccb72d84b972655976379}{MeiosDeMobilidade}};}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42 \textcolor{comment}{//Criar Meio}}
-\DoxyCodeLine{43 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_a2053eb016b634c1241ba27fa54dd5b7b}{CriarMeiosDeMobilidade}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_meios_de_mobilidade_a465d0a7227f22659d4a7a62eace57e32}{tipo}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_meios_de_mobilidade_a7c6220207d884aab5525b9a806916598}{cargaBateria}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a62ae3f78ac214f74e36e7e9168b7d844}{custo}}, \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_meios_de_mobilidade_ab4b9f731605c5b611af1d9e747517363}{localizacao}});}
-\DoxyCodeLine{44 \textcolor{comment}{//Insere Meio no Header de Meio}}
-\DoxyCodeLine{45 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_abf76c13c165ba6f4dd12278f351f6c4c}{InsereMeiosDeMobilidadeNoFim}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* novoMeiosDeMobilidade);}
-\DoxyCodeLine{46 \textcolor{comment}{//Ver se Existe Meio na lista por id}}
-\DoxyCodeLine{47 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_meio_de_mobilidade_8h_ac7f639655c2abae685b690ba6fe76720}{ExisteMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} idMeiosDeMobilidade);}
-\DoxyCodeLine{48 \textcolor{comment}{//Mostra Lista de Meios De Mobilidade}}
-\DoxyCodeLine{49 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_a5895547a678f65123fd2ba5ba74b363d}{MostrarListaMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
-\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_a3145ebd44cbe6a259aa52cc5aa9b68e8}{MostraMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* meiosDeMobilidade);}
-\DoxyCodeLine{51 \textcolor{comment}{//Remove Meios De Mobilidade}}
-\DoxyCodeLine{52 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_a2ac5e56c2f7c748210c39123bc89636f}{RemoverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
-\DoxyCodeLine{53 \textcolor{comment}{//Procura Meios De Mobilidade}}
-\DoxyCodeLine{54 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_ac1f7417ee214f298ded2ac65cf79bcb0}{ProcuraMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
-\DoxyCodeLine{55 \textcolor{comment}{//Altera Meios De Mobilidade}}
-\DoxyCodeLine{56 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_ae1a7ed01c9801362233a7fc5cd8d73d2}{AlteraMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}** header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_meios_de_mobilidade_a465d0a7227f22659d4a7a62eace57e32}{tipo}});}
-\DoxyCodeLine{57 \textcolor{comment}{//Counta Meios De Mobilidade}}
-\DoxyCodeLine{58 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_ac6290e0f6a9e38ab349e91ea8e5397e8}{CountMeios}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* head);}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \textcolor{comment}{//Le e armazena txt file}}
-\DoxyCodeLine{61 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_aec511efb01d6cdd3c1f0d93713bd701e}{LerEArmazenarMeiosDeMobilidade}}(\textcolor{keywordtype}{char}* filename, \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
-\DoxyCodeLine{62 \textcolor{comment}{//Grava Meios De Mobilidade no ficheiro binario}}
-\DoxyCodeLine{63 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_meio_de_mobilidade_8h_a3f4e98a98059d05efb30e22c01d0e363}{GravarMeiosDeMobilidadeBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
-\DoxyCodeLine{64 \textcolor{comment}{//Le e armazena bin file}}
-\DoxyCodeLine{65 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_a2a29797de1f13f3ed60a97f9a1972e3f}{LerMeiosDeMobilidadeBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro);}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67 \textcolor{comment}{//Lista Meio Autonomia de forma Decrescente}}
-\DoxyCodeLine{68 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_a352c826c410cb083ad3ec478a2db7862}{ListarMeioAutonomiaDecrescente}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
-\DoxyCodeLine{69 \textcolor{comment}{//Lista Meio por Geocodigo}}
-\DoxyCodeLine{70 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_ad0c010862a5de3a77255bf47ab7d87a4}{ListarMeioPorGeoCodigo}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{char}* geoCodigo);}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define LARGURAGERALSTRING 100}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}\{}
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_meios_de_mobilidade_a923adfb67913dbf857333a5f82cab9a7}{id}};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_meios_de_mobilidade_aeffd627a96d90b315ce613cb1553f53a}{tipo}}[\mbox{\hyperlink{_meio_de_mobilidade_8h_a0989190f17dd96837d94d1cd29df8c1b}{LARGURAGERALSTRING}}];}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_meios_de_mobilidade_a7c6220207d884aab5525b9a806916598}{cargaBateria}};}
+\DoxyCodeLine{35     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a62ae3f78ac214f74e36e7e9168b7d844}{custo}};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_ae5b428f0867e2749c9f7c46b3cbaa7c8}{peso}};}
+\DoxyCodeLine{37     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_meios_de_mobilidade_acb2f4481add69276fdb042b3e943cf0e}{cidade}}[\mbox{\hyperlink{_meio_de_mobilidade_8h_a0989190f17dd96837d94d1cd29df8c1b}{LARGURAGERALSTRING}}];}
+\DoxyCodeLine{38     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_aac54b4f5bf2c9f1b6ee8a88fb4d7d250}{latitude}};}
+\DoxyCodeLine{39     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a15c4cc613890a40d8cd46f1fd08bfde0}{longitude}};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_meios_de_mobilidade_a3945ab68c2f073d788eeb5a53dbf151e}{estado}};}
+\DoxyCodeLine{41     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_aluguer}{Aluguer}}* \mbox{\hyperlink{struct_meios_de_mobilidade_a55fee232d3d3babf4676b583a105707a}{aluguer}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{struct_meios_de_mobilidade_a7812857896a523f027712aa27cd6b0cd}{next}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \} \mbox{\hyperlink{_meio_de_mobilidade_8h_a86b2f68e756ccb72d84b972655976379}{MeiosDeMobilidade}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{//Criar Meio}}
+\DoxyCodeLine{48 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_a318a4065db4cfd0ccbcce81204ffb29a}{CriarMeiosDeMobilidade}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_meios_de_mobilidade_aeffd627a96d90b315ce613cb1553f53a}{tipo}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_meios_de_mobilidade_a7c6220207d884aab5525b9a806916598}{cargaBateria}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a62ae3f78ac214f74e36e7e9168b7d844}{custo}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_ae5b428f0867e2749c9f7c46b3cbaa7c8}{peso}}, \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_meios_de_mobilidade_acb2f4481add69276fdb042b3e943cf0e}{cidade}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_aac54b4f5bf2c9f1b6ee8a88fb4d7d250}{latitude}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a15c4cc613890a40d8cd46f1fd08bfde0}{longitude}}, \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_meios_de_mobilidade_a3945ab68c2f073d788eeb5a53dbf151e}{estado}});}
+\DoxyCodeLine{49 \textcolor{comment}{//Insere Meio no Header de Meio}}
+\DoxyCodeLine{50 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_abf76c13c165ba6f4dd12278f351f6c4c}{InsereMeiosDeMobilidadeNoFim}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* novoMeiosDeMobilidade);}
+\DoxyCodeLine{51 \textcolor{comment}{//Ver se Existe Meio na lista por id}}
+\DoxyCodeLine{52 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_meio_de_mobilidade_8h_ac7f639655c2abae685b690ba6fe76720}{ExisteMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} idMeiosDeMobilidade);}
+\DoxyCodeLine{53 \textcolor{comment}{//Mostra Lista de Meios De Mobilidade}}
+\DoxyCodeLine{54 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_a5895547a678f65123fd2ba5ba74b363d}{MostrarListaMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
+\DoxyCodeLine{55 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_a3145ebd44cbe6a259aa52cc5aa9b68e8}{MostraMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* meiosDeMobilidade);}
+\DoxyCodeLine{56 \textcolor{comment}{//Remove Meios De Mobilidade}}
+\DoxyCodeLine{57 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_a2ac5e56c2f7c748210c39123bc89636f}{RemoverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{58 \textcolor{comment}{//Procura Meios De Mobilidade}}
+\DoxyCodeLine{59 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_ac1f7417ee214f298ded2ac65cf79bcb0}{ProcuraMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{60 \textcolor{comment}{//Altera Meios De Mobilidade}}
+\DoxyCodeLine{61 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_ae1a7ed01c9801362233a7fc5cd8d73d2}{AlteraMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}** header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_meios_de_mobilidade_aeffd627a96d90b315ce613cb1553f53a}{tipo}});}
+\DoxyCodeLine{62 \textcolor{comment}{//Counta Meios De Mobilidade}}
+\DoxyCodeLine{63 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_ac6290e0f6a9e38ab349e91ea8e5397e8}{CountMeios}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* head);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{comment}{//Le e armazena txt file}}
+\DoxyCodeLine{66 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_aec511efb01d6cdd3c1f0d93713bd701e}{LerEArmazenarMeiosDeMobilidade}}(\textcolor{keywordtype}{char}* filename, \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
+\DoxyCodeLine{67 \textcolor{comment}{//Grava Meios De Mobilidade no ficheiro binario}}
+\DoxyCodeLine{68 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_meio_de_mobilidade_8h_a3f4e98a98059d05efb30e22c01d0e363}{GravarMeiosDeMobilidadeBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
+\DoxyCodeLine{69 \textcolor{comment}{//Le e armazena bin file}}
+\DoxyCodeLine{70 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_a2a29797de1f13f3ed60a97f9a1972e3f}{LerMeiosDeMobilidadeBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro);}
 \DoxyCodeLine{71 }
-\DoxyCodeLine{72 \textcolor{comment}{//Inserir,Remover e Alterar na consola}}
-\DoxyCodeLine{73 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_aa9a10d8dc25db240e69162e6919c15cb}{InserirPorEscreverMeiosDeMobilidade}}();}
-\DoxyCodeLine{74 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_aa9d8675aa9e56968341533fa8eb95996}{AlterarPorEscreverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
-\DoxyCodeLine{75 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_ae5198c399a2e4d1f022c102debd0e5f7}{RemoverPorEscreverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
+\DoxyCodeLine{72 \textcolor{comment}{//Lista Meio Autonomia de forma Decrescente}}
+\DoxyCodeLine{73 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_a352c826c410cb083ad3ec478a2db7862}{ListarMeioAutonomiaDecrescente}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header);}
+\DoxyCodeLine{74 \textcolor{comment}{//Lista Meio por Geocodigo}}
+\DoxyCodeLine{75 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_a7a6b38470e5ae8d5d040633db514c6e2}{ListarCidadePorGeoCodigo}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{char}* geoCodigo);}
 \DoxyCodeLine{76 }
-\DoxyCodeLine{77 \textcolor{comment}{//Lista Meio por Geocodigo}}
-\DoxyCodeLine{78 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_a6d357c9fb9104618406f7132210d0336}{ListarGeocodigoPorEscreverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 }
+\DoxyCodeLine{77 \textcolor{comment}{//Inserir,Remover e Alterar na consola}}
+\DoxyCodeLine{78 \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* \mbox{\hyperlink{_meio_de_mobilidade_8h_aa9a10d8dc25db240e69162e6919c15cb}{InserirPorEscreverMeiosDeMobilidade}}();}
+\DoxyCodeLine{79 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_aa9d8675aa9e56968341533fa8eb95996}{AlterarPorEscreverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
+\DoxyCodeLine{80 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_ae5198c399a2e4d1f022c102debd0e5f7}{RemoverPorEscreverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{comment}{//Lista Meio por Cidade}}
+\DoxyCodeLine{83 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_a93ff976ee74eb46bac3f57a48ff5437c}{ListarCidadePorEscreverMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{comment}{//Altera o estado do Meio de Mobilidade}}
+\DoxyCodeLine{86 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_aaf0ecf7a2cc817bd0080786639057fa9}{AlteraEstadoMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}** header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_meios_de_mobilidade_a3945ab68c2f073d788eeb5a53dbf151e}{estado}});}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{comment}{//Altera a latitude e longitude (geocodigo) do Meio de Mobilidade}}
+\DoxyCodeLine{89 \textcolor{keywordtype}{void} \mbox{\hyperlink{_meio_de_mobilidade_8h_adf60694e4b7726c8d3bde5d40c00364c}{AlteraLocalizacaoMeiosDeMobilidade}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}** header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_aac54b4f5bf2c9f1b6ee8a88fb4d7d250}{latitude}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a15c4cc613890a40d8cd46f1fd08bfde0}{longitude}});}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{comment}{//Ativa ou Desativa Meio}}
+\DoxyCodeLine{92 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_ab5beda976a61bd3ac6799428145550f8}{AtivarDesativarMeio}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_meios_de_mobilidade_a3945ab68c2f073d788eeb5a53dbf151e}{estado}});}
+\DoxyCodeLine{93 \textcolor{comment}{//Escrever Alterar Estado}}
+\DoxyCodeLine{94 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_a3c9ae59b54ea130e33a5f982cd30c1f1}{AlterarEstadoEscrever}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
+\DoxyCodeLine{95 \textcolor{comment}{//Alterar Localizacao}}
+\DoxyCodeLine{96 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_aa2aa532b29073ee3b510e8494d4facaf}{AlterarLocalizacao}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_aac54b4f5bf2c9f1b6ee8a88fb4d7d250}{latitude}}, \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_meios_de_mobilidade_a15c4cc613890a40d8cd46f1fd08bfde0}{longitude}});}
+\DoxyCodeLine{97 \textcolor{comment}{//Alterar Localizacao Escrever}}
+\DoxyCodeLine{98 \textcolor{keywordtype}{int} \mbox{\hyperlink{_meio_de_mobilidade_8h_a2bb0e84f93e165898dcedb27bafc92c5}{AlterarLocalizacaoEstadoEscrever}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios);}
+\DoxyCodeLine{99 \textcolor{comment}{//Ver Estados Aluguer}}
+\DoxyCodeLine{100 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_meio_de_mobilidade_8h_aeafec8a1dc2165f025454ad7e9f4db08}{EstadoAluguer}}(\mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headMeios, \textcolor{keywordtype}{int} idMeio);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 }
 
 \end{DoxyCode}

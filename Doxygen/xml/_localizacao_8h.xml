@@ -1,0 +1,2499 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_localizacao_8h" kind="file" language="C++">
+    <compoundname>Localizacao.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includedby refid="_cliente_8c" local="yes">Cliente.c</includedby>
+    <includedby refid="_localizacao_8c" local="yes">Localizacao.c</includedby>
+    <includedby refid="_source_8c" local="yes">Source.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Localizacao.h</label>
+        <link refid="_localizacao_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Cliente.c</label>
+        <link refid="_cliente_8c"/>
+      </node>
+      <node id="3">
+        <label>Localizacao.c</label>
+        <link refid="_localizacao_8c"/>
+      </node>
+      <node id="1">
+        <label>Localizacao.h</label>
+        <link refid="_localizacao_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Source.c</label>
+        <link refid="_source_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_postos" prot="public">Postos</innerclass>
+    <innerclass refid="struct_localizacao_postos" prot="public">LocalizacaoPostos</innerclass>
+    <innerclass refid="struct_localizacao_postos_adjacentes" prot="public">LocalizacaoPostosAdjacentes</innerclass>
+    <innerclass refid="struct_camiao" prot="public">Camiao</innerclass>
+    <innerclass refid="struct_caminho_camiao" prot="public">CaminhoCamiao</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_localizacao_8h_1a0989190f17dd96837d94d1cd29df8c1b" prot="public" static="no">
+        <name>LARGURAGERALSTRING</name>
+        <initializer>100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="15" column="9" bodyfile="Localizacao.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_localizacao_8h_1ab50f7baafd568ae2202d87a68b8e8fb4" prot="public" static="no">
+        <type>struct <ref refid="struct_postos" kindref="compound">Postos</ref></type>
+        <definition>typedef struct Postos Postos</definition>
+        <argsstring></argsstring>
+        <name>Postos</name>
+        <briefdescription>
+<para>Estrutura de Vertices (<ref refid="struct_postos" kindref="compound">Postos</ref>) para grafo orientado de <ref refid="struct_postos" kindref="compound">Postos</ref> de Localizacao (<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um <ref refid="struct_postos" kindref="compound">Postos</ref> contém um id (@id), cidade (@cidade) ,latitude (@latitude) , longitude (@longitude), visitado (@visitado) e postosAdjacentes (@postosAdjacentes). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="32" column="8"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_localizacao_8h_1a97bccbabae829ae41ae7e21140e806c1" prot="public" static="no">
+        <type>struct <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref></type>
+        <definition>typedef struct LocalizacaoPostos LocalizacaoPostos</definition>
+        <argsstring></argsstring>
+        <name>LocalizacaoPostos</name>
+        <briefdescription>
+<para>Estrutura para Grafo orientado de <ref refid="struct_postos" kindref="compound">Postos</ref> de Localizacao. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> contém posto (@posto). Contém apontador para próximo <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="45" column="19"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_localizacao_8h_1a5a1d199448378d2aa51cdef9c0017de8" prot="public" static="no">
+        <type>struct <ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref></type>
+        <definition>typedef struct LocalizacaoPostosAdjacentes LocalizacaoPostosAdjacentes</definition>
+        <argsstring></argsstring>
+        <name>LocalizacaoPostosAdjacentes</name>
+        <briefdescription>
+<para>Estrutura de Arestas (<ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>) para <ref refid="struct_postos" kindref="compound">Postos</ref> de Localizacao. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> contém um idDestino (@id), postoDestinoAdjacente (@postoDestinoAdjacente) e distancia (@distancia). Contém apontador para próximo <ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="61" column="29"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_localizacao_8h_1a352bfb0fc41a9ee4052458095043510a" prot="public" static="no">
+        <type>struct <ref refid="struct_camiao" kindref="compound">Camiao</ref></type>
+        <definition>typedef struct Camiao Camiao</definition>
+        <argsstring></argsstring>
+        <name>Camiao</name>
+        <briefdescription>
+<para>Estrutura de <ref refid="struct_camiao" kindref="compound">Camiao</ref> Que Recolhe Meios de Mobilidade. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um <ref refid="struct_camiao" kindref="compound">Camiao</ref> contém um idOrigem (@idOrigem), cargaAtual (@cargaAtual) , cargaMaxima (@cargaMaxima) e localizacaoAtual (@localizacaoAtual). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="74" column="8"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_localizacao_8h_1af9513cfb4803d467d35ac74a144e63ea" prot="public" static="no">
+        <type>struct <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref></type>
+        <definition>typedef struct CaminhoCamiao CaminhoCamiao</definition>
+        <argsstring></argsstring>
+        <name>CaminhoCamiao</name>
+        <briefdescription>
+<para>Estrutura Para Guardar os Pontos Que o <ref refid="struct_camiao" kindref="compound">Camiao</ref> irá Prosseguir. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Um <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> contém um idPosto (@idPosto), idMeio (@idMeio) e pesoMeio (@pesoMeio). Contém apontador para próximo <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="87" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_localizacao_8h_1a917d6d2d775d373ae85b0da3418953fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * CriarPosto</definition>
+        <argsstring>(int id, char *cidade, float latitude, float longitude, bool visitado, LocalizacaoPostosAdjacentes *postosAdjacentes)</argsstring>
+        <name>CriarPosto</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>cidade</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>visitado</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+          <declname>postosAdjacentes</declname>
+        </param>
+        <briefdescription>
+<para>Cria Novo Posto . </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cidade</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cidade do Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude do Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude do Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">visitado</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ver se ta visitado o Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">postosAdjacentes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>postos Adjacentes</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novoPosto de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="91" column="19" bodyfile="Localizacao.c" bodystart="42" bodyend="61" declfile="Localizacao.h" declline="91" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a34f0f341b3a7cad7d221f3445149c8a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * InserePostoGrafo</definition>
+        <argsstring>(LocalizacaoPostos *header, LocalizacaoPostos *novoPosto)</argsstring>
+        <name>InserePostoGrafo</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>novoPosto</declname>
+        </param>
+        <briefdescription>
+<para>Insere Posto na lista de <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da Lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">novoPosto</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>novo Posto Para Inserir</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="93" column="19" bodyfile="Localizacao.c" bodystart="75" bodyend="100" declfile="Localizacao.h" declline="93" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1aea4dcac14173d151996c977cea33c7be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ExistePosto</definition>
+        <argsstring>(LocalizacaoPostos *header, int idPosto)</argsstring>
+        <name>ExistePosto</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idPosto</declname>
+        </param>
+        <briefdescription>
+<para>Ver se Posto existe na lista de <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da Lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idPosto</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Posto</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="95" column="6" bodyfile="Localizacao.c" bodystart="113" bodyend="122" declfile="Localizacao.h" declline="95" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1af0d96496de0610c313a08c77012e0e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * RemoverPosto</definition>
+        <argsstring>(LocalizacaoPostos *header, int id)</argsstring>
+        <name>RemoverPosto</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Remove Posto na lista de <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da Lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Posto Para Remover</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="97" column="19" bodyfile="Localizacao.c" bodystart="135" bodyend="162" declfile="Localizacao.h" declline="97" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1afb5e6ac1104d6fb1789fe2781603ee6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AlteraPosto</definition>
+        <argsstring>(LocalizacaoPostos *header, int id, float latitude, float longitude)</argsstring>
+        <name>AlteraPosto</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+<para>Altera Posto (Latitude e Longitude) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude Posto </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="99" column="6" bodyfile="Localizacao.c" bodystart="345" bodyend="365" declfile="Localizacao.h" declline="99" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a12019acb011864ae6d2f49945127352c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+        <definition>LocalizacaoPostosAdjacentes * CriarPostoAdjacente</definition>
+        <argsstring>(LocalizacaoPostos *postoDestinoAdjacente, LocalizacaoPostos *postoOrigem)</argsstring>
+        <name>CriarPostoAdjacente</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>postoDestinoAdjacente</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>postoOrigem</declname>
+        </param>
+        <briefdescription>
+<para>Cria Posto Adjacente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">postoDestinoAdjacente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto que quer ficar Adjacente (Destino) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">postoOrigem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto origem (Origem)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>postoAdjacente de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="102" column="29" bodyfile="Localizacao.c" bodystart="175" bodyend="188" declfile="Localizacao.h" declline="102" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1acc46b37615ba552d5145a49998c49c0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * InserirPostoAdjacente</definition>
+        <argsstring>(LocalizacaoPostos **headLista, LocalizacaoPostos *postoOrigem, LocalizacaoPostos *postoDestino)</argsstring>
+        <name>InserirPostoAdjacente</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> **</type>
+          <declname>headLista</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>postoOrigem</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>postoDestino</declname>
+        </param>
+        <briefdescription>
+<para>Insere Posto Adjacente para um Posto. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head Lista <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">postoOrigem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto origem (Origem) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">postoDestino</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto destino (Destino)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headLista de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="104" column="19" bodyfile="Localizacao.c" bodystart="203" bodyend="234" declfile="Localizacao.h" declline="104" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ae13e7a5b6e4b0e7ef4e36721dbf62b2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ExistePostoAdjacente</definition>
+        <argsstring>(LocalizacaoPostosAdjacentes *header, int idPostosAdjacentes)</argsstring>
+        <name>ExistePostoAdjacente</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idPostosAdjacentes</declname>
+        </param>
+        <briefdescription>
+<para>Ver se Existe Posto Adjacente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de postos </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idPostosAdjacentes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id de postos adjacentes</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="106" column="6" bodyfile="Localizacao.c" bodystart="276" bodyend="285" declfile="Localizacao.h" declline="106" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a428c61bf3570d03070138c2ee3915618" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+        <definition>LocalizacaoPostosAdjacentes * RemoverPostoAdjacente</definition>
+        <argsstring>(LocalizacaoPostos *headerPostos, LocalizacaoPostosAdjacentes *headerPostoAdjacente, int id, int idOrigem)</argsstring>
+        <name>RemoverPostoAdjacente</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headerPostos</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+          <declname>headerPostoAdjacente</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idOrigem</declname>
+        </param>
+        <briefdescription>
+<para>Remove Posto Adjacente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headerPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header dos postos </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerPostoAdjacente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de postos adjacentes </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id de qual quer remover</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headerPostoAdjacente de <ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="108" column="29" bodyfile="Localizacao.c" bodystart="300" bodyend="331" declfile="Localizacao.h" declline="108" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ae5693b6481846047cb631712836fe481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * AtualizarPostosAdjacentes</definition>
+        <argsstring>(LocalizacaoPostos *headLista)</argsstring>
+        <name>AtualizarPostosAdjacentes</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headLista</declname>
+        </param>
+        <briefdescription>
+<para>Atualiza <ref refid="struct_postos" kindref="compound">Postos</ref> Adjacentes de <ref refid="struct_postos" kindref="compound">Postos</ref> para Todos os <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header dos postos</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headLista de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="110" column="19" bodyfile="Localizacao.c" bodystart="378" bodyend="405" declfile="Localizacao.h" declline="110" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a98412cb8ed9b9afab9ebe8fc4937dccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * ProcurarPorIdPostosComListaToda</definition>
+        <argsstring>(LocalizacaoPostos *headerList, int id)</argsstring>
+        <name>ProcurarPorIdPostosComListaToda</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headerList</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Procura Por Id <ref refid="struct_postos" kindref="compound">Postos</ref> Com a Lista Toda. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de postos </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Posto</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headLista de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="113" column="19" bodyfile="Localizacao.c" bodystart="418" bodyend="431" declfile="Localizacao.h" declline="113" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a5b4c9ce9964c3ee1af7a8c3ecc916348" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * ProcurarPorIdPostos</definition>
+        <argsstring>(LocalizacaoPostos *headerList, int id)</argsstring>
+        <name>ProcurarPorIdPostos</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headerList</declname>
+          <defname>headerLista</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Procura Por Id <ref refid="struct_postos" kindref="compound">Postos</ref> Com so o Posto. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headerList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de postos </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Posto</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headLista de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="115" column="19" bodyfile="Localizacao.c" bodystart="445" bodyend="465" declfile="Localizacao.h" declline="115" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a1a1ed2e8668f869d6cfd8bc603e363e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * LerEArmazenarPosto</definition>
+        <argsstring>(char *nomeFicheiro, LocalizacaoPostos **headerPostosLista)</argsstring>
+        <name>LerEArmazenarPosto</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> **</type>
+          <declname>headerPostosLista</declname>
+        </param>
+        <briefdescription>
+<para>Ler txt file e Guarda Posto. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome do Ficheiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerPostosLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de postos</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headerPostosLista de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="118" column="19" bodyfile="Localizacao.c" bodystart="527" bodyend="566" declfile="Localizacao.h" declline="118" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ab96b2a442f46a2f37d04675c545fe9b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * LerEArmazenarPostoAdjacente</definition>
+        <argsstring>(char *nomeFicheiro, LocalizacaoPostos **headerPostosLista)</argsstring>
+        <name>LerEArmazenarPostoAdjacente</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> **</type>
+          <declname>headerPostosLista</declname>
+        </param>
+        <briefdescription>
+<para>Ler txt file e Guarda Posto Adjacentes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome do Ficheiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerPostosLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de postos</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headerPostosLista de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="120" column="19" bodyfile="Localizacao.c" bodystart="580" bodyend="612" declfile="Localizacao.h" declline="120" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ae259e82fa4f2cf7665aadb03b1b43720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GravarPostosBinario</definition>
+        <argsstring>(char *nomeFicheiro, LocalizacaoPostos *header)</argsstring>
+        <name>GravarPostosBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Guarda <ref refid="struct_postos" kindref="compound">Postos</ref> em Bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome do Ficheiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de postos</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="122" column="6" bodyfile="Localizacao.c" bodystart="626" bodyend="643" declfile="Localizacao.h" declline="122" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ad7488639a31c510e9c3d2b9164a8909a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * LerPostosBinario</definition>
+        <argsstring>(char *nomeFicheiro)</argsstring>
+        <name>LerPostosBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <briefdescription>
+<para>Le <ref refid="struct_postos" kindref="compound">Postos</ref> do Bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome do Ficheiro</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="124" column="19" bodyfile="Localizacao.c" bodystart="655" bodyend="669" declfile="Localizacao.h" declline="124" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ae63e5f2a4249e539d9bd9ba7e1aed95b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GravarPostosAdjacentesBinario</definition>
+        <argsstring>(char *nomeFicheiro, LocalizacaoPostos *header)</argsstring>
+        <name>GravarPostosAdjacentesBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Guarda <ref refid="struct_postos" kindref="compound">Postos</ref> Adjacentes em Bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome do Ficheiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de postos</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="127" column="6" bodyfile="Localizacao.c" bodystart="683" bodyend="706" declfile="Localizacao.h" declline="127" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ad3ecac9b9c4c88c93999af32e51c39bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * LerPostosAdjacentesBinario</definition>
+        <argsstring>(char *nomeFicheiro, LocalizacaoPostos **header, bool *resultado)</argsstring>
+        <name>LerPostosAdjacentesBinario</name>
+        <param>
+          <type>char *</type>
+          <declname>nomeFicheiro</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> **</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>resultado</declname>
+        </param>
+        <briefdescription>
+<para>Le <ref refid="struct_postos" kindref="compound">Postos</ref> Adjacentes do Bin file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">nomeFicheiro</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>nome do Ficheiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da Lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">resultado</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>resultado da funcao</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="129" column="19" bodyfile="Localizacao.c" bodystart="720" bodyend="751" declfile="Localizacao.h" declline="129" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1aee9619708ddc7a29eb453e6d99b7e706" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool JaTemPostoAdjacente</definition>
+        <argsstring>(LocalizacaoPostos *headerOrigem, LocalizacaoPostos *headerDestino)</argsstring>
+        <name>JaTemPostoAdjacente</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headerOrigem</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headerDestino</declname>
+        </param>
+        <briefdescription>
+<para>Ver Se Ja Tem o Posto Adjacente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headerOrigem</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header do posto de origem </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headerDestino</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header do posto de destino</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="131" column="6" bodyfile="Localizacao.c" bodystart="479" bodyend="513" declfile="Localizacao.h" declline="131" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a24d1fc186d5e3e795a4752d529bb136b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+        <definition>LocalizacaoPostosAdjacentes * ProcurarPostoAdjacente</definition>
+        <argsstring>(LocalizacaoPostos *posto, LocalizacaoPostos *postoDestino)</argsstring>
+        <name>ProcurarPostoAdjacente</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>posto</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>postoDestino</declname>
+        </param>
+        <briefdescription>
+<para>Procura Posto Adjacente. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">posto</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">postoDestino</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto destino que quer Procurar</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>adjacente de <ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="133" column="29" bodyfile="Localizacao.c" bodystart="248" bodyend="262" declfile="Localizacao.h" declline="133" declcolumn="29"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a862b10e87a0619f70319449a5b220692" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float AlgoritmoDijkstra</definition>
+        <argsstring>(LocalizacaoPostos *headLista, int origemId, int destinoId, bool querImprimirResultados)</argsstring>
+        <name>AlgoritmoDijkstra</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headLista</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>origemId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>destinoId</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>querImprimirResultados</declname>
+        </param>
+        <briefdescription>
+<para>Algoritmo Dijkstra para obter o caminho mais pequeno. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">origemId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id posto de Origem </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">destinoId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id posto de Destino </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">querImprimirResultados</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ver se quer imprimir o path ou nao</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>distancia[destinoId]; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="136" column="7" bodyfile="Localizacao.c" bodystart="1197" bodyend="1308" declfile="Localizacao.h" declline="136" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a23d8bfa325cd235b3fe42d3f3225a5ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VerSeAcessivel</definition>
+        <argsstring>(LocalizacaoPostos *headLista, LocalizacaoPostos *origemPonto, LocalizacaoPostos *destinoPonto)</argsstring>
+        <name>VerSeAcessivel</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headLista</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>origemPonto</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>destinoPonto</declname>
+        </param>
+        <briefdescription>
+<para>Ver Se o Caminho de dois <ref refid="struct_postos" kindref="compound">Postos</ref> Sao Acessiveis. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">origemPonto</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto de Origem </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">destinoPonto</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>posto de Destino</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="138" column="6" bodyfile="Localizacao.c" bodystart="1147" bodyend="1184" declfile="Localizacao.h" declline="138" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1adeab533d98259d138791270d082bfd97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_camiao" kindref="compound">Camiao</ref> *</type>
+        <definition>Camiao * CriarCamiao</definition>
+        <argsstring>(float cargaAtual, float cargaMaxima, LocalizacaoPostos *localizacaoAtual)</argsstring>
+        <name>CriarCamiao</name>
+        <param>
+          <type>float</type>
+          <declname>cargaAtual</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>cargaMaxima</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>localizacaoAtual</declname>
+        </param>
+        <briefdescription>
+<para>Cria <ref refid="struct_camiao" kindref="compound">Camiao</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cargaAtual</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>carga Atual do camiao </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cargaMaxima</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>carga Maxima do <ref refid="struct_camiao" kindref="compound">Camiao</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">localizacaoAtual</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>localizacao Atual</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novoCamiao de <ref refid="struct_camiao" kindref="compound">Camiao</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="141" column="8" bodyfile="Localizacao.c" bodystart="764" bodyend="777" declfile="Localizacao.h" declline="141" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1afef8865bd15713876772778cdc3beaa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CamiaoRecolha</definition>
+        <argsstring>(Camiao *camiao, LocalizacaoPostos *headListPontos, struct MeiosDeMobilidade *headListMeios)</argsstring>
+        <name>CamiaoRecolha</name>
+        <param>
+          <type><ref refid="struct_camiao" kindref="compound">Camiao</ref> *</type>
+          <declname>camiao</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headListPontos</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headListMeios</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="struct_camiao" kindref="compound">Camiao</ref> Recolhe os Meios. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">camiao</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>camiao </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListPontos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListMeios</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista de meios</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="143" column="6" bodyfile="Localizacao.c" bodystart="937" bodyend="1078" declfile="Localizacao.h" declline="143" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a76758dc7655b64399f93fe2ff9c4c5a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+        <definition>CaminhoCamiao * CriarCaminhoNodes</definition>
+        <argsstring>(int idPosto, int idMeio, int pesoMeio)</argsstring>
+        <name>CriarCaminhoNodes</name>
+        <param>
+          <type>int</type>
+          <declname>idPosto</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idMeio</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pesoMeio</declname>
+        </param>
+        <briefdescription>
+<para>Cria Caminho para <ref refid="struct_camiao" kindref="compound">Camiao</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">idPosto</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Posto </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idMeio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do Meio </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pesoMeio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>peso do Meio</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>novoCaminho de <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="146" column="15" bodyfile="Localizacao.c" bodystart="790" bodyend="803" declfile="Localizacao.h" declline="146" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a3a3bc394d3e9bb1b21d2403a9b41adaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+        <definition>CaminhoCamiao * InserirCaminho</definition>
+        <argsstring>(CaminhoCamiao *headLista, CaminhoCamiao *novoCaminho)</argsstring>
+        <name>InserirCaminho</name>
+        <param>
+          <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+          <declname>headLista</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+          <declname>novoCaminho</declname>
+        </param>
+        <briefdescription>
+<para>Insere novo Caminho para <ref refid="struct_camiao" kindref="compound">Camiao</ref> na Lista. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista do caminho do camiao </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">novoCaminho</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>novo node para Caminho <ref refid="struct_camiao" kindref="compound">Camiao</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headLista de <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="148" column="15" bodyfile="Localizacao.c" bodystart="814" bodyend="830" declfile="Localizacao.h" declline="148" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a4c3404ae93bd20ebfc06cb61bde212b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+        <definition>CaminhoCamiao * RemoverCaminhoNode</definition>
+        <argsstring>(CaminhoCamiao *header, int id)</argsstring>
+        <name>RemoverCaminhoNode</name>
+        <param>
+          <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Remove o Node no Caminho. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head do Caminho de <ref refid="struct_camiao" kindref="compound">Camiao</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do node do Caminho de <ref refid="struct_camiao" kindref="compound">Camiao</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>header de <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="150" column="15" bodyfile="Localizacao.c" bodystart="1110" bodyend="1134" declfile="Localizacao.h" declline="150" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a7362e50190c52ce36c84869c1fc8bb73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+        <definition>CaminhoCamiao * CreateCaminho</definition>
+        <argsstring>(LocalizacaoPostos *headListPontos, struct MeiosDeMobilidade *headListMeios, float *distanciaExtra)</argsstring>
+        <name>CreateCaminho</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headListPontos</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headListMeios</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>distanciaExtra</declname>
+        </param>
+        <briefdescription>
+<para>Cria Caminho. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headListPontos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista de pontos </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListMeios</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista de meios </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">distanciaExtra</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>distancia extra para chegar aos pontos</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>caminho de <ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="152" column="15" bodyfile="Localizacao.c" bodystart="842" bodyend="924" declfile="Localizacao.h" declline="152" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a00da2c5c4a8f217934c723abdc00e2ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ExisteCaminhoNode</definition>
+        <argsstring>(CaminhoCamiao *header, int idCaminhoCamiao)</argsstring>
+        <name>ExisteCaminhoNode</name>
+        <param>
+          <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idCaminhoCamiao</declname>
+        </param>
+        <briefdescription>
+<para>Ver se Existe o Node no Caminho. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head do Caminho de <ref refid="struct_camiao" kindref="compound">Camiao</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idCaminhoCamiao</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id do node do Caminho de <ref refid="struct_camiao" kindref="compound">Camiao</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="154" column="6" bodyfile="Localizacao.c" bodystart="1089" bodyend="1098" declfile="Localizacao.h" declline="154" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a88aab6b739da8f584ff60f563a507a48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CaminhoMaisPerto</definition>
+        <argsstring>(LocalizacaoPostos *headLista, int origemId, CaminhoCamiao *caminhoCamiaoLista, float *distancia, int *idParaEliminar, float *pesoAtual, float capacidadeMaxima)</argsstring>
+        <name>CaminhoMaisPerto</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headLista</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>origemId</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref> *</type>
+          <declname>caminhoCamiaoLista</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>distancia</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>idParaEliminar</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>pesoAtual</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>capacidadeMaxima</declname>
+        </param>
+        <briefdescription>
+<para>Caminho Mais Pequeno Para o Caminho <ref refid="struct_camiao" kindref="compound">Camiao</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista de <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">origemId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id posto de Origem </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">caminhoCamiaoLista</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>caminho do <ref refid="struct_camiao" kindref="compound">Camiao</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">distancia</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>distancia </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idParaEliminar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id posto para eliminar </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">pesoAtual</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>peso atual </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">capacidadeMaxima</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>capacidade Maxima</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>idPosto; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="156" column="5" bodyfile="Localizacao.c" bodystart="1325" bodyend="1361" declfile="Localizacao.h" declline="156" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a97ae139580e6dcb75f660bcb769ef30f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LocalizacaoRaioClientePosto</definition>
+        <argsstring>(struct Clientes *cliente, LocalizacaoPostos *headListaPostos, float raio)</argsstring>
+        <name>LocalizacaoRaioClientePosto</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>cliente</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headListaPostos</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>raio</declname>
+        </param>
+        <briefdescription>
+<para>Localizacao Raio no Cliente para <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>lista <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">raio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>raio</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="159" column="6" bodyfile="Localizacao.c" bodystart="1396" bodyend="1431" declfile="Localizacao.h" declline="159" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a44653c240f0de57b5e51e8136e4e8d98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LocalizacaoRaioClienteMeio</definition>
+        <argsstring>(struct Clientes *cliente, struct MeiosDeMobilidade *headListaMeio, float raio, char *tipo)</argsstring>
+        <name>LocalizacaoRaioClienteMeio</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>cliente</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headListaMeio</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>raio</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>tipo</declname>
+        </param>
+        <briefdescription>
+<para>Localizacao Raio no Cliente para Meios de um Tipo. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListaMeio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>lista <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">raio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>raio </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">tipo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>tipo do meio</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True/False; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="161" column="6" bodyfile="Localizacao.c" bodystart="1445" bodyend="1477" declfile="Localizacao.h" declline="161" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1ab941cfd88fb3fcc9fa78711c8a5efe74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float CalculaDistancia</definition>
+        <argsstring>(float latitude1, float longitude1, float latitude2, float longitude2)</argsstring>
+        <name>CalculaDistancia</name>
+        <param>
+          <type>float</type>
+          <declname>latitude1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>latitude2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude2</declname>
+        </param>
+        <briefdescription>
+<para>Calcula distancia de dois geocodigos. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude do primeiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude do primeiro </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude do segundo </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude do segundo</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>float; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="163" column="7" bodyfile="Localizacao.c" bodystart="1375" bodyend="1383" declfile="Localizacao.h" declline="163" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1aa3fcb3e1e437c105e5fbc54fc3e6da39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * DistanciaClienteAMeioTotal</definition>
+        <argsstring>(struct Clientes *cliente, struct MeiosDeMobilidade *meio, LocalizacaoPostos *headListPostos)</argsstring>
+        <name>DistanciaClienteAMeioTotal</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>cliente</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>meio</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headListPostos</declname>
+          <defname>headListaPostos</defname>
+        </param>
+        <briefdescription>
+<para>Cliente Vai A Localizacao do Meio. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>meio </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista <ref refid="struct_postos" kindref="compound">Postos</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headListPostos de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="165" column="19" bodyfile="Localizacao.c" bodystart="1489" bodyend="1568" declfile="Localizacao.h" declline="165" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1aceeb062bf0e522508ab4e80150260367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * DistanciaClienteAPostoTotal</definition>
+        <argsstring>(struct Clientes *cliente, LocalizacaoPostos *headListaPostos, int idPostoDestino)</argsstring>
+        <name>DistanciaClienteAPostoTotal</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>cliente</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headListaPostos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idPostoDestino</declname>
+        </param>
+        <briefdescription>
+<para>Cliente Vai A Localizacao do Posto. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">idPostoDestino</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id Posto Destino</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headListPostos de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="167" column="19" bodyfile="Localizacao.c" bodystart="1582" bodyend="1646" declfile="Localizacao.h" declline="167" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a82cf298291d519409b2c49cdcdd9a710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CriarPostoEscrever</definition>
+        <argsstring>(LocalizacaoPostos *headPosto)</argsstring>
+        <name>CriarPostoEscrever</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headPosto</declname>
+        </param>
+        <briefdescription>
+<para>Criar <ref refid="struct_postos" kindref="compound">Postos</ref> mas a escrever. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="169" column="5" bodyfile="Localizacao.c" bodystart="1881" bodyend="1903" declfile="Localizacao.h" declline="169" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1adc4329a44be71a177aecebda7eead543" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ListarTodosPostos</definition>
+        <argsstring>(LocalizacaoPostos *header)</argsstring>
+        <name>ListarTodosPostos</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+<para>Lista todos os <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">header</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="171" column="5" bodyfile="Localizacao.c" bodystart="1802" bodyend="1820" declfile="Localizacao.h" declline="171" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a0871c9f8f5ea85ff1eb101653784d115" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * RemoverPostoEscrever</definition>
+        <argsstring>(LocalizacaoPostos *headPostos)</argsstring>
+        <name>RemoverPostoEscrever</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headPostos</declname>
+        </param>
+        <briefdescription>
+<para>Remove <ref refid="struct_postos" kindref="compound">Postos</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headPostos; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="173" column="19" bodyfile="Localizacao.c" bodystart="1831" bodyend="1843" declfile="Localizacao.h" declline="173" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a78fb4f45a3940d7959894e2b9a5a49f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AlterarPorEscreverPosto</definition>
+        <argsstring>(LocalizacaoPostos *headPosto)</argsstring>
+        <name>AlterarPorEscreverPosto</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headPosto</declname>
+        </param>
+        <briefdescription>
+<para>Altera <ref refid="struct_postos" kindref="compound">Postos</ref> mas na consola. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="175" column="5" bodyfile="Localizacao.c" bodystart="1853" bodyend="1871" declfile="Localizacao.h" declline="175" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a7fc1eea568f63eea85ed20c8c3b09929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CriarAdjacenciaPostoEscrever</definition>
+        <argsstring>(LocalizacaoPostos *headPosto)</argsstring>
+        <name>CriarAdjacenciaPostoEscrever</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headPosto</declname>
+        </param>
+        <briefdescription>
+<para>Criar Adjacencia de <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="178" column="5" bodyfile="Localizacao.c" bodystart="1912" bodyend="1929" declfile="Localizacao.h" declline="178" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1aad9f4d3e8025a5fab76ab129d5315ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RemoverAdjacenciaPostoEscrever</definition>
+        <argsstring>(LocalizacaoPostos *headPosto)</argsstring>
+        <name>RemoverAdjacenciaPostoEscrever</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headPosto</declname>
+        </param>
+        <briefdescription>
+<para>Remover Adjacencia de <ref refid="struct_postos" kindref="compound">Postos</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="180" column="5" bodyfile="Localizacao.c" bodystart="1938" bodyend="1961" declfile="Localizacao.h" declline="180" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a99605a57eeaf433cde24d5d6e686d868" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int CamiaoRecolhaEscrever</definition>
+        <argsstring>(LocalizacaoPostos *headPosto, struct MeiosDeMobilidade *headListaMeios)</argsstring>
+        <name>CamiaoRecolhaEscrever</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headPosto</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headListaMeios</declname>
+        </param>
+        <briefdescription>
+<para><ref refid="struct_camiao" kindref="compound">Camiao</ref> Recolha. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListaMeios</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="183" column="5" bodyfile="Localizacao.c" bodystart="1971" bodyend="1988" declfile="Localizacao.h" declline="183" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a84dc30c63e24c6e3858fa62ad073f460" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ClienteParaPostoLocalizacao</definition>
+        <argsstring>(struct Clientes *headClientes, LocalizacaoPostos *headListaPostos, int idCliente)</argsstring>
+        <name>ClienteParaPostoLocalizacao</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>headClientes</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headListaPostos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idCliente</declname>
+        </param>
+        <briefdescription>
+<para>Cliente vai a Posto. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headClientes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headAluguer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_aluguer" kindref="compound">Aluguer</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headMeio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header da lista de <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>id de <ref refid="struct_clientes" kindref="compound">Clientes</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="185" column="5" bodyfile="Cliente.c" bodystart="722" bodyend="744" declfile="Localizacao.h" declline="185" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a9bcc0a5dba458a32e5fc281fc773b183" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>LocalizacaoPostos * ViajarComMeioAteLocalizacao</definition>
+        <argsstring>(struct Clientes *cliente, LocalizacaoPostos *headListaPostos, struct MeiosDeMobilidade *headListaMeio, float latitude, float longitude)</argsstring>
+        <name>ViajarComMeioAteLocalizacao</name>
+        <param>
+          <type>struct <ref refid="struct_clientes" kindref="compound">Clientes</ref> *</type>
+          <declname>cliente</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headListaPostos</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> *</type>
+          <declname>headListaMeio</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+<para>Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">cliente</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>cliente </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista <ref refid="struct_postos" kindref="compound">Postos</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">headListaMeio</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>head lista <ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>latitude do destino </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>longitude do destino</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>headListPostos de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="188" column="19" bodyfile="Localizacao.c" bodystart="1661" bodyend="1794" declfile="Localizacao.h" declline="188" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="_localizacao_8h_1a32ab6e24616a095720277a09b92ba035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ListaAdjacentes</definition>
+        <argsstring>(LocalizacaoPostos *headPosto)</argsstring>
+        <name>ListaAdjacentes</name>
+        <param>
+          <type><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+          <declname>headPosto</declname>
+        </param>
+        <briefdescription>
+<para>Mostrar <ref refid="struct_postos" kindref="compound">Postos</ref> Adjacentes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">headPostos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>header de <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="191" column="5" bodyfile="Localizacao.c" bodystart="1999" bodyend="2030" declfile="Localizacao.h" declline="191" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Definicao da struct Localizacao onde ira guardar o registo de postos e postos adjacentes, com as suas respectivas funcoes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Rafael Silva @email <ulink url="mailto:a21089@alunos.ipca.pt">a21089@alunos.ipca.pt</ulink> </para>
+</simplesect>
+<simplesect kind="date"><para>2023 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="_localizacao_8h_1a0989190f17dd96837d94d1cd29df8c1b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LARGURAGERALSTRING<sp/>100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="struct_postos" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_postos" kindref="compound">Postos</ref><sp/>{</highlight></codeline>
+<codeline lineno="25" refid="struct_postos_1ac640e134fc538b13943a26a0f795d09d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_postos_1ac640e134fc538b13943a26a0f795d09d" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="26" refid="struct_postos_1a7891c2a23e5e95a50737127632ca8680" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_postos_1a7891c2a23e5e95a50737127632ca8680" kindref="member">cidade</ref>[<ref refid="_localizacao_8h_1a0989190f17dd96837d94d1cd29df8c1b" kindref="member">LARGURAGERALSTRING</ref>];</highlight></codeline>
+<codeline lineno="27" refid="struct_postos_1a774fd4f5f24a600f6cc9c8c3d89bd5bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_postos_1a774fd4f5f24a600f6cc9c8c3d89bd5bb" kindref="member">latitude</ref>;</highlight></codeline>
+<codeline lineno="28" refid="struct_postos_1a9e552dabddeea08fc5c422faee8c4d17" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_postos_1a9e552dabddeea08fc5c422faee8c4d17" kindref="member">longitude</ref>;</highlight></codeline>
+<codeline lineno="29" refid="struct_postos_1af1b864c7d4d7ddc4533c32e3d6ba160e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_postos_1af1b864c7d4d7ddc4533c32e3d6ba160e" kindref="member">visitado</ref>;</highlight></codeline>
+<codeline lineno="30" refid="struct_postos_1acc620109a6eb989e68ea70f21b065082" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/><ref refid="struct_postos_1acc620109a6eb989e68ea70f21b065082" kindref="member">postosAdjacentes</ref>;<sp/></highlight><highlight class="comment">//<sp/>Postos<sp/>Adjacentes<sp/>(arestas/conecçoes)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="_localizacao_8h_1ab50f7baafd568ae2202d87a68b8e8fb4" refkind="member"><highlight class="normal">}<sp/><ref refid="_localizacao_8h_1ab50f7baafd568ae2202d87a68b8e8fb4" kindref="member">Postos</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="struct_localizacao_postos" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref><sp/>{</highlight></codeline>
+<codeline lineno="42" refid="struct_localizacao_postos_1a35f72ee153e3999d91120d6017f4b49b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_postos" kindref="compound">Postos</ref>*<sp/><ref refid="struct_localizacao_postos_1a35f72ee153e3999d91120d6017f4b49b" kindref="member">posto</ref>;</highlight></codeline>
+<codeline lineno="43" refid="struct_localizacao_postos_1a90ea2ff04d0aa1939ffa823df0eabc79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="struct_localizacao_postos_1a90ea2ff04d0aa1939ffa823df0eabc79" kindref="member">proximo</ref>;<sp/></highlight><highlight class="comment">//<sp/>Pointer<sp/>to<sp/>the<sp/>next<sp/>adjacent<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="_localizacao_8h_1a97bccbabae829ae41ae7e21140e806c1" refkind="member"><highlight class="normal">}<sp/><ref refid="_localizacao_8h_1a97bccbabae829ae41ae7e21140e806c1" kindref="member">LocalizacaoPostos</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="struct_localizacao_postos_adjacentes" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref><sp/>{</highlight></codeline>
+<codeline lineno="57" refid="struct_localizacao_postos_adjacentes_1a5526534cbe5e113f9c065ea6c0ac014a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_localizacao_postos_adjacentes_1a5526534cbe5e113f9c065ea6c0ac014a" kindref="member">idDestino</ref>;</highlight></codeline>
+<codeline lineno="58" refid="struct_localizacao_postos_adjacentes_1a7c0f248b312debdd652f3a960b9f2484" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="struct_localizacao_postos_adjacentes_1a7c0f248b312debdd652f3a960b9f2484" kindref="member">postoDestinoAdjacente</ref>;<sp/></highlight><highlight class="comment">//<sp/>Posto<sp/>do<sp/>Destino<sp/>Da<sp/>Adjacencia</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="struct_localizacao_postos_adjacentes_1a572371434832982896e6da25ee4b83f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_localizacao_postos_adjacentes_1a572371434832982896e6da25ee4b83f1" kindref="member">distancia</ref>;</highlight></codeline>
+<codeline lineno="60" refid="struct_localizacao_postos_adjacentes_1a6a3f7f7220cf4ce875ff67cb1544892c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/><ref refid="struct_localizacao_postos_adjacentes_1a6a3f7f7220cf4ce875ff67cb1544892c" kindref="member">proximo</ref>;<sp/></highlight></codeline>
+<codeline lineno="61" refid="_localizacao_8h_1a5a1d199448378d2aa51cdef9c0017de8" refkind="member"><highlight class="normal">}<sp/><ref refid="_localizacao_8h_1a5a1d199448378d2aa51cdef9c0017de8" kindref="member">LocalizacaoPostosAdjacentes</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="struct_camiao" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_camiao" kindref="compound">Camiao</ref><sp/>{</highlight></codeline>
+<codeline lineno="70" refid="struct_camiao_1a58ce4ddbaab309abe4fa436080b71f2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_camiao_1a58ce4ddbaab309abe4fa436080b71f2e" kindref="member">idOrigem</ref>;</highlight></codeline>
+<codeline lineno="71" refid="struct_camiao_1ab36037d83c58cefca27c1848fb48f2bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_camiao_1ab36037d83c58cefca27c1848fb48f2bc" kindref="member">cargaAtual</ref>;</highlight></codeline>
+<codeline lineno="72" refid="struct_camiao_1add8da85911d761f92f984df6af8ccc89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_camiao_1add8da85911d761f92f984df6af8ccc89" kindref="member">cargaMaxima</ref>;</highlight></codeline>
+<codeline lineno="73" refid="struct_camiao_1a7f49ae4f76ec73f1a90fdb9694c32ea4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="struct_camiao_1a7f49ae4f76ec73f1a90fdb9694c32ea4" kindref="member">localizacaoAtual</ref>;</highlight></codeline>
+<codeline lineno="74" refid="_localizacao_8h_1a352bfb0fc41a9ee4052458095043510a" refkind="member"><highlight class="normal">}<sp/><ref refid="_localizacao_8h_1a352bfb0fc41a9ee4052458095043510a" kindref="member">Camiao</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="struct_caminho_camiao" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref><sp/>{</highlight></codeline>
+<codeline lineno="83" refid="struct_caminho_camiao_1a6678bcebd8cf21c8b3d333f736a85a7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_caminho_camiao_1a6678bcebd8cf21c8b3d333f736a85a7a" kindref="member">idPosto</ref>;</highlight></codeline>
+<codeline lineno="84" refid="struct_caminho_camiao_1a07da2c5d833d53342a467943226e1f94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_caminho_camiao_1a07da2c5d833d53342a467943226e1f94" kindref="member">idMeio</ref>;</highlight></codeline>
+<codeline lineno="85" refid="struct_caminho_camiao_1ad00310940ed0767b5b97d39db0350211" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_caminho_camiao_1ad00310940ed0767b5b97d39db0350211" kindref="member">pesoMeio</ref>;</highlight></codeline>
+<codeline lineno="86" refid="struct_caminho_camiao_1a78b00c2f902cf63ca86b28a9f4955e99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/><ref refid="struct_caminho_camiao_1a78b00c2f902cf63ca86b28a9f4955e99" kindref="member">proximo</ref>;</highlight></codeline>
+<codeline lineno="87" refid="_localizacao_8h_1af9513cfb4803d467d35ac74a144e63ea" refkind="member"><highlight class="normal">}<sp/><ref refid="_localizacao_8h_1af9513cfb4803d467d35ac74a144e63ea" kindref="member">CaminhoCamiao</ref>;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//Criar<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1a917d6d2d775d373ae85b0da3418953fa" kindref="member">CriarPosto</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>cidade,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>latitude,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>longitude,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>visitado,<sp/><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/>postosAdjacentes);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Posto<sp/>no<sp/>Header<sp/>de<sp/>Postos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1a34f0f341b3a7cad7d221f3445149c8a4" kindref="member">InserePostoGrafo</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>header,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>novoPosto);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>Existe<sp/>Posto<sp/>na<sp/>lista<sp/>por<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1aea4dcac14173d151996c977cea33c7be" kindref="member">ExistePosto</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_caminho_camiao_1a6678bcebd8cf21c8b3d333f736a85a7a" kindref="member">idPosto</ref>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//Remove<sp/>Posto<sp/>no<sp/>Header<sp/>de<sp/>Postos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1af0d96496de0610c313a08c77012e0e1a" kindref="member">RemoverPosto</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//Alterna<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1afb5e6ac1104d6fb1789fe2781603ee6d" kindref="member">AlteraPosto</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>latitude,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>longitude);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">//Criar<sp/>Posto<sp/>Adjacente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/><ref refid="_localizacao_8h_1a12019acb011864ae6d2f49945127352c" kindref="member">CriarPostoAdjacente</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>postoDestinoAdjacente,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>postoOrigem);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Posto<sp/>Adjacente<sp/>no<sp/>respetivo<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1acc46b37615ba552d5145a49998c49c0c" kindref="member">InserirPostoAdjacente</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>**<sp/>headLista,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>postoOrigem,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>postoDestino);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>Existe<sp/>Posto<sp/>Adjacente<sp/>na<sp/>lista<sp/>por<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1ae13e7a5b6e4b0e7ef4e36721dbf62b2e" kindref="member">ExistePostoAdjacente</ref>(<ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idPostosAdjacentes);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">//Remove<sp/>Posto<sp/>Adjacente<sp/>no<sp/>respetivo<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/><ref refid="_localizacao_8h_1a428c61bf3570d03070138c2ee3915618" kindref="member">RemoverPostoAdjacente</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headerPostos,<sp/><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/>headerPostoAdjacente,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idOrigem);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">//Atualiza<sp/>Posto<sp/>Adjacentes<sp/>Para<sp/>todos<sp/>os<sp/>Postos<sp/>existentes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1ae5693b6481846047cb631712836fe481" kindref="member">AtualizarPostosAdjacentes</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headLista);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//Procura<sp/>Por<sp/>Id<sp/>Postos<sp/>e<sp/>retorna<sp/>a<sp/>lista<sp/>toda<sp/>a<sp/>comecar<sp/>com<sp/>o<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1a98412cb8ed9b9afab9ebe8fc4937dccd" kindref="member">ProcurarPorIdPostosComListaToda</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headerList,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//Procura<sp/>Por<sp/>Id<sp/>Posto<sp/>e<sp/>retorna<sp/>o<sp/>sozinho</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1a5b4c9ce9964c3ee1af7a8c3ecc916348" kindref="member">ProcurarPorIdPostos</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headerList,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>txt<sp/>file<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1a1a1ed2e8668f869d6cfd8bc603e363e9" kindref="member">LerEArmazenarPosto</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>**<sp/>headerPostosLista);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>armazena<sp/>txt<sp/>file<sp/>Posto<sp/>Adjacentes<sp/>em<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1ab96b2a442f46a2f37d04675c545fe9b4" kindref="member">LerEArmazenarPostoAdjacente</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>**<sp/>headerPostosLista);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>Posto<sp/>num<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1ae259e82fa4f2cf7665aadb03b1b43720" kindref="member">GravarPostosBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>Guarda<sp/>Posto<sp/>de<sp/>um<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1ad7488639a31c510e9c3d2b9164a8909a" kindref="member">LerPostosBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">//Grava<sp/>Posto<sp/>Adjacentes<sp/>num<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1ae63e5f2a4249e539d9bd9ba7e1aed95b" kindref="member">GravarPostosAdjacentesBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">//Le<sp/>e<sp/>Guarda<sp/>Posto<sp/>Adjacentes<sp/>de<sp/>um<sp/>ficheiro<sp/>binario</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1ad3ecac9b9c4c88c93999af32e51c39bc" kindref="member">LerPostosAdjacentesBinario</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>nomeFicheiro,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>**<sp/>header,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/>resultado);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>ja<sp/>tem<sp/>Posto<sp/>Adjacente<sp/>no<sp/>determinado<sp/>Posto<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1aee9619708ddc7a29eb453e6d99b7e706" kindref="member">JaTemPostoAdjacente</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headerOrigem,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headerDestino);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">//Procura<sp/>Posto<sp/>Adjacente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>*<sp/><ref refid="_localizacao_8h_1a24d1fc186d5e3e795a4752d529bb136b" kindref="member">ProcurarPostoAdjacente</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>posto,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>postoDestino);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//Funcao<sp/>que<sp/>procura<sp/>o<sp/>caminho<sp/>pelo<sp/>os<sp/>Postos<sp/>usando<sp/>dijkstra<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a862b10e87a0619f70319449a5b220692" kindref="member">AlgoritmoDijkstra</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headLista,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>origemId,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>destinoId,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>querImprimirResultados);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>se<sp/>é Acessivel<sp/>ir<sp/>de<sp/>um<sp/>Posto<sp/>Para<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a23d8bfa325cd235b3fe42d3f3225a5ac" kindref="member">VerSeAcessivel</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headLista,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>origemPonto,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>destinoPonto);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//Cria<sp/>Camiao</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="struct_camiao" kindref="compound">Camiao</ref>*<sp/><ref refid="_localizacao_8h_1adeab533d98259d138791270d082bfd97" kindref="member">CriarCamiao</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cargaAtual,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cargaMaxima,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>localizacaoAtual);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//Camiao<sp/>Recolhe<sp/>Meios<sp/>com<sp/>Menos<sp/>de<sp/>50%<sp/>De<sp/>Bateria<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1afef8865bd15713876772778cdc3beaa0" kindref="member">CamiaoRecolha</ref>(<ref refid="struct_camiao" kindref="compound">Camiao</ref>*<sp/>camiao,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headListPontos,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headListMeios);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">//Cria<sp/>Caminho<sp/>Node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/><ref refid="_localizacao_8h_1a76758dc7655b64399f93fe2ff9c4c5a6" kindref="member">CriarCaminhoNodes</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_caminho_camiao_1a6678bcebd8cf21c8b3d333f736a85a7a" kindref="member">idPosto</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_caminho_camiao_1a07da2c5d833d53342a467943226e1f94" kindref="member">idMeio</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_caminho_camiao_1ad00310940ed0767b5b97d39db0350211" kindref="member">pesoMeio</ref>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">//Insere<sp/>Caminho<sp/>Node<sp/>no<sp/>header</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/><ref refid="_localizacao_8h_1a3a3bc394d3e9bb1b21d2403a9b41adaf" kindref="member">InserirCaminho</ref>(<ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/>headLista,<sp/><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/>novoCaminho);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//Remove<sp/>Node<sp/>do<sp/>Caminho<sp/>do<sp/>Camiao</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/><ref refid="_localizacao_8h_1a4c3404ae93bd20ebfc06cb61bde212b9" kindref="member">RemoverCaminhoNode</ref>(<ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment">//Cria<sp/>Caminho<sp/>para<sp/>Camiao</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/><ref refid="_localizacao_8h_1a7362e50190c52ce36c84869c1fc8bb73" kindref="member">CreateCaminho</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headListPontos,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headListMeios,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>distanciaExtra);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//Ver<sp/>Se<sp/>Ja<sp/>exite<sp/>um<sp/>Node<sp/>Para<sp/>o<sp/>Caminho<sp/>para<sp/>Camiao</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a00da2c5c4a8f217934c723abdc00e2ac" kindref="member">ExisteCaminhoNode</ref>(<ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/>header,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idCaminhoCamiao);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//Caminho<sp/>Mais<sp/>Perto<sp/>para<sp/>os<sp/>Postos<sp/>no<sp/>Caminho<sp/>para<sp/>Camiao</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a88aab6b739da8f584ff60f563a507a48" kindref="member">CaminhoMaisPerto</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headLista,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>origemId,<sp/><ref refid="struct_caminho_camiao" kindref="compound">CaminhoCamiao</ref>*<sp/>caminhoCamiaoLista,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>distancia,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>idParaEliminar,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>pesoAtual,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>capacidadeMaxima);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//Localizacao<sp/>do<sp/>Posto<sp/>mais<sp/>perto<sp/>por<sp/>Raio<sp/>com<sp/>o<sp/>Cliente<sp/>como<sp/>centro</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a97ae139580e6dcb75f660bcb769ef30f" kindref="member">LocalizacaoRaioClientePosto</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>cliente,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headListaPostos,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>raio);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//Localizacao<sp/>do<sp/>Meio<sp/>por<sp/>tipo<sp/>mais<sp/>perto<sp/>por<sp/>Raio<sp/>com<sp/>o<sp/>Cliente<sp/>como<sp/>centro</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a44653c240f0de57b5e51e8136e4e8d98" kindref="member">LocalizacaoRaioClienteMeio</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>cliente,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headListaMeio,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>raio,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>tipo);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//Calcula<sp/>distancia<sp/>por<sp/>Latitude<sp/>e<sp/>Longitude<sp/>de<sp/>dois<sp/>Geocodigos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1ab941cfd88fb3fcc9fa78711c8a5efe74" kindref="member">CalculaDistancia</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>latitude1,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>longitude1,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>latitude2,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>longitude2);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">//Distancia<sp/>e<sp/>Caminho<sp/>de<sp/>Cliente<sp/>a<sp/>Meio<sp/>usando<sp/>Postos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1aa3fcb3e1e437c105e5fbc54fc3e6da39" kindref="member">DistanciaClienteAMeioTotal</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>cliente,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>meio,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headListPostos);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">//Distancia<sp/>e<sp/>Caminho<sp/>de<sp/>Cliente<sp/>a<sp/>Posto</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1aceeb062bf0e522508ab4e80150260367" kindref="member">DistanciaClienteAPostoTotal</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>cliente,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headListaPostos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idPostoDestino);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">//Cria<sp/>Posto<sp/>Escrever</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a82cf298291d519409b2c49cdcdd9a710" kindref="member">CriarPostoEscrever</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headPosto);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">//Listar<sp/>Postos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1adc4329a44be71a177aecebda7eead543" kindref="member">ListarTodosPostos</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>header);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">//Remover<sp/>Postos<sp/>Escrever</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1a0871c9f8f5ea85ff1eb101653784d115" kindref="member">RemoverPostoEscrever</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headPostos);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//Alterar<sp/>Posto<sp/>(Latitude<sp/>e<sp/>Longitude)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a78fb4f45a3940d7959894e2b9a5a49f9" kindref="member">AlterarPorEscreverPosto</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headPosto);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment">//Cria<sp/>Adjacencia</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a7fc1eea568f63eea85ed20c8c3b09929" kindref="member">CriarAdjacenciaPostoEscrever</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headPosto);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="comment">//Remover<sp/>Adjacencia</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1aad9f4d3e8025a5fab76ab129d5315ec0" kindref="member">RemoverAdjacenciaPostoEscrever</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headPosto);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment">//Camiao<sp/>Recolha<sp/>Escrever</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a99605a57eeaf433cde24d5d6e686d868" kindref="member">CamiaoRecolhaEscrever</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headPosto,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headListaMeios);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="comment">//Cliente<sp/>Para<sp/>Posto<sp/>Escrever</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a84dc30c63e24c6e3858fa62ad073f460" kindref="member">ClienteParaPostoLocalizacao</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>headClientes,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headListaPostos,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idCliente);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">//Cliente<sp/>viaja<sp/>com<sp/>o<sp/>Meio<sp/>Alugado<sp/>(tem<sp/>que<sp/>tar<sp/>na<sp/>mesma<sp/>localizacao)<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/><ref refid="_localizacao_8h_1a9bcc0a5dba458a32e5fc281fc773b183" kindref="member">ViajarComMeioAteLocalizacao</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_clientes" kindref="compound">Clientes</ref>*<sp/>cliente,<sp/><ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headListaPostos,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct_meios_de_mobilidade" kindref="compound">MeiosDeMobilidade</ref>*<sp/>headListaMeio,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>latitude,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>longitude);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">//Lista<sp/>Adjacentes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_localizacao_8h_1a32ab6e24616a095720277a09b92ba035" kindref="member">ListaAdjacentes</ref>(<ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref>*<sp/>headPosto);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Localizacao.h"/>
+  </compounddef>
+</doxygen>

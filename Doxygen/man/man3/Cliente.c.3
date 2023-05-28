@@ -1,4 +1,4 @@
-.TH "Cliente.c" 3 "Sat Mar 18 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.TH "Cliente.c" 3 "Sun May 28 2023" "21089_Projeto_EDA" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,6 +17,8 @@ Cliente.c \- Funcoes para \fBClientes\fP\&.
 .br
 \fC#include 'Aluguer\&.h'\fP
 .br
+\fC#include 'Localizacao\&.h'\fP
+.br
 
 .SS "Macros"
 
@@ -29,7 +31,7 @@ Cliente.c \- Funcoes para \fBClientes\fP\&.
 
 .in +1c
 .ti -1c
-.RI "\fBClientes\fP * \fBCriarClientes\fP (int id, char nome[50], char morada[50], char nif[9], float saldo)"
+.RI "\fBClientes\fP * \fBCriarClientes\fP (int id, char nome[50], char morada[50], char nif[9], float saldo, float latitude, float longitude)"
 .br
 .RI "Cria MeioDeMobilidade\&. "
 .ti -1c
@@ -57,9 +59,13 @@ Cliente.c \- Funcoes para \fBClientes\fP\&.
 .br
 .RI "Procura Cliente na lista de \fBClientes\fP\&. "
 .ti -1c
-.RI "void \fBAlteraCliente\fP (\fBClientes\fP **header, int id, char *nome)"
+.RI "int \fBAlteraCliente\fP (\fBClientes\fP **header, int id, char *nome)"
 .br
 .RI "Altera Cliente na lista de \fBClientes\fP\&. "
+.ti -1c
+.RI "int \fBAumentarSaldoCliente\fP (\fBClientes\fP **header, int id, float saldo)"
+.br
+.RI "Aumenta Saldo Cliente\&. "
 .ti -1c
 .RI "int \fBRegistoAluguer\fP (\fBClientes\fP **headerCliente, \fBMeiosDeMobilidade\fP **headerMeios, \fBAluguer\fP **headerAluguerTotal, int idCliente, int idMeios)"
 .br
@@ -89,6 +95,10 @@ Cliente.c \- Funcoes para \fBClientes\fP\&.
 .br
 .RI "Altera \fBClientes\fP mas na consola\&. "
 .ti -1c
+.RI "int \fBAlterarPorEscreverClienteWindowCliente\fP (\fBClientes\fP *headClientes, int idCliente)"
+.br
+.RI "Altera \fBClientes\fP mas na consola\&. "
+.ti -1c
 .RI "int \fBRemoverPorEscreverCliente\fP (\fBClientes\fP *headClientes)"
 .br
 .RI "Remove \fBClientes\fP mas na consola\&. "
@@ -96,6 +106,38 @@ Cliente.c \- Funcoes para \fBClientes\fP\&.
 .RI "int \fBRegistoPorEscrever\fP (\fBClientes\fP *headClientes, \fBAluguer\fP *headAluguer, \fBMeiosDeMobilidade\fP *headMeio)"
 .br
 .RI "Registar \fBAluguer\fP na consola\&. "
+.ti -1c
+.RI "int \fBRegistoPorEscreverClienteWindow\fP (\fBClientes\fP *headClientes, \fBAluguer\fP *headAluguer, \fBMeiosDeMobilidade\fP *headMeio, int idCliente)"
+.br
+.RI "Registar \fBAluguer\fP na consola Cliente\&. "
+.ti -1c
+.RI "int \fBProcurarRaioMeioCliente\fP (\fBClientes\fP *headClientes, \fBMeiosDeMobilidade\fP *headMeio, int idCliente)"
+.br
+.RI "Procurar por um Raio Meios de um tipo\&. "
+.ti -1c
+.RI "int \fBClienteParaMeioLocalizacao\fP (\fBClientes\fP *headClientes, \fBMeiosDeMobilidade\fP *headMeio, \fBLocalizacaoPostos\fP *headListaPostos, int idCliente)"
+.br
+.RI "Cliente vai a Meio\&. "
+.ti -1c
+.RI "int \fBClienteParaPostoLocalizacao\fP (\fBClientes\fP *headClientes, \fBLocalizacaoPostos\fP *headListaPostos, int idCliente)"
+.br
+.RI "Cliente vai a Posto\&. "
+.ti -1c
+.RI "int \fBClienteViagemEscrever\fP (\fBClientes\fP *headClientes, \fBMeiosDeMobilidade\fP *headMeio, \fBLocalizacaoPostos\fP *headListaPostos, int idCliente)"
+.br
+.RI "Cliente vai a Meio\&. "
+.ti -1c
+.RI "int \fBAumentarSaldoPorEscreverCliente\fP (\fBClientes\fP *headClientes, int idCliente)"
+.br
+.RI "Aumenta Saldo do Cliente\&. "
+.ti -1c
+.RI "int \fBParaAluguerAtivo\fP (\fBClientes\fP *headClientes, \fBAluguer\fP *headAluguer, \fBMeiosDeMobilidade\fP *headMeio, int idCliente)"
+.br
+.RI "Para \fBAluguer\fP Ativo\&. "
+.ti -1c
+.RI "bool \fBEstadoAluguerCliente\fP (\fBClientes\fP *headCliente, int idCliente)"
+.br
+.RI "Ver se ja tem algum meio reservado no momento\&. "
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -120,7 +162,7 @@ Rafael Silva @email a21089@alunos.ipca.pt
 
 .SH "Function Documentation"
 .PP 
-.SS "void AlteraCliente (\fBClientes\fP ** header, int id, char * nome)"
+.SS "int AlteraCliente (\fBClientes\fP ** header, int id, char * nome)"
 
 .PP
 Altera Cliente na lista de \fBClientes\fP\&. 
@@ -131,7 +173,12 @@ Altera Cliente na lista de \fBClientes\fP\&.
 .br
 \fIid\fP id Cliente 
 .br
-\fInome\fP nome Cliente 
+\fInome\fP nome Cliente
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
 .RE
 .PP
 
@@ -139,6 +186,128 @@ Altera Cliente na lista de \fBClientes\fP\&.
 
 .PP
 Altera \fBClientes\fP mas na consola\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int AlterarPorEscreverClienteWindowCliente (\fBClientes\fP * headClientes, int idCliente)"
+
+.PP
+Altera \fBClientes\fP mas na consola\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int AumentarSaldoCliente (\fBClientes\fP ** header, int id, float saldo)"
+
+.PP
+Aumenta Saldo Cliente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP 
+.br
+\fIid\fP id Cliente 
+.br
+\fIsaldo\fP saldo extra Cliente
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int AumentarSaldoPorEscreverCliente (\fBClientes\fP * headClientes, int idCliente)"
+
+.PP
+Aumenta Saldo do Cliente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int ClienteParaMeioLocalizacao (\fBClientes\fP * headClientes, \fBMeiosDeMobilidade\fP * headMeio, \fBLocalizacaoPostos\fP * headListaPostos, int idCliente)"
+
+.PP
+Cliente vai a Meio\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIheadAluguer\fP header da lista de \fBAluguer\fP 
+.br
+\fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int ClienteParaPostoLocalizacao (\fBClientes\fP * headClientes, \fBLocalizacaoPostos\fP * headListaPostos, int idCliente)"
+
+.PP
+Cliente vai a Posto\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIheadAluguer\fP header da lista de \fBAluguer\fP 
+.br
+\fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int ClienteViagemEscrever (\fBClientes\fP * headClientes, \fBMeiosDeMobilidade\fP * headMeio, \fBLocalizacaoPostos\fP * headListaPostos, int idCliente)"
+
+.PP
+Cliente vai a Meio\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIheadListaPostos\fP header da lista de \fBLocalizacaoPostos\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
 .PP
 \fBReturns\fP
 .RS 4
@@ -162,7 +331,7 @@ Quantos \fBClientes\fP Tem;
 .RE
 .PP
 
-.SS "\fBClientes\fP * CriarClientes (int id, char nome[50], char morada[50], char nif[9], float saldo)"
+.SS "\fBClientes\fP * CriarClientes (int id, char nome[50], char morada[50], char nif[9], float saldo, float latitude, float longitude)"
 
 .PP
 Cria MeioDeMobilidade\&. 
@@ -177,12 +346,32 @@ Cria MeioDeMobilidade\&.
 .br
 \fInif\fP nif do Cliente 
 .br
-\fIsaldo\fP saldo do Cliente
+\fIsaldo\fP saldo do Cliente 
+.br
+\fIlatitude\fP latitude do Cliente 
+.br
+\fIlongitude\fP longitude do Cliente
 .RE
 .PP
 \fBReturns\fP
 .RS 4
 novo \fBClientes\fP 
+.RE
+.PP
+
+.SS "bool EstadoAluguerCliente (\fBClientes\fP * headCliente, int idCliente)"
+
+.PP
+Ver se ja tem algum meio reservado no momento\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBClientes\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
 .RE
 .PP
 
@@ -307,6 +496,28 @@ Lista os \fBClientes\fP que Existem\&.
 .RE
 .PP
 
+.SS "int ParaAluguerAtivo (\fBClientes\fP * headClientes, \fBAluguer\fP * headAluguer, \fBMeiosDeMobilidade\fP * headMeio, int idCliente)"
+
+.PP
+Para \fBAluguer\fP Ativo\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIheadAluguer\fP header da lista de \fBAluguer\fP 
+.br
+\fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
 .SS "\fBClientes\fP * ProcuraClientes (\fBClientes\fP * header, int id)"
 
 .PP
@@ -325,6 +536,28 @@ header da lista de \fBClientes\fP;
 .RE
 .PP
 
+.SS "int ProcurarRaioMeioCliente (\fBClientes\fP * headClientes, \fBMeiosDeMobilidade\fP * headMeio, int idCliente)"
+
+.PP
+Procurar por um Raio Meios de um tipo\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIheadAluguer\fP header da lista de \fBAluguer\fP 
+.br
+\fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
 .SS "int RegistoAluguer (\fBClientes\fP ** headerCliente, \fBMeiosDeMobilidade\fP ** headerMeios, \fBAluguer\fP ** headerAluguerTotal, int idCliente, int idMeios)"
 
 .PP
@@ -340,7 +573,12 @@ Regista um \fBAluguer\fP de um Meio de Mobilidade pelo o Cliente\&.
 .br
 \fIidCliente\fP id Cliente 
 .br
-\fIidMeios\fP id Meio De Mobilidade 
+\fIidMeios\fP id Meio De Mobilidade
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
 .RE
 .PP
 
@@ -356,6 +594,33 @@ Registar \fBAluguer\fP na consola\&.
 \fIheadAluguer\fP header da lista de \fBAluguer\fP 
 .br
 \fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int RegistoPorEscreverClienteWindow (\fBClientes\fP * headClientes, \fBAluguer\fP * headAluguer, \fBMeiosDeMobilidade\fP * headMeio, int idCliente)"
+
+.PP
+Registar \fBAluguer\fP na consola Cliente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.br
+\fIheadAluguer\fP header da lista de \fBAluguer\fP 
+.br
+\fIheadMeio\fP header da lista de \fBMeiosDeMobilidade\fP 
+.br
+\fIid\fP id de \fBClientes\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
 .RE
 .PP
 
@@ -381,6 +646,11 @@ header da lista de \fBClientes\fP;
 
 .PP
 Remove \fBClientes\fP mas na consola\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadClientes\fP header da lista de \fBClientes\fP 
+.RE
 .PP
 \fBReturns\fP
 .RS 4

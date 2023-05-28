@@ -1,0 +1,159 @@
+\hypertarget{_localizacao_8h_source}{}\doxysection{Localizacao.\+h}
+\mbox{\hyperlink{_localizacao_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define LARGURAGERALSTRING 100}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{24 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_postos}{Postos}} \{}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_postos_ac640e134fc538b13943a26a0f795d09d}{id}};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{char} \mbox{\hyperlink{struct_postos_a7891c2a23e5e95a50737127632ca8680}{cidade}}[\mbox{\hyperlink{_localizacao_8h_a0989190f17dd96837d94d1cd29df8c1b}{LARGURAGERALSTRING}}];}
+\DoxyCodeLine{27     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_postos_a774fd4f5f24a600f6cc9c8c3d89bd5bb}{latitude}};}
+\DoxyCodeLine{28     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_postos_a9e552dabddeea08fc5c422faee8c4d17}{longitude}};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_postos_af1b864c7d4d7ddc4533c32e3d6ba160e}{visitado}};}
+\DoxyCodeLine{30     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* \mbox{\hyperlink{struct_postos_acc620109a6eb989e68ea70f21b065082}{postosAdjacentes}}; \textcolor{comment}{// Postos Adjacentes (arestas/conecçoes)}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \} \mbox{\hyperlink{_localizacao_8h_ab50f7baafd568ae2202d87a68b8e8fb4}{Postos}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{41 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}} \{}
+\DoxyCodeLine{42     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_postos}{Postos}}* \mbox{\hyperlink{struct_localizacao_postos_a35f72ee153e3999d91120d6017f4b49b}{posto}};}
+\DoxyCodeLine{43     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{struct_localizacao_postos_a90ea2ff04d0aa1939ffa823df0eabc79}{proximo}}; \textcolor{comment}{// Pointer to the next adjacent node}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \} \mbox{\hyperlink{_localizacao_8h_a97bccbabae829ae41ae7e21140e806c1}{LocalizacaoPostos}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{56 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}} \{}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_localizacao_postos_adjacentes_a5526534cbe5e113f9c065ea6c0ac014a}{idDestino}};}
+\DoxyCodeLine{58     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{struct_localizacao_postos_adjacentes_a7c0f248b312debdd652f3a960b9f2484}{postoDestinoAdjacente}}; \textcolor{comment}{// Posto do Destino Da Adjacencia}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_localizacao_postos_adjacentes_a572371434832982896e6da25ee4b83f1}{distancia}};}
+\DoxyCodeLine{60     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* \mbox{\hyperlink{struct_localizacao_postos_adjacentes_a6a3f7f7220cf4ce875ff67cb1544892c}{proximo}}; }
+\DoxyCodeLine{61 \} \mbox{\hyperlink{_localizacao_8h_a5a1d199448378d2aa51cdef9c0017de8}{LocalizacaoPostosAdjacentes}};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{69 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_camiao}{Camiao}} \{}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_camiao_a58ce4ddbaab309abe4fa436080b71f2e}{idOrigem}};}
+\DoxyCodeLine{71     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_camiao_ab36037d83c58cefca27c1848fb48f2bc}{cargaAtual}};}
+\DoxyCodeLine{72     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_camiao_add8da85911d761f92f984df6af8ccc89}{cargaMaxima}};}
+\DoxyCodeLine{73     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{struct_camiao_a7f49ae4f76ec73f1a90fdb9694c32ea4}{localizacaoAtual}};}
+\DoxyCodeLine{74 \} \mbox{\hyperlink{_localizacao_8h_a352bfb0fc41a9ee4052458095043510a}{Camiao}};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{82 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}} \{}
+\DoxyCodeLine{83     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caminho_camiao_a6678bcebd8cf21c8b3d333f736a85a7a}{idPosto}};}
+\DoxyCodeLine{84     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caminho_camiao_a07da2c5d833d53342a467943226e1f94}{idMeio}};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caminho_camiao_ad00310940ed0767b5b97d39db0350211}{pesoMeio}};}
+\DoxyCodeLine{86     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* \mbox{\hyperlink{struct_caminho_camiao_a78b00c2f902cf63ca86b28a9f4955e99}{proximo}};}
+\DoxyCodeLine{87 \} \mbox{\hyperlink{_localizacao_8h_af9513cfb4803d467d35ac74a144e63ea}{CaminhoCamiao}};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{//Criar Posto}}
+\DoxyCodeLine{91 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_a917d6d2d775d373ae85b0da3418953fa}{CriarPosto}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{char}* cidade, \textcolor{keywordtype}{float} latitude, \textcolor{keywordtype}{float} longitude, \textcolor{keywordtype}{bool} visitado, \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* postosAdjacentes);}
+\DoxyCodeLine{92 \textcolor{comment}{//Insere Posto no Header de Postos}}
+\DoxyCodeLine{93 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_a34f0f341b3a7cad7d221f3445149c8a4}{InserePostoGrafo}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* header, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* novoPosto);}
+\DoxyCodeLine{94 \textcolor{comment}{//Ver se Existe Posto na lista por id}}
+\DoxyCodeLine{95 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_aea4dcac14173d151996c977cea33c7be}{ExistePosto}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* header, \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caminho_camiao_a6678bcebd8cf21c8b3d333f736a85a7a}{idPosto}});}
+\DoxyCodeLine{96 \textcolor{comment}{//Remove Posto no Header de Postos}}
+\DoxyCodeLine{97 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_af0d96496de0610c313a08c77012e0e1a}{RemoverPosto}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{98 \textcolor{comment}{//Alterna Posto}}
+\DoxyCodeLine{99 \textcolor{keywordtype}{void} \mbox{\hyperlink{_localizacao_8h_afb5e6ac1104d6fb1789fe2781603ee6d}{AlteraPosto}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{float} latitude, \textcolor{keywordtype}{float} longitude);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{comment}{//Criar Posto Adjacente}}
+\DoxyCodeLine{102 \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* \mbox{\hyperlink{_localizacao_8h_a12019acb011864ae6d2f49945127352c}{CriarPostoAdjacente}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* postoDestinoAdjacente, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* postoOrigem);}
+\DoxyCodeLine{103 \textcolor{comment}{//Insere Posto Adjacente no respetivo Posto}}
+\DoxyCodeLine{104 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_acc46b37615ba552d5145a49998c49c0c}{InserirPostoAdjacente}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}** headLista, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* postoOrigem, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* postoDestino);}
+\DoxyCodeLine{105 \textcolor{comment}{//Ver se Existe Posto Adjacente na lista por id}}
+\DoxyCodeLine{106 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_ae13e7a5b6e4b0e7ef4e36721dbf62b2e}{ExistePostoAdjacente}}(\mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* header, \textcolor{keywordtype}{int} idPostosAdjacentes);}
+\DoxyCodeLine{107 \textcolor{comment}{//Remove Posto Adjacente no respetivo Posto}}
+\DoxyCodeLine{108 \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* \mbox{\hyperlink{_localizacao_8h_a428c61bf3570d03070138c2ee3915618}{RemoverPostoAdjacente}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headerPostos, \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* headerPostoAdjacente, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, \textcolor{keywordtype}{int} idOrigem);}
+\DoxyCodeLine{109 \textcolor{comment}{//Atualiza Posto Adjacentes Para todos os Postos existentes}}
+\DoxyCodeLine{110 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_ae5693b6481846047cb631712836fe481}{AtualizarPostosAdjacentes}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headLista);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{comment}{//Procura Por Id Postos e retorna a lista toda a comecar com o id}}
+\DoxyCodeLine{113 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_a98412cb8ed9b9afab9ebe8fc4937dccd}{ProcurarPorIdPostosComListaToda}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headerList, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{114 \textcolor{comment}{//Procura Por Id Posto e retorna o sozinho}}
+\DoxyCodeLine{115 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_a5b4c9ce9964c3ee1af7a8c3ecc916348}{ProcurarPorIdPostos}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headerList, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{comment}{//Le e armazena txt file Posto}}
+\DoxyCodeLine{118 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_a1a1ed2e8668f869d6cfd8bc603e363e9}{LerEArmazenarPosto}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}** headerPostosLista);}
+\DoxyCodeLine{119 \textcolor{comment}{//Le e armazena txt file Posto Adjacentes em Posto}}
+\DoxyCodeLine{120 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_ab96b2a442f46a2f37d04675c545fe9b4}{LerEArmazenarPostoAdjacente}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}** headerPostosLista);}
+\DoxyCodeLine{121 \textcolor{comment}{//Grava Posto num ficheiro binario}}
+\DoxyCodeLine{122 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_ae259e82fa4f2cf7665aadb03b1b43720}{GravarPostosBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* header);}
+\DoxyCodeLine{123 \textcolor{comment}{//Le e Guarda Posto de um ficheiro binario}}
+\DoxyCodeLine{124 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_ad7488639a31c510e9c3d2b9164a8909a}{LerPostosBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{comment}{//Grava Posto Adjacentes num ficheiro binario}}
+\DoxyCodeLine{127 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_ae63e5f2a4249e539d9bd9ba7e1aed95b}{GravarPostosAdjacentesBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* header);}
+\DoxyCodeLine{128 \textcolor{comment}{//Le e Guarda Posto Adjacentes de um ficheiro binario}}
+\DoxyCodeLine{129 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_ad3ecac9b9c4c88c93999af32e51c39bc}{LerPostosAdjacentesBinario}}(\textcolor{keywordtype}{char}* nomeFicheiro, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}** header, \textcolor{keywordtype}{bool}* resultado);}
+\DoxyCodeLine{130 \textcolor{comment}{//Ver se ja tem Posto Adjacente no determinado Posto }}
+\DoxyCodeLine{131 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_aee9619708ddc7a29eb453e6d99b7e706}{JaTemPostoAdjacente}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headerOrigem, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headerDestino);}
+\DoxyCodeLine{132 \textcolor{comment}{//Procura Posto Adjacente}}
+\DoxyCodeLine{133 \mbox{\hyperlink{struct_localizacao_postos_adjacentes}{LocalizacaoPostosAdjacentes}}* \mbox{\hyperlink{_localizacao_8h_a24d1fc186d5e3e795a4752d529bb136b}{ProcurarPostoAdjacente}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* posto, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* postoDestino);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{comment}{//Funcao que procura o caminho pelo os Postos usando dijkstra }}
+\DoxyCodeLine{136 \textcolor{keywordtype}{float} \mbox{\hyperlink{_localizacao_8h_a862b10e87a0619f70319449a5b220692}{AlgoritmoDijkstra}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headLista, \textcolor{keywordtype}{int} origemId, \textcolor{keywordtype}{int} destinoId, \textcolor{keywordtype}{bool} querImprimirResultados);}
+\DoxyCodeLine{137 \textcolor{comment}{//Ver se é Acessivel ir de um Posto Para Posto}}
+\DoxyCodeLine{138 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_a23d8bfa325cd235b3fe42d3f3225a5ac}{VerSeAcessivel}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headLista, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* origemPonto, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* destinoPonto);}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{comment}{//Cria Camiao}}
+\DoxyCodeLine{141 \mbox{\hyperlink{struct_camiao}{Camiao}}* \mbox{\hyperlink{_localizacao_8h_adeab533d98259d138791270d082bfd97}{CriarCamiao}}(\textcolor{keywordtype}{float} cargaAtual, \textcolor{keywordtype}{float} cargaMaxima, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* localizacaoAtual);}
+\DoxyCodeLine{142 \textcolor{comment}{//Camiao Recolhe Meios com Menos de 50\% De Bateria }}
+\DoxyCodeLine{143 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_afef8865bd15713876772778cdc3beaa0}{CamiaoRecolha}}(\mbox{\hyperlink{struct_camiao}{Camiao}}* camiao, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headListPontos, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headListMeios);}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{//Cria Caminho Node}}
+\DoxyCodeLine{146 \mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* \mbox{\hyperlink{_localizacao_8h_a76758dc7655b64399f93fe2ff9c4c5a6}{CriarCaminhoNodes}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caminho_camiao_a6678bcebd8cf21c8b3d333f736a85a7a}{idPosto}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caminho_camiao_a07da2c5d833d53342a467943226e1f94}{idMeio}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caminho_camiao_ad00310940ed0767b5b97d39db0350211}{pesoMeio}});}
+\DoxyCodeLine{147 \textcolor{comment}{//Insere Caminho Node no header}}
+\DoxyCodeLine{148 \mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* \mbox{\hyperlink{_localizacao_8h_a3a3bc394d3e9bb1b21d2403a9b41adaf}{InserirCaminho}}(\mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* headLista, \mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* novoCaminho);}
+\DoxyCodeLine{149 \textcolor{comment}{//Remove Node do Caminho do Camiao}}
+\DoxyCodeLine{150 \mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* \mbox{\hyperlink{_localizacao_8h_a4c3404ae93bd20ebfc06cb61bde212b9}{RemoverCaminhoNode}}(\mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* header, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{151 \textcolor{comment}{//Cria Caminho para Camiao}}
+\DoxyCodeLine{152 \mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* \mbox{\hyperlink{_localizacao_8h_a7362e50190c52ce36c84869c1fc8bb73}{CreateCaminho}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headListPontos, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headListMeios, \textcolor{keywordtype}{float}* distanciaExtra);}
+\DoxyCodeLine{153 \textcolor{comment}{//Ver Se Ja exite um Node Para o Caminho para Camiao}}
+\DoxyCodeLine{154 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_a00da2c5c4a8f217934c723abdc00e2ac}{ExisteCaminhoNode}}(\mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* header, \textcolor{keywordtype}{int} idCaminhoCamiao);}
+\DoxyCodeLine{155 \textcolor{comment}{//Caminho Mais Perto para os Postos no Caminho para Camiao}}
+\DoxyCodeLine{156 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_a88aab6b739da8f584ff60f563a507a48}{CaminhoMaisPerto}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headLista, \textcolor{keywordtype}{int} origemId, \mbox{\hyperlink{struct_caminho_camiao}{CaminhoCamiao}}* caminhoCamiaoLista, \textcolor{keywordtype}{float}* distancia, \textcolor{keywordtype}{int}* idParaEliminar, \textcolor{keywordtype}{float}* pesoAtual, \textcolor{keywordtype}{float} capacidadeMaxima);}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{comment}{//Localizacao do Posto mais perto por Raio com o Cliente como centro}}
+\DoxyCodeLine{159 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_a97ae139580e6dcb75f660bcb769ef30f}{LocalizacaoRaioClientePosto}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* cliente, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headListaPostos, \textcolor{keywordtype}{float} raio);}
+\DoxyCodeLine{160 \textcolor{comment}{//Localizacao do Meio por tipo mais perto por Raio com o Cliente como centro}}
+\DoxyCodeLine{161 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_localizacao_8h_a44653c240f0de57b5e51e8136e4e8d98}{LocalizacaoRaioClienteMeio}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* cliente, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headListaMeio, \textcolor{keywordtype}{float} raio, \textcolor{keywordtype}{char}* tipo);}
+\DoxyCodeLine{162 \textcolor{comment}{//Calcula distancia por Latitude e Longitude de dois Geocodigos}}
+\DoxyCodeLine{163 \textcolor{keywordtype}{float} \mbox{\hyperlink{_localizacao_8h_ab941cfd88fb3fcc9fa78711c8a5efe74}{CalculaDistancia}}(\textcolor{keywordtype}{float} latitude1, \textcolor{keywordtype}{float} longitude1, \textcolor{keywordtype}{float} latitude2, \textcolor{keywordtype}{float} longitude2);}
+\DoxyCodeLine{164 \textcolor{comment}{//Distancia e Caminho de Cliente a Meio usando Postos}}
+\DoxyCodeLine{165 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_aa3fcb3e1e437c105e5fbc54fc3e6da39}{DistanciaClienteAMeioTotal}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* cliente, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* meio, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headListPostos);}
+\DoxyCodeLine{166 \textcolor{comment}{//Distancia e Caminho de Cliente a Posto}}
+\DoxyCodeLine{167 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_aceeb062bf0e522508ab4e80150260367}{DistanciaClienteAPostoTotal}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* cliente, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headListaPostos, \textcolor{keywordtype}{int} idPostoDestino);}
+\DoxyCodeLine{168 \textcolor{comment}{//Cria Posto Escrever}}
+\DoxyCodeLine{169 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_a82cf298291d519409b2c49cdcdd9a710}{CriarPostoEscrever}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headPosto);}
+\DoxyCodeLine{170 \textcolor{comment}{//Listar Postos}}
+\DoxyCodeLine{171 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_adc4329a44be71a177aecebda7eead543}{ListarTodosPostos}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* header);}
+\DoxyCodeLine{172 \textcolor{comment}{//Remover Postos Escrever}}
+\DoxyCodeLine{173 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_a0871c9f8f5ea85ff1eb101653784d115}{RemoverPostoEscrever}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headPostos);}
+\DoxyCodeLine{174 \textcolor{comment}{//Alterar Posto (Latitude e Longitude)}}
+\DoxyCodeLine{175 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_a78fb4f45a3940d7959894e2b9a5a49f9}{AlterarPorEscreverPosto}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headPosto);}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{comment}{//Cria Adjacencia}}
+\DoxyCodeLine{178 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_a7fc1eea568f63eea85ed20c8c3b09929}{CriarAdjacenciaPostoEscrever}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headPosto);}
+\DoxyCodeLine{179 \textcolor{comment}{//Remover Adjacencia}}
+\DoxyCodeLine{180 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_aad9f4d3e8025a5fab76ab129d5315ec0}{RemoverAdjacenciaPostoEscrever}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headPosto);}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{comment}{//Camiao Recolha Escrever}}
+\DoxyCodeLine{183 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_a99605a57eeaf433cde24d5d6e686d868}{CamiaoRecolhaEscrever}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headPosto, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headListaMeios);}
+\DoxyCodeLine{184 \textcolor{comment}{//Cliente Para Posto Escrever}}
+\DoxyCodeLine{185 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_a84dc30c63e24c6e3858fa62ad073f460}{ClienteParaPostoLocalizacao}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* headClientes, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headListaPostos, \textcolor{keywordtype}{int} idCliente);}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{comment}{//Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) }}
+\DoxyCodeLine{188 \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* \mbox{\hyperlink{_localizacao_8h_a9bcc0a5dba458a32e5fc281fc773b183}{ViajarComMeioAteLocalizacao}}(\textcolor{keyword}{struct} \mbox{\hyperlink{struct_clientes}{Clientes}}* cliente, \mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headListaPostos, \textcolor{keyword}{struct} \mbox{\hyperlink{struct_meios_de_mobilidade}{MeiosDeMobilidade}}* headListaMeio, \textcolor{keywordtype}{float} latitude, \textcolor{keywordtype}{float} longitude);}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{comment}{//Lista Adjacentes}}
+\DoxyCodeLine{191 \textcolor{keywordtype}{int} \mbox{\hyperlink{_localizacao_8h_a32ab6e24616a095720277a09b92ba035}{ListaAdjacentes}}(\mbox{\hyperlink{struct_localizacao_postos}{LocalizacaoPostos}}* headPosto);}
+\DoxyCodeLine{192 }
+
+\end{DoxyCode}

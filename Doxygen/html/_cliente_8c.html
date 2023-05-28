@@ -23,7 +23,6 @@
   <td id="projectalign">
    <div id="projectname">21089_Projeto_EDA
    </div>
-   <div id="projectbrief">21089_Projeto_EDA</div>
   </td>
  </tr>
  </tbody>
@@ -77,6 +76,7 @@ $(function() {
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_aluguer_8h_source.html">Aluguer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_localizacao_8h_source.html">Localizacao.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -85,9 +85,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3116b97016d33b487a8188517d0ebe15"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a3116b97016d33b487a8188517d0ebe15">CriarClientes</a> (int id, char nome[50], char morada[50], char nif[9], float saldo)</td></tr>
-<tr class="memdesc:a3116b97016d33b487a8188517d0ebe15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria MeioDeMobilidade.  <a href="_cliente_8c.html#a3116b97016d33b487a8188517d0ebe15">More...</a><br /></td></tr>
-<tr class="separator:a3116b97016d33b487a8188517d0ebe15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1047a713bff442cd4a9b9cbbff74bfad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a1047a713bff442cd4a9b9cbbff74bfad">CriarClientes</a> (int id, char nome[50], char morada[50], char nif[9], float saldo, float latitude, float longitude)</td></tr>
+<tr class="memdesc:a1047a713bff442cd4a9b9cbbff74bfad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria MeioDeMobilidade.  <a href="_cliente_8c.html#a1047a713bff442cd4a9b9cbbff74bfad">More...</a><br /></td></tr>
+<tr class="separator:a1047a713bff442cd4a9b9cbbff74bfad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adab003d43eaf01cd19da2354ef7c184d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#adab003d43eaf01cd19da2354ef7c184d">InsereClienteNoFim</a> (<a class="el" href="struct_clientes.html">Clientes</a> *header, <a class="el" href="struct_clientes.html">Clientes</a> *novoCliente)</td></tr>
 <tr class="memdesc:adab003d43eaf01cd19da2354ef7c184d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere Cliente na lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a>.  <a href="_cliente_8c.html#adab003d43eaf01cd19da2354ef7c184d">More...</a><br /></td></tr>
 <tr class="separator:adab003d43eaf01cd19da2354ef7c184d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,9 +106,12 @@ Functions</h2></td></tr>
 <tr class="memitem:accdeb91c05866425b30c53e8c339927b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#accdeb91c05866425b30c53e8c339927b">ProcuraClientes</a> (<a class="el" href="struct_clientes.html">Clientes</a> *header, int id)</td></tr>
 <tr class="memdesc:accdeb91c05866425b30c53e8c339927b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procura Cliente na lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a>.  <a href="_cliente_8c.html#accdeb91c05866425b30c53e8c339927b">More...</a><br /></td></tr>
 <tr class="separator:accdeb91c05866425b30c53e8c339927b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac88a1d64c94994aec09f458d5eb412c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#ac88a1d64c94994aec09f458d5eb412c7">AlteraCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> **header, int id, char *nome)</td></tr>
-<tr class="memdesc:ac88a1d64c94994aec09f458d5eb412c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera Cliente na lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a>.  <a href="_cliente_8c.html#ac88a1d64c94994aec09f458d5eb412c7">More...</a><br /></td></tr>
-<tr class="separator:ac88a1d64c94994aec09f458d5eb412c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976063293eb792074816977869c2f554"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a976063293eb792074816977869c2f554">AlteraCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> **header, int id, char *nome)</td></tr>
+<tr class="memdesc:a976063293eb792074816977869c2f554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera Cliente na lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a>.  <a href="_cliente_8c.html#a976063293eb792074816977869c2f554">More...</a><br /></td></tr>
+<tr class="separator:a976063293eb792074816977869c2f554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91297c22f0e08d3e0ba6d1c6c5edee5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#af91297c22f0e08d3e0ba6d1c6c5edee5">AumentarSaldoCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> **header, int id, float saldo)</td></tr>
+<tr class="memdesc:af91297c22f0e08d3e0ba6d1c6c5edee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aumenta Saldo Cliente.  <a href="_cliente_8c.html#af91297c22f0e08d3e0ba6d1c6c5edee5">More...</a><br /></td></tr>
+<tr class="separator:af91297c22f0e08d3e0ba6d1c6c5edee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c3e4de65811bc87d57f1b48bf9cd67f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a8c3e4de65811bc87d57f1b48bf9cd67f">RegistoAluguer</a> (<a class="el" href="struct_clientes.html">Clientes</a> **headerCliente, <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> **headerMeios, <a class="el" href="struct_aluguer.html">Aluguer</a> **headerAluguerTotal, int idCliente, int idMeios)</td></tr>
 <tr class="memdesc:a8c3e4de65811bc87d57f1b48bf9cd67f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regista um <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> de um Meio de Mobilidade pelo o Cliente.  <a href="_cliente_8c.html#a8c3e4de65811bc87d57f1b48bf9cd67f">More...</a><br /></td></tr>
 <tr class="separator:a8c3e4de65811bc87d57f1b48bf9cd67f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,12 +133,39 @@ Functions</h2></td></tr>
 <tr class="memitem:a1792acf5c4d9aa313f2d10bdc49dfa41"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a1792acf5c4d9aa313f2d10bdc49dfa41">AlterarPorEscreverCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes)</td></tr>
 <tr class="memdesc:a1792acf5c4d9aa313f2d10bdc49dfa41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> mas na consola.  <a href="_cliente_8c.html#a1792acf5c4d9aa313f2d10bdc49dfa41">More...</a><br /></td></tr>
 <tr class="separator:a1792acf5c4d9aa313f2d10bdc49dfa41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4219d628ea8c17a875e16f49d529cf69"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a4219d628ea8c17a875e16f49d529cf69">AlterarPorEscreverClienteWindowCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, int idCliente)</td></tr>
+<tr class="memdesc:a4219d628ea8c17a875e16f49d529cf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> mas na consola.  <a href="_cliente_8c.html#a4219d628ea8c17a875e16f49d529cf69">More...</a><br /></td></tr>
+<tr class="separator:a4219d628ea8c17a875e16f49d529cf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40e950a56f4998295f564464fa712327"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a40e950a56f4998295f564464fa712327">RemoverPorEscreverCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes)</td></tr>
 <tr class="memdesc:a40e950a56f4998295f564464fa712327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> mas na consola.  <a href="_cliente_8c.html#a40e950a56f4998295f564464fa712327">More...</a><br /></td></tr>
 <tr class="separator:a40e950a56f4998295f564464fa712327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5978d39456ff63c7768aa1c956c71f24"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a5978d39456ff63c7768aa1c956c71f24">RegistoPorEscrever</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, <a class="el" href="struct_aluguer.html">Aluguer</a> *headAluguer, <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *headMeio)</td></tr>
 <tr class="memdesc:a5978d39456ff63c7768aa1c956c71f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registar <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> na consola.  <a href="_cliente_8c.html#a5978d39456ff63c7768aa1c956c71f24">More...</a><br /></td></tr>
 <tr class="separator:a5978d39456ff63c7768aa1c956c71f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b8bc5f78b526b40a25cc1ce4f99e247"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a8b8bc5f78b526b40a25cc1ce4f99e247">RegistoPorEscreverClienteWindow</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, <a class="el" href="struct_aluguer.html">Aluguer</a> *headAluguer, <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *headMeio, int idCliente)</td></tr>
+<tr class="memdesc:a8b8bc5f78b526b40a25cc1ce4f99e247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registar <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> na consola Cliente.  <a href="_cliente_8c.html#a8b8bc5f78b526b40a25cc1ce4f99e247">More...</a><br /></td></tr>
+<tr class="separator:a8b8bc5f78b526b40a25cc1ce4f99e247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9a3036def8ce88971a4749eb3428e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#ace9a3036def8ce88971a4749eb3428e3">ProcurarRaioMeioCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *headMeio, int idCliente)</td></tr>
+<tr class="memdesc:ace9a3036def8ce88971a4749eb3428e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procurar por um Raio Meios de um tipo.  <a href="_cliente_8c.html#ace9a3036def8ce88971a4749eb3428e3">More...</a><br /></td></tr>
+<tr class="separator:ace9a3036def8ce88971a4749eb3428e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c9fbf8b5f04198fa33e3c3610c3e3a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a2c9fbf8b5f04198fa33e3c3610c3e3a4">ClienteParaMeioLocalizacao</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *headMeio, <a class="el" href="struct_localizacao_postos.html">LocalizacaoPostos</a> *headListaPostos, int idCliente)</td></tr>
+<tr class="memdesc:a2c9fbf8b5f04198fa33e3c3610c3e3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cliente vai a Meio.  <a href="_cliente_8c.html#a2c9fbf8b5f04198fa33e3c3610c3e3a4">More...</a><br /></td></tr>
+<tr class="separator:a2c9fbf8b5f04198fa33e3c3610c3e3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bc956997f23421f853a398cad00868d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a6bc956997f23421f853a398cad00868d">ClienteParaPostoLocalizacao</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, <a class="el" href="struct_localizacao_postos.html">LocalizacaoPostos</a> *headListaPostos, int idCliente)</td></tr>
+<tr class="memdesc:a6bc956997f23421f853a398cad00868d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cliente vai a Posto.  <a href="_cliente_8c.html#a6bc956997f23421f853a398cad00868d">More...</a><br /></td></tr>
+<tr class="separator:a6bc956997f23421f853a398cad00868d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6666c35bebf418fb6101ca1ddfaf13"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#aad6666c35bebf418fb6101ca1ddfaf13">ClienteViagemEscrever</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *headMeio, <a class="el" href="struct_localizacao_postos.html">LocalizacaoPostos</a> *headListaPostos, int idCliente)</td></tr>
+<tr class="memdesc:aad6666c35bebf418fb6101ca1ddfaf13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cliente vai a Meio.  <a href="_cliente_8c.html#aad6666c35bebf418fb6101ca1ddfaf13">More...</a><br /></td></tr>
+<tr class="separator:aad6666c35bebf418fb6101ca1ddfaf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affd1f3f8d1af38e5441bd61b04ac5d0e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#affd1f3f8d1af38e5441bd61b04ac5d0e">AumentarSaldoPorEscreverCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, int idCliente)</td></tr>
+<tr class="memdesc:affd1f3f8d1af38e5441bd61b04ac5d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aumenta Saldo do Cliente.  <a href="_cliente_8c.html#affd1f3f8d1af38e5441bd61b04ac5d0e">More...</a><br /></td></tr>
+<tr class="separator:affd1f3f8d1af38e5441bd61b04ac5d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb388598f1a219268192ae53a6834868"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#aeb388598f1a219268192ae53a6834868">ParaAluguerAtivo</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headClientes, <a class="el" href="struct_aluguer.html">Aluguer</a> *headAluguer, <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *headMeio, int idCliente)</td></tr>
+<tr class="memdesc:aeb388598f1a219268192ae53a6834868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Para <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> Ativo.  <a href="_cliente_8c.html#aeb388598f1a219268192ae53a6834868">More...</a><br /></td></tr>
+<tr class="separator:aeb388598f1a219268192ae53a6834868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69f488b0c5cc092d0b9b4486f95dbe5b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cliente_8c.html#a69f488b0c5cc092d0b9b4486f95dbe5b">EstadoAluguerCliente</a> (<a class="el" href="struct_clientes.html">Clientes</a> *headCliente, int idCliente)</td></tr>
+<tr class="memdesc:a69f488b0c5cc092d0b9b4486f95dbe5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ver se ja tem algum meio reservado no momento.  <a href="_cliente_8c.html#a69f488b0c5cc092d0b9b4486f95dbe5b">More...</a><br /></td></tr>
+<tr class="separator:a69f488b0c5cc092d0b9b4486f95dbe5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Funcoes para <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a>. </p>
@@ -157,14 +187,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac88a1d64c94994aec09f458d5eb412c7" name="ac88a1d64c94994aec09f458d5eb412c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac88a1d64c94994aec09f458d5eb412c7">&#9670;&nbsp;</a></span>AlteraCliente()</h2>
+<a id="a976063293eb792074816977869c2f554" name="a976063293eb792074816977869c2f554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a976063293eb792074816977869c2f554">&#9670;&nbsp;</a></span>AlteraCliente()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void AlteraCliente </td>
+          <td class="memname">int AlteraCliente </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> **&#160;</td>
           <td class="paramname"><em>header</em>, </td>
@@ -194,10 +224,11 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">header</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id Cliente </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nome</td><td>nome Cliente </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nome</td><td>nome Cliente</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
 
 </div>
 </div>
@@ -218,6 +249,277 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Altera <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> mas na consola. </p>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
+<a id="a4219d628ea8c17a875e16f49d529cf69" name="a4219d628ea8c17a875e16f49d529cf69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4219d628ea8c17a875e16f49d529cf69">&#9670;&nbsp;</a></span>AlterarPorEscreverClienteWindowCliente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AlterarPorEscreverClienteWindowCliente </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Altera <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> mas na consola. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
+<a id="af91297c22f0e08d3e0ba6d1c6c5edee5" name="af91297c22f0e08d3e0ba6d1c6c5edee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91297c22f0e08d3e0ba6d1c6c5edee5">&#9670;&nbsp;</a></span>AumentarSaldoCliente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AumentarSaldoCliente </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> **&#160;</td>
+          <td class="paramname"><em>header</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>saldo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aumenta Saldo Cliente. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">header</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id Cliente </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">saldo</td><td>saldo extra Cliente</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
+<a id="affd1f3f8d1af38e5441bd61b04ac5d0e" name="affd1f3f8d1af38e5441bd61b04ac5d0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affd1f3f8d1af38e5441bd61b04ac5d0e">&#9670;&nbsp;</a></span>AumentarSaldoPorEscreverCliente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AumentarSaldoPorEscreverCliente </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aumenta Saldo do Cliente. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
+<a id="a2c9fbf8b5f04198fa33e3c3610c3e3a4" name="a2c9fbf8b5f04198fa33e3c3610c3e3a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c9fbf8b5f04198fa33e3c3610c3e3a4">&#9670;&nbsp;</a></span>ClienteParaMeioLocalizacao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ClienteParaMeioLocalizacao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *&#160;</td>
+          <td class="paramname"><em>headMeio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_localizacao_postos.html">LocalizacaoPostos</a> *&#160;</td>
+          <td class="paramname"><em>headListaPostos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cliente vai a Meio. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headAluguer</td><td>header da lista de <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
+<a id="a6bc956997f23421f853a398cad00868d" name="a6bc956997f23421f853a398cad00868d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bc956997f23421f853a398cad00868d">&#9670;&nbsp;</a></span>ClienteParaPostoLocalizacao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ClienteParaPostoLocalizacao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_localizacao_postos.html">LocalizacaoPostos</a> *&#160;</td>
+          <td class="paramname"><em>headListaPostos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cliente vai a Posto. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headAluguer</td><td>header da lista de <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
+<a id="aad6666c35bebf418fb6101ca1ddfaf13" name="aad6666c35bebf418fb6101ca1ddfaf13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad6666c35bebf418fb6101ca1ddfaf13">&#9670;&nbsp;</a></span>ClienteViagemEscrever()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ClienteViagemEscrever </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *&#160;</td>
+          <td class="paramname"><em>headMeio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_localizacao_postos.html">LocalizacaoPostos</a> *&#160;</td>
+          <td class="paramname"><em>headListaPostos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cliente vai a Meio. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headListaPostos</td><td>header da lista de <a class="el" href="struct_localizacao_postos.html" title="Estrutura para Grafo orientado de Postos de Localizacao.">LocalizacaoPostos</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
 
 </div>
@@ -249,8 +551,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3116b97016d33b487a8188517d0ebe15" name="a3116b97016d33b487a8188517d0ebe15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3116b97016d33b487a8188517d0ebe15">&#9670;&nbsp;</a></span>CriarClientes()</h2>
+<a id="a1047a713bff442cd4a9b9cbbff74bfad" name="a1047a713bff442cd4a9b9cbbff74bfad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1047a713bff442cd4a9b9cbbff74bfad">&#9670;&nbsp;</a></span>CriarClientes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,7 +585,19 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saldo</em>&#160;</td>
+          <td class="paramname"><em>saldo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>latitude</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>longitude</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -300,11 +614,50 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">nome</td><td>nome do Cliente </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">morada</td><td>morada do Cliente </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">nif</td><td>nif do Cliente </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">saldo</td><td>saldo do Cliente</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">saldo</td><td>saldo do Cliente </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">latitude</td><td>latitude do Cliente </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">longitude</td><td>longitude do Cliente</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>novo <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </dd></dl>
+
+</div>
+</div>
+<a id="a69f488b0c5cc092d0b9b4486f95dbe5b" name="a69f488b0c5cc092d0b9b4486f95dbe5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f488b0c5cc092d0b9b4486f95dbe5b">&#9670;&nbsp;</a></span>EstadoAluguerCliente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EstadoAluguerCliente </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headCliente</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ver se ja tem algum meio reservado no momento. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">header</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
 
 </div>
 </div>
@@ -559,6 +912,58 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aeb388598f1a219268192ae53a6834868" name="aeb388598f1a219268192ae53a6834868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb388598f1a219268192ae53a6834868">&#9670;&nbsp;</a></span>ParaAluguerAtivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ParaAluguerAtivo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_aluguer.html">Aluguer</a> *&#160;</td>
+          <td class="paramname"><em>headAluguer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *&#160;</td>
+          <td class="paramname"><em>headMeio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Para <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> Ativo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headAluguer</td><td>header da lista de <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
 <a id="accdeb91c05866425b30c53e8c339927b" name="accdeb91c05866425b30c53e8c339927b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#accdeb91c05866425b30c53e8c339927b">&#9670;&nbsp;</a></span>ProcuraClientes()</h2>
 
@@ -594,6 +999,52 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a>; </dd></dl>
+
+</div>
+</div>
+<a id="ace9a3036def8ce88971a4749eb3428e3" name="ace9a3036def8ce88971a4749eb3428e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace9a3036def8ce88971a4749eb3428e3">&#9670;&nbsp;</a></span>ProcurarRaioMeioCliente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ProcurarRaioMeioCliente </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *&#160;</td>
+          <td class="paramname"><em>headMeio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procurar por um Raio Meios de um tipo. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headAluguer</td><td>header da lista de <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
 
 </div>
 </div>
@@ -645,13 +1096,14 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">headerCliente</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">headerMeios</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html" title="Estrutura para armazenar Meios De Mobilidade.">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headerMeios</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">headerAluguerTotal</td><td>header da lista de <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">idCliente</td><td>id Cliente </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">idMeios</td><td>id Meio De Mobilidade </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idMeios</td><td>id Meio De Mobilidade</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
 
 </div>
 </div>
@@ -692,10 +1144,63 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">headAluguer</td><td>header da lista de <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html" title="Estrutura para armazenar Meios De Mobilidade.">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
+
+</div>
+</div>
+<a id="a8b8bc5f78b526b40a25cc1ce4f99e247" name="a8b8bc5f78b526b40a25cc1ce4f99e247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b8bc5f78b526b40a25cc1ce4f99e247">&#9670;&nbsp;</a></span>RegistoPorEscreverClienteWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RegistoPorEscreverClienteWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_clientes.html">Clientes</a> *&#160;</td>
+          <td class="paramname"><em>headClientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_aluguer.html">Aluguer</a> *&#160;</td>
+          <td class="paramname"><em>headAluguer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> *&#160;</td>
+          <td class="paramname"><em>headMeio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>idCliente</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registar <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> na consola Cliente. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headAluguer</td><td>header da lista de <a class="el" href="struct_aluguer.html" title="Estrutura para armazenar Alugueres.">Aluguer</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headMeio</td><td>header da lista de <a class="el" href="struct_meios_de_mobilidade.html">MeiosDeMobilidade</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>id de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
 
 </div>
 </div>
@@ -754,6 +1259,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Remove <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> mas na consola. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">headClientes</td><td>header da lista de <a class="el" href="struct_clientes.html" title="Estrutura para armazenar Clientes.">Clientes</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>0; </dd></dl>
 
 </div>

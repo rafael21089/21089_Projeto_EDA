@@ -1028,6 +1028,7 @@
 <codeline lineno="437"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="438"><highlight class="normal"></highlight></codeline>
 <codeline lineno="439"><highlight class="normal"></highlight></codeline>
+<codeline lineno="440"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="Gestor.c"/>
   </compounddef>

@@ -1,0 +1,1083 @@
+.TH "Localizacao.c" 3 "Sun May 28 2023" "21089_Projeto_EDA" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Localizacao.c \- Funcoes para Localizacao\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include 'Localizacao\&.h'\fP
+.br
+\fC#include 'MeioDeMobilidade\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB_CRT_SECURE_NO_WARNINGS\fP"
+.br
+.ti -1c
+.RI "#define \fBMAXIMO_DE_NODES_CAMINHO\fP   100"
+.br
+.ti -1c
+.RI "#define \fBDISTANCIA_MAXIMA\fP   500"
+.br
+.ti -1c
+.RI "#define \fBTERRA_RAIO\fP   6371\&.0"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBCriarPosto\fP (int id, char *cidade, float latitude, float longitude, bool visitado, \fBLocalizacaoPostosAdjacentes\fP *postosAdjacentes)"
+.br
+.RI "Cria Novo Posto \&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBInserePostoGrafo\fP (\fBLocalizacaoPostos\fP *header, \fBLocalizacaoPostos\fP *novoPosto)"
+.br
+.RI "Insere Posto na lista de \fBPostos\fP\&. "
+.ti -1c
+.RI "bool \fBExistePosto\fP (\fBLocalizacaoPostos\fP *header, int idPosto)"
+.br
+.RI "Ver se Posto existe na lista de \fBPostos\fP\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBRemoverPosto\fP (\fBLocalizacaoPostos\fP *header, int id)"
+.br
+.RI "Remove Posto na lista de \fBPostos\fP\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostosAdjacentes\fP * \fBCriarPostoAdjacente\fP (\fBLocalizacaoPostos\fP *postoDestinoAdjacente, \fBLocalizacaoPostos\fP *postoOrigem)"
+.br
+.RI "Cria Posto Adjacente\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBInserirPostoAdjacente\fP (\fBLocalizacaoPostos\fP **headLista, \fBLocalizacaoPostos\fP *postoOrigem, \fBLocalizacaoPostos\fP *postoDestino)"
+.br
+.RI "Insere Posto Adjacente para um Posto\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostosAdjacentes\fP * \fBProcurarPostoAdjacente\fP (\fBLocalizacaoPostos\fP *posto, \fBLocalizacaoPostos\fP *postoDestino)"
+.br
+.RI "Procura Posto Adjacente\&. "
+.ti -1c
+.RI "bool \fBExistePostoAdjacente\fP (\fBLocalizacaoPostosAdjacentes\fP *header, int idPostosAdjacentes)"
+.br
+.RI "Ver se Existe Posto Adjacente\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostosAdjacentes\fP * \fBRemoverPostoAdjacente\fP (\fBLocalizacaoPostos\fP *headerPostos, \fBLocalizacaoPostosAdjacentes\fP *headerPostoAdjacente, int id, int idOrigem)"
+.br
+.RI "Remove Posto Adjacente\&. "
+.ti -1c
+.RI "void \fBAlteraPosto\fP (\fBLocalizacaoPostos\fP *header, int id, float latitude, float longitude)"
+.br
+.RI "Altera Posto (Latitude e Longitude) "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBAtualizarPostosAdjacentes\fP (\fBLocalizacaoPostos\fP *headLista)"
+.br
+.RI "Atualiza \fBPostos\fP Adjacentes de \fBPostos\fP para Todos os \fBPostos\fP\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBProcurarPorIdPostosComListaToda\fP (\fBLocalizacaoPostos\fP *headerList, int id)"
+.br
+.RI "Procura Por Id \fBPostos\fP Com a Lista Toda\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBProcurarPorIdPostos\fP (\fBLocalizacaoPostos\fP *headerLista, int id)"
+.br
+.RI "Procura Por Id \fBPostos\fP Com so o Posto\&. "
+.ti -1c
+.RI "bool \fBJaTemPostoAdjacente\fP (\fBLocalizacaoPostos\fP *headerOrigem, \fBLocalizacaoPostos\fP *headerDestino)"
+.br
+.RI "Ver Se Ja Tem o Posto Adjacente\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBLerEArmazenarPosto\fP (char *nomeFicheiro, \fBLocalizacaoPostos\fP **headerPostosLista)"
+.br
+.RI "Ler txt file e Guarda Posto\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBLerEArmazenarPostoAdjacente\fP (char *nomeFicheiro, \fBLocalizacaoPostos\fP **headerPostosLista)"
+.br
+.RI "Ler txt file e Guarda Posto Adjacentes\&. "
+.ti -1c
+.RI "bool \fBGravarPostosBinario\fP (char *nomeFicheiro, \fBLocalizacaoPostos\fP *header)"
+.br
+.RI "Guarda \fBPostos\fP em Bin file\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBLerPostosBinario\fP (char *nomeFicheiro)"
+.br
+.RI "Le \fBPostos\fP do Bin file\&. "
+.ti -1c
+.RI "bool \fBGravarPostosAdjacentesBinario\fP (char *nomeFicheiro, \fBLocalizacaoPostos\fP *header)"
+.br
+.RI "Guarda \fBPostos\fP Adjacentes em Bin file\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBLerPostosAdjacentesBinario\fP (char *nomeFicheiro, \fBLocalizacaoPostos\fP **header, bool *resultado)"
+.br
+.RI "Le \fBPostos\fP Adjacentes do Bin file\&. "
+.ti -1c
+.RI "\fBCamiao\fP * \fBCriarCamiao\fP (float cargaAtual, float cargaMaxima, \fBLocalizacaoPostos\fP *localizacaoAtual)"
+.br
+.RI "Cria \fBCamiao\fP\&. "
+.ti -1c
+.RI "\fBCaminhoCamiao\fP * \fBCriarCaminhoNodes\fP (int idPosto, int idMeio, int pesoMeio)"
+.br
+.RI "Cria Caminho para \fBCamiao\fP\&. "
+.ti -1c
+.RI "\fBCaminhoCamiao\fP * \fBInserirCaminho\fP (\fBCaminhoCamiao\fP *headLista, \fBCaminhoCamiao\fP *novoCaminho)"
+.br
+.RI "Insere novo Caminho para \fBCamiao\fP na Lista\&. "
+.ti -1c
+.RI "\fBCaminhoCamiao\fP * \fBCreateCaminho\fP (\fBLocalizacaoPostos\fP *headListPontos, \fBMeiosDeMobilidade\fP *headListMeios, float *distanciaExtra)"
+.br
+.RI "Cria Caminho\&. "
+.ti -1c
+.RI "bool \fBCamiaoRecolha\fP (\fBCamiao\fP *camiao, \fBLocalizacaoPostos\fP *headListPontos, \fBMeiosDeMobilidade\fP *headListMeios)"
+.br
+.RI "\fBCamiao\fP Recolhe os Meios\&. "
+.ti -1c
+.RI "bool \fBExisteCaminhoNode\fP (\fBCaminhoCamiao\fP *header, int idCaminhoCamiao)"
+.br
+.RI "Ver se Existe o Node no Caminho\&. "
+.ti -1c
+.RI "\fBCaminhoCamiao\fP * \fBRemoverCaminhoNode\fP (\fBCaminhoCamiao\fP *header, int id)"
+.br
+.RI "Remove o Node no Caminho\&. "
+.ti -1c
+.RI "bool \fBVerSeAcessivel\fP (\fBLocalizacaoPostos\fP *headLista, \fBLocalizacaoPostos\fP *origemPonto, \fBLocalizacaoPostos\fP *destinoPonto)"
+.br
+.RI "Ver Se o Caminho de dois \fBPostos\fP Sao Acessiveis\&. "
+.ti -1c
+.RI "float \fBAlgoritmoDijkstra\fP (\fBLocalizacaoPostos\fP *headLista, int origemId, int destinoId, bool querImprimirResultados)"
+.br
+.RI "Algoritmo Dijkstra para obter o caminho mais pequeno\&. "
+.ti -1c
+.RI "int \fBCaminhoMaisPerto\fP (\fBLocalizacaoPostos\fP *headLista, int origemId, \fBCaminhoCamiao\fP *caminhoCamiaoLista, float *distancia, int *idParaEliminar, float *pesoAtual, float capacidadeMaxima)"
+.br
+.RI "Caminho Mais Pequeno Para o Caminho \fBCamiao\fP\&. "
+.ti -1c
+.RI "float \fBCalculaDistancia\fP (float latitude1, float longitude1, float latitude2, float longitude2)"
+.br
+.RI "Calcula distancia de dois geocodigos\&. "
+.ti -1c
+.RI "bool \fBLocalizacaoRaioClientePosto\fP (\fBClientes\fP *cliente, \fBLocalizacaoPostos\fP *headListaPostos, float raio)"
+.br
+.RI "Localizacao Raio no Cliente para \fBPostos\fP\&. "
+.ti -1c
+.RI "bool \fBLocalizacaoRaioClienteMeio\fP (\fBClientes\fP *cliente, \fBMeiosDeMobilidade\fP *headListaMeio, float raio, char *tipo)"
+.br
+.RI "Localizacao Raio no Cliente para Meios de um Tipo\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBDistanciaClienteAMeioTotal\fP (\fBClientes\fP *cliente, \fBMeiosDeMobilidade\fP *meio, \fBLocalizacaoPostos\fP *headListaPostos)"
+.br
+.RI "Cliente Vai A Localizacao do Meio\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBDistanciaClienteAPostoTotal\fP (\fBClientes\fP *cliente, \fBLocalizacaoPostos\fP *headListaPostos, int idPostoDestino)"
+.br
+.RI "Cliente Vai A Localizacao do Posto\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBViajarComMeioAteLocalizacao\fP (\fBClientes\fP *cliente, \fBLocalizacaoPostos\fP *headListaPostos, \fBMeiosDeMobilidade\fP *headListaMeio, float latitude, float longitude)"
+.br
+.RI "Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) "
+.ti -1c
+.RI "int \fBListarTodosPostos\fP (\fBLocalizacaoPostos\fP *header)"
+.br
+.RI "Lista todos os \fBPostos\fP\&. "
+.ti -1c
+.RI "\fBLocalizacaoPostos\fP * \fBRemoverPostoEscrever\fP (\fBLocalizacaoPostos\fP *headPostos)"
+.br
+.RI "Remove \fBPostos\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBAlterarPorEscreverPosto\fP (\fBLocalizacaoPostos\fP *headPosto)"
+.br
+.RI "Altera \fBPostos\fP mas na consola\&. "
+.ti -1c
+.RI "int \fBCriarPostoEscrever\fP (\fBLocalizacaoPostos\fP *headPosto)"
+.br
+.RI "Criar \fBPostos\fP mas a escrever\&. "
+.ti -1c
+.RI "int \fBCriarAdjacenciaPostoEscrever\fP (\fBLocalizacaoPostos\fP *headPosto)"
+.br
+.RI "Criar Adjacencia de \fBPostos\fP\&. "
+.ti -1c
+.RI "int \fBRemoverAdjacenciaPostoEscrever\fP (\fBLocalizacaoPostos\fP *headPosto)"
+.br
+.RI "Remover Adjacencia de \fBPostos\fP\&. "
+.ti -1c
+.RI "int \fBCamiaoRecolhaEscrever\fP (\fBLocalizacaoPostos\fP *headPosto, \fBMeiosDeMobilidade\fP *headListaMeios)"
+.br
+.RI "\fBCamiao\fP Recolha\&. "
+.ti -1c
+.RI "int \fBListaAdjacentes\fP (\fBLocalizacaoPostos\fP *headPosto)"
+.br
+.RI "Mostrar \fBPostos\fP Adjacentes\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Funcoes para Localizacao\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Rafael Silva @email a21089@alunos.ipca.pt 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2023 
+.RE
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _CRT_SECURE_NO_WARNINGS"
+
+.SS "#define DISTANCIA_MAXIMA   500"
+
+.SS "#define MAXIMO_DE_NODES_CAMINHO   100"
+
+.SS "#define TERRA_RAIO   6371\&.0"
+
+.SH "Function Documentation"
+.PP 
+.SS "float AlgoritmoDijkstra (\fBLocalizacaoPostos\fP * headLista, int origemId, int destinoId, bool querImprimirResultados)"
+
+.PP
+Algoritmo Dijkstra para obter o caminho mais pequeno\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadLista\fP head lista de \fBPostos\fP 
+.br
+\fIorigemId\fP id posto de Origem 
+.br
+\fIdestinoId\fP id posto de Destino 
+.br
+\fIquerImprimirResultados\fP ver se quer imprimir o path ou nao
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distancia[destinoId]; 
+.RE
+.PP
+
+.SS "void AlteraPosto (\fBLocalizacaoPostos\fP * header, int id, float latitude, float longitude)"
+
+.PP
+Altera Posto (Latitude e Longitude) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da lista de \fBPostos\fP 
+.br
+\fIid\fP id Posto 
+.br
+\fIlatitude\fP latitude Posto 
+.br
+\fIlongitude\fP longitude Posto 
+.RE
+.PP
+
+.SS "int AlterarPorEscreverPosto (\fBLocalizacaoPostos\fP * headPosto)"
+
+.PP
+Altera \fBPostos\fP mas na consola\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadPostos\fP header de \fBLocalizacaoPostos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * AtualizarPostosAdjacentes (\fBLocalizacaoPostos\fP * headLista)"
+
+.PP
+Atualiza \fBPostos\fP Adjacentes de \fBPostos\fP para Todos os \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadLista\fP header dos postos
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headLista de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "float CalculaDistancia (float latitude1, float longitude1, float latitude2, float longitude2)"
+
+.PP
+Calcula distancia de dois geocodigos\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlatitude1\fP latitude do primeiro 
+.br
+\fIlongitude1\fP longitude do primeiro 
+.br
+\fIlatitude2\fP latitude do segundo 
+.br
+\fIlongitude2\fP longitude do segundo
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+float; 
+.RE
+.PP
+
+.SS "bool CamiaoRecolha (\fBCamiao\fP * camiao, \fBLocalizacaoPostos\fP * headListPontos, \fBMeiosDeMobilidade\fP * headListMeios)"
+
+.PP
+\fBCamiao\fP Recolhe os Meios\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcamiao\fP camiao 
+.br
+\fIheadListPontos\fP head lista de \fBPostos\fP 
+.br
+\fIheadListMeios\fP head lista de meios
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "int CamiaoRecolhaEscrever (\fBLocalizacaoPostos\fP * headPosto, \fBMeiosDeMobilidade\fP * headListaMeios)"
+
+.PP
+\fBCamiao\fP Recolha\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadPostos\fP header de \fBLocalizacaoPostos\fP 
+.br
+\fIheadListaMeios\fP header de \fBMeiosDeMobilidade\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int CaminhoMaisPerto (\fBLocalizacaoPostos\fP * headLista, int origemId, \fBCaminhoCamiao\fP * caminhoCamiaoLista, float * distancia, int * idParaEliminar, float * pesoAtual, float capacidadeMaxima)"
+
+.PP
+Caminho Mais Pequeno Para o Caminho \fBCamiao\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadLista\fP head lista de \fBPostos\fP 
+.br
+\fIorigemId\fP id posto de Origem 
+.br
+\fIcaminhoCamiaoLista\fP caminho do \fBCamiao\fP 
+.br
+\fIdistancia\fP distancia 
+.br
+\fIidParaEliminar\fP id posto para eliminar 
+.br
+\fIpesoAtual\fP peso atual 
+.br
+\fIcapacidadeMaxima\fP capacidade Maxima
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+idPosto; 
+.RE
+.PP
+
+.SS "\fBCaminhoCamiao\fP * CreateCaminho (\fBLocalizacaoPostos\fP * headListPontos, \fBMeiosDeMobilidade\fP * headListMeios, float * distanciaExtra)"
+
+.PP
+Cria Caminho\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadListPontos\fP head lista de pontos 
+.br
+\fIheadListMeios\fP head lista de meios 
+.br
+\fIdistanciaExtra\fP distancia extra para chegar aos pontos
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+caminho de \fBCaminhoCamiao\fP; 
+.RE
+.PP
+
+.SS "int CriarAdjacenciaPostoEscrever (\fBLocalizacaoPostos\fP * headPosto)"
+
+.PP
+Criar Adjacencia de \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadPostos\fP header de \fBLocalizacaoPostos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "\fBCamiao\fP * CriarCamiao (float cargaAtual, float cargaMaxima, \fBLocalizacaoPostos\fP * localizacaoAtual)"
+
+.PP
+Cria \fBCamiao\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcargaAtual\fP carga Atual do camiao 
+.br
+\fIcargaMaxima\fP carga Maxima do \fBCamiao\fP 
+.br
+\fIlocalizacaoAtual\fP localizacao Atual
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+novoCamiao de \fBCamiao\fP; 
+.RE
+.PP
+
+.SS "\fBCaminhoCamiao\fP * CriarCaminhoNodes (int idPosto, int idMeio, int pesoMeio)"
+
+.PP
+Cria Caminho para \fBCamiao\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIidPosto\fP id do Posto 
+.br
+\fIidMeio\fP id do Meio 
+.br
+\fIpesoMeio\fP peso do Meio
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+novoCaminho de \fBCaminhoCamiao\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * CriarPosto (int id, char * cidade, float latitude, float longitude, bool visitado, \fBLocalizacaoPostosAdjacentes\fP * postosAdjacentes)"
+
+.PP
+Cria Novo Posto \&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP id do Posto 
+.br
+\fIcidade\fP cidade do Posto 
+.br
+\fIlatitude\fP latitude do Posto 
+.br
+\fIlongitude\fP longitude do Posto 
+.br
+\fIvisitado\fP ver se ta visitado o Posto 
+.br
+\fIpostosAdjacentes\fP postos Adjacentes
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+novoPosto de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostosAdjacentes\fP * CriarPostoAdjacente (\fBLocalizacaoPostos\fP * postoDestinoAdjacente, \fBLocalizacaoPostos\fP * postoOrigem)"
+
+.PP
+Cria Posto Adjacente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpostoDestinoAdjacente\fP posto que quer ficar Adjacente (Destino) 
+.br
+\fIpostoOrigem\fP posto origem (Origem)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+postoAdjacente de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "int CriarPostoEscrever (\fBLocalizacaoPostos\fP * headPosto)"
+
+.PP
+Criar \fBPostos\fP mas a escrever\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadPostos\fP header de \fBLocalizacaoPostos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * DistanciaClienteAMeioTotal (\fBClientes\fP * cliente, \fBMeiosDeMobilidade\fP * meio, \fBLocalizacaoPostos\fP * headListaPostos)"
+
+.PP
+Cliente Vai A Localizacao do Meio\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcliente\fP cliente 
+.br
+\fImeio\fP meio 
+.br
+\fIheadListPostos\fP head lista \fBPostos\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headListPostos de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * DistanciaClienteAPostoTotal (\fBClientes\fP * cliente, \fBLocalizacaoPostos\fP * headListaPostos, int idPostoDestino)"
+
+.PP
+Cliente Vai A Localizacao do Posto\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcliente\fP cliente 
+.br
+\fIheadListPostos\fP head lista \fBPostos\fP 
+.br
+\fIidPostoDestino\fP id Posto Destino
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headListPostos de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "bool ExisteCaminhoNode (\fBCaminhoCamiao\fP * header, int idCaminhoCamiao)"
+
+.PP
+Ver se Existe o Node no Caminho\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP head do Caminho de \fBCamiao\fP 
+.br
+\fIidCaminhoCamiao\fP id do node do Caminho de \fBCamiao\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool ExistePosto (\fBLocalizacaoPostos\fP * header, int idPosto)"
+
+.PP
+Ver se Posto existe na lista de \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da Lista de \fBPostos\fP 
+.br
+\fIidPosto\fP id do Posto
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool ExistePostoAdjacente (\fBLocalizacaoPostosAdjacentes\fP * header, int idPostosAdjacentes)"
+
+.PP
+Ver se Existe Posto Adjacente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header de postos 
+.br
+\fIidPostosAdjacentes\fP id de postos adjacentes
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool GravarPostosAdjacentesBinario (char * nomeFicheiro, \fBLocalizacaoPostos\fP * header)"
+
+.PP
+Guarda \fBPostos\fP Adjacentes em Bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP nome do Ficheiro 
+.br
+\fIheader\fP header da lista de postos
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool GravarPostosBinario (char * nomeFicheiro, \fBLocalizacaoPostos\fP * header)"
+
+.PP
+Guarda \fBPostos\fP em Bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP nome do Ficheiro 
+.br
+\fIheader\fP header da lista de postos
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * InserePostoGrafo (\fBLocalizacaoPostos\fP * header, \fBLocalizacaoPostos\fP * novoPosto)"
+
+.PP
+Insere Posto na lista de \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da Lista de \fBPostos\fP 
+.br
+\fInovoPosto\fP novo Posto Para Inserir
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBCaminhoCamiao\fP * InserirCaminho (\fBCaminhoCamiao\fP * headLista, \fBCaminhoCamiao\fP * novoCaminho)"
+
+.PP
+Insere novo Caminho para \fBCamiao\fP na Lista\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadLista\fP head lista do caminho do camiao 
+.br
+\fInovoCaminho\fP novo node para Caminho \fBCamiao\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headLista de \fBCaminhoCamiao\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * InserirPostoAdjacente (\fBLocalizacaoPostos\fP ** headLista, \fBLocalizacaoPostos\fP * postoOrigem, \fBLocalizacaoPostos\fP * postoDestino)"
+
+.PP
+Insere Posto Adjacente para um Posto\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadLista\fP head Lista \fBPostos\fP 
+.br
+\fIpostoOrigem\fP posto origem (Origem) 
+.br
+\fIpostoDestino\fP posto destino (Destino)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headLista de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "bool JaTemPostoAdjacente (\fBLocalizacaoPostos\fP * headerOrigem, \fBLocalizacaoPostos\fP * headerDestino)"
+
+.PP
+Ver Se Ja Tem o Posto Adjacente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheaderOrigem\fP header do posto de origem 
+.br
+\fIheaderDestino\fP header do posto de destino
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * LerEArmazenarPosto (char * nomeFicheiro, \fBLocalizacaoPostos\fP ** headerPostosLista)"
+
+.PP
+Ler txt file e Guarda Posto\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP nome do Ficheiro 
+.br
+\fIheaderPostosLista\fP header da lista de postos
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headerPostosLista de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * LerEArmazenarPostoAdjacente (char * nomeFicheiro, \fBLocalizacaoPostos\fP ** headerPostosLista)"
+
+.PP
+Ler txt file e Guarda Posto Adjacentes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP nome do Ficheiro 
+.br
+\fIheaderPostosLista\fP header da lista de postos
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headerPostosLista de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * LerPostosAdjacentesBinario (char * nomeFicheiro, \fBLocalizacaoPostos\fP ** header, bool * resultado)"
+
+.PP
+Le \fBPostos\fP Adjacentes do Bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP nome do Ficheiro 
+.br
+\fIheader\fP header da Lista de \fBPostos\fP 
+.br
+\fIresultado\fP resultado da funcao
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * LerPostosBinario (char * nomeFicheiro)"
+
+.PP
+Le \fBPostos\fP do Bin file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInomeFicheiro\fP nome do Ficheiro
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "int ListaAdjacentes (\fBLocalizacaoPostos\fP * headPosto)"
+
+.PP
+Mostrar \fBPostos\fP Adjacentes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadPostos\fP header de \fBLocalizacaoPostos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "int ListarTodosPostos (\fBLocalizacaoPostos\fP * header)"
+
+.PP
+Lista todos os \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header de \fBLocalizacaoPostos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "bool LocalizacaoRaioClienteMeio (\fBClientes\fP * cliente, \fBMeiosDeMobilidade\fP * headListaMeio, float raio, char * tipo)"
+
+.PP
+Localizacao Raio no Cliente para Meios de um Tipo\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcliente\fP cliente 
+.br
+\fIheadListaMeio\fP lista \fBPostos\fP 
+.br
+\fIraio\fP raio 
+.br
+\fItipo\fP tipo do meio
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "bool LocalizacaoRaioClientePosto (\fBClientes\fP * cliente, \fBLocalizacaoPostos\fP * headListaPostos, float raio)"
+
+.PP
+Localizacao Raio no Cliente para \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcliente\fP cliente 
+.br
+\fIheadListPostos\fP lista \fBPostos\fP 
+.br
+\fIraio\fP raio
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * ProcurarPorIdPostos (\fBLocalizacaoPostos\fP * headerLista, int id)"
+
+.PP
+Procura Por Id \fBPostos\fP Com so o Posto\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheaderList\fP header de postos 
+.br
+\fIid\fP id do Posto
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headLista de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * ProcurarPorIdPostosComListaToda (\fBLocalizacaoPostos\fP * headerList, int id)"
+
+.PP
+Procura Por Id \fBPostos\fP Com a Lista Toda\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadLista\fP header de postos 
+.br
+\fIid\fP id do Posto
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headLista de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostosAdjacentes\fP * ProcurarPostoAdjacente (\fBLocalizacaoPostos\fP * posto, \fBLocalizacaoPostos\fP * postoDestino)"
+
+.PP
+Procura Posto Adjacente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIposto\fP posto 
+.br
+\fIpostoDestino\fP posto destino que quer Procurar
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+adjacente de \fBLocalizacaoPostosAdjacentes\fP; 
+.RE
+.PP
+
+.SS "int RemoverAdjacenciaPostoEscrever (\fBLocalizacaoPostos\fP * headPosto)"
+
+.PP
+Remover Adjacencia de \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadPostos\fP header de \fBLocalizacaoPostos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0; 
+.RE
+.PP
+
+.SS "\fBCaminhoCamiao\fP * RemoverCaminhoNode (\fBCaminhoCamiao\fP * header, int id)"
+
+.PP
+Remove o Node no Caminho\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP head do Caminho de \fBCamiao\fP 
+.br
+\fIid\fP id do node do Caminho de \fBCamiao\fP
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header de \fBCaminhoCamiao\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * RemoverPosto (\fBLocalizacaoPostos\fP * header, int id)"
+
+.PP
+Remove Posto na lista de \fBPostos\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheader\fP header da Lista de \fBPostos\fP 
+.br
+\fIid\fP id Posto Para Remover
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+header de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostosAdjacentes\fP * RemoverPostoAdjacente (\fBLocalizacaoPostos\fP * headerPostos, \fBLocalizacaoPostosAdjacentes\fP * headerPostoAdjacente, int id, int idOrigem)"
+
+.PP
+Remove Posto Adjacente\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheaderPostos\fP header dos postos 
+.br
+\fIheaderPostoAdjacente\fP header de postos adjacentes 
+.br
+\fIid\fP id de qual quer remover
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headerPostoAdjacente de \fBLocalizacaoPostosAdjacentes\fP; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * RemoverPostoEscrever (\fBLocalizacaoPostos\fP * headPostos)"
+
+.PP
+Remove \fBPostos\fP mas na consola\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadPostos\fP header de \fBLocalizacaoPostos\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headPostos; 
+.RE
+.PP
+
+.SS "bool VerSeAcessivel (\fBLocalizacaoPostos\fP * headLista, \fBLocalizacaoPostos\fP * origemPonto, \fBLocalizacaoPostos\fP * destinoPonto)"
+
+.PP
+Ver Se o Caminho de dois \fBPostos\fP Sao Acessiveis\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheadLista\fP head lista de \fBPostos\fP 
+.br
+\fIorigemPonto\fP posto de Origem 
+.br
+\fIdestinoPonto\fP posto de Destino
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True/False; 
+.RE
+.PP
+
+.SS "\fBLocalizacaoPostos\fP * ViajarComMeioAteLocalizacao (\fBClientes\fP * cliente, \fBLocalizacaoPostos\fP * headListaPostos, \fBMeiosDeMobilidade\fP * headListaMeio, float latitude, float longitude)"
+
+.PP
+Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcliente\fP cliente 
+.br
+\fIheadListPostos\fP head lista \fBPostos\fP 
+.br
+\fIheadListaMeio\fP head lista \fBMeiosDeMobilidade\fP 
+.br
+\fIlatitude\fP latitude do destino 
+.br
+\fIlongitude\fP longitude do destino
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+headListPostos de \fBLocalizacaoPostos\fP; 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 21089_Projeto_EDA from the source code\&.

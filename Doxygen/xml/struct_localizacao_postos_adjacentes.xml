@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_localizacao_postos_adjacentes" kind="struct" language="C++" prot="public">
+    <compoundname>LocalizacaoPostosAdjacentes</compoundname>
+    <includes refid="_localizacao_8h" local="no">Localizacao.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_localizacao_postos_adjacentes_1a5526534cbe5e113f9c065ea6c0ac014a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LocalizacaoPostosAdjacentes::idDestino</definition>
+        <argsstring></argsstring>
+        <name>idDestino</name>
+        <qualifiedname>LocalizacaoPostosAdjacentes::idDestino</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="57" column="9" bodyfile="Localizacao.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_localizacao_postos_adjacentes_1a7c0f248b312debdd652f3a960b9f2484" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> *</type>
+        <definition>struct LocalizacaoPostos* LocalizacaoPostosAdjacentes::postoDestinoAdjacente</definition>
+        <argsstring></argsstring>
+        <name>postoDestinoAdjacente</name>
+        <qualifiedname>LocalizacaoPostosAdjacentes::postoDestinoAdjacente</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="58" column="29" bodyfile="Localizacao.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_localizacao_postos_adjacentes_1a572371434832982896e6da25ee4b83f1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LocalizacaoPostosAdjacentes::distancia</definition>
+        <argsstring></argsstring>
+        <name>distancia</name>
+        <qualifiedname>LocalizacaoPostosAdjacentes::distancia</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="59" column="11" bodyfile="Localizacao.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_localizacao_postos_adjacentes_1a6a3f7f7220cf4ce875ff67cb1544892c" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> *</type>
+        <definition>struct LocalizacaoPostosAdjacentes* LocalizacaoPostosAdjacentes::proximo</definition>
+        <argsstring></argsstring>
+        <name>proximo</name>
+        <qualifiedname>LocalizacaoPostosAdjacentes::proximo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Localizacao.h" line="60" column="39" bodyfile="Localizacao.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Estrutura de Arestas (<ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref>) para <ref refid="struct_postos" kindref="compound">Postos</ref> de Localizacao. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Um <ref refid="struct_localizacao_postos" kindref="compound">LocalizacaoPostos</ref> contém um idDestino (@id), postoDestinoAdjacente (@postoDestinoAdjacente) e distancia (@distancia). Contém apontador para próximo <ref refid="struct_localizacao_postos_adjacentes" kindref="compound">LocalizacaoPostosAdjacentes</ref> </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>LocalizacaoPostos</label>
+        <link refid="struct_localizacao_postos"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>posto</edgelabel>
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>LocalizacaoPostosAdjacentes</label>
+        <link refid="struct_localizacao_postos_adjacentes"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>postoDestinoAdjacente</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Postos</label>
+        <link refid="struct_postos"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>postosAdjacentes</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Localizacao.h" line="56" column="1" bodyfile="Localizacao.h" bodystart="56" bodyend="61"/>
+    <listofallmembers>
+      <member refid="struct_localizacao_postos_adjacentes_1a572371434832982896e6da25ee4b83f1" prot="public" virt="non-virtual"><scope>LocalizacaoPostosAdjacentes</scope><name>distancia</name></member>
+      <member refid="struct_localizacao_postos_adjacentes_1a5526534cbe5e113f9c065ea6c0ac014a" prot="public" virt="non-virtual"><scope>LocalizacaoPostosAdjacentes</scope><name>idDestino</name></member>
+      <member refid="struct_localizacao_postos_adjacentes_1a7c0f248b312debdd652f3a960b9f2484" prot="public" virt="non-virtual"><scope>LocalizacaoPostosAdjacentes</scope><name>postoDestinoAdjacente</name></member>
+      <member refid="struct_localizacao_postos_adjacentes_1a6a3f7f7220cf4ce875ff67cb1544892c" prot="public" virt="non-virtual"><scope>LocalizacaoPostosAdjacentes</scope><name>proximo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

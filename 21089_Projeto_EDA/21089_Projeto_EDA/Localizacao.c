@@ -297,7 +297,7 @@ bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjac
 *
 *
 */
-LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostos* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id) {
+LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostos* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id , int idOrigem) {
     if (headerPostoAdjacente == NULL) return NULL;			//Lista vazia
 
     if (!ExistePostoAdjacente(headerPostoAdjacente, id)) return;
@@ -305,7 +305,10 @@ LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostos* headerPost
     if (headerPostoAdjacente->postoDestinoAdjacente->posto->id == id) {		//remove no inicio da lista
         LocalizacaoPostosAdjacentes* aux = headerPostoAdjacente;
         headerPostoAdjacente = headerPostoAdjacente->proximo;
-        headerPostos->posto->postosAdjacentes = headerPostoAdjacente;
+
+        LocalizacaoPostos* auxPosto = ProcurarPorIdPostosComListaToda(headerPostos, idOrigem);
+        auxPosto->posto->postosAdjacentes = headerPostoAdjacente;
+
         free(aux);
     }
     else
@@ -998,22 +1001,39 @@ bool CamiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
         {
             if (i == 0) //Primeio Node
             {
-                float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->posto->id, camiao->idOrigem , true); //Distancia da origem ate ao primeiro dos Postos Obrigatorios
+                if (!VerSeAcessivel(headListPontos,ProcurarPorIdPostos(headListPontos,camiao->localizacaoAtual->posto->id), ProcurarPorIdPostos(headListPontos, camiao->idOrigem) ))
+                {
+                    printf("N -> ");
+                }
+                else
+                {
+                    float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->posto->id, camiao->idOrigem, true); //Distancia da origem ate ao primeiro dos Postos Obrigatorios
 
-                distancia = distancia + distanciaCaminho;
-                printf("%d -> ", camiao->idOrigem);
-                camiao->localizacaoAtual->posto->id = camiao->idOrigem;
+                    distancia = distancia + distanciaCaminho;
+                    printf("%d -> ", camiao->idOrigem);
+                    camiao->localizacaoAtual->posto->id = camiao->idOrigem;
+                }
+                
 
             }
             else if (i == numIds - 1) //Ultimo Node
             {
-                float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->posto->id, camiao->idOrigem , true); //Distancia do Posto que esta ate ao final
-                distancia = distancia + distanciaCaminho;
-                printf("%d -> ", camiao->idOrigem);
-                camiao->localizacaoAtual->posto->id = camiao->idOrigem;
+                if (!VerSeAcessivel(headListPontos, ProcurarPorIdPostos(headListPontos, camiao->localizacaoAtual->posto->id), ProcurarPorIdPostos(headListPontos, camiao->idOrigem)))
+                {
+                    printf("N -> ");
+                }
+                else
+                {
+                    float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->posto->id, camiao->idOrigem, true); //Distancia do Posto que esta ate ao final
+                    distancia = distancia + distanciaCaminho;
+                    printf("%d -> ", camiao->idOrigem);
+                    camiao->localizacaoAtual->posto->id = camiao->idOrigem;
+                }
+                
             }
             else
             {
+
                 int idParaEliminar = 0;
                 int distanciaCaminho = CaminhoMaisPerto(headListPontos, camiao->localizacaoAtual->posto->id, caminho, &distancia, &idParaEliminar, &peso , camiao->cargaMaxima); //Caminho Mais Perto Por os Postos Obrigatorios
 
@@ -1312,24 +1332,25 @@ int CaminhoMaisPerto(LocalizacaoPostos* headLista, int origemId, CaminhoCamiao* 
     //Caminho
     CaminhoCamiao* currentCaminhoCamiao = caminhoCamiaoLista;
     while (currentCaminhoCamiao != NULL) {
-        int destinationId = currentCaminhoCamiao->idPosto;
+            int destinationId = currentCaminhoCamiao->idPosto;
 
-        // Ve a distancia usando o Algoritmo Dijkstra mais pequena
-        float distance = AlgoritmoDijkstra(headLista, origemId, destinationId ,false);
+            // Ve a distancia usando o Algoritmo Dijkstra mais pequena
+            float distance = AlgoritmoDijkstra(headLista, origemId, destinationId, false);
 
-        float pesoAux = *pesoAtual;
+            float pesoAux = *pesoAtual;
 
-        pesoAux = pesoAux + currentCaminhoCamiao->pesoMeio;
+            pesoAux = pesoAux + currentCaminhoCamiao->pesoMeio;
 
-        // Ver se é valido
-        if (distance >= 0 && (minDistance == 0 || distance < minDistance) && pesoAux <= capacidadeMaxima) {
-            minDistance = distance;
-            *idParaEliminar = currentCaminhoCamiao->idMeio;
-            *pesoAtual = *pesoAtual + currentCaminhoCamiao->pesoMeio;
+            // Ver se é valido
+            if (distance >= 0 && (minDistance == 0 || distance < minDistance) && pesoAux <= capacidadeMaxima && VerSeAcessivel(headLista,ProcurarPorIdPostos(headLista, origemId), ProcurarPorIdPostos(headLista, destinationId))) {
+                minDistance = distance;
+                *idParaEliminar = currentCaminhoCamiao->idMeio;
+                *pesoAtual = *pesoAtual + currentCaminhoCamiao->pesoMeio;
 
-            idPosto = currentCaminhoCamiao->idPosto;
+                idPosto = currentCaminhoCamiao->idPosto;
 
-        }
+            }
+        
 
         currentCaminhoCamiao = currentCaminhoCamiao->proximo;
     }
@@ -1775,9 +1796,8 @@ LocalizacaoPostos* ViajarComMeioAteLocalizacao(Clientes* cliente, LocalizacaoPos
 /**
 *	@brief Lista todos os Postos
 *
-*
 *	@param [in] header					header de LocalizacaoPostos
-*
+*	@return 0;
 */
 int ListarTodosPostos(LocalizacaoPostos* header) {
 
@@ -1932,7 +1952,7 @@ int RemoverAdjacenciaPostoEscrever(LocalizacaoPostos* headPosto) {
         return 1;
     }
 
-    RemoverPostoAdjacente(headPosto , ProcurarPorIdPostos(headPosto, idOrigem)->posto->postosAdjacentes, idDestino);
+    RemoverPostoAdjacente(headPosto , ProcurarPorIdPostos(headPosto, idOrigem)->posto->postosAdjacentes, idDestino, idOrigem);
 
 
 
@@ -1966,3 +1986,48 @@ int CamiaoRecolhaEscrever(LocalizacaoPostos* headPosto , MeiosDeMobilidade* head
     return 0;
 
 }
+
+
+
+
+/**
+*	@brief Mostrar Postos Adjacentes
+*	@param [in] headPostos					header de LocalizacaoPostos
+*	@return 0;
+*
+*/
+int ListaAdjacentes(LocalizacaoPostos* headPosto) {
+
+
+    if (headPosto == NULL)
+    {
+        return 1;
+    }
+
+    LocalizacaoPostos* auxPosto = headPosto;
+
+    while (auxPosto != NULL)
+    {
+        if (auxPosto->posto->postosAdjacentes != NULL)
+        {
+            LocalizacaoPostosAdjacentes* adj = auxPosto->posto->postosAdjacentes;
+
+            while (adj != NULL)
+            {
+                printf("\nPosto %d Com Adjacencia Com Destino a Posto %d Com Distancia de %.2f km: ", auxPosto->posto->id, adj->postoDestinoAdjacente->posto->id, adj->distancia);
+                adj = adj->proximo;
+            }
+        }
+
+        
+
+        auxPosto = auxPosto->proximo;
+    }
+
+
+    return 0;
+
+}
+
+
+

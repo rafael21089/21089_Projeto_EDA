@@ -769,7 +769,7 @@ int AlterarLocalizacaoEstadoEscrever(MeiosDeMobilidade* headMeios) {
 /**
 *	@brief Ver se Ta Reservado No Momento
 *	@param [in] header					header da lista de MeiosDeMobilidade
-
+*	@param [in] idMeio					id do Meio
 *	@return 0;
 *
 */

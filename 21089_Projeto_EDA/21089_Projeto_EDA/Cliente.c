@@ -286,7 +286,7 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 	if (cliente == NULL) return 0;
 	if (meio == NULL) return 0;
 
-	if (cliente->saldo >= meio->custo && !EstadoAluguer(*headerMeios , idMeios) && meio->estado == true)
+	if (cliente->saldo >= meio->custo && !EstadoAluguer(*headerMeios , idMeios) && meio->estado == true && !EstadoAluguerCliente(*headerCliente, idCliente))
 	{
 		cliente->saldo = cliente->saldo - meio->custo;
 
@@ -884,4 +884,37 @@ int ParaAluguerAtivo(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMobi
 	
 	return 0;
 
+}
+
+
+/**
+*	@brief Ver se ja tem algum meio reservado no momento
+*	@param [in] header					header da lista de Clientes
+
+*	@return 0;
+*
+*/
+
+bool EstadoAluguerCliente(Clientes* headCliente, int idCliente) {
+
+	if (headCliente == NULL)
+	{
+		return false;
+	}
+
+	Clientes* cliente = ProcuraClientes(headCliente, idCliente);
+
+	Aluguer* auxAluguer = cliente->aluguer;
+
+	while (auxAluguer != NULL)
+	{
+		if (strcmp(auxAluguer->estadoDoAluguer, "Ativo") == 0)
+		{
+			return true;
+		}
+
+		auxAluguer = auxAluguer->next;
+	}
+
+	return false;
 }

@@ -92,7 +92,10 @@ int AumentarSaldoPorEscreverCliente(Clientes* headClientes, int idCliente);
 //Para Aluguer Ativos
 int ParaAluguerAtivo(Clientes* headClientes, struct Aluguer* headAluguer, struct MeiosDeMobilidade* headMeio, int idCliente);
 
-//ViajemEscrever
+//Viajem Escrever
 int ClienteViagemEscrever(Clientes* headClientes, struct MeiosDeMobilidade* headMeio, struct LocalizacaoPostos* headListaPostos, int idCliente);
+
+//Ver se ja tem algum meio alugado
+bool EstadoAluguerCliente(Clientes* headCliente, int idCliente);
 
 

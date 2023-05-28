@@ -27,9 +27,9 @@ int main() {
 	Clientes* headListaClientes = NULL;				//Inicio da lista Clientes
 	MeiosDeMobilidade* headListaMeios = NULL;		//Inicio da lista MeiosDeMobilidade
 	Gestor* headListaGestor = NULL;					//Inicio da lista Gestor
-	Aluguer* headListaAluguerTotal = NULL;		//Inicio da lista
+	Aluguer* headListaAluguerTotal = NULL;			//Inicio da lista Aluguer
 
-	LocalizacaoPostos* headListaPostos = NULL;		//Inicio da lista
+	LocalizacaoPostos* headListaPostos = NULL;		//Inicio de LocalizacaoPostos
 
 	// Armazenamento de listas , se tiver vazia vai ao ficheiro de texto para inserir valores.
 
@@ -68,7 +68,7 @@ int main() {
 	GravarMeiosEClientesNosGestores(headListaGestor , headListaAluguerTotal,  headListaClientes , headListaMeios);  //Grava as listas Clientes e Meios em todos os gestores
 
 
-	//Localizacoes - Postos
+	//Guarda Para Grafo Postos e Adjacentes -----
 
 	headListaPostos = LerPostosBinario("PostosSave.bin");
 	if (headListaPostos == NULL)
@@ -174,7 +174,7 @@ int main() {
 			printf("9. Eliminar Gestor\n\n");
 
 			printf("10. Listar por autonomia meios de mobilidade \n");
-			printf("11. Listar meios de mobilidade existentes por cidade\n\n");
+			printf("11. Listar meios de mobilidade existentes por cidade\n");
 			printf("12. Listar Alugueres de Cliente por Id: \n");
 			printf("13. Listar Alugueres de Meios por Id: \n");
 			printf("14. Listar todos Alugueres: \n\n");
@@ -189,9 +189,10 @@ int main() {
 			printf("21. Camiao Recolher Meios abaixo de 50 percentagem de bateria\n\n");
 
 			printf("22. Alterar Estado Meio\n");
-			printf("23. Alterar Localizacao Meio\n\n");
+			printf("23. Alterar Localizacao Meio\n");
+			printf("24. Mostra Adjacencias de todos os Postos\n\n");
 
-			printf("24. Sair\n");
+			printf("25. Sair\n");
 
 			printf("\nEscolha: ");
 			scanf("%d", &escolha);
@@ -270,6 +271,11 @@ int main() {
 				break;
 
 			case 24:
+				system("cls");
+				ListaAdjacentes(headListaPostos);
+				break;
+
+			case 25:
 				printf("A Sair\n");
 				break;
 			default:
@@ -289,7 +295,7 @@ int main() {
 			GravarPostosBinario("PostosSave.bin", headListaPostos);
 
 
-		} while (escolha <= 24);
+		} while (escolha <= 25);
 	}
 
 	//Menu Area Cliente
@@ -306,14 +312,14 @@ int main() {
 		printf("\n----------- Menu -----------:\n");
 		printf("1. Registo Aluguer de um Meio\n");
 		printf("2. Historico de Alugueres\n");
-		printf("\n3. Lista todos os Postos de Recolha\n");
-		printf("\n4. Lista todos os Meios\n");
+		printf("3. Lista todos os Postos de Recolha\n");
+		printf("4. Lista todos os Meios\n");
 		printf("5. Lista todos os Postos de Recolha em um raio de 50 km\n");
 		printf("6. Lista todos os Meios em um raio de 50 km de um certo tipo\n");
-		printf("\n7. Ir para Meio de Mobilidade\n");
+		printf("7. Ir para Meio de Mobilidade\n");
 		printf("8. Ir para Posto de Recolha\n");
 
-		printf("\n9. Alterar Dados (nome)\n");
+		printf("9. Alterar Dados (nome)\n");
 		printf("10. Aumentar Saldo\n");
 		printf("11. Parar Aluguer Ativo\n");
 		printf("12. Viajar com o Meio Alugado Ate Localizacao\n");

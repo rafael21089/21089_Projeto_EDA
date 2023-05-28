@@ -17,7 +17,7 @@
 
 
 /**
- * @brief Estrutura de Vertices (LocalizacaoPostos) para grafo orientado de Postos de Localizacao
+ * @brief Estrutura de Vertices (Postos) para grafo orientado de Postos de Localizacao (LocalizacaoPostos)
  *
  * Um Postos contém um id (@@id), cidade (@@cidade) ,latitude (@@latitude) , longitude (@@longitude), visitado (@@visitado) e postosAdjacentes (@@postosAdjacentes).
  */
@@ -33,7 +33,7 @@ typedef struct Postos {
 
 
 /**
- * @brief Estrutura de para Grafo orientado de Postos de Localizacao
+ * @brief Estrutura para Grafo orientado de Postos de Localizacao
  *
  * Um LocalizacaoPostos contém posto (@@posto).
  * Contém apontador para próximo LocalizacaoPostos
@@ -105,7 +105,7 @@ LocalizacaoPostos* InserirPostoAdjacente(LocalizacaoPostos** headLista, Localiza
 //Ver se Existe Posto Adjacente na lista por id
 bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjacentes);
 //Remove Posto Adjacente no respetivo Posto
-LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostos* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id);
+LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostos* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id, int idOrigem);
 //Atualiza Posto Adjacentes Para todos os Postos existentes
 LocalizacaoPostos* AtualizarPostosAdjacentes(LocalizacaoPostos* headLista);
 
@@ -186,4 +186,7 @@ int ClienteParaPostoLocalizacao(struct Clientes* headClientes, LocalizacaoPostos
 
 //Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) 
 LocalizacaoPostos* ViajarComMeioAteLocalizacao(struct Clientes* cliente, LocalizacaoPostos* headListaPostos, struct MeiosDeMobilidade* headListaMeio, float latitude, float longitude);
+
+//Lista Adjacentes
+int ListaAdjacentes(LocalizacaoPostos* headPosto);
 

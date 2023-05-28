@@ -437,3 +437,4 @@ int RemoverPorEscreverGestor(Gestor* headGestor) {
 }
 
 
+

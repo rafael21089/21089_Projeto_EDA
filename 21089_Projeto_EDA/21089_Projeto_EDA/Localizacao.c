@@ -40,7 +40,8 @@
 *
 */
 LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longitude, bool visitado, LocalizacaoPostosAdjacentes* postosAdjacentes) {
-    LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
+    Postos* novoPosto = (Postos*)malloc(sizeof(Postos));
+    LocalizacaoPostos* novoPostoVertice = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
     if (novoPosto == NULL) {
         return NULL;
     }
@@ -51,11 +52,12 @@ LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longit
     novoPosto->latitude = latitude;
     novoPosto->longitude = longitude;
     novoPosto->visitado = visitado;
-
     novoPosto->postosAdjacentes = postosAdjacentes;
-    novoPosto->proximo = NULL;
 
-    return novoPosto;
+    novoPostoVertice->posto = novoPosto;
+    novoPostoVertice->proximo = NULL;
+
+    return novoPostoVertice;
 }
 
 
@@ -72,7 +74,7 @@ LocalizacaoPostos* CriarPosto(int id, char* cidade, float latitude, float longit
 */
 LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos* novoPosto) {
 
-    if (ExistePosto(header, novoPosto->id)) {
+    if (ExistePosto(header, novoPosto->posto->id)) {
         return header; // If the posto already exists, return the original header
     }
 
@@ -83,16 +85,14 @@ LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos
     else {
         LocalizacaoPostos* aux = header;
         LocalizacaoPostos* ant = NULL; // Initialize ant to NULL
-        while (aux && aux->id < novoPosto->id) {
+        while (aux && aux->posto->id < novoPosto->posto->id) {
             ant = aux;
             aux = aux->proximo;
         }
         if (ant == NULL) {
-            novoPosto->proximo = header;
-            header = novoPosto;
+            header->posto = novoPosto;
         }
         else {
-            novoPosto->proximo = aux;
             ant->proximo = novoPosto;
         }
     }
@@ -114,7 +114,7 @@ bool ExistePosto(LocalizacaoPostos* header, int idPosto) {
     if (header == NULL) return false;
     LocalizacaoPostos* aux = header;
     while (aux != NULL) {
-        if (aux->id == idPosto)
+        if (aux->posto->id == idPosto)
             return true;
         aux = aux->proximo;
     }
@@ -137,7 +137,7 @@ LocalizacaoPostos* RemoverPosto(LocalizacaoPostos* header, int id) {
 
     if (!ExistePosto(header, id)) return;
 
-    if (header->id == id) {		//remove no inicio da lista
+    if (header->posto->id == id) {		//remove no inicio da lista
         LocalizacaoPostos* aux = header;
         header = header->proximo;
         free(aux);
@@ -146,7 +146,7 @@ LocalizacaoPostos* RemoverPosto(LocalizacaoPostos* header, int id) {
     {
         LocalizacaoPostos* aux = header;
         LocalizacaoPostos* auxAnt = aux;
-        while (aux && aux->id != id) {	//procura para revover
+        while (aux && aux->posto->id != id) {	//procura para revover
             auxAnt = aux;
             aux = aux->proximo;
         }
@@ -179,9 +179,9 @@ LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestino
         return NULL;
     }
 
-    postoAdjacente->postoDestinoAdjacente = postoDestinoAdjacente;
-    postoAdjacente->idDestino = postoDestinoAdjacente->id;
-    postoAdjacente->distancia = CalculaDistancia(postoDestinoAdjacente->latitude , postoDestinoAdjacente->longitude , postoOrigem->latitude , postoOrigem->longitude);
+    postoAdjacente->postoDestinoAdjacente = postoDestinoAdjacente->posto;
+    postoAdjacente->idDestino = postoDestinoAdjacente->posto->id;
+    postoAdjacente->distancia = CalculaDistancia(postoDestinoAdjacente->posto->latitude , postoDestinoAdjacente->posto->longitude , postoOrigem->posto->latitude , postoOrigem->posto->longitude);
     postoAdjacente->proximo = NULL;
 
     return postoAdjacente;
@@ -214,13 +214,13 @@ LocalizacaoPostos* InserirPostoAdjacente(LocalizacaoPostos** headLista, Localiza
         return *headLista;
     }
 
-    LocalizacaoPostos* aux = ProcurarPorIdPostosComListaToda(*headLista, postoOrigem->id);
+    LocalizacaoPostos* aux = ProcurarPorIdPostosComListaToda(*headLista, postoOrigem->posto->id);
 
-    if (aux->postosAdjacentes == NULL) {
-        aux->postosAdjacentes = novoAdjacente;
+    if (aux->posto->postosAdjacentes == NULL) {
+        aux->posto->postosAdjacentes = novoAdjacente;
     }
     else {
-        LocalizacaoPostosAdjacentes* aux2 = aux->postosAdjacentes;
+        LocalizacaoPostosAdjacentes* aux2 = aux->posto->postosAdjacentes;
         while (aux2->proximo != NULL) {
             aux2 = aux2->proximo;
         }
@@ -246,13 +246,13 @@ LocalizacaoPostos* InserirPostoAdjacente(LocalizacaoPostos** headLista, Localiza
 *
 */
 LocalizacaoPostosAdjacentes* ProcurarPostoAdjacente(LocalizacaoPostos* posto, LocalizacaoPostos* postoDestino) {
-    if (posto == NULL || postoDestino == NULL || posto->postosAdjacentes == NULL) {
+    if (posto == NULL || postoDestino == NULL || posto->posto->postosAdjacentes == NULL) {
         return NULL;
     }
 
-    LocalizacaoPostosAdjacentes* adjacente = posto->postosAdjacentes;
+    LocalizacaoPostosAdjacentes* adjacente = posto->posto->postosAdjacentes;
     while (adjacente != NULL) {
-        if (adjacente->postoDestinoAdjacente == postoDestino) {
+        if (adjacente->postoDestinoAdjacente->posto->id == postoDestino->posto->id) {
             return adjacente;
         }
         adjacente = adjacente->proximo;
@@ -277,7 +277,7 @@ bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjac
     if (header == NULL) return false;
     LocalizacaoPostosAdjacentes* aux = header;
     while (aux != NULL) {
-        if (aux->postoDestinoAdjacente->id == idPostosAdjacentes)
+        if (aux->postoDestinoAdjacente->posto->id == idPostosAdjacentes)
             return true;
         aux = aux->proximo;
     }
@@ -297,21 +297,22 @@ bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjac
 *
 *
 */
-LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostosAdjacentes* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id) {
+LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostos* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id) {
     if (headerPostoAdjacente == NULL) return NULL;			//Lista vazia
 
     if (!ExistePostoAdjacente(headerPostoAdjacente, id)) return;
 
-    if (headerPostoAdjacente->postoDestinoAdjacente->id == id) {		//remove no inicio da lista
+    if (headerPostoAdjacente->postoDestinoAdjacente->posto->id == id) {		//remove no inicio da lista
         LocalizacaoPostosAdjacentes* aux = headerPostoAdjacente;
         headerPostoAdjacente = headerPostoAdjacente->proximo;
+        headerPostos->posto->postosAdjacentes = headerPostoAdjacente;
         free(aux);
     }
     else
     {
         LocalizacaoPostosAdjacentes* aux = headerPostoAdjacente;
         LocalizacaoPostosAdjacentes* auxAnt = aux;
-        while (aux && aux->postoDestinoAdjacente->id != id) {	//procura para revover
+        while (aux && aux->postoDestinoAdjacente->posto->id != id) {	//procura para revover
             auxAnt = aux;
             aux = aux->proximo;
         }
@@ -326,6 +327,39 @@ LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostosAdjacentes* 
     return headerPostoAdjacente;
 }
 
+
+/**
+*	@brief Altera Posto (Latitude e Longitude)
+*
+*
+*	@param [in] header					header da lista de Postos
+*	@param [in] id						id Posto
+*	@param [in] latitude				latitude Posto
+*	@param [in] longitude				longitude Posto
+*
+*
+*/
+void AlteraPosto(LocalizacaoPostos* header, int id, float latitude , float longitude) {
+    if (header == NULL) {
+
+        return NULL;
+    }
+
+        LocalizacaoPostos* aux = header;
+
+        while (aux != NULL)
+        {
+            if (aux->posto->id == id)
+            {
+                aux->posto->latitude = latitude;
+                aux->posto->longitude = longitude;
+            }
+
+            aux = aux->proximo;
+        }
+ 
+    header = AtualizarPostosAdjacentes(header);
+}
 
 
 /**
@@ -346,12 +380,16 @@ LocalizacaoPostos* AtualizarPostosAdjacentes(LocalizacaoPostos* headLista) {
     LocalizacaoPostos* aux = headLista;
 
     while (aux != NULL) {
-        LocalizacaoPostosAdjacentes* adjacente = aux->postosAdjacentes;
+        LocalizacaoPostosAdjacentes* adjacente = aux->posto->postosAdjacentes;
 
         while (adjacente != NULL) {
             LocalizacaoPostos* destino = ProcurarPorIdPostos(headLista, adjacente->idDestino); //Procura por Id Posto
             if (destino != NULL) {
                 adjacente->postoDestinoAdjacente = destino;
+            }
+            else
+            {
+                aux->posto->postosAdjacentes = adjacente->proximo;
             }
 
             adjacente = adjacente->proximo;
@@ -380,7 +418,7 @@ LocalizacaoPostos* ProcurarPorIdPostosComListaToda(LocalizacaoPostos* headerList
     {
         LocalizacaoPostos* aux = headerList;
         while (aux != NULL) {
-            if (aux->id == id) {
+            if (aux->posto->id == id) {
                 return (aux);		//encontrou
             }
             aux = aux->proximo;
@@ -411,9 +449,9 @@ LocalizacaoPostos* ProcurarPorIdPostos(LocalizacaoPostos* headerLista, int id) {
     LocalizacaoPostos* aux = headerLista;
 
     while (aux != NULL) {
-        if (aux->id == id) {
+        if (aux->posto->id == id) {
             LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
-            novoPosto = CriarPosto(aux->id, aux->cidade, aux->latitude, aux->longitude , aux->visitado ,aux->postosAdjacentes); //Cria o encontrado e retorna
+            novoPosto = CriarPosto(aux->posto->id, aux->posto->cidade, aux->posto->latitude, aux->posto->longitude , aux->posto->visitado ,aux->posto->postosAdjacentes); //Cria o encontrado e retorna
          
             return novoPosto;
         }
@@ -442,7 +480,7 @@ bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* hea
     LocalizacaoPostos* aux = headerOrigem;
     LocalizacaoPostos* aux2 = headerDestino;
 
-    LocalizacaoPostosAdjacentes* auxAdj = aux->postosAdjacentes;
+    LocalizacaoPostosAdjacentes* auxAdj = aux->posto->postosAdjacentes;
 
     if (auxAdj == NULL)
     {
@@ -452,11 +490,11 @@ bool JaTemPostoAdjacente(LocalizacaoPostos* headerOrigem, LocalizacaoPostos* hea
     {
         while (aux != NULL) {
            
-                LocalizacaoPostos* aux3 = aux->postosAdjacentes->postoDestinoAdjacente;
+                LocalizacaoPostos* aux3 = aux->posto->postosAdjacentes->postoDestinoAdjacente;
 
                 while (aux3 != NULL)
                 {
-                    if (aux3->id == aux2->id)
+                    if (aux3->posto->id == aux2->posto->id)
                         return true;
 
                     aux3 = aux3->proximo;
@@ -499,18 +537,20 @@ LocalizacaoPostos* LerEArmazenarPosto(char* nomeFicheiro, LocalizacaoPostos** he
         line[strcspn(line, "\n")] = '\0';
 
         LocalizacaoPostos* novoPosto = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos));
+
+        novoPosto->posto = (Postos*)malloc(sizeof(Postos));
        
         char* token = strtok(line, ";");
-        novoPosto->id = atoi(token);
+        novoPosto->posto->id = atoi(token);
         token = strtok(NULL, ";");
-        strncpy(novoPosto->cidade, token, sizeof(novoPosto->cidade));
+        strncpy(novoPosto->posto->cidade, token, sizeof(novoPosto->posto->cidade));
         token = strtok(NULL, ";");
-        novoPosto->latitude = atof(token);
+        novoPosto->posto->latitude = atof(token);
         token = strtok(NULL, ";");
-        novoPosto->longitude = atof(token);
+        novoPosto->posto->longitude = atof(token);
 
-        novoPosto->visitado = false;
-        novoPosto->postosAdjacentes = NULL;
+        novoPosto->posto->visitado = false;
+        novoPosto->posto->postosAdjacentes = NULL;
         novoPosto->proximo = NULL;
 
         *headerPostosLista = InserePostoGrafo(*headerPostosLista, novoPosto); // Insere Posto
@@ -589,7 +629,10 @@ bool GravarPostosBinario(char* nomeFicheiro, LocalizacaoPostos* header) {
     LocalizacaoPostos* aux = header;
     while (aux) {
         // Escreve no ficheiro os dados do registo de memória
-        fwrite(aux, sizeof(LocalizacaoPostos), 1, fp);
+
+        Postos* aux2 = aux->posto;
+
+        fwrite(aux2, sizeof(Postos), 1, fp);
         aux = aux->proximo;
     }
     fclose(fp);
@@ -609,12 +652,12 @@ bool GravarPostosBinario(char* nomeFicheiro, LocalizacaoPostos* header) {
 LocalizacaoPostos* LerPostosBinario(char* nomeFicheiro) {
     FILE* fp;
     LocalizacaoPostos* header = NULL;
-    LocalizacaoPostos* auxAnt;
+    Postos* auxAnt;
 
     if ((fp = fopen(nomeFicheiro, "rb")) == NULL) return NULL;
 
     //Ler o registos do ficheiro binario
-    while ((auxAnt = (LocalizacaoPostos*)malloc(sizeof(LocalizacaoPostos))) && fread(auxAnt, sizeof(LocalizacaoPostos), 1, fp)) {
+    while ((auxAnt = (Postos*)malloc(sizeof(Postos))) && fread(auxAnt, sizeof(Postos), 1, fp)) {
         LocalizacaoPostos* aux = CriarPosto(auxAnt->id, auxAnt->cidade, auxAnt->latitude, auxAnt->longitude, auxAnt->visitado, NULL); //Cria Posto com valores recebidos
         header = InserePostoGrafo(header, aux); //Insere Posto
     }
@@ -644,9 +687,9 @@ bool GravarPostosAdjacentesBinario(char* nomeFicheiro, LocalizacaoPostos* header
 
     while (aux != NULL)
     {
-        LocalizacaoPostosAdjacentes* adj = aux->postosAdjacentes;
+        LocalizacaoPostosAdjacentes* adj = aux->posto->postosAdjacentes;
         while (adj != NULL) {
-            fwrite(&(aux->id), sizeof(int), 1, fp);  //Guarda Id
+            fwrite(&(aux->posto->id), sizeof(int), 1, fp);  //Guarda Id
             fwrite(adj, sizeof(LocalizacaoPostosAdjacentes), 1, fp); //Guarda LocalizacaoPostosAdjacentes
             adj = adj->proximo;
         }
@@ -722,7 +765,7 @@ Camiao* CriarCamiao(float cargaAtual , float cargaMaxima, LocalizacaoPostos* loc
         return NULL;
     }
 
-    novoCamiao->idOrigem = localizacaoAtual->id;
+    novoCamiao->idOrigem = localizacaoAtual->posto->id;
     novoCamiao->cargaAtual = cargaAtual;
     novoCamiao->cargaMaxima = cargaMaxima;
     novoCamiao->localizacaoAtual = localizacaoAtual;
@@ -806,12 +849,12 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
     while (auxPontos != NULL)
     {
         while (auxMeios != NULL) {
-            if (auxPontos->latitude == auxMeios->latitude && auxPontos->longitude == auxMeios->longitude && auxMeios->cargaBateria <= 50 && auxMeios->estado == true) {
+            if (auxPontos->posto->latitude == auxMeios->latitude && auxPontos->posto->longitude == auxMeios->longitude && auxMeios->cargaBateria <= 50 && auxMeios->estado == true) {
 
-                CaminhoCamiao* novoCaminho = CriarCaminhoNodes(auxPontos->id, auxMeios->id, auxMeios->peso);
+                CaminhoCamiao* novoCaminho = CriarCaminhoNodes(auxPontos->posto->id, auxMeios->id, auxMeios->peso);
                 caminho = InserirCaminho(caminho , novoCaminho);
 
-                printf("Caminho: Posto %d - (%.4f, %.4f) Com Meio de Mobilidade %d com peso %.2f kg \n", novoCaminho->idPosto, auxPontos->latitude, auxPontos->longitude, auxMeios->id , auxMeios->peso);
+                printf("Caminho: Posto %d - (%.4f, %.4f) Com Meio de Mobilidade %d com peso %.2f kg \n", novoCaminho->idPosto, auxPontos->posto->latitude, auxPontos->posto->longitude, auxMeios->id , auxMeios->peso);
  
             }
 
@@ -836,18 +879,18 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
     {
         while (auxMeiosNaoEmPostos != NULL)
         {
-            float caminhoParaPontoExtra = CalculaDistancia(auxMeiosNaoEmPostos->latitude , auxMeiosNaoEmPostos->longitude, auxPontosProximos->latitude , auxPontosProximos->longitude);
+            float caminhoParaPontoExtra = CalculaDistancia(auxMeiosNaoEmPostos->latitude , auxMeiosNaoEmPostos->longitude, auxPontosProximos->posto->latitude , auxPontosProximos->posto->longitude);
 
             if ((caminhoParaPontoExtra <= DISTANCIA_MAXIMA && caminhoParaPontoExtra != 0) && auxMeiosNaoEmPostos->cargaBateria <= 50 && auxMeiosNaoEmPostos->estado == true && !ExisteCaminhoNode(caminho, auxMeiosNaoEmPostos->id)) { //Ve se o Meio ja ta no caminho
 
                 if (caminhoParaPontoExtra < caminhoMaisPerto)
                 {
                     caminhoMaisPerto = caminhoParaPontoExtra;
-                    idPostoMaisPerto = auxPontosProximos->id;
+                    idPostoMaisPerto = auxPontosProximos->posto->id;
                     idMeioMaisPerto = auxMeiosNaoEmPostos->id;
                     pesoMaisPerto = auxMeiosNaoEmPostos->peso;
-                    latitudeMaisPerto = auxPontosProximos->latitude;
-                    longitudeMaisPerto = auxPontosProximos->longitude;
+                    latitudeMaisPerto = auxPontosProximos->posto->latitude;
+                    longitudeMaisPerto = auxPontosProximos->posto->longitude;
                 }
             }
 
@@ -934,11 +977,11 @@ bool CamiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
         {
             if (i == 0)
             {
-                idsCaminho[i] = camiao->localizacaoAtual->id;
+                idsCaminho[i] = camiao->localizacaoAtual->posto->id;
             }
             else if (i == numIds - 1)
             {
-                idsCaminho[i] = camiao->localizacaoAtual->id;
+                idsCaminho[i] = camiao->localizacaoAtual->posto->id;
 
             }
             else
@@ -955,24 +998,24 @@ bool CamiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
         {
             if (i == 0) //Primeio Node
             {
-                float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem , true); //Distancia da origem ate ao primeiro dos Postos Obrigatorios
+                float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->posto->id, camiao->idOrigem , true); //Distancia da origem ate ao primeiro dos Postos Obrigatorios
 
                 distancia = distancia + distanciaCaminho;
                 printf("%d -> ", camiao->idOrigem);
-                camiao->localizacaoAtual->id = camiao->idOrigem;
+                camiao->localizacaoAtual->posto->id = camiao->idOrigem;
 
             }
             else if (i == numIds - 1) //Ultimo Node
             {
-                float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->id, camiao->idOrigem , true); //Distancia do Posto que esta ate ao final
+                float distanciaCaminho = AlgoritmoDijkstra(headListPontos, camiao->localizacaoAtual->posto->id, camiao->idOrigem , true); //Distancia do Posto que esta ate ao final
                 distancia = distancia + distanciaCaminho;
                 printf("%d -> ", camiao->idOrigem);
-                camiao->localizacaoAtual->id = camiao->idOrigem;
+                camiao->localizacaoAtual->posto->id = camiao->idOrigem;
             }
             else
             {
                 int idParaEliminar = 0;
-                int distanciaCaminho = CaminhoMaisPerto(headListPontos, camiao->localizacaoAtual->id, caminho, &distancia, &idParaEliminar, &peso , camiao->cargaMaxima); //Caminho Mais Perto Por os Postos Obrigatorios
+                int distanciaCaminho = CaminhoMaisPerto(headListPontos, camiao->localizacaoAtual->posto->id, caminho, &distancia, &idParaEliminar, &peso , camiao->cargaMaxima); //Caminho Mais Perto Por os Postos Obrigatorios
 
                 if (distanciaCaminho >= 0)
                 {
@@ -984,12 +1027,12 @@ bool CamiaoRecolha(Camiao* camiao , LocalizacaoPostos* headListPontos , MeiosDeM
 
                     //Poe Meio na Localizacao de Origem Do Camiao
                     LocalizacaoPostos* posto = ProcurarPorIdPostos(headListPontos, camiao->idOrigem);
-                    meio->latitude = posto->latitude;
-                    meio->longitude = posto->longitude;
+                    meio->latitude = posto->posto->latitude;
+                    meio->longitude = posto->posto->longitude;
 
                     //Remove No Caminho
                     caminho = RemoverCaminhoNode(caminho, idParaEliminar);
-                    camiao->localizacaoAtual->id = distanciaCaminho;
+                    camiao->localizacaoAtual->posto->id = distanciaCaminho;
                 }
 
 
@@ -1088,14 +1131,14 @@ bool VerSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto
     }
 
     // Marca o Ponto de Origem True
-    origemPonto->visitado = true;
+    origemPonto->posto->visitado = true;
 
-    LocalizacaoPostosAdjacentes* adjacenteNode = origemPonto->postosAdjacentes;
+    LocalizacaoPostosAdjacentes* adjacenteNode = origemPonto->posto->postosAdjacentes;
     while (adjacenteNode != NULL) {
         // Visita os adjacentes Recursivamente
-        if (!(adjacenteNode->postoDestinoAdjacente->visitado)) {
+        if (!(adjacenteNode->postoDestinoAdjacente->posto->visitado)) {
 
-            if (adjacenteNode->postoDestinoAdjacente->id == destinoPonto->id)
+            if (adjacenteNode->postoDestinoAdjacente->posto->id == destinoPonto->posto->id)
             {
                 return true;
             }
@@ -1114,7 +1157,7 @@ bool VerSeAcessivel(LocalizacaoPostos* headLista, LocalizacaoPostos* origemPonto
     }
 
     // Reseta
-    origemPonto->visitado = false;
+    origemPonto->posto->visitado = false;
 
     // Se nao encontrou retorna Falso
     return false;
@@ -1172,8 +1215,8 @@ float AlgoritmoDijkstra(LocalizacaoPostos* headLista, int origemId, int destinoI
         //Encontra o node com menos distancia ainda nao visitado
         aux = headLista;
         while (aux != NULL) {
-            if (!aux->visitado && distancia[aux->id] <= minDistance) {
-                minDistance = distancia[aux->id];
+            if (!aux->posto->visitado && distancia[aux->posto->id] <= minDistance) {
+                minDistance = distancia[aux->posto->id];
                 minNode = aux;
             }
             aux = aux->proximo;
@@ -1184,17 +1227,17 @@ float AlgoritmoDijkstra(LocalizacaoPostos* headLista, int origemId, int destinoI
             break;
         }
 
-        minNode->visitado = true;
+        minNode->posto->visitado = true;
 
         // Atualiza e guarda a distancia e caminho
-        LocalizacaoPostosAdjacentes* adjacentNode = minNode->postosAdjacentes;
+        LocalizacaoPostosAdjacentes* adjacentNode = minNode->posto->postosAdjacentes;
         while (adjacentNode != NULL) {
             int idDestino = adjacentNode->idDestino;
-            float newDistance = distancia[minNode->id] + adjacentNode->distancia;
+            float newDistance = distancia[minNode->posto->id] + adjacentNode->distancia;
 
             if (newDistance < distancia[idDestino]) {
                 distancia[idDestino] = newDistance;
-                caminho[idDestino] = minNode->id;
+                caminho[idDestino] = minNode->posto->id;
             }
 
             if (idDestino == destinoId)
@@ -1212,7 +1255,7 @@ float AlgoritmoDijkstra(LocalizacaoPostos* headLista, int origemId, int destinoI
 
     while (aux != NULL)
     {
-        aux->visitado = false;
+        aux->posto->visitado = false;
 
         aux = aux->proximo;
     }
@@ -1233,7 +1276,7 @@ float AlgoritmoDijkstra(LocalizacaoPostos* headLista, int origemId, int destinoI
         int auxId = destinoId;
 
         while (caminho[auxId] != -1) {
-            printf("%d -> ", caminho[auxId]);
+            printf(" || Volta: %d -> ", caminho[auxId]);
             auxId = caminho[auxId];
         }
     }
@@ -1351,10 +1394,10 @@ bool LocalizacaoRaioClientePosto(Clientes* cliente, LocalizacaoPostos* headLista
     printf("\n");
 
     for (int i = 0; i < numLocalizacoes; i++) {
-        float distancia = CalculaDistancia(cliente->latitude, cliente->longitude , auxPostos->latitude , auxPostos->longitude);
+        float distancia = CalculaDistancia(cliente->latitude, cliente->longitude , auxPostos->posto->latitude , auxPostos->posto->longitude);
 
         if (distancia <= raio) {
-            printf("Posto %d - (%.4f, %.4f) - Distancia: %.2f km\n", auxPostos->id, auxPostos->latitude, auxPostos->longitude, distancia);
+            printf("Posto %d - (%.4f, %.4f) - Distancia: %.2f km\n", auxPostos->posto->id, auxPostos->posto->latitude, auxPostos->posto->longitude, distancia);
         }
 
         auxPostos = auxPostos->proximo;
@@ -1442,12 +1485,12 @@ LocalizacaoPostos* DistanciaClienteAMeioTotal(Clientes* cliente , MeiosDeMobilid
     //Ve Qual Posto mais perto de o Cliente
     while (postoAux != NULL)
     {
-        float distanciaAux = CalculaDistancia(cliente->latitude, cliente->longitude, postoAux->latitude, postoAux->longitude);
+        float distanciaAux = CalculaDistancia(cliente->latitude, cliente->longitude, postoAux->posto->latitude, postoAux->posto->longitude);
 
         if (distanciaAux < caminhoMaisPertoClientePosto)
         {
             caminhoMaisPertoClientePosto = distanciaAux;
-            idOrigemPosto = postoAux->id;
+            idOrigemPosto = postoAux->posto->id;
         }
 
         postoAux = postoAux->proximo;
@@ -1461,12 +1504,12 @@ LocalizacaoPostos* DistanciaClienteAMeioTotal(Clientes* cliente , MeiosDeMobilid
     //Ve Qual Posto mais perto de o Meio
     while (postoAux != NULL)
     {
-        float distanciaAux = CalculaDistancia(meio->latitude, meio->longitude, postoAux->latitude, postoAux->longitude);
+        float distanciaAux = CalculaDistancia(meio->latitude, meio->longitude, postoAux->posto->latitude, postoAux->posto->longitude);
 
         if (distanciaAux < caminhoMaisPertoMeioPosto)
         {
             caminhoMaisPertoMeioPosto = distanciaAux;
-            idDestinoPosto = postoAux->id;
+            idDestinoPosto = postoAux->posto->id;
 
         }
 
@@ -1497,4 +1540,197 @@ LocalizacaoPostos* DistanciaClienteAMeioTotal(Clientes* cliente , MeiosDeMobilid
 }
 
 
+/**
+*	@brief Lista todos os Postos
+*
+*
+*	@param [in] header					header de LocalizacaoPostos
+*
+*/
+int ListarTodosPostos(LocalizacaoPostos* header) {
 
+    system("cls");
+
+    printf("\n\n\n ----------- Listagem ----------\n");
+
+    LocalizacaoPostos* aux = header;
+
+    while (aux != NULL)
+    {
+
+        printf(" ID Posto: %d , Cidade: %s, Latitude: %f , Longitude: %f \n", aux->posto->id  , aux->posto->cidade , aux->posto->latitude , aux->posto->longitude);
+
+        aux = aux->proximo;
+    }
+
+
+    return 0;
+}
+
+
+
+/**
+*	@brief Remove Postos mas na consola
+* 
+*	@param [in] headPostos					header de LocalizacaoPostos
+*	@return headPostos;
+*
+*/
+LocalizacaoPostos* RemoverPostoEscrever(LocalizacaoPostos* headPostos) {
+
+
+    int id;
+
+    printf("\n\nDigite o id do posto que quer eliminar: ");
+    scanf("%d", &id);
+
+    headPostos = RemoverPosto(headPostos, id);
+
+    return headPostos;
+
+}
+
+
+
+/**
+*	@brief Altera Postos mas na consola
+*	@param [in] headPostos					header de LocalizacaoPostos
+*	@return 0;
+*
+*/
+int AlterarPorEscreverPosto(LocalizacaoPostos* headPosto) {
+
+
+    int id;
+    float latitude;
+    float longitude;
+
+    printf("\n\nDigite o id do posto que quer alterar: ");
+    scanf("%d", &id);
+    printf("\nDigite a nova Latitude: ");
+    scanf("%f", &latitude);
+    printf("\nDigite a nova Longitude: ");
+    scanf("%f", &longitude);
+
+    AlteraPosto(headPosto, id, latitude , longitude);
+
+    return 0;
+
+}
+
+
+
+/**
+*	@brief Criar Postos mas a escrever
+*	@param [in] headPostos					header de LocalizacaoPostos
+*	@return 0;
+*
+*/
+int CriarPostoEscrever(LocalizacaoPostos* headPosto) {
+
+
+    int id;
+    float latitude;
+    float longitude;
+    char cidade[100];
+
+    printf("\n\nDigite o id do novo Posto: ");
+    scanf("%d", &id);
+    printf("\n\nDigite a cidade do novo Posto: ");
+    scanf("%s", &cidade);
+    printf("\nDigite a Latitude do novo Posto: ");
+    scanf("%f", &latitude);
+    printf("\nDigite a Longitude do novo Posto: ");
+    scanf("%f", &longitude);
+
+    LocalizacaoPostos* novoPosto = CriarPosto(id,cidade,latitude,longitude,false,NULL);
+    headPosto = InserePostoGrafo(headPosto, novoPosto);
+
+    return 0;
+
+}
+
+
+/**
+*	@brief Criar Adjacencia de Postos
+*	@param [in] headPostos					header de LocalizacaoPostos
+*	@return 0;
+*
+*/
+int CriarAdjacenciaPostoEscrever(LocalizacaoPostos* headPosto) {
+
+
+    int idOrigem;
+    int idDestino;
+
+
+    printf("\n\nDigite o id do Posto Origem: ");
+    scanf("%d", &idOrigem);
+    printf("\n\nDigite o id do Posto Destino: ");
+    scanf("%d", &idDestino);
+
+    headPosto = InserirPostoAdjacente(&headPosto, ProcurarPorIdPostos(headPosto, idOrigem), ProcurarPorIdPostos(headPosto, idDestino));
+
+
+    return 0;
+
+}
+
+
+/**
+*	@brief Remover Adjacencia de Postos
+*	@param [in] headPostos					header de LocalizacaoPostos
+*	@return 0;
+*
+*/
+int RemoverAdjacenciaPostoEscrever(LocalizacaoPostos* headPosto) {
+
+
+    int idOrigem;
+    int idDestino;
+
+
+    printf("\n\nDigite o id do Posto Origem onde quer remover: ");
+    scanf("%d", &idOrigem);
+    printf("\n\nDigite o id do Posto Destino que quer remover: ");
+    scanf("%d", &idDestino);
+
+    if (ProcurarPorIdPostos(headPosto, idOrigem) == NULL)
+    {
+        return 1;
+    }
+
+    RemoverPostoAdjacente(headPosto , ProcurarPorIdPostos(headPosto, idOrigem)->posto->postosAdjacentes, idDestino);
+
+
+
+    return 0;
+
+}
+
+
+/**
+*	@brief Camiao Recolha
+*	@param [in] headPostos					header de LocalizacaoPostos
+*	@param [in] headListaMeios				header de MeiosDeMobilidade
+*	@return 0;
+*
+*/
+int CamiaoRecolhaEscrever(LocalizacaoPostos* headPosto , MeiosDeMobilidade* headListaMeios) {
+
+
+    int idOrigem;
+    float pesoMaximo;
+    Camiao* camiao = NULL;		//Inicio da lista
+
+    printf("\n\nDigite o id do Posto Origem onde quer comecar: ");
+    scanf("%d", &idOrigem);
+    printf("\n\nDigite a Capacidade Maxima do Camiao (kg): ");
+    scanf("%f", &pesoMaximo);
+
+    camiao = CriarCamiao(idOrigem, pesoMaximo, ProcurarPorIdPostos(headPosto, idOrigem));
+    CamiaoRecolha(camiao, headPosto, headListaMeios);
+
+    return 0;
+
+}

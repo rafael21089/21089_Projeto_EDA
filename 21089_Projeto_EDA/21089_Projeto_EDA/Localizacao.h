@@ -19,23 +19,35 @@
 /**
  * @brief Estrutura de Vertices (LocalizacaoPostos) para grafo orientado de Postos de Localizacao
  *
- * Um LocalizacaoPostos contém um id (@@id), cidade (@@cidade) ,latitude (@@latitude) , longitude (@@longitude), visitado (@@visitado) e postosAdjacentes (@@postosAdjacentes).
- * Contém apontador para próximo LocalizacaoPostos
+ * Um Postos contém um id (@@id), cidade (@@cidade) ,latitude (@@latitude) , longitude (@@longitude), visitado (@@visitado) e postosAdjacentes (@@postosAdjacentes).
  */
-typedef struct LocalizacaoPostos {
+typedef struct Postos {
     int id;
     char cidade[LARGURAGERALSTRING];
     float latitude;
     float longitude;
     bool visitado;
     struct LocalizacaoPostosAdjacentes* postosAdjacentes; // Postos Adjacentes (arestas/conecçoes)
+
+} Postos;
+
+
+/**
+ * @brief Estrutura de para Grafo orientado de Postos de Localizacao
+ *
+ * Um LocalizacaoPostos contém posto (@@posto).
+ * Contém apontador para próximo LocalizacaoPostos
+ */
+typedef struct LocalizacaoPostos {
+    struct Postos* posto;
     struct LocalizacaoPostos* proximo; // Pointer to the next adjacent node
 
 } LocalizacaoPostos;
 
 
+
 /**
- * @brief Estrutura de Arestas (LocalizacaoPostosAdjacentes) para grafo orientado de Postos de Localizacao
+ * @brief Estrutura de Arestas (LocalizacaoPostosAdjacentes) para Postos de Localizacao
  *
  * Um LocalizacaoPostos contém um idDestino (@@id), postoDestinoAdjacente (@@postoDestinoAdjacente) e distancia (@@distancia).
  * Contém apontador para próximo LocalizacaoPostosAdjacentes
@@ -83,6 +95,8 @@ LocalizacaoPostos* InserePostoGrafo(LocalizacaoPostos* header, LocalizacaoPostos
 bool ExistePosto(LocalizacaoPostos* header, int idPosto);
 //Remove Posto no Header de Postos
 LocalizacaoPostos* RemoverPosto(LocalizacaoPostos* header, int id);
+//Alterna Posto
+void AlteraPosto(LocalizacaoPostos* header, int id, float latitude, float longitude);
 
 //Criar Posto Adjacente
 LocalizacaoPostosAdjacentes* CriarPostoAdjacente(LocalizacaoPostos* postoDestinoAdjacente, LocalizacaoPostos* postoOrigem);
@@ -91,7 +105,7 @@ LocalizacaoPostos* InserirPostoAdjacente(LocalizacaoPostos** headLista, Localiza
 //Ver se Existe Posto Adjacente na lista por id
 bool ExistePostoAdjacente(LocalizacaoPostosAdjacentes* header, int idPostosAdjacentes);
 //Remove Posto Adjacente no respetivo Posto
-LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostosAdjacentes* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id);
+LocalizacaoPostosAdjacentes* RemoverPostoAdjacente(LocalizacaoPostos* headerPostos, LocalizacaoPostosAdjacentes* headerPostoAdjacente, int id);
 //Atualiza Posto Adjacentes Para todos os Postos existentes
 LocalizacaoPostos* AtualizarPostosAdjacentes(LocalizacaoPostos* headLista);
 
@@ -138,9 +152,9 @@ CaminhoCamiao* RemoverCaminhoNode(CaminhoCamiao* header, int id);
 CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos, struct MeiosDeMobilidade* headListMeios, float* distanciaExtra);
 //Ver Se Ja exite um Node Para o Caminho para Camiao
 bool ExisteCaminhoNode(CaminhoCamiao* header, int idCaminhoCamiao);
-
 //Caminho Mais Perto para os Postos no Caminho para Camiao
 int CaminhoMaisPerto(LocalizacaoPostos* headLista, int origemId, CaminhoCamiao* caminhoCamiaoLista, float* distancia, int* idParaEliminar, float* pesoAtual, float capacidadeMaxima);
+
 //Localizacao do Posto mais perto por Raio com o Cliente como centro
 bool LocalizacaoRaioClientePosto(struct Clientes* cliente, LocalizacaoPostos* headListaPostos, float raio);
 //Localizacao do Meio por tipo mais perto por Raio com o Cliente como centro
@@ -149,3 +163,21 @@ bool LocalizacaoRaioClienteMeio(struct Clientes* cliente, struct MeiosDeMobilida
 float CalculaDistancia(float latitude1, float longitude1, float latitude2, float longitude2);
 //Distancia e Caminho de Cliente a Meio usando Postos
 LocalizacaoPostos* DistanciaClienteAMeioTotal(struct Clientes* cliente, struct MeiosDeMobilidade* meio, LocalizacaoPostos* headListPostos);
+
+
+//Cria Posto Escrever
+int CriarPostoEscrever(LocalizacaoPostos* headPosto);
+//Listar Postos
+int ListarTodosPostos(LocalizacaoPostos* header);
+//Remover Postos Escrever
+LocalizacaoPostos* RemoverPostoEscrever(LocalizacaoPostos* headPostos);
+//Alterar Posto (Latitude e Longitude)
+int AlterarPorEscreverPosto(LocalizacaoPostos* headPosto);
+
+//Cria Adjacencia
+int CriarAdjacenciaPostoEscrever(LocalizacaoPostos* headPosto);
+//Remover Adjacencia
+int RemoverAdjacenciaPostoEscrever(LocalizacaoPostos* headPosto);
+
+//Camiao Recolha Escrever
+int CamiaoRecolhaEscrever(LocalizacaoPostos* headPosto, struct MeiosDeMobilidade* headListaMeios);

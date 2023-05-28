@@ -72,20 +72,29 @@ MeiosDeMobilidade* LerMeiosDeMobilidadeBinario(char* nomeFicheiro);
 //Lista Meio Autonomia de forma Decrescente
 int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header);
 //Lista Meio por Geocodigo
-int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header, char* geoCodigo);
+int ListarCidadePorGeoCodigo(MeiosDeMobilidade* header, char* geoCodigo);
 
 //Inserir,Remover e Alterar na consola
 MeiosDeMobilidade* InserirPorEscreverMeiosDeMobilidade();
 int AlterarPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
 int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
 
-//Lista Meio por Geocodigo
-int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
+//Lista Meio por Cidade
+int ListarCidadePorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios);
 
 //Altera o estado do Meio de Mobilidade
 void AlteraEstadoMeiosDeMobilidade(MeiosDeMobilidade** header, int id, bool estado);
 
 //Altera a latitude e longitude (geocodigo) do Meio de Mobilidade
 void AlteraLocalizacaoMeiosDeMobilidade(MeiosDeMobilidade** header, int id, float latitude, float longitude);
+
+//Ativa ou Desativa Meio
+int AtivarDesativarMeio(MeiosDeMobilidade* header, int id, bool estado);
+//Escrever Alterar Estado
+int AlterarEstadoEscrever(MeiosDeMobilidade* headMeios);
+//Alterar Localizacao
+int AlterarLocalizacao(MeiosDeMobilidade* header, int id, float latitude, float longitude);
+//Alterar Localizacao Escrever
+int AlterarLocalizacaoEstadoEscrever(MeiosDeMobilidade* headMeios);
 
 

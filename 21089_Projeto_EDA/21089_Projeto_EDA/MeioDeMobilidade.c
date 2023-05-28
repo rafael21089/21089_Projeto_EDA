@@ -453,7 +453,7 @@ int ListarMeioAutonomiaDecrescente(MeiosDeMobilidade* header) {
 *	@return header da lista de MeiosDeMobilidade;
 *
 */
-int ListarMeioPorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
+int ListarCidadePorGeoCodigo(MeiosDeMobilidade* header , char* geoCodigo) {
 
 	MeiosDeMobilidade* aux = header;
 
@@ -571,14 +571,14 @@ int RemoverPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 *	@return 0;
 *
 */
-int ListarGeocodigoPorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
+int ListarCidadePorEscreverMeiosDeMobilidade(MeiosDeMobilidade* headMeios) {
 
 	char cidade[50];
 
 	printf("\n\nDigite a Cidade para encontrar os meios disponiveis: ");
 	scanf("%s", &cidade);
 
-	ListarMeioPorGeoCodigo(headMeios, cidade);
+	ListarCidadePorGeoCodigo(headMeios, cidade);
 
 	return 0;
 
@@ -627,6 +627,144 @@ void AlteraLocalizacaoMeiosDeMobilidade(MeiosDeMobilidade** header, int id, floa
 		}
 	}
 }
+
+
+/**
+*	@brief Alterar Estado Meio 
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*	@param [in] id						id de Meio
+*	@param [in] estado					estado de Meio
+
+*	@return 0;
+*
+*/
+int AtivarDesativarMeio(MeiosDeMobilidade* header , int id , bool estado) {
+
+	if (header == NULL)
+	{
+		return 1;
+	}
+
+	MeiosDeMobilidade* aux = header;
+
+	while (aux != NULL)
+	{
+		if (aux->id == id)
+		{
+			aux->estado = estado;
+		}
+
+		aux = aux->next;
+	}
+
+	return 0;
+
+}
+
+
+/**
+*	@brief Alterar Estado Meio Escrever
+*	@param [in] header					header da lista de MeiosDeMobilidade
+
+*	@return 0;
+*
+*/
+int AlterarEstadoEscrever(MeiosDeMobilidade* headMeios) {
+
+	int id;
+
+	char estado[100];
+
+	bool estadoBool;
+
+	printf("\n\nId do Meio quer alterar o estado:");
+	scanf("%d", &id);
+
+	printf("\nEstado (Ativo/Desativo): ");
+	scanf("%s", &estado);
+
+	if (strcmp(estado, "Ativo") == 0 || strcmp(estado, "ativo") == 0)
+	{
+		estadoBool = true;
+		AtivarDesativarMeio(headMeios, id, estadoBool);
+
+	}
+	else if (strcmp(estado, "Desativo") == 0 || strcmp(estado, "desativo") == 0)
+	{
+		estadoBool = false;
+		AtivarDesativarMeio(headMeios, id, estadoBool);
+
+	}
+
+	return 0;
+
+}
+
+
+
+/**
+*	@brief Alterar Localizacao Meio
+*	@param [in] header					header da lista de MeiosDeMobilidade
+*	@param [in] id						id de Meio
+*	@param [in] latitude				latitude nova de Meio
+*	@param [in] longitude				longitude nova de Meio
+
+*	@return 0;
+*
+*/
+int AlterarLocalizacao(MeiosDeMobilidade* header,int id ,float latitude, float longitude) {
+
+	if (header == NULL)
+	{
+		return 1;
+	}
+
+	MeiosDeMobilidade* aux = header;
+
+	while (aux != NULL)
+	{
+		if (aux->id == id)
+		{
+			aux->latitude = latitude;
+			aux->longitude = longitude;
+		}
+
+		aux = aux->next;
+	}
+
+	return 0;
+
+}
+
+
+
+/**
+*	@brief Alterar Localizacao Meio Escrever
+*	@param [in] header					header da lista de MeiosDeMobilidade
+
+*	@return 0;
+*
+*/
+int AlterarLocalizacaoEstadoEscrever(MeiosDeMobilidade* headMeios) {
+
+	int id;
+	float latitude;
+	float longitude;
+
+
+	printf("\n\nId do Meio quer alterar a localizacao:");
+	scanf("%d", &id);
+	printf("\n\nLatitude: ");
+	scanf("%f", &latitude);
+	printf("\n\nLongitude: ");
+	scanf("%f", &longitude);
+
+	AlterarLocalizacao(headMeios , id , latitude ,longitude);
+
+	return 0;
+
+}
+
 
 
 

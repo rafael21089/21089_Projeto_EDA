@@ -184,3 +184,6 @@ int CamiaoRecolhaEscrever(LocalizacaoPostos* headPosto, struct MeiosDeMobilidade
 //Cliente Para Posto Escrever
 int ClienteParaPostoLocalizacao(struct Clientes* headClientes, LocalizacaoPostos* headListaPostos, int idCliente);
 
+//Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao) 
+LocalizacaoPostos* ViajarComMeioAteLocalizacao(struct Clientes* cliente, LocalizacaoPostos* headListaPostos, struct MeiosDeMobilidade* headListaMeio, float latitude, float longitude);
+

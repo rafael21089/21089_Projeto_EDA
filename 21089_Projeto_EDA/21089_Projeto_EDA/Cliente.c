@@ -220,9 +220,9 @@ Clientes* ProcuraClientes(Clientes* header, int id) {
 *	@param [in] id						id Cliente
 *	@param [in] nome					nome Cliente
 *
-*
+*	@return 0;
 */
-void AlteraCliente(Clientes** header, int id, char* nome) {
+int AlteraCliente(Clientes** header, int id, char* nome) {
 	if (*header != NULL) {
 		Clientes* aux = ProcuraClientes(*header, id);
 		if (aux != NULL)
@@ -230,8 +230,40 @@ void AlteraCliente(Clientes** header, int id, char* nome) {
 			strcpy(aux->nome, nome);
 		}
 	}
+	else
+	{
+		return 1;
+	}
+
+	return 0;
 }
 
+
+/**
+*	@brief Aumenta Saldo Cliente
+*
+*
+*	@param [in] header					header da lista de Clientes
+*	@param [in] id						id Cliente
+*	@param [in] saldo					saldo extra Cliente
+*
+*	@return 0;
+*/
+int AumentarSaldoCliente(Clientes** header, int id, float saldo) {
+	if (*header != NULL) {
+		Clientes* aux = ProcuraClientes(*header, id);
+		if (aux != NULL)
+		{
+			aux->saldo = aux->saldo + saldo;
+		}
+	}
+	else
+	{
+		return 1;
+	}
+
+	return 0;
+}
 
 /**
 *	@brief Regista um Aluguer de um Meio de Mobilidade pelo o Cliente
@@ -243,7 +275,7 @@ void AlteraCliente(Clientes** header, int id, char* nome) {
 *	@param [in] idCliente						id Cliente
 *	@param [in] idMeios							id Meio De Mobilidade
 *
-*
+*	@return 0;
 */
 int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , Aluguer** headerAluguerTotal, int idCliente, int idMeios) {
 
@@ -254,7 +286,7 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 	if (cliente == NULL) return 0;
 	if (meio == NULL) return 0;
 
-	if (cliente->saldo >= meio->custo)
+	if (cliente->saldo >= meio->custo && !EstadoAluguer(*headerMeios , idMeios) && meio->estado == true)
 	{
 		cliente->saldo = cliente->saldo - meio->custo;
 
@@ -266,16 +298,19 @@ int RegistoAluguer(Clientes** headerCliente, MeiosDeMobilidade** headerMeios , A
 
 		if (cliente->aluguer != NULL)
 		{
-			idClienteRegisto = CountAlugueres(cliente->aluguer);
+			idClienteRegisto = CountAlugueres(cliente->aluguer) + 1;
 		}
 
 
-		if (meio->aluguer != NULL)
+		/*if (meio->aluguer != NULL)
 		{
-			idMeioRegisto = CountAlugueres(meio->aluguer);
+			idMeioRegisto = CountAlugueres(meio->aluguer) + 1;
 
-		}
+		}*/
 
+		idMeioRegisto = CountAluguerListaTotal(*headerAluguerTotal) + 1;
+
+		meio->estado = false;
 
 		atividades = CriarAluguerListaTotal(idClienteRegisto, meio->custo, "Ativo", cliente->id, meio->id);
 		atividadesMeios = CriarAluguerListaTotal(idMeioRegisto, meio->custo, "Ativo", cliente->id, meio->id);
@@ -479,6 +514,10 @@ Clientes* InserirPorEscreverCliente() {
 */
 int AlterarPorEscreverCliente(Clientes* headClientes) {
 
+	if (headClientes == NULL)
+	{
+		return 1;
+	}
 
 	int id;
 	char nome[50];
@@ -496,11 +535,17 @@ int AlterarPorEscreverCliente(Clientes* headClientes) {
 
 /**
 *	@brief Altera Clientes mas na consola
-*
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] id							id de Clientes
 *	@return 0;
 *
 */
 int AlterarPorEscreverClienteWindowCliente(Clientes* headClientes , int idCliente) {
+
+	if (headClientes == NULL)
+	{
+		return 1;
+	}
 
 	char nome[50];
 
@@ -515,12 +560,16 @@ int AlterarPorEscreverClienteWindowCliente(Clientes* headClientes , int idClient
 
 /**
 *	@brief Remove Clientes mas na consola
-*
+*	@param [in] headClientes				header da lista de Clientes
 *	@return 0;
 *
 */
 int RemoverPorEscreverCliente(Clientes* headClientes) {
 
+	if (headClientes == NULL)
+	{
+		return 1;
+	}
 
 	int id;
 	char nome[50];
@@ -541,10 +590,15 @@ int RemoverPorEscreverCliente(Clientes* headClientes) {
 *	@param [in] headClientes				header da lista de Clientes
 *	@param [in] headAluguer					header da lista de Aluguer
 *	@param [in] headMeio					header da lista de MeiosDeMobilidade
-*
+*	@return 0;
 */
 
 int RegistoPorEscrever(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMobilidade* headMeio ) {
+
+	if (headClientes == NULL || headAluguer == NULL || headMeio == NULL)
+	{
+		return 1;
+	}
 
 	int idCliente;
 	int idMeio;
@@ -567,10 +621,16 @@ int RegistoPorEscrever(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMo
 *	@param [in] headClientes				header da lista de Clientes
 *	@param [in] headAluguer					header da lista de Aluguer
 *	@param [in] headMeio					header da lista de MeiosDeMobilidade
-*
+*	@param [in] id							id de Clientes
+*	@return 0;
 */
 
 int RegistoPorEscreverClienteWindow(Clientes* headClientes, Aluguer* headAluguer, MeiosDeMobilidade* headMeio, int idCliente) {
+
+	if (headClientes == NULL || headAluguer == NULL || headMeio == NULL)
+	{
+		return 1;
+	}
 
 	int idMeio;
 
@@ -590,11 +650,16 @@ int RegistoPorEscreverClienteWindow(Clientes* headClientes, Aluguer* headAluguer
 *	@param [in] headClientes				header da lista de Clientes
 *	@param [in] headAluguer					header da lista de Aluguer
 *	@param [in] headMeio					header da lista de MeiosDeMobilidade
-*
+*	@param [in] id							id de Clientes
+*	@return 0;
 */
 
 int ProcurarRaioMeioCliente(Clientes* headClientes, MeiosDeMobilidade* headMeio, int idCliente) {
 
+	if (headClientes == NULL || headMeio == NULL)
+	{
+		return 1;
+	}
 	char meioTipo[100];
 
 	printf("\nDigite o tipo do meio de mobilidade que quer encontrar: ");
@@ -615,12 +680,16 @@ int ProcurarRaioMeioCliente(Clientes* headClientes, MeiosDeMobilidade* headMeio,
 *	@param [in] headClientes				header da lista de Clientes
 *	@param [in] headAluguer					header da lista de Aluguer
 *	@param [in] headMeio					header da lista de MeiosDeMobilidade
-*
+*	@param [in] id							id de Clientes
+*	@return 0;
 */
 
 int ClienteParaMeioLocalizacao(Clientes* headClientes, MeiosDeMobilidade* headMeio , LocalizacaoPostos* headListaPostos , int idCliente) {
 
-
+	if (headClientes == NULL || headListaPostos == NULL || headMeio == NULL)
+	{
+		return 1;
+	}
 	int idMeio;
 
 	printf("\nDigite o meio de mobilidade que quer ir: ");
@@ -646,11 +715,16 @@ int ClienteParaMeioLocalizacao(Clientes* headClientes, MeiosDeMobilidade* headMe
 *	@param [in] headClientes				header da lista de Clientes
 *	@param [in] headAluguer					header da lista de Aluguer
 *	@param [in] headMeio					header da lista de MeiosDeMobilidade
-*
+*	@param [in] id							id de Clientes
+*	@return 0;
 */
 
 int ClienteParaPostoLocalizacao(Clientes* headClientes, LocalizacaoPostos* headListaPostos, int idCliente) {
 
+	if (headClientes == NULL || headListaPostos == NULL)
+	{
+		return 1;
+	}
 
 	int idPosto;
 
@@ -665,6 +739,149 @@ int ClienteParaPostoLocalizacao(Clientes* headClientes, LocalizacaoPostos* headL
 	}
 
 
+	return 0;
+
+}
+
+
+
+/**
+*	@brief Cliente vai a Meio
+*
+*
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] headMeio					header da lista de MeiosDeMobilidade
+*	@param [in] headListaPostos				header da lista de LocalizacaoPostos
+*	@param [in] id							id de Clientes
+*	@return 0;
+*/
+
+int ClienteViagemEscrever(Clientes* headClientes, MeiosDeMobilidade* headMeio, LocalizacaoPostos* headListaPostos, int idCliente) {
+
+	if (headClientes == NULL || headListaPostos == NULL || headMeio == NULL)
+	{
+		return 1;
+	}
+	float latitude;
+	float longitude;
+
+	printf("\nDigite a Latitude: ");
+	scanf("%f", &latitude);
+
+	printf("\nDigite a Longitude: ");
+	scanf("%f", &longitude);
+
+	system("cls");
+
+	
+	ViajarComMeioAteLocalizacao(ProcuraClientes(headClientes, idCliente), headListaPostos, headMeio, latitude,longitude);
+	
+
+
+	return 0;
+
+}
+
+
+/**
+*	@brief Aumenta Saldo do Cliente
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] id							id de Clientes
+*	@return 0;
+*
+*/
+int AumentarSaldoPorEscreverCliente(Clientes* headClientes , int idCliente) {
+
+	if (headClientes == NULL)
+	{
+		return 1;
+	}
+
+	float saldo;
+
+	printf("\n\nDigite o saldo que quer enviar para conta: ");
+	scanf("%f", &saldo);
+
+	AumentarSaldoCliente(&headClientes , idCliente, saldo);
+	return 0;
+
+}
+
+
+/**
+*	@brief Para Aluguer Ativo
+*	@param [in] headClientes				header da lista de Clientes
+*	@param [in] headAluguer					header da lista de Aluguer
+*	@param [in] headMeio					header da lista de MeiosDeMobilidade
+*	@param [in] id							id de Clientes
+*	@return 0;
+*
+*/
+int ParaAluguerAtivo(Clientes* headClientes , Aluguer* headAluguer , MeiosDeMobilidade* headMeio, int idCliente) {
+
+	if (headClientes == NULL)
+	{
+		return 1;
+	}
+
+	Clientes* auxCliente = ProcuraClientes(headClientes , idCliente);
+
+	while (auxCliente != NULL)
+	{
+
+		Aluguer* alugueres = auxCliente->aluguer;
+
+		while (alugueres != NULL)
+		{
+			if (strcmp(alugueres->estadoDoAluguer, "Ativo") == 0)
+			{
+				strcpy(alugueres->estadoDoAluguer, "Inativo");
+
+				//Atualizar Lista de Total Alugueres
+				Aluguer* auxAluguer = headAluguer;
+				while (auxAluguer != NULL)
+				{
+					if (auxAluguer->id == alugueres->id)
+					{
+						strcpy(auxAluguer->estadoDoAluguer, alugueres->estadoDoAluguer);
+
+						break;
+					}
+
+					auxAluguer = auxAluguer->next;
+				}
+
+				//Atualizar Lista de Total Alugueres para Meios
+				MeiosDeMobilidade* meio = headMeio;
+				while (meio != NULL)
+				{
+					//Atualizar Lista Alugueres
+					Aluguer* auxAluguerMeio = meio->aluguer;
+					while (auxAluguerMeio != NULL)
+					{
+						if (auxAluguerMeio->id == alugueres->id)
+						{
+							strcpy(auxAluguerMeio->estadoDoAluguer, alugueres->estadoDoAluguer);
+							meio->estado = true;
+
+							break;
+						}
+
+						auxAluguerMeio = auxAluguerMeio->next;
+					}
+
+					meio = meio->next;
+				}
+
+			}
+
+			alugueres = alugueres->next;
+		}
+
+		auxCliente = auxCliente->next;
+	}
+
+	
 	return 0;
 
 }

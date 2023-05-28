@@ -96,5 +96,7 @@ int AlterarEstadoEscrever(MeiosDeMobilidade* headMeios);
 int AlterarLocalizacao(MeiosDeMobilidade* header, int id, float latitude, float longitude);
 //Alterar Localizacao Escrever
 int AlterarLocalizacaoEstadoEscrever(MeiosDeMobilidade* headMeios);
+//Ver Estados Aluguer
+bool EstadoAluguer(MeiosDeMobilidade* headMeios, int idMeio);
 
 

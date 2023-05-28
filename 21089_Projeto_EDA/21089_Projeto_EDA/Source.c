@@ -93,6 +93,7 @@ int main() {
 	int idCliente =-1;
 	int idGestor = -1;
 
+	//Escolha da Area (Cliente ou Gestor) Que Quer
 	do
 	{
 		system("cls");
@@ -147,6 +148,7 @@ int main() {
 
 	int escolha;
 
+	//Menu Area Gestor
 	if (idGestor != -1)
 	{
 		system("cls");
@@ -184,7 +186,7 @@ int main() {
 			printf("19. Criar Adjacencia\n");
 			printf("20. Remover Adjacencia\n\n");
 
-			printf("21. Camiao Recolher\n\n");
+			printf("21. Camiao Recolher Meios abaixo de 50 percentagem de bateria\n\n");
 
 			printf("22. Alterar Estado Meio\n");
 			printf("23. Alterar Localizacao Meio\n\n");
@@ -290,7 +292,7 @@ int main() {
 		} while (escolha <= 24);
 	}
 
-
+	//Menu Area Cliente
 	else if (idCliente != -1) {
 	system("cls");
 
@@ -314,9 +316,9 @@ int main() {
 		printf("\n9. Alterar Dados (nome)\n");
 		printf("10. Aumentar Saldo\n");
 		printf("11. Parar Aluguer Ativo\n");
-
-
-		printf("12. Sair\n");
+		printf("12. Viajar com o Meio Alugado Ate Localizacao\n");
+	
+		printf("13. Sair\n");
 
 		printf("\nEscolha: ");
 		scanf("%d", &escolha);
@@ -328,7 +330,7 @@ int main() {
 			RegistoPorEscreverClienteWindow(headListaClientes, headListaAluguerTotal, headListaMeios , idCliente);
 			break;
 		case 2:
-			ListarClienteAlugueresById(headListaClientes, idCliente);
+			ListarClienteAlugueresById(headListaAluguerTotal, idCliente);
 			break;
 		case 3:
 			ListarTodosPostos(headListaPostos);
@@ -353,13 +355,20 @@ int main() {
 			AlterarPorEscreverClienteWindowCliente(headListaClientes , idCliente);
 			break;
 		case 10:
-
+			AumentarSaldoPorEscreverCliente(headListaClientes, idCliente);
+			system("cls");
 			break;
+
 		case 11:
+			ParaAluguerAtivo(headListaClientes , headListaAluguerTotal, headListaMeios, idCliente);
+			system("cls");
 
 			break;
-
 		case 12:
+			ClienteViagemEscrever(headListaClientes, headListaMeios , headListaPostos , idCliente);
+			break;
+
+		case 13:
 			printf("A Sair\n");
 			break;
 		default:
@@ -379,151 +388,9 @@ int main() {
 		GravarPostosBinario("PostosSave.bin", headListaPostos);
 
 
-	} while (escolha <= 12);
+	} while (escolha <= 13);
 	}
 
-
-	//---------
-
-
-
-	//----------  Menu --------------
-
-	do {
-
-		printf("\nMeio De Mobilidade Dados:\n");
-		MostrarListaMeiosDeMobilidade(headListaMeios);
-		printf("\nClientes Dados:\n");
-		MostrarListaClientes(headListaClientes);
-		printf("\nGestor Dados:\n");
-		MostrarListaGestor(headListaGestor);
-
-		printf("\n----------- Menu -----------:\n");
-		printf("1. Inserir Cliente\n");
-		printf("2. Alterar Cliente\n");
-		printf("3. Eliminar Cliente\n");
-		printf("4. Inserir Meio\n");
-		printf("5. Alterar Meio\n");
-		printf("6. Eliminar Meio\n");
-		printf("7. Inserir Gestor\n");
-		printf("8. Alterar Gestor\n");
-		printf("9. Eliminar Gestor\n");
-
-		printf("\n10. Registar Aluguer\n");
-		printf("11. Listar por autonomia meios de mobilidade \n");
-		printf("12. Listar meios de mobilidade existentes com geocodigo\n");
-		printf("13. Listar Alugueres de Cliente por Id: \n");
-		printf("14. Listar Alugueres de Meios por Id: \n");
-		printf("15. Listar todos Alugueres: \n");
-
-		printf("16. Sair\n");
-
-		printf("\nEscolha: ");
-		scanf("%d", &escolha);
-
-		switch (escolha) {
-		case 1:
-			headListaClientes = InsereClienteNoFim(headListaClientes, InserirPorEscreverCliente());
-			break;
-		case 2:
-			AlterarPorEscreverCliente(headListaClientes);
-			break;
-		case 3:
-			RemoverPorEscreverCliente(headListaClientes);
-			break;
-		case 4:
-			headListaMeios = InsereMeiosDeMobilidadeNoFim(headListaMeios, InserirPorEscreverMeiosDeMobilidade());
-			break;
-		case 5:
-			AlterarPorEscreverMeiosDeMobilidade(headListaMeios);
-			break;
-		case 6:
-			RemoverPorEscreverMeiosDeMobilidade(headListaMeios);
-			break;
-		case 7:
-			headListaGestor = InsereGestorNoFim(headListaGestor, InserirPorEscreverGestor());
-			break;
-		case 8:
-			AlterarPorEscreverGestor(headListaGestor);
-			break;
-		case 9:
-			RemoverPorEscreverGestor(headListaGestor);
-			break;
-
-		case 10:
-			RegistoPorEscrever(headListaClientes , headListaAluguerTotal , headListaMeios);
-			break;
-
-		case 11:
-			ListarMeioAutonomiaDecrescente(headListaMeios);
-			break;
-		case 12:
-			ListarCidadePorEscreverMeiosDeMobilidade(headListaMeios);
-			break;
-		case 13:
-			AluguerClientePorEscrever(headListaAluguerTotal);
-			break;
-		case 14:
-			AluguerMeiosPorEscrever(headListaAluguerTotal);
-			break;
-		case 15:
-			ListarTodosAlugueres(headListaAluguerTotal);
-			break;
-		case 16:
-
-			//headListaPostos = LerEArmazenarPosto("PostosInserir.txt", &headListaPostos);
-			//headListaPostos = LerEArmazenarPostoAdjacente("PostosAdjacentesInserir.txt", &headListaPostos);
-
-
-			
-
-			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(0,"Braga","asdasd","qweqas", "comida-love-power",NULL));
-			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(3,"Braga","www","qweddqas", "comida-lsse-power", NULL));
-			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(4,"Braga","aaaa","sss", "ccc-lsse-power", NULL));
-
-			//headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
-			//headListaPostos = InserirPostoAdjacente(&headListaPostos , ProcurarPorIdPostos(headListaPostos,2), ProcurarPorIdPostos(headListaPostos, 1), 20);
-
-			//dijkstra(headListaPostos,2,0);
-
-			//LocalizacaoRaioClientePosto(ProcuraClientes(headListaClientes , 1) , headListaPostos, 500.0);
-
-
-			//LocalizacaoRaioClienteMeio(ProcuraClientes(headListaClientes, 1), headListaMeios, 500.0 , "Carro");
-
-			//DistanciaClienteAMeioTotal(ProcuraClientes(headListaClientes, 1) , ProcuraMeiosDeMobilidade(headListaMeios, 4) , headListaPostos);
-
-			/*camiao = CriarCamiao(0,100, ProcurarPorIdPostos(headListaPostos, 0));
-			CamiaoRecolha(camiao , headListaPostos , headListaMeios);*/
-
-
-			//verSeAcessivel(ProcurarPorIdPostos(headListaPostos, 2), ProcurarPorIdPostos(headListaPostos, 4));
-			//GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
-			//GravarPostosBinario("PostosSave.bin", headListaPostos);
-
-			
-			break;
-		case 17:
-			printf("A Sair\n");
-			break;
-		default:
-			printf("Escolha nao disponivel , inserir outra vez.\n");
-		}
-
-		
-		GravarMeiosEClientesNosGestores(headListaGestor, headListaAluguerTotal, headListaClientes, headListaMeios);//Grava as listas Clientes e Meios em todos os gestores
-
-		//Grava nos ficheiros binarios as listas:
-
-		GravarClientesBinario("ClientesSave.bin", headListaClientes);
-		GravarMeiosDeMobilidadeBinario("MeiosSave.bin", headListaMeios);
-		GravarGestorBinario("GestorSave.bin", headListaGestor);
-		GravarAluguerListaTotalBinario("ListaAluguerTotalSave.bin" , headListaAluguerTotal);
-
-
-
-	} while (escolha != 16);
-	
 
 	return 0;
 }

@@ -849,7 +849,7 @@ CaminhoCamiao* CreateCaminho(LocalizacaoPostos* headListPontos , MeiosDeMobilida
     while (auxPontos != NULL)
     {
         while (auxMeios != NULL) {
-            if (auxPontos->posto->latitude == auxMeios->latitude && auxPontos->posto->longitude == auxMeios->longitude && auxMeios->cargaBateria <= 50 && auxMeios->estado == true) {
+            if (auxPontos->posto->latitude == auxMeios->latitude && auxPontos->posto->longitude == auxMeios->longitude && auxMeios->cargaBateria < 50 && auxMeios->estado == true) {
 
                 CaminhoCamiao* novoCaminho = CriarCaminhoNodes(auxPontos->posto->id, auxMeios->id, auxMeios->peso);
                 caminho = InserirCaminho(caminho , novoCaminho);
@@ -1614,6 +1614,154 @@ LocalizacaoPostos* DistanciaClienteAPostoTotal(Clientes* cliente, LocalizacaoPos
         cliente->longitude = posto->posto->longitude;
 
         printf("\n\nDistancia Total: %.2f km  (Caminho Normal: %.2f km)  (Caminho Extra: %.2f km)\n", distanciaCaminhoTotal, distanciaCaminho, caminhoMaisPertoClientePosto);
+
+    }
+
+
+
+    return headListaPostos;
+
+
+}
+
+
+/**
+*	@brief Cliente viaja com o Meio Alugado (tem que tar na mesma localizacao)
+*
+*	@param [in] cliente				     cliente
+*	@param [in] headListPostos			 head lista Postos
+*	@param [in] headListaMeio			 head lista MeiosDeMobilidade
+*	@param [in] latitude			     latitude do destino
+*	@param [in] longitude			     longitude do destino
+*
+*	@return headListPostos de LocalizacaoPostos;
+*
+*/
+LocalizacaoPostos* ViajarComMeioAteLocalizacao(Clientes* cliente, LocalizacaoPostos* headListaPostos , MeiosDeMobilidade* headListaMeio, float latitude , float longitude) {
+
+    if (headListaPostos == NULL)
+    {
+        return NULL;
+    }
+
+    if (cliente == NULL)
+    {
+        return headListaPostos;
+    }
+
+
+
+    LocalizacaoPostos* postoAux = headListaPostos;
+    Aluguer* aluguerAux = cliente->aluguer;
+
+    if (aluguerAux == NULL)
+    {
+        return headListaPostos;
+    }
+
+    
+
+    int meioId = -1;
+
+    //Ve Se tem o meio Alugado e Esta na mesma localizacao
+    while (aluguerAux != NULL)
+    {
+        if (strcmp(aluguerAux->estadoDoAluguer, "Ativo") == 0)
+        {
+            if (ProcuraMeiosDeMobilidade(headListaMeio, aluguerAux->meioUsadoId)->latitude == cliente->latitude && ProcuraMeiosDeMobilidade(headListaMeio, aluguerAux->meioUsadoId)->longitude == cliente->longitude)
+            {
+                meioId = aluguerAux->meioUsadoId;
+            }
+            else
+            {
+                printf("\Tem que tar na mesma localizacao de o meio:\n");
+            }
+        }
+
+        aluguerAux = aluguerAux->next;
+    }
+
+    if (meioId == -1)
+    {
+        return headListaPostos;
+    }
+
+    float caminhoMaisPertoClientePosto = DISTANCIA_MAXIMA;
+    int idOrigemPosto = -1;
+
+
+    //Ve Qual Posto mais perto de o Cliente
+    while (postoAux != NULL)
+    {
+        float distanciaAux = CalculaDistancia(cliente->latitude, cliente->longitude, postoAux->posto->latitude, postoAux->posto->longitude);
+
+        if (distanciaAux < caminhoMaisPertoClientePosto)
+        {
+            caminhoMaisPertoClientePosto = distanciaAux;
+            idOrigemPosto = postoAux->posto->id;
+        }
+
+        postoAux = postoAux->proximo;
+
+    }
+
+
+    postoAux = headListaPostos;
+
+    float caminhoMaisPertoMeioPosto = DISTANCIA_MAXIMA;
+
+    MeiosDeMobilidade* meio = ProcuraMeiosDeMobilidade(headListaMeio , meioId);
+
+    int idPostoDestino = -1;
+
+    //Ve Qual Posto mais perto de o Meio
+    while (postoAux != NULL)
+    {
+        float distanciaAux = CalculaDistancia(meio->latitude, meio->longitude, postoAux->posto->latitude, postoAux->posto->longitude);
+
+        if (distanciaAux < caminhoMaisPertoMeioPosto)
+        {
+            caminhoMaisPertoMeioPosto = distanciaAux;
+            idPostoDestino = postoAux->posto->id;
+
+        }
+
+        postoAux = postoAux->proximo;
+
+    }
+
+
+
+    //Se encontrar Postos , calcular distancia total e mover los
+    if (idOrigemPosto != -1 && idPostoDestino != -1)
+    {
+        printf("\nCaminho Para Posto %d:\n", idPostoDestino);
+
+        printf("\nCaminho de Posto %d a Posto %d\n\n", idOrigemPosto, idPostoDestino);
+
+        printf("%d -> ", idOrigemPosto);
+        float distanciaCaminho = AlgoritmoDijkstra(headListaPostos, idOrigemPosto, idPostoDestino, true);  //Calcula Distancia
+        printf("%d ", idPostoDestino);
+
+
+
+        LocalizacaoPostos* posto = ProcurarPorIdPostos(headListaPostos, idPostoDestino);
+
+        cliente->latitude = posto->posto->latitude;
+        cliente->longitude = posto->posto->longitude;
+
+
+        float distanciaCaminhoParaLocalizacao = CalculaDistancia(cliente->latitude, cliente->longitude, latitude, longitude);  //Calcula Distancia
+
+        float distanciaCaminhoTotal = distanciaCaminho + caminhoMaisPertoClientePosto + distanciaCaminhoParaLocalizacao;
+
+
+        cliente->latitude = latitude;
+        cliente->longitude = longitude;
+        meio->latitude = latitude;
+        meio->longitude = longitude;
+
+        printf("\n\nDistancia Total: %.2f km  (Caminho Normal: %.2f km)  (Caminho Extra: %.2f km)\n", distanciaCaminhoTotal, distanciaCaminho, caminhoMaisPertoClientePosto+ distanciaCaminhoParaLocalizacao);
 
     }
 

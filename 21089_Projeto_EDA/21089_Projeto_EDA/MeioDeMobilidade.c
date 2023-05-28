@@ -766,5 +766,39 @@ int AlterarLocalizacaoEstadoEscrever(MeiosDeMobilidade* headMeios) {
 }
 
 
+/**
+*	@brief Ver se Ta Reservado No Momento
+*	@param [in] header					header da lista de MeiosDeMobilidade
+
+*	@return 0;
+*
+*/
+
+bool EstadoAluguer(MeiosDeMobilidade* headMeios ,int idMeio) {
+
+	if (headMeios == NULL)
+	{
+		return false;
+	}
+
+	MeiosDeMobilidade* meio = ProcuraMeiosDeMobilidade(headMeios , idMeio);
+
+	Aluguer* auxAluguer = meio->aluguer;
+
+	while (auxAluguer != NULL)
+	{
+		if (strcmp(auxAluguer->estadoDoAluguer, "Ativo") == 0)
+		{
+			return true;
+		}
+
+		auxAluguer = auxAluguer->next;
+	}
+
+	return false;
+}
+
+
+
 
 

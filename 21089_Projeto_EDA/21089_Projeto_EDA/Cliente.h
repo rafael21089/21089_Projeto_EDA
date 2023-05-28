@@ -57,7 +57,7 @@ Clientes* RemoverCliente(Clientes* header, int id);
 //Procura Clientes
 Clientes* ProcuraClientes(Clientes* header, int id);
 //Altera Clientes
-void AlteraCliente(Clientes** header, int id, char* nome);
+int AlteraCliente(Clientes** header, int id, char* nome);
 //Conta Clientes no header Clientes
 int CountClientes(Clientes* head);
 
@@ -84,5 +84,15 @@ int RegistoPorEscreverClienteWindow(Clientes* headClientes, struct Aluguer* head
 int ProcurarRaioMeioCliente(Clientes* headClientes, struct MeiosDeMobilidade* headMeio, int idCliente);
 
 int ClienteParaMeioLocalizacao(Clientes* headClientes, struct MeiosDeMobilidade* headMeio, struct LocalizacaoPostos* headListaPostos, int idCliente);
+
+//Aumenta Saldo
+int AumentarSaldoCliente(Clientes** header, int id, float saldo);
+int AumentarSaldoPorEscreverCliente(Clientes* headClientes, int idCliente);
+
+//Para Aluguer Ativos
+int ParaAluguerAtivo(Clientes* headClientes, struct Aluguer* headAluguer, struct MeiosDeMobilidade* headMeio, int idCliente);
+
+//ViajemEscrever
+int ClienteViagemEscrever(Clientes* headClientes, struct MeiosDeMobilidade* headMeio, struct LocalizacaoPostos* headListaPostos, int idCliente);
 
 

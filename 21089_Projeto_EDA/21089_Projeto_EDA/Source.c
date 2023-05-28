@@ -24,7 +24,6 @@
 
 int main() {
 
-
 	Clientes* headListaClientes = NULL;				//Inicio da lista Clientes
 	MeiosDeMobilidade* headListaMeios = NULL;		//Inicio da lista MeiosDeMobilidade
 	Gestor* headListaGestor = NULL;					//Inicio da lista Gestor
@@ -33,7 +32,6 @@ int main() {
 	LocalizacaoPostos* headListaPostos = NULL;		//Inicio da lista
 
 	Camiao* camiao = NULL;		//Inicio da lista
-
 
 	// Armazenamento de listas , se tiver vazia vai ao ficheiro de texto para inserir valores.
 
@@ -70,6 +68,26 @@ int main() {
 	}
 	
 	GravarMeiosEClientesNosGestores(headListaGestor , headListaAluguerTotal,  headListaClientes , headListaMeios);  //Grava as listas Clientes e Meios em todos os gestores
+
+
+	//Localizacoes - Postos
+
+	headListaPostos = LerPostosBinario("PostosSave.bin");
+	if (headListaPostos == NULL)
+	{
+		headListaPostos = LerEArmazenarPosto("PostosInserir.txt", &headListaPostos);
+		GravarPostosBinario("PostosSave.bin", headListaPostos);
+
+	}
+
+	bool res = true;
+	headListaPostos = LerPostosAdjacentesBinario("PostosAdjacentesSave.bin", &headListaPostos, &res);
+	if (res == false)
+	{
+		headListaPostos = LerEArmazenarPostoAdjacente("PostosAdjacentesInserir.txt", &headListaPostos);
+		GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
+
+	}
 
 
 	//---------
@@ -165,22 +183,7 @@ int main() {
 			//headListaPostos = LerEArmazenarPostoAdjacente("PostosAdjacentesInserir.txt", &headListaPostos);
 
 
-			headListaPostos = LerPostosBinario("PostosSave.bin");
-			if (headListaPostos == NULL)
-			{
-				headListaPostos = LerEArmazenarPosto("PostosInserir.txt", &headListaPostos);
-				GravarPostosBinario("PostosSave.bin", headListaPostos);
-
-			}
-
-			bool res = true;
-			headListaPostos = LerPostosAdjacentesBinario("PostosAdjacentesSave.bin", &headListaPostos, &res);
-			if (res == false)
-			{
-				headListaPostos = LerEArmazenarPostoAdjacente("PostosAdjacentesInserir.txt", &headListaPostos);
-				GravarPostosAdjacentesBinario("PostosAdjacentesSave.bin", headListaPostos);
-
-			}
+			
 
 			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(0,"Braga","asdasd","qweqas", "comida-love-power",NULL));
 			//headListaPostos = InserePostoGrafo(headListaPostos, CriarPosto(3,"Braga","www","qweddqas", "comida-lsse-power", NULL));

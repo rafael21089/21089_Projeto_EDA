@@ -1294,10 +1294,21 @@ float AlgoritmoDijkstra(LocalizacaoPostos* headLista, int origemId, int destinoI
     if (querImprimirResultados == true)
     {
         int auxId = destinoId;
+        int i = 0;
 
         while (caminho[auxId] != -1) {
-            printf(" || Volta: %d -> ", caminho[auxId]);
-            auxId = caminho[auxId];
+            if (i == 0)
+            {
+                printf(" || Volta: %d -> ", caminho[auxId]);
+                auxId = caminho[auxId];
+                i++;
+            }
+            else
+            {
+                printf("%d -> ", caminho[auxId]);
+                auxId = caminho[auxId];
+            }
+           
         }
     }
 
